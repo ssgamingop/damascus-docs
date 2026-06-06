@@ -132,14 +132,15 @@ The Core Infrastructure provides the operational foundation of Damascus.
 
 These systems coordinate execution but do not provide intelligence themselves.
 
-Damascus Core
-
-├── Orchestration Runtime
-├── State Manager
-├── Event Bus
-├── Scheduler
-├── Registry Layer
-└── Observability Layer
+```mermaid
+graph TD
+    Core[Damascus Core] --> OR[Orchestration Runtime]
+    Core --> SM[State Manager]
+    Core --> EB[Event Bus]
+    Core --> Sch[Scheduler]
+    Core --> RL[Registry Layer]
+    Core --> OL[Observability Layer]
+```
 
 ---
 
@@ -147,17 +148,18 @@ Damascus Core
 
 Capability systems provide intelligence functionality.
 
-Capabilities
-
-├── Workspace System
-├── Agent Layer
-├── Memory Layer
-├── Knowledge Layer
-├── Tool Layer
-├── Model Layer
-├── Research Layer
-├── Evolution Layer
-└── Security Layer
+```mermaid
+graph TD
+    Caps[Capabilities] --> WS[Workspace System]
+    Caps --> AL[Agent Layer]
+    Caps --> ML[Memory Layer]
+    Caps --> KL[Knowledge Layer]
+    Caps --> TL[Tool Layer]
+    Caps --> MoL[Model Layer]
+    Caps --> RL[Research Layer]
+    Caps --> EL[Evolution Layer]
+    Caps --> SL[Security Layer]
+```
 
 ---
 
@@ -178,45 +180,40 @@ Examples:
 
 # High-Level Architecture
 
-User
-↓
-Workspace System
-↓
-Workflow
-↓
-Damascus Core
+```mermaid
+graph TD
+    User --> WS[Workspace System]
+    WS --> Workflow
+    Workflow --> Core
+    
+    subgraph Core [Damascus Core]
+        direction TB
+        Runtime
+        State
+        Events
+        Scheduler
+        Registry
+        Observability
+    end
 
-├── Runtime
-├── State
-├── Events
-├── Scheduler
-├── Registry
-└── Observability
+    Core --> Caps
+    
+    subgraph Caps [Capabilities]
+        direction TB
+        Agents
+        Memory
+        Knowledge
+        Models
+        Tools
+        Research
+        Evolution
+        Security
+    end
 
-↓
-
-Capabilities
-
-├── Agents
-├── Memory
-├── Knowledge
-├── Models
-├── Tools
-├── Research
-├── Evolution
-└── Security
-
-↓
-
-Execution Environment
-
-↓
-
-Applications
-
-↓
-
-Operating System
+    Caps --> Env[Execution Environment]
+    Env --> Apps[Applications]
+    Apps --> OS[Operating System]
+```
 
 ---
 
