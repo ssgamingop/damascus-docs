@@ -127,7 +127,13 @@
       <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link ">Agent Layer</a>
     </li>
     <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Benchmark-System.html" class="sidebar-nav-link ">Benchmark System</a>
+    </li>
+    <li class="sidebar-nav-item">
       <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link ">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Event-System.html" class="sidebar-nav-link ">Event System</a>
     </li>
     <li class="sidebar-nav-item">
       <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link ">Evolution Engine</a>
@@ -142,6 +148,12 @@
       <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link ">Model Abstraction Layer</a>
     </li>
     <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Observability-System.html" class="sidebar-nav-link ">Observability System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Runtime-System.html" class="sidebar-nav-link ">Runtime System</a>
+    </li>
+    <li class="sidebar-nav-item">
       <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link ">Security Architecture</a>
     </li>
     <li class="sidebar-nav-item">
@@ -149,6 +161,14 @@
     </li>
     <li class="sidebar-nav-item">
       <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link ">Workspace System</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">03-Implementation</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../03-Implementation/Technology-Stack.html" class="sidebar-nav-link ">Technology Stack</a>
     </li>
   </ul>
 </div>
@@ -234,27 +254,27 @@ Evolution
 <h1 id="core-infrastructure">Core Infrastructure<a href="#core-infrastructure" class="heading-anchor">#</a></h1>
 <p>The Core Infrastructure provides the operational foundation of Damascus.</p>
 <p>These systems coordinate execution but do not provide intelligence themselves.</p>
-<pre><code class="language-diagram">Damascus Core
-├── Orchestration Runtime
-├── State Manager
-├── Event Bus
-├── Scheduler
-├── Registry Layer
-└── Observability Layer
+<pre><code class="language-mermaid">graph TD
+    Core[Damascus Core] --&gt; OR[Orchestration Runtime]
+    Core --&gt; SM[State Manager]
+    Core --&gt; EB[Event Bus]
+    Core --&gt; Sch[Scheduler]
+    Core --&gt; RL[Registry Layer]
+    Core --&gt; OL[Observability Layer]
 </code></pre>
 <hr>
 <h1 id="capability-systems">Capability Systems<a href="#capability-systems" class="heading-anchor">#</a></h1>
 <p>Capability systems provide intelligence functionality.</p>
-<pre><code class="language-diagram">Capabilities
-├── Workspace System
-├── Agent Layer
-├── Memory Layer
-├── Knowledge Layer
-├── Tool Layer
-├── Model Layer
-├── Research Layer
-├── Evolution Layer
-└── Security Layer
+<pre><code class="language-mermaid">graph TD
+    Caps[Capabilities] --&gt; WS[Workspace System]
+    Caps --&gt; AL[Agent Layer]
+    Caps --&gt; ML[Memory Layer]
+    Caps --&gt; KL[Knowledge Layer]
+    Caps --&gt; TL[Tool Layer]
+    Caps --&gt; MoL[Model Layer]
+    Caps --&gt; RL[Research Layer]
+    Caps --&gt; EL[Evolution Layer]
+    Caps --&gt; SL[Security Layer]
 </code></pre>
 <hr>
 <h1 id="execution-environment">Execution Environment<a href="#execution-environment" class="heading-anchor">#</a></h1>
@@ -270,35 +290,38 @@ Evolution
 </ul>
 <hr>
 <h1 id="high-level-architecture">High-Level Architecture<a href="#high-level-architecture" class="heading-anchor">#</a></h1>
-<pre><code class="language-diagram">User
-↓
-Workspace System
-↓
-Workflow
-↓
-Damascus Core
-├── Runtime
-├── State
-├── Events
-├── Scheduler
-├── Registry
-└── Observability
-↓
-Capabilities
-├── Agents
-├── Memory
-├── Knowledge
-├── Models
-├── Tools
-├── Research
-├── Evolution
-└── Security
-↓
-Execution Environment
-↓
-Applications
-↓
-Operating System
+<pre><code class="language-mermaid">graph TD
+    User --&gt; WS[Workspace System]
+    WS --&gt; Workflow
+    Workflow --&gt; Core
+    
+    subgraph Core [Damascus Core]
+        direction TB
+        Runtime
+        State
+        Events
+        Scheduler
+        Registry
+        Observability
+    end
+
+    Core --&gt; Caps
+    
+    subgraph Caps [Capabilities]
+        direction TB
+        Agents
+        Memory
+        Knowledge
+        Models
+        Tools
+        Research
+        Evolution
+        Security
+    end
+
+    Caps --&gt; Env[Execution Environment]
+    Env --&gt; Apps[Applications]
+    Apps --&gt; OS[Operating System]
 </code></pre>
 <hr>
 <h1 id="core-infrastructure">Core Infrastructure<a href="#core-infrastructure" class="heading-anchor">#</a></h1>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benchmark System | Damascus Docs</title>
+  <meta name="description" content="Damascus - Privacy-first, local-first intelligence operating system documentation">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    window.damascusMermaid = mermaid;
+  </script>
+</head>
+<body data-root="../">
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="brand">
+      <button class="mobile-header-btn" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="../index.html" class="brand">
+        <div class="logo">D</div>
+        <span class="title">Damascus Docs</span>
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <!-- Search Input Container -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="search-input" placeholder="Search docs..." aria-label="Search documentation">
+          <kbd class="search-shortcut">/</kbd>
+        </div>
+        
+        <!-- Results Dropdown -->
+        <div class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" aria-label="Toggle theme">
+        <!-- Sun (Light Theme Icon) -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon (Dark Theme Icon) -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Layout Grid -->
+  <div class="layout-container">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="site-sidebar">
+      <div class="sidebar-section">
+  <div class="sidebar-section-title">Vision</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Mission.html" class="sidebar-nav-link ">Mission</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Vision.html" class="sidebar-nav-link ">Damascus Vision</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Why-Damascus.html" class="sidebar-nav-link ">Why Damascus Exists</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Research</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/AI-Operating-Systems.html" class="sidebar-nav-link ">AI Operating Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Hermes-Analysis.html" class="sidebar-nav-link ">Hermes Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Knowledge-Graphs.html" class="sidebar-nav-link ">Knowledge Graphs</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/LangGraph-Analysis.html" class="sidebar-nav-link ">LangGraph Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Memory-Systems.html" class="sidebar-nav-link ">Memory Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Multi-Agent-Systems.html" class="sidebar-nav-link ">Multi Agent Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Odysseus-Analysis.html" class="sidebar-nav-link ">Odysseus Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/OpenHands-Analysis.html" class="sidebar-nav-link ">OpenHands Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Self-Improving-Agents.html" class="sidebar-nav-link ">Self Improving Agents</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Architecture</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link ">Agent Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Benchmark-System.html" class="sidebar-nav-link active">Benchmark System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link ">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Event-System.html" class="sidebar-nav-link ">Event System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link ">Evolution Engine</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/High-Level-Architecture.html" class="sidebar-nav-link ">High Level Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Memory-Architecture.html" class="sidebar-nav-link ">Memory Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link ">Model Abstraction Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Observability-System.html" class="sidebar-nav-link ">Observability System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Runtime-System.html" class="sidebar-nav-link ">Runtime System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link ">Security Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Tool-Layer.html" class="sidebar-nav-link ">Tool Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link ">Workspace System</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">03-Implementation</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../03-Implementation/Technology-Stack.html" class="sidebar-nav-link ">Technology Stack</a>
+    </li>
+  </ul>
+</div>
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <article class="doc-content">
+          <div class="doc-meta"><span class="meta-badge">Version 0.1</span><span class="meta-badge status-architecture-foundation">Architecture Foundation</span><span class="meta-badge priority-critical">Priority Critical</span></div> <h1 id="benchmark-systemmd">Benchmark-System.md<a href="#benchmark-systemmd" class="heading-anchor">#</a></h1>
+<p>Version: 0.1</p>
+<p>Status: Architecture Foundation</p>
+<p>Priority: Critical</p>
+<p>Purpose:</p>
+<p>Define how Damascus measures capability.</p>
+<p>The Benchmark System is the empirical foundation of the platform.</p>
+<p>Evolution without measurement is random mutation.</p>
+<p>The Benchmark System provides mathematical proof of improvement.</p>
+<p>Without rigorous measurement, AI systems degrade.</p>
+<p>This document defines the infrastructure required for measurement.</p>
+<hr>
+<h1 id="executive-summary">Executive Summary<a href="#executive-summary" class="heading-anchor">#</a></h1>
+<p>Damascus is designed to evolve.</p>
+<p>Evolution requires measurement.</p>
+<p>The Benchmark System is the arbiter of truth.</p>
+<p>It introduces a rigid taxonomy of evaluation.</p>
+<p>It defines Registries, Suites, Runs, Artifacts, Scores, and Governance.</p>
+<p>Evaluations are treated as first-class codebase assets.</p>
+<p>This guarantees upgrades are empirically proven.</p>
+<hr>
+<h1 id="problem-statement">Problem Statement<a href="#problem-statement" class="heading-anchor">#</a></h1>
+<p>The AI industry is plagued by subjective evaluation.</p>
+<p>Vibes-based benchmarking is insufficient.</p>
+<p>Synthetic tests do not map to real-world utility.</p>
+<p>Updates often lack quantitative proof of improvement.</p>
+<p>Ad-hoc testing results in regression.</p>
+<p>Capability collapse destroys user trust.</p>
+<p>Flawed evaluation leads the Evolution Engine to optimize for the wrong metrics.</p>
+<p>The problem is building a deterministic evaluation infrastructure.</p>
+<p>It must handle the non-deterministic nature of AI.</p>
+<hr>
+<h1 id="design-philosophy">Design Philosophy<a href="#design-philosophy" class="heading-anchor">#</a></h1>
+<p>Empiricism over intuition.</p>
+<p>If it cannot be measured, it cannot be promoted.</p>
+<p>Traceability is mandatory.</p>
+<p>A score is useless without the execution trace.</p>
+<p>Results are immutable.</p>
+<p>Artifacts and Scores are permanently frozen.</p>
+<p>Production parity is required.</p>
+<p>Benchmarks must evaluate production execution paths.</p>
+<p>Evaluators must be independent.</p>
+<p>The system must not grade its own homework.</p>
+<p>Regression testing must be continuous.</p>
+<hr>
+<h1 id="architectural-principle">Architectural Principle<a href="#architectural-principle" class="heading-anchor">#</a></h1>
+<p>No workflow may claim improvement without benchmark evidence.</p>
+<p>This is the central dogma.</p>
+<p>If a prompt is generated, it must be proven superior.</p>
+<p>If a model is updated, it must be proven superior.</p>
+<p>Evidence must be cryptographically verifiable.</p>
+<hr>
+<h1 id="core-components">Core Components<a href="#core-components" class="heading-anchor">#</a></h1>
+<h2 id="benchmark-registry">Benchmark Registry<a href="#benchmark-registry" class="heading-anchor">#</a></h2>
+<p>The version-controlled repository of evaluations.</p>
+<p>It stores ground-truth inputs.</p>
+<p>It stores expected outputs.</p>
+<p>It stores grading rubrics.</p>
+<p>It is immutable.</p>
+<p>Test logic is separated from execution logic.</p>
+<hr>
+<h2 id="benchmark-suites">Benchmark Suites<a href="#benchmark-suites" class="heading-anchor">#</a></h2>
+<p>A curated collection of tests from the Registry.</p>
+<p>It evaluates a specific capability domain.</p>
+<p>Suites define the success threshold.</p>
+<hr>
+<h2 id="benchmark-runs">Benchmark Runs<a href="#benchmark-runs" class="heading-anchor">#</a></h2>
+<p>The instantiation of a Suite against a Target.</p>
+<p>It orchestrates execution in an isolated Workspace.</p>
+<p>It injects test inputs.</p>
+<p>It intercepts outputs.</p>
+<p>It uses Mock Tools to prevent permanent state changes.</p>
+<p>It is a highly parallelized batch job.</p>
+<hr>
+<h2 id="benchmark-artifacts">Benchmark Artifacts<a href="#benchmark-artifacts" class="heading-anchor">#</a></h2>
+<p>The captured record of a Benchmark Run.</p>
+<p>Every event is captured.</p>
+<p>Every log is captured.</p>
+<p>Every token is captured.</p>
+<p>Artifacts are stored in cold storage.</p>
+<p>Artifacts provide exact Event Sourcing replay.</p>
+<hr>
+<h2 id="benchmark-scores">Benchmark Scores<a href="#benchmark-scores" class="heading-anchor">#</a></h2>
+<p>The quantitative and qualitative output.</p>
+<p>Generated after analyzing Artifacts.</p>
+<p>Deterministic Scores check JSON schemas and token counts.</p>
+<p>Semantic Scores use LLM-as-a-Judge grading.</p>
+<p>Composite Scores aggregate multiple metrics.</p>
+<hr>
+<h2 id="benchmark-governance">Benchmark Governance<a href="#benchmark-governance" class="heading-anchor">#</a></h2>
+<p>Ensures the integrity of the evaluation process.</p>
+<p>It prevents overfitting to the test.</p>
+<p>It deprecates tests with 100% pass rates.</p>
+<p>It requires human sign-off for Semantic Score rubrics.</p>
+<hr>
+<h1 id="benchmark-targets">Benchmark Targets<a href="#benchmark-targets" class="heading-anchor">#</a></h1>
+<h2 id="workflows">Workflows<a href="#workflows" class="heading-anchor">#</a></h2>
+<p>Objective: Does the workflow achieve the user goal?</p>
+<p>Measurement: Output quality, latency, total cost.</p>
+<hr>
+<h2 id="agents">Agents<a href="#agents" class="heading-anchor">#</a></h2>
+<p>Objective: Does the agent reason correctly?</p>
+<p>Measurement: ReAct loop efficiency, tool selection accuracy.</p>
+<hr>
+<h2 id="teams">Teams<a href="#teams" class="heading-anchor">#</a></h2>
+<p>Objective: Do agents collaborate without destructive disagreement?</p>
+<p>Measurement: Message overhead, consensus time.</p>
+<hr>
+<h2 id="tools">Tools<a href="#tools" class="heading-anchor">#</a></h2>
+<p>Objective: Are primitive tools functioning fast enough?</p>
+<p>Measurement: Error rates, timeout frequency.</p>
+<hr>
+<h2 id="model-routing">Model Routing<a href="#model-routing" class="heading-anchor">#</a></h2>
+<p>Objective: Is requests routed to the optimal LLM?</p>
+<p>Measurement: Token generation speed, cost savings, semantic degradation.</p>
+<hr>
+<h1 id="data-flow">Data Flow<a href="#data-flow" class="heading-anchor">#</a></h1>
+<p>Evolution Engine proposes a new version.</p>
+<p>Benchmark Run is triggered.</p>
+<p>Benchmark System pulls Suite from Registry.</p>
+<p>It provisions a sandboxed Workspace.</p>
+<p>It provisions mocked Tools.</p>
+<p>Runtime executes the Agent.</p>
+<p>Event System records every thought and action.</p>
+<p>Evaluator nodes spin up.</p>
+<p>Semantic Evaluators grade outputs against the rubric.</p>
+<p>Composite score is aggregated.</p>
+<p>If score improves, Evolution Engine receives verification.</p>
+<p>If score degrades, mutation is discarded.</p>
+<hr>
+<h1 id="architectural-constraints">Architectural Constraints<a href="#architectural-constraints" class="heading-anchor">#</a></h1>
+<h2 id="evaluator-bias">Evaluator Bias<a href="#evaluator-bias" class="heading-anchor">#</a></h2>
+<p>LLM-as-a-Judge carries model bias.</p>
+<p>Evaluator models must be strictly decoupled.</p>
+<hr>
+<h2 id="cost">Cost<a href="#cost" class="heading-anchor">#</a></h2>
+<p>Running massive suites is financially prohibitive.</p>
+<p>Predictive routing executes only affected tests.</p>
+<hr>
+<h2 id="state-contamination">State Contamination<a href="#state-contamination" class="heading-anchor">#</a></h2>
+<p>Benchmarks must not leak into production.</p>
+<p>Network-level isolation is required.</p>
+<hr>
+<h1 id="risks">Risks<a href="#risks" class="heading-anchor">#</a></h1>
+<h2 id="overfitting">Overfitting<a href="#overfitting" class="heading-anchor">#</a></h2>
+<p>Evolution Engine optimizes for test cases.</p>
+<p>Real-world performance degrades.</p>
+<p>Holdout Data is required.</p>
+<hr>
+<h2 id="evaluator-drift">Evaluator Drift<a href="#evaluator-drift" class="heading-anchor">#</a></h2>
+<p>The grading LLM changes behavior over time.</p>
+<p>Causes false regressions.</p>
+<p>Version-pinning is required.</p>
+<hr>
+<h2 id="flaky-tests">Flaky Tests<a href="#flaky-tests" class="heading-anchor">#</a></h2>
+<p>Non-deterministic outputs create noise.</p>
+<p>Tests must be run multiple times to calculate confidence intervals.</p>
+<hr>
+<h1 id="future-evolution">Future Evolution<a href="#future-evolution" class="heading-anchor">#</a></h1>
+<p>Live Production Benchmarking.</p>
+<p>Shadow mode execution.</p>
+<p>Adversarial Benchmark Generation.</p>
+<p>AI invents test cases to break agents.</p>
+<p>User-Defined Benchmarks.</p>
+<p>Converting user corrections into regression tests.</p>
+<hr>
+<h1 id="key-insight">Key Insight<a href="#key-insight" class="heading-anchor">#</a></h1>
+<p>Evaluation is the engine of evolution.</p>
+<p>The Benchmark System drives the Evolution Engine.</p>
+<p>It provides a mathematically sound definition of better.</p>
+<p>This allows Damascus to rewrite its own logic safely.</p>
+<hr>
+<h1 id="open-questions">Open Questions<a href="#open-questions" class="heading-anchor">#</a></h1>
+<ol>
+<li>How can evaluator cost be reduced?</li>
+<li>How do we quantitatively grade intermediate reasoning steps?</li>
+<li>How do we mock complex stateful APIs offline?</li>
+</ol>
+
+        </article>
+        <div class="doc-footer-nav">
+      <a href="../02-Architecture/Agent-Layer.html" class="nav-card prev">
+        <span class="nav-card-label">Previous</span>
+        <span class="nav-card-title">Agent Layer</span>
+      </a>
+    
+      <a href="../02-Architecture/Core-System.html" class="nav-card next">
+        <span class="nav-card-label">Next</span>
+        <span class="nav-card-title">Core System</span>
+      </a>
+    </div>
+      </div>
+    </main>
+
+    <!-- Right Table of Contents Sidebar -->
+    
+    <aside class="site-toc">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list">
+        <li class="toc-item depth-2">
+  <a href="#benchmark-registry" class="toc-link">Benchmark Registry</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#benchmark-suites" class="toc-link">Benchmark Suites</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#benchmark-runs" class="toc-link">Benchmark Runs</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#benchmark-artifacts" class="toc-link">Benchmark Artifacts</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#benchmark-scores" class="toc-link">Benchmark Scores</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#benchmark-governance" class="toc-link">Benchmark Governance</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workflows" class="toc-link">Workflows</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agents" class="toc-link">Agents</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#teams" class="toc-link">Teams</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tools" class="toc-link">Tools</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#model-routing" class="toc-link">Model Routing</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evaluator-bias" class="toc-link">Evaluator Bias</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#cost" class="toc-link">Cost</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#state-contamination" class="toc-link">State Contamination</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#overfitting" class="toc-link">Overfitting</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evaluator-drift" class="toc-link">Evaluator Drift</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#flaky-tests" class="toc-link">Flaky Tests</a>
+</li>
+
+      </ul>
+    </aside>
+  
+
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

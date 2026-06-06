@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event System | Damascus Docs</title>
+  <meta name="description" content="Damascus - Privacy-first, local-first intelligence operating system documentation">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    window.damascusMermaid = mermaid;
+  </script>
+</head>
+<body data-root="../">
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="brand">
+      <button class="mobile-header-btn" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="../index.html" class="brand">
+        <div class="logo">D</div>
+        <span class="title">Damascus Docs</span>
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <!-- Search Input Container -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="search-input" placeholder="Search docs..." aria-label="Search documentation">
+          <kbd class="search-shortcut">/</kbd>
+        </div>
+        
+        <!-- Results Dropdown -->
+        <div class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" aria-label="Toggle theme">
+        <!-- Sun (Light Theme Icon) -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon (Dark Theme Icon) -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Layout Grid -->
+  <div class="layout-container">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="site-sidebar">
+      <div class="sidebar-section">
+  <div class="sidebar-section-title">Vision</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Mission.html" class="sidebar-nav-link ">Mission</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Vision.html" class="sidebar-nav-link ">Damascus Vision</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Why-Damascus.html" class="sidebar-nav-link ">Why Damascus Exists</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Research</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/AI-Operating-Systems.html" class="sidebar-nav-link ">AI Operating Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Hermes-Analysis.html" class="sidebar-nav-link ">Hermes Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Knowledge-Graphs.html" class="sidebar-nav-link ">Knowledge Graphs</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/LangGraph-Analysis.html" class="sidebar-nav-link ">LangGraph Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Memory-Systems.html" class="sidebar-nav-link ">Memory Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Multi-Agent-Systems.html" class="sidebar-nav-link ">Multi Agent Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Odysseus-Analysis.html" class="sidebar-nav-link ">Odysseus Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/OpenHands-Analysis.html" class="sidebar-nav-link ">OpenHands Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Self-Improving-Agents.html" class="sidebar-nav-link ">Self Improving Agents</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Architecture</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link ">Agent Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Benchmark-System.html" class="sidebar-nav-link ">Benchmark System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link ">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Event-System.html" class="sidebar-nav-link active">Event System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link ">Evolution Engine</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/High-Level-Architecture.html" class="sidebar-nav-link ">High Level Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Memory-Architecture.html" class="sidebar-nav-link ">Memory Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link ">Model Abstraction Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Observability-System.html" class="sidebar-nav-link ">Observability System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Runtime-System.html" class="sidebar-nav-link ">Runtime System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link ">Security Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Tool-Layer.html" class="sidebar-nav-link ">Tool Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link ">Workspace System</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">03-Implementation</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../03-Implementation/Technology-Stack.html" class="sidebar-nav-link ">Technology Stack</a>
+    </li>
+  </ul>
+</div>
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <article class="doc-content">
+          <div class="doc-meta"><span class="meta-badge">Version 0.1</span><span class="meta-badge status-architecture-foundation">Architecture Foundation</span><span class="meta-badge priority-critical">Priority Critical</span></div> <h1 id="event-systemmd">Event-System.md<a href="#event-systemmd" class="heading-anchor">#</a></h1>
+<p>Version: 0.1</p>
+<p>Status: Architecture Foundation</p>
+<p>Priority: Critical</p>
+<p>Purpose:</p>
+<p>Define the Damascus Event System.</p>
+<p>The Event System is the nervous system of the Damascus architecture.</p>
+<p>Every subsystem communicates through events.</p>
+<p>It ensures components remain radically decoupled.</p>
+<p>It preserves an exact, auditable history of every state change.</p>
+<hr>
+<h1 id="executive-summary">Executive Summary<a href="#executive-summary" class="heading-anchor">#</a></h1>
+<p>Synchronous communication leads to coupling.</p>
+<p>Coupling leads to cascading failures.</p>
+<p>The Event System solves this.</p>
+<p>It provides an asynchronous communication backbone.</p>
+<p>It guarantees facts are broadcast to interested subsystems.</p>
+<p>Publishers do not know subscribers.</p>
+<p>Subscribers do not know publishers.</p>
+<p>Events are immutable facts.</p>
+<p>They enforce boundaries between domain logic and execution.</p>
+<p>This allows for time travel.</p>
+<p>The Memory Layer reconstructs context.</p>
+<p>The Evolution Engine replays historical scenarios.</p>
+<hr>
+<h1 id="problem-statement">Problem Statement<a href="#problem-statement" class="heading-anchor">#</a></h1>
+<p>Damascus comprises multiple independent layers.</p>
+<p>If the Runtime directly calls the Memory Layer, the system becomes monolithic.</p>
+<p>Tightly coupled architectures suffer from:</p>
+<ul>
+<li>Fragility</li>
+<li>Opacity</li>
+<li>Inflexibility</li>
+<li>Data Loss</li>
+</ul>
+<p>The problem is building a decoupled communication fabric.</p>
+<p>It must be infinitely scalable.</p>
+<p>It must be completely auditable.</p>
+<hr>
+<h1 id="design-philosophy">Design Philosophy<a href="#design-philosophy" class="heading-anchor">#</a></h1>
+<p>Events transport facts.</p>
+<p>Events do not contain business logic.</p>
+<p>Absolute decoupling is required.</p>
+<p>Immutability is mandatory.</p>
+<p>Schema enforcement is required.</p>
+<p>Idempotency is mandatory.</p>
+<p>Throughput must be high.</p>
+<p>Latency must be low.</p>
+<p>Replayability must be supported.</p>
+<hr>
+<h1 id="core-concepts">Core Concepts<a href="#core-concepts" class="heading-anchor">#</a></h1>
+<h2 id="event-bus">Event Bus<a href="#event-bus" class="heading-anchor">#</a></h2>
+<p>The core message broker.</p>
+<p>It is a highly available, partitioned, replicated log.</p>
+<p>It accepts events from publishers.</p>
+<p>It writes them to durable storage.</p>
+<p>It distributes them to consumers.</p>
+<p>It does not process payloads.</p>
+<hr>
+<h2 id="event-contracts">Event Contracts<a href="#event-contracts" class="heading-anchor">#</a></h2>
+<p>Events are strictly defined schemas.</p>
+<p>A contract defines required fields and data types.</p>
+<p>Every event includes standard metadata:</p>
+<ul>
+<li>EventID</li>
+<li>Timestamp</li>
+<li>Source</li>
+<li>WorkspaceID</li>
+<li>Type</li>
+<li>SchemaVersion</li>
+</ul>
+<hr>
+<h2 id="event-routing">Event Routing<a href="#event-routing" class="heading-anchor">#</a></h2>
+<p>Routing logic dictates how events flow.</p>
+<p>Events are partitioned by WorkspaceID or WorkflowExecutionID.</p>
+<p>This ensures strict ordering.</p>
+<hr>
+<h2 id="event-versioning">Event Versioning<a href="#event-versioning" class="heading-anchor">#</a></h2>
+<p>Schemas will change over time.</p>
+<p>The Event System enforces compatibility rules.</p>
+<p>Schemas are versioned.</p>
+<p>The Event Registry prevents breaking changes.</p>
+<hr>
+<h2 id="event-persistence">Event Persistence<a href="#event-persistence" class="heading-anchor">#</a></h2>
+<p>The Event Bus relies on persistent commit logs.</p>
+<p>Events are written to disk.</p>
+<p>They are written before acknowledgment to the publisher.</p>
+<p>This provides a System of Record.</p>
+<hr>
+<h2 id="event-replay">Event Replay<a href="#event-replay" class="heading-anchor">#</a></h2>
+<p>Events are persisted.</p>
+<p>The system supports replay.</p>
+<p>Subscribers can consume all events from the beginning of time.</p>
+<p>Evolution uses this to simulate past states.</p>
+<hr>
+<h2 id="event-filtering">Event Filtering<a href="#event-filtering" class="heading-anchor">#</a></h2>
+<p>Subscribers define server-side filters.</p>
+<p>The Event Bus drops non-matching events.</p>
+<p>This prevents network saturation.</p>
+<hr>
+<h2 id="event-security">Event Security<a href="#event-security" class="heading-anchor">#</a></h2>
+<p>The Event System enforces Zero Trust.</p>
+<p>Publishers must authenticate.</p>
+<p>Subscribers must authenticate.</p>
+<p>Cross-workspace event contamination is prevented natively.</p>
+<hr>
+<h2 id="event-retention">Event Retention<a href="#event-retention" class="heading-anchor">#</a></h2>
+<p>Events cannot be stored forever in hot storage.</p>
+<p>Retention policies are defined per topic.</p>
+<p>Events are offloaded to cold storage for long-term retention.</p>
+<hr>
+<h2 id="dead-letter-queues">Dead Letter Queues<a href="#dead-letter-queues" class="heading-anchor">#</a></h2>
+<p>Subscribers may repeatedly fail to process an event.</p>
+<p>The event is moved to a Dead Letter Queue (DLQ).</p>
+<p>This prevents head-of-line blocking.</p>
+<p>Administrators can manually re-inject events.</p>
+<hr>
+<h1 id="core-events">Core Events<a href="#core-events" class="heading-anchor">#</a></h1>
+<h2 id="workflow-events">Workflow Events<a href="#workflow-events" class="heading-anchor">#</a></h2>
+<p>Emitted by Damascus Core and Workflow Registry.</p>
+<ul>
+<li>WorkflowCreated</li>
+<li>WorkflowVersionPromoted</li>
+<li>WorkflowArchived</li>
+</ul>
+<hr>
+<h2 id="runtime-events">Runtime Events<a href="#runtime-events" class="heading-anchor">#</a></h2>
+<p>Emitted by the Runtime System.</p>
+<ul>
+<li>WorkflowExecutionStarted</li>
+<li>NodeScheduled</li>
+<li>NodeStarted</li>
+<li>NodeCompleted</li>
+<li>NodeFailed</li>
+<li>WorkflowExecutionPaused</li>
+<li>WorkflowExecutionResumed</li>
+<li>WorkflowExecutionCancelled</li>
+<li>WorkflowExecutionCompleted</li>
+</ul>
+<hr>
+<h2 id="agent-events">Agent Events<a href="#agent-events" class="heading-anchor">#</a></h2>
+<p>Emitted by the Agent Layer.</p>
+<ul>
+<li>AgentReasoningStarted</li>
+<li>AgentThoughtGenerated</li>
+<li>AgentActionDecided</li>
+<li>AgentObservationReceived</li>
+<li>AgentReasoningCompleted</li>
+</ul>
+<hr>
+<h2 id="memory-events">Memory Events<a href="#memory-events" class="heading-anchor">#</a></h2>
+<p>Emitted by the Memory Layer.</p>
+<ul>
+<li>EpisodicMemoryStored</li>
+<li>SemanticKnowledgeExtracted</li>
+<li>MemoryRetrieved</li>
+<li>MemoryPruned</li>
+</ul>
+<hr>
+<h2 id="tool-events">Tool Events<a href="#tool-events" class="heading-anchor">#</a></h2>
+<p>Emitted by the Tool Layer.</p>
+<ul>
+<li>ToolExecutionRequested</li>
+<li>ToolExecutionStarted</li>
+<li>ToolExecutionCompleted</li>
+<li>ToolExecutionFailed</li>
+<li>SandboxProvisioned</li>
+</ul>
+<hr>
+<h2 id="security-events">Security Events<a href="#security-events" class="heading-anchor">#</a></h2>
+<p>Emitted by Security Architecture.</p>
+<ul>
+<li>AuthenticationFailed</li>
+<li>AuthorizationDenied</li>
+<li>HumanApprovalRequested</li>
+<li>HumanApprovalGranted</li>
+<li>HumanApprovalDenied</li>
+<li>PolicyViolationDetected</li>
+</ul>
+<hr>
+<h2 id="benchmark-events">Benchmark Events<a href="#benchmark-events" class="heading-anchor">#</a></h2>
+<p>Emitted during evaluation runs.</p>
+<ul>
+<li>BenchmarkStarted</li>
+<li>BenchmarkNodeGraded</li>
+<li>BenchmarkCompleted</li>
+</ul>
+<hr>
+<h2 id="evolution-events">Evolution Events<a href="#evolution-events" class="heading-anchor">#</a></h2>
+<p>Emitted by Evolution Layer.</p>
+<ul>
+<li>EvolutionExperimentStarted</li>
+<li>PromptOptimized</li>
+<li>ModelChallengerPromoted</li>
+</ul>
+<hr>
+<h1 id="responsibilities">Responsibilities<a href="#responsibilities" class="heading-anchor">#</a></h1>
+<ul>
+<li>Guaranteed Delivery</li>
+<li>Ordering</li>
+<li>Schema Validation</li>
+<li>Consumer Offset Management</li>
+<li>Backpressure Handling</li>
+</ul>
+<hr>
+<h1 id="non-responsibilities">Non-Responsibilities<a href="#non-responsibilities" class="heading-anchor">#</a></h1>
+<ul>
+<li>Business Logic Execution</li>
+<li>Data Transformation</li>
+<li>Long-term Archival Querying</li>
+</ul>
+<hr>
+<h1 id="data-flows">Data Flows<a href="#data-flows" class="heading-anchor">#</a></h1>
+<h2 id="agent-tool-invocation">Agent Tool Invocation<a href="#agent-tool-invocation" class="heading-anchor">#</a></h2>
+<p>Agent decides to run a script.</p>
+<p>Agent publishes AgentActionDecided.</p>
+<p>Memory Layer reads this.</p>
+<p>Runtime System reads this.</p>
+<p>Runtime schedules a Tool Node.</p>
+<p>Runtime publishes NodeStarted.</p>
+<p>Evolution Engine logs latency.</p>
+<p>The Agent did not call the Tool.</p>
+<p>The reactive architecture handled execution.</p>
+<hr>
+<h2 id="dead-letter-queue-recovery">Dead Letter Queue Recovery<a href="#dead-letter-queue-recovery" class="heading-anchor">#</a></h2>
+<p>Memory Layer consumes EpisodicMemoryStored.</p>
+<p>Memory Layer encounters a fatal exception.</p>
+<p>Event Bus re-delivers 3 times.</p>
+<p>Event Bus routes event to Memory_DLQ.</p>
+<p>Memory Layer processes next valid event.</p>
+<p>System stall is prevented.</p>
+<hr>
+<h1 id="architectural-constraints">Architectural Constraints<a href="#architectural-constraints" class="heading-anchor">#</a></h1>
+<h2 id="storage-dependency">Storage Dependency<a href="#storage-dependency" class="heading-anchor">#</a></h2>
+<p>High-IOPS storage is required.</p>
+<p>Disk latency impacts publisher latency.</p>
+<hr>
+<h2 id="serialization-overhead">Serialization Overhead<a href="#serialization-overhead" class="heading-anchor">#</a></h2>
+<p>Serialization logic is required for event contracts.</p>
+<p>This imposes a CPU tax.</p>
+<hr>
+<h2 id="eventual-consistency">Eventual Consistency<a href="#eventual-consistency" class="heading-anchor">#</a></h2>
+<p>Communication is asynchronous.</p>
+<p>Damascus is eventually consistent.</p>
+<hr>
+<h1 id="risks">Risks<a href="#risks" class="heading-anchor">#</a></h1>
+<h2 id="poison-pills">Poison Pills<a href="#poison-pills" class="heading-anchor">#</a></h2>
+<p>Structurally valid but semantically broken events.</p>
+<p>Causes consumers to crash.</p>
+<hr>
+<h2 id="partition-hotspotting">Partition Hotspotting<a href="#partition-hotspotting" class="heading-anchor">#</a></h2>
+<p>One Workspace generates the majority of traffic.</p>
+<p>Overwhelms a single broker node.</p>
+<hr>
+<h2 id="schema-chaos">Schema Chaos<a href="#schema-chaos" class="heading-anchor">#</a></h2>
+<p>Developers mutate schemas without registry usage.</p>
+<p>Breaks downstream consumers.</p>
+<hr>
+<h1 id="future-evolution">Future Evolution<a href="#future-evolution" class="heading-anchor">#</a></h1>
+<h2 id="multi-region-federation">Multi-Region Federation<a href="#multi-region-federation" class="heading-anchor">#</a></h2>
+<p>Asynchronous replication across geographic regions.</p>
+<hr>
+<h2 id="complex-event-processing">Complex Event Processing<a href="#complex-event-processing" class="heading-anchor">#</a></h2>
+<p>Integrating stream processing engines.</p>
+<p>Allows real-time anomaly detection.</p>
+<hr>
+<h1 id="key-insight">Key Insight<a href="#key-insight" class="heading-anchor">#</a></h1>
+<p>The Event System is the source of truth.</p>
+<p>Subsystem databases are materialized views.</p>
+<p>If a database is destroyed, state can be reconstructed by replaying the Event Log.</p>
+<p>This makes Damascus indestructible.</p>
+<hr>
+<h1 id="open-questions">Open Questions<a href="#open-questions" class="heading-anchor">#</a></h1>
+<ol>
+<li>To what extent should the Runtime rely on Event Sourcing versus snapshotting?</li>
+<li>Should massive payloads be embedded in the event or via pointer URI?</li>
+<li>Should events be encrypted at the field level within the broker?</li>
+</ol>
+
+        </article>
+        <div class="doc-footer-nav">
+      <a href="../02-Architecture/Core-System.html" class="nav-card prev">
+        <span class="nav-card-label">Previous</span>
+        <span class="nav-card-title">Core System</span>
+      </a>
+    
+      <a href="../02-Architecture/Evolution-Engine.html" class="nav-card next">
+        <span class="nav-card-label">Next</span>
+        <span class="nav-card-title">Evolution Engine</span>
+      </a>
+    </div>
+      </div>
+    </main>
+
+    <!-- Right Table of Contents Sidebar -->
+    
+    <aside class="site-toc">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list">
+        <li class="toc-item depth-2">
+  <a href="#event-bus" class="toc-link">Event Bus</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#event-contracts" class="toc-link">Event Contracts</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#event-routing" class="toc-link">Event Routing</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#event-versioning" class="toc-link">Event Versioning</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#event-persistence" class="toc-link">Event Persistence</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#event-replay" class="toc-link">Event Replay</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#event-filtering" class="toc-link">Event Filtering</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#event-security" class="toc-link">Event Security</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#event-retention" class="toc-link">Event Retention</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#dead-letter-queues" class="toc-link">Dead Letter Queues</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workflow-events" class="toc-link">Workflow Events</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#runtime-events" class="toc-link">Runtime Events</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agent-events" class="toc-link">Agent Events</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#memory-events" class="toc-link">Memory Events</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tool-events" class="toc-link">Tool Events</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#security-events" class="toc-link">Security Events</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#benchmark-events" class="toc-link">Benchmark Events</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evolution-events" class="toc-link">Evolution Events</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agent-tool-invocation" class="toc-link">Agent Tool Invocation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#dead-letter-queue-recovery" class="toc-link">Dead Letter Queue Recovery</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#storage-dependency" class="toc-link">Storage Dependency</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#serialization-overhead" class="toc-link">Serialization Overhead</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#eventual-consistency" class="toc-link">Eventual Consistency</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#poison-pills" class="toc-link">Poison Pills</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#partition-hotspotting" class="toc-link">Partition Hotspotting</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#schema-chaos" class="toc-link">Schema Chaos</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#multi-region-federation" class="toc-link">Multi-Region Federation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#complex-event-processing" class="toc-link">Complex Event Processing</a>
+</li>
+
+      </ul>
+    </aside>
+  
+
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

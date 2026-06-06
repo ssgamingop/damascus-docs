@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Runtime System | Damascus Docs</title>
+  <meta name="description" content="Damascus - Privacy-first, local-first intelligence operating system documentation">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    window.damascusMermaid = mermaid;
+  </script>
+</head>
+<body data-root="../">
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="brand">
+      <button class="mobile-header-btn" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="../index.html" class="brand">
+        <div class="logo">D</div>
+        <span class="title">Damascus Docs</span>
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <!-- Search Input Container -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="search-input" placeholder="Search docs..." aria-label="Search documentation">
+          <kbd class="search-shortcut">/</kbd>
+        </div>
+        
+        <!-- Results Dropdown -->
+        <div class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" aria-label="Toggle theme">
+        <!-- Sun (Light Theme Icon) -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon (Dark Theme Icon) -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Layout Grid -->
+  <div class="layout-container">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="site-sidebar">
+      <div class="sidebar-section">
+  <div class="sidebar-section-title">Vision</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Mission.html" class="sidebar-nav-link ">Mission</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Vision.html" class="sidebar-nav-link ">Damascus Vision</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Why-Damascus.html" class="sidebar-nav-link ">Why Damascus Exists</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Research</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/AI-Operating-Systems.html" class="sidebar-nav-link ">AI Operating Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Hermes-Analysis.html" class="sidebar-nav-link ">Hermes Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Knowledge-Graphs.html" class="sidebar-nav-link ">Knowledge Graphs</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/LangGraph-Analysis.html" class="sidebar-nav-link ">LangGraph Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Memory-Systems.html" class="sidebar-nav-link ">Memory Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Multi-Agent-Systems.html" class="sidebar-nav-link ">Multi Agent Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Odysseus-Analysis.html" class="sidebar-nav-link ">Odysseus Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/OpenHands-Analysis.html" class="sidebar-nav-link ">OpenHands Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Self-Improving-Agents.html" class="sidebar-nav-link ">Self Improving Agents</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Architecture</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link ">Agent Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Benchmark-System.html" class="sidebar-nav-link ">Benchmark System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link ">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Event-System.html" class="sidebar-nav-link ">Event System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link ">Evolution Engine</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/High-Level-Architecture.html" class="sidebar-nav-link ">High Level Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Memory-Architecture.html" class="sidebar-nav-link ">Memory Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link ">Model Abstraction Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Observability-System.html" class="sidebar-nav-link ">Observability System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Runtime-System.html" class="sidebar-nav-link active">Runtime System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link ">Security Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Tool-Layer.html" class="sidebar-nav-link ">Tool Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link ">Workspace System</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">03-Implementation</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../03-Implementation/Technology-Stack.html" class="sidebar-nav-link ">Technology Stack</a>
+    </li>
+  </ul>
+</div>
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <article class="doc-content">
+          <div class="doc-meta"><span class="meta-badge">Version 0.1</span><span class="meta-badge status-architecture-foundation">Architecture Foundation</span><span class="meta-badge priority-critical">Priority Critical</span></div> <h1 id="runtime-systemmd">Runtime-System.md<a href="#runtime-systemmd" class="heading-anchor">#</a></h1>
+<p>Version: 0.1</p>
+<p>Status: Architecture Foundation</p>
+<p>Priority: Critical</p>
+<p>Purpose:</p>
+<p>Define the Damascus Runtime System.</p>
+<p>The Runtime System executes workflows.</p>
+<p>It is the operational execution engine.</p>
+<p>It transforms definitions into running executions.</p>
+<p>It preserves state, checkpoints, and security boundaries.</p>
+<p>It manages recovery and human approvals.</p>
+<p>It ensures deterministic execution behavior.</p>
+<p>It does not own workflow definitions.</p>
+<p>It executes workflows orchestrated by Core.</p>
+<hr>
+<h1 id="executive-summary">Executive Summary<a href="#executive-summary" class="heading-anchor">#</a></h1>
+<p>The Runtime System is the execution heart of Damascus.</p>
+<p>Core and Registry manage definitions.</p>
+<p>The Runtime translates these into dynamic graphs.</p>
+<p>It coordinates agents, models, tools, and humans.</p>
+<p>It operates in an unpredictable environment.</p>
+<p>It achieves reliability through rigorous state management.</p>
+<p>It ensures deterministic checkpointing.</p>
+<p>It provides resilient failure recovery.</p>
+<p>If subcomponents crash, workflows resume exactly where they left off.</p>
+<p>It decouples &quot;how to run&quot; from &quot;what to run.&quot;</p>
+<p>This allows execution strategies to evolve independently.</p>
+<hr>
+<h1 id="problem-statement">Problem Statement<a href="#problem-statement" class="heading-anchor">#</a></h1>
+<p>Traditional execution is fast, deterministic, and stateless.</p>
+<p>AI workflows are slow, non-deterministic, and highly stateful.</p>
+<p>They rely on unpredictable external APIs.</p>
+<p>Workflows in Damascus are long-running processes.</p>
+<p>They may span hours or days.</p>
+<p>Infrastructure may restart during this time.</p>
+<p>Models may timeout.</p>
+<p>If execution is tightly coupled to definition, the system is brittle.</p>
+<p>If a process crashes mid-workflow, progress is lost.</p>
+<p>Expensive compute is wasted.</p>
+<p>The problem is creating a resilient, scalable execution engine.</p>
+<p>It must manage complexity without being burdened by domain logic.</p>
+<hr>
+<h1 id="design-philosophy">Design Philosophy<a href="#design-philosophy" class="heading-anchor">#</a></h1>
+<p>Runtime executes workflows.</p>
+<p>It does not design them.</p>
+<p>Runtime owns the execution lifecycle.</p>
+<p>Runtime owns node scheduling.</p>
+<p>Runtime owns checkpoint coordination.</p>
+<p>Runtime owns pause, resume, and cancel behavior.</p>
+<p>Runtime must be deterministic where possible.</p>
+<p>Runtime must support long-running workflows.</p>
+<p>Runtime must survive process crashes.</p>
+<p>Runtime must support human approvals.</p>
+<p>Runtime must support heterogeneous nodes.</p>
+<p>Runtime must remain provider-independent.</p>
+<p>Runtime must remain workflow-centric.</p>
+<hr>
+<h1 id="responsibilities">Responsibilities<a href="#responsibilities" class="heading-anchor">#</a></h1>
+<p>Execution Sequencing.</p>
+<p>State Preservation.</p>
+<p>Checkpointing.</p>
+<p>Failure Handling &amp; Recovery.</p>
+<p>Concurrency &amp; Parallelism.</p>
+<p>Approval Coordination.</p>
+<p>Resource Allocation.</p>
+<hr>
+<h1 id="non-responsibilities">Non-Responsibilities<a href="#non-responsibilities" class="heading-anchor">#</a></h1>
+<p>Workflow Definition.</p>
+<p>Agent or Model Logic.</p>
+<p>Tool Implementation.</p>
+<p>Long-term Memory.</p>
+<p>Policy Definition.</p>
+<hr>
+<h1 id="runtime-principles">Runtime Principles<a href="#runtime-principles" class="heading-anchor">#</a></h1>
+<p>State is Sacred.</p>
+<p>Nodes are Opaque.</p>
+<p>History is Immutable.</p>
+<p>Asynchrony by Default.</p>
+<p>Fail-Safe Execution.</p>
+<hr>
+<h1 id="high-level-architecture">High-Level Architecture<a href="#high-level-architecture" class="heading-anchor">#</a></h1>
+<p>The Runtime System sits below Damascus Core.</p>
+<p>It orchestrates interactions during execution.</p>
+<pre><code class="language-diagram">User
+↓
+Core
+↓
+Runtime System
+↓
+Workflow Registry
+↓
+Agent / Model / Tool Layers
+</code></pre>
+<hr>
+<h1 id="core-components">Core Components<a href="#core-components" class="heading-anchor">#</a></h1>
+<h2 id="execution-manager">Execution Manager<a href="#execution-manager" class="heading-anchor">#</a></h2>
+<p>The overarching orchestrator.</p>
+<p>Creates workflow instances.</p>
+<p>Coordinates subsystems.</p>
+<h2 id="scheduler">Scheduler<a href="#scheduler" class="heading-anchor">#</a></h2>
+<p>Analyzes the workflow DAG.</p>
+<p>Resolves dependencies.</p>
+<p>Maintains the ready queue.</p>
+<p>Decides what runs when.</p>
+<h2 id="state-manager">State Manager<a href="#state-manager" class="heading-anchor">#</a></h2>
+<p>Holds authoritative in-memory state.</p>
+<p>Tracks input and output states.</p>
+<h2 id="checkpoint-manager">Checkpoint Manager<a href="#checkpoint-manager" class="heading-anchor">#</a></h2>
+<p>Coordinates serialization of state.</p>
+<p>Handles save and load mechanics.</p>
+<h2 id="node-executor">Node Executor<a href="#node-executor" class="heading-anchor">#</a></h2>
+<p>Interfaces with specific node types.</p>
+<p>Executes Agent, Tool, Model, and Human nodes.</p>
+<h2 id="event-dispatcher">Event Dispatcher<a href="#event-dispatcher" class="heading-anchor">#</a></h2>
+<p>Emits immutable events.</p>
+<p>Logs significant state transitions.</p>
+<h2 id="retry-manager">Retry Manager<a href="#retry-manager" class="heading-anchor">#</a></h2>
+<p>Evaluates failed nodes.</p>
+<p>Applies retry policies.</p>
+<p>Coordinates re-execution.</p>
+<h2 id="recovery-manager">Recovery Manager<a href="#recovery-manager" class="heading-anchor">#</a></h2>
+<p>Detects orphaned executions.</p>
+<p>Reads the last known checkpoint.</p>
+<p>Hydrates the State Manager.</p>
+<p>Resumes execution seamlessly.</p>
+<h2 id="approval-coordinator">Approval Coordinator<a href="#approval-coordinator" class="heading-anchor">#</a></h2>
+<p>Intercepts nodes requiring human approval.</p>
+<p>Securely pauses execution.</p>
+<p>Surfaces requests to human interfaces.</p>
+<p>Verifies approval payloads.</p>
+<h2 id="resource-coordinator">Resource Coordinator<a href="#resource-coordinator" class="heading-anchor">#</a></h2>
+<p>Interfaces with infrastructure.</p>
+<p>Reserves CPU, memory, tokens, and sandboxes.</p>
+<h2 id="runtime-telemetry-service">Runtime Telemetry Service<a href="#runtime-telemetry-service" class="heading-anchor">#</a></h2>
+<p>Collects execution metrics.</p>
+<p>Provides data for Evolution Engine benchmarking.</p>
+<h2 id="runtime-lifecycle-manager">Runtime Lifecycle Manager<a href="#runtime-lifecycle-manager" class="heading-anchor">#</a></h2>
+<p>Oversees the workflow state machine.</p>
+<p>Enforces lifecycle constraints.</p>
+<hr>
+<h1 id="runtime-execution-model">Runtime Execution Model<a href="#runtime-execution-model" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">Workflow Definition
+↓
+Workflow Instance
+↓
+Execution Graph
+↓
+Node Scheduling
+↓
+Node Execution
+↓
+State Update
+↓
+Checkpoint
+↓
+Next Node Scheduling
+</code></pre>
+<hr>
+<h1 id="workflow-instance-architecture">Workflow Instance Architecture<a href="#workflow-instance-architecture" class="heading-anchor">#</a></h1>
+<p>WorkflowExecution:</p>
+<ul>
+<li>execution_id</li>
+<li>workflow_definition_id</li>
+<li>workflow_version</li>
+<li>workspace_id</li>
+<li>project_id</li>
+<li>status</li>
+<li>checkpoint_reference</li>
+<li>created_at</li>
+</ul>
+<hr>
+<h1 id="node-execution-model">Node Execution Model<a href="#node-execution-model" class="heading-anchor">#</a></h1>
+<p>NodeExecution:</p>
+<ul>
+<li>node_execution_id</li>
+<li>node_id</li>
+<li>node_type</li>
+<li>status</li>
+<li>input_state</li>
+<li>output_state</li>
+<li>retry_count</li>
+</ul>
+<h2 id="node-types">Node Types<a href="#node-types" class="heading-anchor">#</a></h2>
+<ul>
+<li>Agent Node</li>
+<li>Tool Node</li>
+<li>Model Node</li>
+<li>Human Approval Node</li>
+<li>Memory Node</li>
+<li>Benchmark Node</li>
+<li>Conditional Node</li>
+<li>Parallel Node</li>
+<li>Future Nodes</li>
+</ul>
+<hr>
+<h1 id="scheduler">Scheduler<a href="#scheduler" class="heading-anchor">#</a></h1>
+<p>Resolves dependencies topologically.</p>
+<p>Maintains a Ready Queue.</p>
+<p>Manages parallel execution.</p>
+<p>Enforces resource constraints.</p>
+<p>Handles priority scheduling.</p>
+<p>Manages deadlines and fairness.</p>
+<hr>
+<h1 id="state-management">State Management<a href="#state-management" class="heading-anchor">#</a></h1>
+<p>State Manager owns authoritative runtime state.</p>
+<p>It tracks workflow state and node state.</p>
+<p>It tracks execution metadata.</p>
+<p>It must serialize its footprint completely.</p>
+<p>Memory Layer is not runtime state.</p>
+<hr>
+<h1 id="checkpointing">Checkpointing<a href="#checkpointing" class="heading-anchor">#</a></h1>
+<p>Triggers before and after node execution.</p>
+<p>Contains complete snapshot of execution.</p>
+<p>Stored in fast, durable storage.</p>
+<p>Supports replay and restoration.</p>
+<p>Guarantees atomic consistency.</p>
+<hr>
+<h1 id="pause-resume">Pause / Resume<a href="#pause-resume" class="heading-anchor">#</a></h1>
+<p>Supports user pause.</p>
+<p>Supports approval wait.</p>
+<p>Supports resource exhaustion limits.</p>
+<p>Allows infrastructure maintenance.</p>
+<p>Enables failure recovery without data loss.</p>
+<hr>
+<h1 id="cancellation">Cancellation<a href="#cancellation" class="heading-anchor">#</a></h1>
+<p>Supports graceful cancel.</p>
+<p>Supports forced cancel.</p>
+<p>Handles in-flight tools where possible.</p>
+<p>Aborts in-flight model inference to save tokens.</p>
+<p>Coordinates compensation workflows.</p>
+<hr>
+<h1 id="failure-handling">Failure Handling<a href="#failure-handling" class="heading-anchor">#</a></h1>
+<p>Node Failure.</p>
+<p>Dependency Failure.</p>
+<p>Tool Failure.</p>
+<p>Model Failure.</p>
+<p>Authorization Failure.</p>
+<p>Approval Denied.</p>
+<p>Timeout.</p>
+<p>Resource Exhaustion.</p>
+<p>Infrastructure Failure.</p>
+<hr>
+<h1 id="retry-system">Retry System<a href="#retry-system" class="heading-anchor">#</a></h1>
+<p>Applies configurable retry policies.</p>
+<p>Uses exponential backoff.</p>
+<p>Requires idempotency awareness.</p>
+<p>Enforces retry limits.</p>
+<p>Classifies transient vs permanent failures.</p>
+<hr>
+<h1 id="human-approval-runtime">Human Approval Runtime<a href="#human-approval-runtime" class="heading-anchor">#</a></h1>
+<p>Workflow pauses execution.</p>
+<p>Approval request is created.</p>
+<p>Approval is consumed securely.</p>
+<p>Approval expires after TTL.</p>
+<p>Denial routes to error handling.</p>
+<hr>
+<h1 id="resource-coordination">Resource Coordination<a href="#resource-coordination" class="heading-anchor">#</a></h1>
+<p>Manages CPU and memory.</p>
+<p>Manages GPU limits.</p>
+<p>Manages API tokens.</p>
+<p>Manages sandbox capacity.</p>
+<p>Coordinates deeply with Scheduler.</p>
+<hr>
+<h1 id="event-system-integration">Event System Integration<a href="#event-system-integration" class="heading-anchor">#</a></h1>
+<p>Emits immutable events:</p>
+<ul>
+<li>WorkflowStarted</li>
+<li>NodeStarted</li>
+<li>NodeCompleted</li>
+<li>NodeFailed</li>
+<li>WorkflowPaused</li>
+<li>WorkflowResumed</li>
+<li>WorkflowCancelled</li>
+<li>WorkflowCompleted</li>
+</ul>
+<hr>
+<h1 id="runtime-recovery">Runtime Recovery<a href="#runtime-recovery" class="heading-anchor">#</a></h1>
+<p>Survives process crashes.</p>
+<p>Survives worker crashes.</p>
+<p>Detects dead heartbeats.</p>
+<p>Restores from checkpoints.</p>
+<p>Replays execution logic.</p>
+<p>Recovers partial executions safely.</p>
+<hr>
+<h1 id="runtime-observability">Runtime Observability<a href="#runtime-observability" class="heading-anchor">#</a></h1>
+<p>Metrics tracked:</p>
+<ul>
+<li>workflow latency</li>
+<li>node latency</li>
+<li>queue depth</li>
+<li>retry rate</li>
+<li>failure rate</li>
+<li>checkpoint frequency</li>
+<li>resource utilization</li>
+</ul>
+<hr>
+<h1 id="security-integration">Security Integration<a href="#security-integration" class="heading-anchor">#</a></h1>
+<p>Never bypasses authorization.</p>
+<p>Never bypasses approvals.</p>
+<p>Enforces sandbox requirements.</p>
+<p>Enforces scope restrictions.</p>
+<hr>
+<h1 id="evolution-integration">Evolution Integration<a href="#evolution-integration" class="heading-anchor">#</a></h1>
+<p>Evolution benchmarks runtime strategies.</p>
+<p>Evolution cannot directly alter runtime behavior without promotion.</p>
+<p>Executes A/B tests via Conditional Nodes.</p>
+<hr>
+<h1 id="lifecycle">Lifecycle<a href="#lifecycle" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">Created
+↓
+Scheduled
+↓
+Running
+├── Paused
+├── Failed
+├── Cancelled
+└── Completed
+</code></pre>
+<hr>
+<h1 id="detailed-data-flows">Detailed Data Flows<a href="#detailed-data-flows" class="heading-anchor">#</a></h1>
+<h2 id="workflow-start">Workflow Start<a href="#workflow-start" class="heading-anchor">#</a></h2>
+<p>Core submits Definition.</p>
+<p>Execution Manager creates Instance.</p>
+<p>Checkpoint is written.</p>
+<p>Scheduler queues root nodes.</p>
+<h2 id="node-scheduling">Node Scheduling<a href="#node-scheduling" class="heading-anchor">#</a></h2>
+<p>Scheduler pulls node.</p>
+<p>Resource Coordinator acquires tokens.</p>
+<p>Checkpoint is written.</p>
+<p>Node Executor invokes specific layer.</p>
+<h2 id="tool-node-execution">Tool Node Execution<a href="#tool-node-execution" class="heading-anchor">#</a></h2>
+<p>Executor maps input to Tool Layer.</p>
+<p>Tool executes in sandbox.</p>
+<p>Output returned to Executor.</p>
+<p>State updated and checkpointed.</p>
+<h2 id="agent-node-execution">Agent Node Execution<a href="#agent-node-execution" class="heading-anchor">#</a></h2>
+<p>Executor delegates to Agent Layer.</p>
+<p>Agent runs reasoning loops.</p>
+<p>Agent returns synthesis.</p>
+<p>State updated and checkpointed.</p>
+<h2 id="approval-pause">Approval Pause<a href="#approval-pause" class="heading-anchor">#</a></h2>
+<p>Executor identifies Human Node.</p>
+<p>State transitions to PAUSED.</p>
+<p>Approval Coordinator emits request.</p>
+<p>Compute resources released.</p>
+<h2 id="recovery-from-failure">Recovery From Failure<a href="#recovery-from-failure" class="heading-anchor">#</a></h2>
+<p>Worker hard crashes.</p>
+<p>Recovery Manager detects dead heartbeat.</p>
+<p>Manager reads last checkpoint.</p>
+<p>State Manager rebuilt in memory.</p>
+<p>Failed nodes retried or resumed.</p>
+<hr>
+<h1 id="architectural-constraints">Architectural Constraints<a href="#architectural-constraints" class="heading-anchor">#</a></h1>
+<p>Checkpointing must be highly optimized.</p>
+<p>Storage latency impacts execution time.</p>
+<p>Runtime assumes reliable internal networking.</p>
+<p>Workers must be completely stateless.</p>
+<hr>
+<h1 id="future-runtime-evolution">Future Runtime Evolution<a href="#future-runtime-evolution" class="heading-anchor">#</a></h1>
+<p>Just-In-Time Compilation of DAGs.</p>
+<p>Predictive Scheduling.</p>
+<p>Distributed State Protocols.</p>
+<p>Saga Compensation Coordination.</p>
+<hr>
+<h1 id="key-insight">Key Insight<a href="#key-insight" class="heading-anchor">#</a></h1>
+<p>Execution is infrastructure.</p>
+<p>Nodes focus entirely on cognitive tasks.</p>
+<p>The execution environment is indestructible.</p>
+<hr>
+<h1 id="open-questions">Open Questions<a href="#open-questions" class="heading-anchor">#</a></h1>
+<ol>
+<li>What is the optimal state granularity for Model Nodes?</li>
+<li>How to guarantee idempotency for legacy third-party APIs?</li>
+<li>What is the fallback for timed-out critical security approvals?</li>
+</ol>
+
+        </article>
+        <div class="doc-footer-nav">
+      <a href="../02-Architecture/Observability-System.html" class="nav-card prev">
+        <span class="nav-card-label">Previous</span>
+        <span class="nav-card-title">Observability System</span>
+      </a>
+    
+      <a href="../02-Architecture/Security-Architecture.html" class="nav-card next">
+        <span class="nav-card-label">Next</span>
+        <span class="nav-card-title">Security Architecture</span>
+      </a>
+    </div>
+      </div>
+    </main>
+
+    <!-- Right Table of Contents Sidebar -->
+    
+    <aside class="site-toc">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list">
+        <li class="toc-item depth-2">
+  <a href="#execution-manager" class="toc-link">Execution Manager</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#scheduler" class="toc-link">Scheduler</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#state-manager" class="toc-link">State Manager</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#checkpoint-manager" class="toc-link">Checkpoint Manager</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#node-executor" class="toc-link">Node Executor</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#event-dispatcher" class="toc-link">Event Dispatcher</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#retry-manager" class="toc-link">Retry Manager</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#recovery-manager" class="toc-link">Recovery Manager</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#approval-coordinator" class="toc-link">Approval Coordinator</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#resource-coordinator" class="toc-link">Resource Coordinator</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#runtime-telemetry-service" class="toc-link">Runtime Telemetry Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#runtime-lifecycle-manager" class="toc-link">Runtime Lifecycle Manager</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#node-types" class="toc-link">Node Types</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workflow-start" class="toc-link">Workflow Start</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#node-scheduling" class="toc-link">Node Scheduling</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tool-node-execution" class="toc-link">Tool Node Execution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agent-node-execution" class="toc-link">Agent Node Execution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#approval-pause" class="toc-link">Approval Pause</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#recovery-from-failure" class="toc-link">Recovery From Failure</a>
+</li>
+
+      </ul>
+    </aside>
+  
+
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

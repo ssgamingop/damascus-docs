@@ -4,7 +4,7 @@ import { marked } from 'marked';
 
 // Define directories
 const WORKSPACE_DIR = process.cwd();
-const SRC_DIRS = ['00-Vision', '01-Research', '02-Architecture'];
+const SRC_DIRS = ['00-Vision', '01-Research', '02-Architecture','03-Implementation'];
 const OUTPUT_DIR = path.join(WORKSPACE_DIR, 'docs');
 const ASSETS_SRC_DIR = path.join(WORKSPACE_DIR, 'assets');
 const ASSETS_OUT_DIR = path.join(OUTPUT_DIR, 'assets');

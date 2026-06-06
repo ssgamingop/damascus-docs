@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technology Stack | Damascus Docs</title>
+  <meta name="description" content="Damascus - Privacy-first, local-first intelligence operating system documentation">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    window.damascusMermaid = mermaid;
+  </script>
+</head>
+<body data-root="../">
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="brand">
+      <button class="mobile-header-btn" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="../index.html" class="brand">
+        <div class="logo">D</div>
+        <span class="title">Damascus Docs</span>
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <!-- Search Input Container -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="search-input" placeholder="Search docs..." aria-label="Search documentation">
+          <kbd class="search-shortcut">/</kbd>
+        </div>
+        
+        <!-- Results Dropdown -->
+        <div class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" aria-label="Toggle theme">
+        <!-- Sun (Light Theme Icon) -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon (Dark Theme Icon) -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Layout Grid -->
+  <div class="layout-container">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="site-sidebar">
+      <div class="sidebar-section">
+  <div class="sidebar-section-title">Vision</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Mission.html" class="sidebar-nav-link ">Mission</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Vision.html" class="sidebar-nav-link ">Damascus Vision</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Why-Damascus.html" class="sidebar-nav-link ">Why Damascus Exists</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Research</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/AI-Operating-Systems.html" class="sidebar-nav-link ">AI Operating Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Hermes-Analysis.html" class="sidebar-nav-link ">Hermes Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Knowledge-Graphs.html" class="sidebar-nav-link ">Knowledge Graphs</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/LangGraph-Analysis.html" class="sidebar-nav-link ">LangGraph Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Memory-Systems.html" class="sidebar-nav-link ">Memory Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Multi-Agent-Systems.html" class="sidebar-nav-link ">Multi Agent Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Odysseus-Analysis.html" class="sidebar-nav-link ">Odysseus Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/OpenHands-Analysis.html" class="sidebar-nav-link ">OpenHands Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Self-Improving-Agents.html" class="sidebar-nav-link ">Self Improving Agents</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Architecture</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link ">Agent Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Benchmark-System.html" class="sidebar-nav-link ">Benchmark System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link ">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Event-System.html" class="sidebar-nav-link ">Event System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link ">Evolution Engine</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/High-Level-Architecture.html" class="sidebar-nav-link ">High Level Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Memory-Architecture.html" class="sidebar-nav-link ">Memory Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link ">Model Abstraction Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Observability-System.html" class="sidebar-nav-link ">Observability System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Runtime-System.html" class="sidebar-nav-link ">Runtime System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link ">Security Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Tool-Layer.html" class="sidebar-nav-link ">Tool Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link ">Workspace System</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">03-Implementation</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../03-Implementation/Technology-Stack.html" class="sidebar-nav-link active">Technology Stack</a>
+    </li>
+  </ul>
+</div>
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <article class="doc-content">
+          <div class="doc-meta"><span class="meta-badge">Version 0.1</span><span class="meta-badge status-implementation-foundation">Implementation Foundation</span><span class="meta-badge priority-critical">Priority Critical</span></div> <h1 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h1>
+<p>This document defines the technology stack for Damascus V1.</p>
+<p>The purpose is not to select fashionable technologies.</p>
+<p>The purpose is to choose technologies that maximize:</p>
+<ul>
+<li>Local-first operation</li>
+<li>Privacy</li>
+<li>Extensibility</li>
+<li>Reliability</li>
+<li>Developer productivity</li>
+<li>Evolution capability</li>
+<li>Long-term maintainability</li>
+</ul>
+<p>Every technology selected must support the core Damascus philosophy:</p>
+<p>Current AI systems execute tasks.</p>
+<p>Damascus improves how tasks are executed.</p>
+<p>The stack must therefore support execution, memory, benchmarking, observability, and evolution as first-class concerns.</p>
+<hr>
+<h1 id="executive-summary">Executive Summary<a href="#executive-summary" class="heading-anchor">#</a></h1>
+<p>Damascus V1 will prioritize:</p>
+<ul>
+<li>Open-source technologies</li>
+<li>Self-hostable infrastructure</li>
+<li>Replaceable components</li>
+<li>Low operational complexity</li>
+<li>Rapid development</li>
+</ul>
+<p>The architecture intentionally avoids vendor lock-in.</p>
+<p>Every major subsystem is accessed through abstraction layers.</p>
+<p>This allows individual technologies to be replaced without redesigning the platform.</p>
+<hr>
+<h1 id="technology-selection-philosophy">Technology Selection Philosophy<a href="#technology-selection-philosophy" class="heading-anchor">#</a></h1>
+<h2 id="open-source-first">Open Source First<a href="#open-source-first" class="heading-anchor">#</a></h2>
+<p>Preference should always be given to open-source software.</p>
+<p>Benefits:</p>
+<ul>
+<li>transparency</li>
+<li>auditability</li>
+<li>community support</li>
+<li>long-term independence</li>
+</ul>
+<hr>
+<h2 id="local-first">Local First<a href="#local-first" class="heading-anchor">#</a></h2>
+<p>Damascus must function on a developer workstation.</p>
+<p>Cloud infrastructure should be optional.</p>
+<p>The architecture must not assume internet connectivity.</p>
+<hr>
+<h2 id="replaceable-components">Replaceable Components<a href="#replaceable-components" class="heading-anchor">#</a></h2>
+<p>No technology should become a permanent dependency.</p>
+<p>All major systems should be hidden behind interfaces.</p>
+<p>Examples:</p>
+<pre><code class="language-diagram">Model Interface
+↓
+OpenAI
+Model Interface
+↓
+Ollama
+Model Interface
+↓
+Future Provider
+</code></pre>
+<hr>
+<h2 id="operational-simplicity">Operational Simplicity<a href="#operational-simplicity" class="heading-anchor">#</a></h2>
+<p>A simpler stack is preferred over a theoretically superior stack that dramatically increases operational burden.</p>
+<hr>
+<h2 id="evolution-friendly">Evolution Friendly<a href="#evolution-friendly" class="heading-anchor">#</a></h2>
+<p>The stack must support:</p>
+<ul>
+<li>benchmarking</li>
+<li>experimentation</li>
+<li>observability</li>
+<li>workflow evolution</li>
+</ul>
+<p>without requiring architectural changes.</p>
+<hr>
+<h1 id="core-programming-language">Core Programming Language<a href="#core-programming-language" class="heading-anchor">#</a></h1>
+<h2 id="candidates">Candidates<a href="#candidates" class="heading-anchor">#</a></h2>
+<h3 id="python">Python<a href="#python" class="heading-anchor">#</a></h3>
+<p>Advantages:</p>
+<ul>
+<li>strongest AI ecosystem</li>
+<li>LangGraph</li>
+<li>PyTorch</li>
+<li>Transformers</li>
+<li>MCP ecosystem</li>
+<li>rapid prototyping</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>slower execution</li>
+<li>GIL limitations</li>
+</ul>
+<hr>
+<h3 id="go">Go<a href="#go" class="heading-anchor">#</a></h3>
+<p>Advantages:</p>
+<ul>
+<li>performance</li>
+<li>concurrency</li>
+<li>deployment simplicity</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>weaker AI ecosystem</li>
+</ul>
+<hr>
+<h3 id="rust">Rust<a href="#rust" class="heading-anchor">#</a></h3>
+<p>Advantages:</p>
+<ul>
+<li>performance</li>
+<li>memory safety</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>development speed</li>
+</ul>
+<hr>
+<h3 id="typescript">TypeScript<a href="#typescript" class="heading-anchor">#</a></h3>
+<p>Advantages:</p>
+<ul>
+<li>frontend ecosystem</li>
+<li>full-stack capability</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>weaker AI tooling</li>
+</ul>
+<hr>
+<h1 id="decision">Decision<a href="#decision" class="heading-anchor">#</a></h1>
+<p>Primary Language:</p>
+<p>Python</p>
+<p>Reasoning:</p>
+<p>Damascus is an intelligence platform.</p>
+<p>Most innovation will occur inside:</p>
+<ul>
+<li>agents</li>
+<li>memory</li>
+<li>benchmarking</li>
+<li>evolution</li>
+</ul>
+<p>Python dominates these ecosystems.</p>
+<hr>
+<h1 id="secondary-language">Secondary Language<a href="#secondary-language" class="heading-anchor">#</a></h1>
+<p>Rust</p>
+<p>Used for:</p>
+<ul>
+<li>performance-critical services</li>
+<li>desktop integrations</li>
+<li>runtime optimization</li>
+<li>future local execution acceleration</li>
+</ul>
+<hr>
+<h1 id="backend-framework">Backend Framework<a href="#backend-framework" class="heading-anchor">#</a></h1>
+<h2 id="candidates">Candidates<a href="#candidates" class="heading-anchor">#</a></h2>
+<h3 id="fastapi">FastAPI<a href="#fastapi" class="heading-anchor">#</a></h3>
+<p>Advantages:</p>
+<ul>
+<li>async support</li>
+<li>type hints</li>
+<li>OpenAPI generation</li>
+<li>performance</li>
+</ul>
+<h3 id="django">Django<a href="#django" class="heading-anchor">#</a></h3>
+<p>Advantages:</p>
+<ul>
+<li>batteries included</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>heavier architecture</li>
+</ul>
+<h3 id="flask">Flask<a href="#flask" class="heading-anchor">#</a></h3>
+<p>Advantages:</p>
+<ul>
+<li>lightweight</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>less structured</li>
+</ul>
+<hr>
+<h1 id="decision">Decision<a href="#decision" class="heading-anchor">#</a></h1>
+<p>FastAPI</p>
+<p>FastAPI aligns closely with Damascus architecture.</p>
+<p>It provides:</p>
+<ul>
+<li>asynchronous execution</li>
+<li>service-oriented design</li>
+<li>strong typing</li>
+<li>API-first development</li>
+</ul>
+<hr>
+<h1 id="workflow-runtime">Workflow Runtime<a href="#workflow-runtime" class="heading-anchor">#</a></h1>
+<h2 id="candidates">Candidates<a href="#candidates" class="heading-anchor">#</a></h2>
+<h3 id="langgraph">LangGraph<a href="#langgraph" class="heading-anchor">#</a></h3>
+<p>Advantages:</p>
+<ul>
+<li>stateful execution</li>
+<li>graph architecture</li>
+<li>checkpointing</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>architectural constraints</li>
+</ul>
+<h3 id="crewai">CrewAI<a href="#crewai" class="heading-anchor">#</a></h3>
+<p>Advantages:</p>
+<ul>
+<li>agent simplicity</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>weaker workflow model</li>
+</ul>
+<h3 id="autogen">AutoGen<a href="#autogen" class="heading-anchor">#</a></h3>
+<p>Advantages:</p>
+<ul>
+<li>conversational agents</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>execution limitations</li>
+</ul>
+<h3 id="custom-runtime">Custom Runtime<a href="#custom-runtime" class="heading-anchor">#</a></h3>
+<p>Advantages:</p>
+<ul>
+<li>complete control</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>massive complexity</li>
+</ul>
+<hr>
+<h1 id="decision">Decision<a href="#decision" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">Runtime Abstraction Layer
+↓
+LangGraph Adapter (V1)
+</code></pre>
+<p>This allows Damascus to benefit from LangGraph while preserving long-term independence.</p>
+<hr>
+<h1 id="frontend-stack">Frontend Stack<a href="#frontend-stack" class="heading-anchor">#</a></h1>
+<h2 id="decision">Decision<a href="#decision" class="heading-anchor">#</a></h2>
+<p>Next.js</p>
+<p>React</p>
+<p>TypeScript</p>
+<hr>
+<h1 id="reasons">Reasons<a href="#reasons" class="heading-anchor">#</a></h1>
+<p>Strong ecosystem.</p>
+<p>Excellent developer experience.</p>
+<p>Large talent pool.</p>
+<p>Strong support for:</p>
+<ul>
+<li>dashboards</li>
+<li>workspaces</li>
+<li>administration interfaces</li>
+<li>observability tooling</li>
+</ul>
+<hr>
+<h1 id="ui-framework">UI Framework<a href="#ui-framework" class="heading-anchor">#</a></h1>
+<h2 id="decision">Decision<a href="#decision" class="heading-anchor">#</a></h2>
+<p>TailwindCSS</p>
+<p>shadcn/ui</p>
+<hr>
+<h1 id="reasons">Reasons<a href="#reasons" class="heading-anchor">#</a></h1>
+<ul>
+<li>consistency</li>
+<li>accessibility</li>
+<li>customization</li>
+<li>developer productivity</li>
+</ul>
+<hr>
+<h1 id="desktop-application">Desktop Application<a href="#desktop-application" class="heading-anchor">#</a></h1>
+<h2 id="candidates">Candidates<a href="#candidates" class="heading-anchor">#</a></h2>
+<p>Electron</p>
+<p>Tauri</p>
+<hr>
+<h1 id="decision">Decision<a href="#decision" class="heading-anchor">#</a></h1>
+<p>Tauri</p>
+<hr>
+<h1 id="reasons">Reasons<a href="#reasons" class="heading-anchor">#</a></h1>
+<p>Smaller binaries.</p>
+<p>Lower memory usage.</p>
+<p>Rust security model.</p>
+<p>Better fit for local-first architecture.</p>
+<hr>
+<h1 id="structured-data-storage">Structured Data Storage<a href="#structured-data-storage" class="heading-anchor">#</a></h1>
+<h2 id="candidates">Candidates<a href="#candidates" class="heading-anchor">#</a></h2>
+<p>PostgreSQL</p>
+<p>MySQL</p>
+<p>SQLite</p>
+<hr>
+<h1 id="decision">Decision<a href="#decision" class="heading-anchor">#</a></h1>
+<p>PostgreSQL</p>
+<hr>
+<h1 id="reasons">Reasons<a href="#reasons" class="heading-anchor">#</a></h1>
+<p>Supports:</p>
+<ul>
+<li>relational data</li>
+<li>JSONB</li>
+<li>extensions</li>
+<li>transactions</li>
+</ul>
+<p>Many Damascus systems naturally fit PostgreSQL.</p>
+<hr>
+<h1 id="working-memory">Working Memory<a href="#working-memory" class="heading-anchor">#</a></h1>
+<h2 id="decision">Decision<a href="#decision" class="heading-anchor">#</a></h2>
+<p>Redis</p>
+<hr>
+<h1 id="responsibilities">Responsibilities<a href="#responsibilities" class="heading-anchor">#</a></h1>
+<ul>
+<li>runtime state</li>
+<li>queues</li>
+<li>caching</li>
+<li>coordination</li>
+</ul>
+<hr>
+<h1 id="semantic-memory">Semantic Memory<a href="#semantic-memory" class="heading-anchor">#</a></h1>
+<h2 id="decision">Decision<a href="#decision" class="heading-anchor">#</a></h2>
+<p>Qdrant</p>
+<hr>
+<h1 id="reasons">Reasons<a href="#reasons" class="heading-anchor">#</a></h1>
+<ul>
+<li>open source</li>
+<li>self-hosted</li>
+<li>strong vector search</li>
+<li>active development</li>
+</ul>
+<hr>
+<h1 id="knowledge-graph">Knowledge Graph<a href="#knowledge-graph" class="heading-anchor">#</a></h1>
+<h2 id="candidates">Candidates<a href="#candidates" class="heading-anchor">#</a></h2>
+<p>Neo4j</p>
+<p>Memgraph</p>
+<p>Apache AGE</p>
+<hr>
+<h1 id="preferred-choice">Preferred Choice<a href="#preferred-choice" class="heading-anchor">#</a></h1>
+<p>Apache AGE</p>
+<hr>
+<h1 id="reasons">Reasons<a href="#reasons" class="heading-anchor">#</a></h1>
+<p>Runs inside PostgreSQL.</p>
+<p>Reduces operational complexity.</p>
+<p>Allows graph and relational data to coexist.</p>
+<hr>
+<h1 id="event-infrastructure">Event Infrastructure<a href="#event-infrastructure" class="heading-anchor">#</a></h1>
+<h2 id="candidates">Candidates<a href="#candidates" class="heading-anchor">#</a></h2>
+<p>Kafka</p>
+<p>RabbitMQ</p>
+<p>NATS</p>
+<hr>
+<h1 id="decision">Decision<a href="#decision" class="heading-anchor">#</a></h1>
+<p>NATS</p>
+<hr>
+<h1 id="reasons">Reasons<a href="#reasons" class="heading-anchor">#</a></h1>
+<p>Damascus does not initially need Kafka-scale infrastructure.</p>
+<p>NATS provides:</p>
+<ul>
+<li>simplicity</li>
+<li>performance</li>
+<li>easy local deployment</li>
+</ul>
+<hr>
+<h1 id="object-storage">Object Storage<a href="#object-storage" class="heading-anchor">#</a></h1>
+<h2 id="development">Development<a href="#development" class="heading-anchor">#</a></h2>
+<p>MinIO</p>
+<hr>
+<h2 id="future">Future<a href="#future" class="heading-anchor">#</a></h2>
+<p>Any S3-compatible provider</p>
+<p>Examples:</p>
+<ul>
+<li>AWS S3</li>
+<li>Cloudflare R2</li>
+<li>Backblaze B2</li>
+</ul>
+<hr>
+<h1 id="observability-stack">Observability Stack<a href="#observability-stack" class="heading-anchor">#</a></h1>
+<h2 id="metrics">Metrics<a href="#metrics" class="heading-anchor">#</a></h2>
+<p>Prometheus</p>
+<hr>
+<h2 id="dashboards">Dashboards<a href="#dashboards" class="heading-anchor">#</a></h2>
+<p>Grafana</p>
+<hr>
+<h2 id="tracing">Tracing<a href="#tracing" class="heading-anchor">#</a></h2>
+<p>OpenTelemetry</p>
+<hr>
+<h2 id="log-storage">Log Storage<a href="#log-storage" class="heading-anchor">#</a></h2>
+<p>Loki</p>
+<hr>
+<h1 id="containerization">Containerization<a href="#containerization" class="heading-anchor">#</a></h1>
+<p>Docker</p>
+<p>Docker Compose</p>
+<hr>
+<h1 id="why-not-kubernetes-initially">Why Not Kubernetes Initially<a href="#why-not-kubernetes-initially" class="heading-anchor">#</a></h1>
+<p>Kubernetes introduces operational complexity.</p>
+<p>Damascus V1 should optimize for:</p>
+<ul>
+<li>development velocity</li>
+<li>experimentation</li>
+<li>local deployment</li>
+</ul>
+<p>Kubernetes can be introduced later.</p>
+<hr>
+<h1 id="model-providers">Model Providers<a href="#model-providers" class="heading-anchor">#</a></h1>
+<p>Supported Through Model Abstraction Layer</p>
+<p>Providers:</p>
+<ul>
+<li>Ollama</li>
+<li>OpenAI</li>
+<li>Anthropic</li>
+<li>Gemini</li>
+<li>OpenRouter</li>
+</ul>
+<p>Future providers require only adapters.</p>
+<hr>
+<h1 id="authentication">Authentication<a href="#authentication" class="heading-anchor">#</a></h1>
+<h2 id="v1">V1<a href="#v1" class="heading-anchor">#</a></h2>
+<p>Local Accounts</p>
+<p>Encrypted Credentials</p>
+<p>Workspace Ownership</p>
+<hr>
+<h2 id="future">Future<a href="#future" class="heading-anchor">#</a></h2>
+<p>OAuth</p>
+<p>Enterprise SSO</p>
+<p>Multi-user collaboration</p>
+<hr>
+<h1 id="testing-stack">Testing Stack<a href="#testing-stack" class="heading-anchor">#</a></h1>
+<p>Unit Testing:</p>
+<p>Pytest</p>
+<hr>
+<p>Integration Testing:</p>
+<p>Pytest</p>
+<hr>
+<p>Frontend Testing:</p>
+<p>Playwright</p>
+<hr>
+<p>Benchmark Testing:</p>
+<p>Custom Damascus Benchmark Framework</p>
+<hr>
+<h1 id="cicd">CI/CD<a href="#cicd" class="heading-anchor">#</a></h1>
+<p>GitHub Actions</p>
+<hr>
+<p>Responsibilities</p>
+<ul>
+<li>testing</li>
+<li>linting</li>
+<li>validation</li>
+<li>releases</li>
+</ul>
+<hr>
+<h1 id="secrets-management">Secrets Management<a href="#secrets-management" class="heading-anchor">#</a></h1>
+<h2 id="v1">V1<a href="#v1" class="heading-anchor">#</a></h2>
+<p>Encrypted local secrets</p>
+<p>OS keychain integration</p>
+<hr>
+<h2 id="future">Future<a href="#future" class="heading-anchor">#</a></h2>
+<p>Vault integration</p>
+<p>Enterprise secret providers</p>
+<hr>
+<h1 id="final-damascus-v1-stack">Final Damascus V1 Stack<a href="#final-damascus-v1-stack" class="heading-anchor">#</a></h1>
+<p>Backend</p>
+<ul>
+<li>Python</li>
+<li>FastAPI</li>
+<li>LangGraph Adapter</li>
+</ul>
+<p>Frontend</p>
+<ul>
+<li>Next.js</li>
+<li>React</li>
+<li>TypeScript</li>
+<li>Tailwind</li>
+<li>shadcn/ui</li>
+</ul>
+<p>Desktop</p>
+<ul>
+<li>Tauri</li>
+<li>Rust</li>
+</ul>
+<p>Databases</p>
+<ul>
+<li>PostgreSQL</li>
+<li>Redis</li>
+<li>Qdrant</li>
+<li>Apache AGE</li>
+</ul>
+<p>Messaging</p>
+<ul>
+<li>NATS</li>
+</ul>
+<p>Observability</p>
+<ul>
+<li>Prometheus</li>
+<li>Grafana</li>
+<li>OpenTelemetry</li>
+<li>Loki</li>
+</ul>
+<p>Storage</p>
+<ul>
+<li>MinIO</li>
+</ul>
+<p>Containers</p>
+<ul>
+<li>Docker</li>
+<li>Docker Compose</li>
+</ul>
+<p>CI/CD</p>
+<ul>
+<li>GitHub Actions</li>
+</ul>
+<p>Models</p>
+<ul>
+<li>Ollama</li>
+<li>OpenAI</li>
+<li>Anthropic</li>
+<li>Gemini</li>
+<li>OpenRouter</li>
+</ul>
+<hr>
+<h1 id="key-insight">Key Insight<a href="#key-insight" class="heading-anchor">#</a></h1>
+<p>The Damascus technology stack is intentionally conservative.</p>
+<p>The innovation of Damascus does not come from unusual technologies.</p>
+<p>It comes from how execution, memory, benchmarking, observability, and evolution are combined into a single intelligence platform.</p>
+<p>Technology should support that vision, not define it.</p>
+
+        </article>
+        <div class="doc-footer-nav">
+      <a href="../02-Architecture/Workspace-System.html" class="nav-card prev">
+        <span class="nav-card-label">Previous</span>
+        <span class="nav-card-title">Workspace System</span>
+      </a>
+    </div>
+      </div>
+    </main>
+
+    <!-- Right Table of Contents Sidebar -->
+    
+    <aside class="site-toc">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list">
+        <li class="toc-item depth-2">
+  <a href="#open-source-first" class="toc-link">Open Source First</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#local-first" class="toc-link">Local First</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#replaceable-components" class="toc-link">Replaceable Components</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#operational-simplicity" class="toc-link">Operational Simplicity</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evolution-friendly" class="toc-link">Evolution Friendly</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#candidates" class="toc-link">Candidates</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#python" class="toc-link">Python</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#go" class="toc-link">Go</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#rust" class="toc-link">Rust</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#typescript" class="toc-link">TypeScript</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#candidates" class="toc-link">Candidates</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#fastapi" class="toc-link">FastAPI</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#django" class="toc-link">Django</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#flask" class="toc-link">Flask</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#candidates" class="toc-link">Candidates</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#langgraph" class="toc-link">LangGraph</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#crewai" class="toc-link">CrewAI</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#autogen" class="toc-link">AutoGen</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#custom-runtime" class="toc-link">Custom Runtime</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#decision" class="toc-link">Decision</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#decision" class="toc-link">Decision</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#candidates" class="toc-link">Candidates</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#candidates" class="toc-link">Candidates</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#decision" class="toc-link">Decision</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#decision" class="toc-link">Decision</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#candidates" class="toc-link">Candidates</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#candidates" class="toc-link">Candidates</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#development" class="toc-link">Development</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#future" class="toc-link">Future</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#metrics" class="toc-link">Metrics</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#dashboards" class="toc-link">Dashboards</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tracing" class="toc-link">Tracing</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#log-storage" class="toc-link">Log Storage</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#v1" class="toc-link">V1</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#future" class="toc-link">Future</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#v1" class="toc-link">V1</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#future" class="toc-link">Future</a>
+</li>
+
+      </ul>
+    </aside>
+  
+
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
