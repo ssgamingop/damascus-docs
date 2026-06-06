@@ -96,15 +96,16 @@ Those responsibilities belong to dedicated subsystems.
 
 # Core Architecture
 
-Damascus Core
-
-├── Orchestration Runtime
-├── State Manager
-├── Event Bus
-├── Scheduler
-├── Registry Layer
-├── Observability Layer
-└── Lifecycle Manager
+```mermaid
+graph TD
+    Core[Damascus Core] --> OR[Orchestration Runtime]
+    Core --> SM[State Manager]
+    Core --> EB[Event Bus]
+    Core --> Sch[Scheduler]
+    Core --> RL[Registry Layer]
+    Core --> OL[Observability Layer]
+    Core --> LM[Lifecycle Manager]
+```
 
 The Core provides the execution environment within which all Damascus capabilities operate.
 
@@ -122,13 +123,15 @@ Everything executes as part of a workflow.
 
 Examples:
 
-Workflow
-├── Agent Node
-├── Tool Node
-├── Human Approval Node
-├── Model Node
-├── Research Node
-└── Benchmark Node
+```mermaid
+graph TD
+    WF[Workflow] --> AN[Agent Node]
+    WF --> TN[Tool Node]
+    WF --> HAN[Human Approval Node]
+    WF --> MN[Model Node]
+    WF --> RN[Research Node]
+    WF --> BN[Benchmark Node]
+```
 
 Future workflow types may contain entirely different node structures.
 
