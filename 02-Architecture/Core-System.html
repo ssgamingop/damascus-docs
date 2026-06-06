@@ -127,7 +127,13 @@
       <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link ">Agent Layer</a>
     </li>
     <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Benchmark-System.html" class="sidebar-nav-link ">Benchmark System</a>
+    </li>
+    <li class="sidebar-nav-item">
       <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link active">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Event-System.html" class="sidebar-nav-link ">Event System</a>
     </li>
     <li class="sidebar-nav-item">
       <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link ">Evolution Engine</a>
@@ -142,6 +148,12 @@
       <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link ">Model Abstraction Layer</a>
     </li>
     <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Observability-System.html" class="sidebar-nav-link ">Observability System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Runtime-System.html" class="sidebar-nav-link ">Runtime System</a>
+    </li>
+    <li class="sidebar-nav-item">
       <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link ">Security Architecture</a>
     </li>
     <li class="sidebar-nav-item">
@@ -149,6 +161,14 @@
     </li>
     <li class="sidebar-nav-item">
       <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link ">Workspace System</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">03-Implementation</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../03-Implementation/Technology-Stack.html" class="sidebar-nav-link ">Technology Stack</a>
     </li>
   </ul>
 </div>
@@ -224,14 +244,14 @@ Evolution
 <p>Those responsibilities belong to dedicated subsystems.</p>
 <hr>
 <h1 id="core-architecture">Core Architecture<a href="#core-architecture" class="heading-anchor">#</a></h1>
-<pre><code class="language-diagram">Damascus Core
-├── Orchestration Runtime
-├── State Manager
-├── Event Bus
-├── Scheduler
-├── Registry Layer
-├── Observability Layer
-└── Lifecycle Manager
+<pre><code class="language-mermaid">graph TD
+    Core[Damascus Core] --&gt; OR[Orchestration Runtime]
+    Core --&gt; SM[State Manager]
+    Core --&gt; EB[Event Bus]
+    Core --&gt; Sch[Scheduler]
+    Core --&gt; RL[Registry Layer]
+    Core --&gt; OL[Observability Layer]
+    Core --&gt; LM[Lifecycle Manager]
 </code></pre>
 <p>The Core provides the execution environment within which all Damascus capabilities operate.</p>
 <hr>
@@ -241,13 +261,13 @@ Evolution
 <p>Not agent-centric.</p>
 <p>Everything executes as part of a workflow.</p>
 <p>Examples:</p>
-<pre><code class="language-diagram">Workflow
-├── Agent Node
-├── Tool Node
-├── Human Approval Node
-├── Model Node
-├── Research Node
-└── Benchmark Node
+<pre><code class="language-mermaid">graph TD
+    WF[Workflow] --&gt; AN[Agent Node]
+    WF --&gt; TN[Tool Node]
+    WF --&gt; HAN[Human Approval Node]
+    WF --&gt; MN[Model Node]
+    WF --&gt; RN[Research Node]
+    WF --&gt; BN[Benchmark Node]
 </code></pre>
 <p>Future workflow types may contain entirely different node structures.</p>
 <p>The architecture must not assume agents are always present.</p>
@@ -635,14 +655,14 @@ Escalate
 
         </article>
         <div class="doc-footer-nav">
-      <a href="../02-Architecture/Agent-Layer.html" class="nav-card prev">
+      <a href="../02-Architecture/Benchmark-System.html" class="nav-card prev">
         <span class="nav-card-label">Previous</span>
-        <span class="nav-card-title">Agent Layer</span>
+        <span class="nav-card-title">Benchmark System</span>
       </a>
     
-      <a href="../02-Architecture/Evolution-Engine.html" class="nav-card next">
+      <a href="../02-Architecture/Event-System.html" class="nav-card next">
         <span class="nav-card-label">Next</span>
-        <span class="nav-card-title">Evolution Engine</span>
+        <span class="nav-card-title">Event System</span>
       </a>
     </div>
       </div>

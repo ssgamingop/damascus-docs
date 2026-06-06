@@ -127,7 +127,13 @@
       <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link ">Agent Layer</a>
     </li>
     <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Benchmark-System.html" class="sidebar-nav-link ">Benchmark System</a>
+    </li>
+    <li class="sidebar-nav-item">
       <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link ">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Event-System.html" class="sidebar-nav-link ">Event System</a>
     </li>
     <li class="sidebar-nav-item">
       <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link ">Evolution Engine</a>
@@ -142,6 +148,12 @@
       <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link ">Model Abstraction Layer</a>
     </li>
     <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Observability-System.html" class="sidebar-nav-link ">Observability System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Runtime-System.html" class="sidebar-nav-link ">Runtime System</a>
+    </li>
+    <li class="sidebar-nav-item">
       <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link ">Security Architecture</a>
     </li>
     <li class="sidebar-nav-item">
@@ -149,6 +161,14 @@
     </li>
     <li class="sidebar-nav-item">
       <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link active">Workspace System</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">03-Implementation</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../03-Implementation/Technology-Stack.html" class="sidebar-nav-link ">Technology Stack</a>
     </li>
   </ul>
 </div>
@@ -373,26 +393,29 @@ Capabilities
 <hr>
 <h1 id="domain-hierarchy">Domain Hierarchy<a href="#domain-hierarchy" class="heading-anchor">#</a></h1>
 <p>The initial Damascus ownership hierarchy is:</p>
-<pre><code class="language-diagram">Damascus Installation
-└── Workspace
-    ├── Workspace Configuration
-    ├── Workspace Policies
-    ├── Workspace Memories
-    ├── Workspace Knowledge
-    ├── Workspace Workflows
-    ├── Workspace Benchmarks
-    ├── Workspace Evolution History
-    └── Projects
-        └── Project
-            ├── Project Configuration
-            ├── Project Policies
-            ├── Project Resources
-            ├── Project Memories
-            ├── Project Knowledge
-            ├── Project Workflows
-            ├── Project Benchmarks
-            ├── Project Evolution History
-            └── Workflow Executions
+<pre><code class="language-mermaid">graph LR
+    Inst[Damascus Installation] --&gt; WS[Workspace]
+    
+    WS --&gt; WC[Workspace Configuration]
+    WS --&gt; WP[Workspace Policies]
+    WS --&gt; WM[Workspace Memories]
+    WS --&gt; WK[Workspace Knowledge]
+    WS --&gt; WW[Workspace Workflows]
+    WS --&gt; WB[Workspace Benchmarks]
+    WS --&gt; WE[Workspace Evolution History]
+    WS --&gt; Projs[Projects]
+    
+    Projs --&gt; Proj[Project]
+    
+    Proj --&gt; PC[Project Configuration]
+    Proj --&gt; PP[Project Policies]
+    Proj --&gt; PR[Project Resources]
+    Proj --&gt; PM[Project Memories]
+    Proj --&gt; PK[Project Knowledge]
+    Proj --&gt; PW[Project Workflows]
+    Proj --&gt; PB[Project Benchmarks]
+    Proj --&gt; PE[Project Evolution History]
+    Proj --&gt; WE[Workflow Executions]
 </code></pre>
 <h2 id="installation">Installation<a href="#installation" class="heading-anchor">#</a></h2>
 <p>An installation is a deployed Damascus environment controlled by a user or organization.</p>
@@ -562,17 +585,17 @@ Execution Request
 <hr>
 <h1 id="core-components">Core Components<a href="#core-components" class="heading-anchor">#</a></h1>
 <p>The Workspace System consists of:</p>
-<pre><code class="language-diagram">Workspace System
-├── Workspace Service
-├── Project Service
-├── Context Resolver
-├── Scope Manager
-├── Workspace Policy Binder
-├── Resource Catalog
-├── Workspace Activity Service
-├── Lifecycle Coordinator
-├── Import and Export Service
-└── Workspace Repository
+<pre><code class="language-mermaid">graph TD
+    WS[Workspace System] --&gt; S1[Workspace Service]
+    WS --&gt; S2[Project Service]
+    WS --&gt; S3[Context Resolver]
+    WS --&gt; S4[Scope Manager]
+    WS --&gt; S5[Workspace Policy Binder]
+    WS --&gt; S6[Resource Catalog]
+    WS --&gt; S7[Workspace Activity Service]
+    WS --&gt; S8[Lifecycle Coordinator]
+    WS --&gt; S9[Import and Export Service]
+    WS --&gt; S10[Workspace Repository]
 </code></pre>
 <h2 id="workspace-service">Workspace Service<a href="#workspace-service" class="heading-anchor">#</a></h2>
 <p>Purpose:</p>
@@ -2305,6 +2328,11 @@ Improved Execution
       <a href="../02-Architecture/Tool-Layer.html" class="nav-card prev">
         <span class="nav-card-label">Previous</span>
         <span class="nav-card-title">Tool Layer</span>
+      </a>
+    
+      <a href="../03-Implementation/Technology-Stack.html" class="nav-card next">
+        <span class="nav-card-label">Next</span>
+        <span class="nav-card-title">Technology Stack</span>
       </a>
     </div>
       </div>

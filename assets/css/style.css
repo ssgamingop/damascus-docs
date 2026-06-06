@@ -448,14 +448,14 @@ aside.site-sidebar {
 main.main-content {
   flex: 1;
   margin-left: var(--sidebar-width);
-  padding: 40px 48px;
-  display: flex;
-  justify-content: center;
+  padding: 40px calc(var(--toc-width) + 48px) 40px 48px;
+  display: block;
 }
 
 .content-wrapper {
   width: 100%;
   max-width: var(--content-max-width);
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
