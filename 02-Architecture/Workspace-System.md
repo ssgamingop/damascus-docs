@@ -322,26 +322,31 @@ The Evolution Layer evaluates and proposes promotions.
 
 The initial Damascus ownership hierarchy is:
 
-Damascus Installation
-└── Workspace
-    ├── Workspace Configuration
-    ├── Workspace Policies
-    ├── Workspace Memories
-    ├── Workspace Knowledge
-    ├── Workspace Workflows
-    ├── Workspace Benchmarks
-    ├── Workspace Evolution History
-    └── Projects
-        └── Project
-            ├── Project Configuration
-            ├── Project Policies
-            ├── Project Resources
-            ├── Project Memories
-            ├── Project Knowledge
-            ├── Project Workflows
-            ├── Project Benchmarks
-            ├── Project Evolution History
-            └── Workflow Executions
+```mermaid
+graph LR
+    Inst[Damascus Installation] --> WS[Workspace]
+    
+    WS --> WC[Workspace Configuration]
+    WS --> WP[Workspace Policies]
+    WS --> WM[Workspace Memories]
+    WS --> WK[Workspace Knowledge]
+    WS --> WW[Workspace Workflows]
+    WS --> WB[Workspace Benchmarks]
+    WS --> WE[Workspace Evolution History]
+    WS --> Projs[Projects]
+    
+    Projs --> Proj[Project]
+    
+    Proj --> PC[Project Configuration]
+    Proj --> PP[Project Policies]
+    Proj --> PR[Project Resources]
+    Proj --> PM[Project Memories]
+    Proj --> PK[Project Knowledge]
+    Proj --> PW[Project Workflows]
+    Proj --> PB[Project Benchmarks]
+    Proj --> PE[Project Evolution History]
+    Proj --> WE[Workflow Executions]
+```
 
 ## Installation
 
@@ -559,17 +564,19 @@ They may not assume more authority.
 
 The Workspace System consists of:
 
-Workspace System
-├── Workspace Service
-├── Project Service
-├── Context Resolver
-├── Scope Manager
-├── Workspace Policy Binder
-├── Resource Catalog
-├── Workspace Activity Service
-├── Lifecycle Coordinator
-├── Import and Export Service
-└── Workspace Repository
+```mermaid
+graph TD
+    WS[Workspace System] --> S1[Workspace Service]
+    WS --> S2[Project Service]
+    WS --> S3[Context Resolver]
+    WS --> S4[Scope Manager]
+    WS --> S5[Workspace Policy Binder]
+    WS --> S6[Resource Catalog]
+    WS --> S7[Workspace Activity Service]
+    WS --> S8[Lifecycle Coordinator]
+    WS --> S9[Import and Export Service]
+    WS --> S10[Workspace Repository]
+```
 
 ## Workspace Service
 
