@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Architecture | Damascus Docs</title>
+  <meta name="description" content="Damascus - Privacy-first, local-first intelligence operating system documentation">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    window.damascusMermaid = mermaid;
+  </script>
+</head>
+<body data-root="../">
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="brand">
+      <button class="mobile-header-btn" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="../index.html" class="brand">
+        <div class="logo">D</div>
+        <span class="title">Damascus Docs</span>
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <!-- Search Input Container -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="search-input" placeholder="Search docs..." aria-label="Search documentation">
+          <kbd class="search-shortcut">/</kbd>
+        </div>
+        
+        <!-- Results Dropdown -->
+        <div class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" aria-label="Toggle theme">
+        <!-- Sun (Light Theme Icon) -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon (Dark Theme Icon) -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Layout Grid -->
+  <div class="layout-container">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="site-sidebar">
+      <div class="sidebar-section">
+  <div class="sidebar-section-title">Vision</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Mission.html" class="sidebar-nav-link ">Mission</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Vision.html" class="sidebar-nav-link ">Damascus Vision</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Why-Damascus.html" class="sidebar-nav-link ">Why Damascus Exists</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Research</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/AI-Operating-Systems.html" class="sidebar-nav-link ">AI Operating Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Hermes-Analysis.html" class="sidebar-nav-link ">Hermes Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Knowledge-Graphs.html" class="sidebar-nav-link ">Knowledge Graphs</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/LangGraph-Analysis.html" class="sidebar-nav-link ">LangGraph Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Memory-Systems.html" class="sidebar-nav-link ">Memory Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Multi-Agent-Systems.html" class="sidebar-nav-link ">Multi Agent Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Odysseus-Analysis.html" class="sidebar-nav-link ">Odysseus Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/OpenHands-Analysis.html" class="sidebar-nav-link ">OpenHands Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Self-Improving-Agents.html" class="sidebar-nav-link ">Self Improving Agents</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Architecture</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link ">Agent Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link ">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link ">Evolution Engine</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/High-Level-Architecture.html" class="sidebar-nav-link ">High Level Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Memory-Architecture.html" class="sidebar-nav-link ">Memory Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link ">Model Abstraction Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link active">Security Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Tool-Layer.html" class="sidebar-nav-link ">Tool Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link ">Workspace System</a>
+    </li>
+  </ul>
+</div>
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <article class="doc-content">
+          <div class="doc-meta"><span class="meta-badge">Version 0.1</span><span class="meta-badge status-architecture-foundation">Architecture Foundation</span><span class="meta-badge priority-critical">Priority Critical</span></div> <h1 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h1>
+<p>This document defines the Damascus Security Architecture.</p>
+<p>Security is cross-cutting.</p>
+<p>It applies to every workspace, workflow, capability, execution, memory, model invocation, tool action, benchmark, and evolution operation.</p>
+<p>The Security Layer provides the common trust, identity, authorization, approval, audit, encryption, and incident-response architecture required to keep Damascus under human authority.</p>
+<p>Damascus is local-first.</p>
+<p>Local-first improves ownership and reduces unnecessary data transfer.</p>
+<p>It does not make local processes, models, tools, plugins, files, or users automatically trustworthy.</p>
+<p>The security objective is:</p>
+<p>Enable useful autonomous execution while ensuring that authority remains explicit, bounded, inspectable, revocable, and recoverable.</p>
+<hr>
+<h1 id="design-philosophy">Design Philosophy<a href="#design-philosophy" class="heading-anchor">#</a></h1>
+<h2 id="security-is-an-architectural-boundary">Security Is An Architectural Boundary<a href="#security-is-an-architectural-boundary" class="heading-anchor">#</a></h2>
+<p>Security cannot be added only at the user interface or tool layer.</p>
+<p>Every request crossing a trust boundary must carry:</p>
+<ul>
+<li>authenticated identity</li>
+<li>explicit scope</li>
+<li>requested action</li>
+<li>resource identity</li>
+<li>policy context</li>
+<li>trace context</li>
+</ul>
+<h2 id="local-does-not-mean-trusted">Local Does Not Mean Trusted<a href="#local-does-not-mean-trusted" class="heading-anchor">#</a></h2>
+<p>A local model may be compromised.</p>
+<p>A local tool may be over-privileged.</p>
+<p>A local document may contain prompt injection.</p>
+<p>A local plugin may be malicious.</p>
+<p>A local user account may be compromised.</p>
+<p>Locality is a policy input.</p>
+<p>It is not proof of trust.</p>
+<h2 id="least-authority">Least Authority<a href="#least-authority" class="heading-anchor">#</a></h2>
+<p>Every principal and execution receives only the authority required for the current operation and duration.</p>
+<h2 id="deny-by-default">Deny By Default<a href="#deny-by-default" class="heading-anchor">#</a></h2>
+<p>Unspecified access is denied.</p>
+<p>Discovery, installation, registration, and availability do not grant permission.</p>
+<h2 id="human-authority">Human Authority<a href="#human-authority" class="heading-anchor">#</a></h2>
+<p>Critical actions require meaningful human visibility and, where policy requires, explicit approval.</p>
+<p>Autonomy operates only inside delegated authority.</p>
+<h2 id="defense-in-depth">Defense In Depth<a href="#defense-in-depth" class="heading-anchor">#</a></h2>
+<p>Authorization, approvals, isolation, encryption, auditing, and recovery are complementary controls.</p>
+<p>No single control is sufficient.</p>
+<h2 id="secure-failure">Secure Failure<a href="#secure-failure" class="heading-anchor">#</a></h2>
+<p>When identity, scope, policy, or isolation cannot be established, Damascus fails closed for affected operations.</p>
+<hr>
+<h1 id="responsibilities">Responsibilities<a href="#responsibilities" class="heading-anchor">#</a></h1>
+<p>The Security Layer owns:</p>
+<ul>
+<li>identity and principal contracts</li>
+<li>authentication coordination</li>
+<li>authorization evaluation</li>
+<li>policy definitions and versions</li>
+<li>permission grants and revocation</li>
+<li>approval lifecycle and enforcement</li>
+<li>security classification rules</li>
+<li>secret-management interfaces</li>
+<li>encryption policy and key lifecycle</li>
+<li>sandbox policy</li>
+<li>audit integrity</li>
+<li>security event classification</li>
+<li>incident-response coordination</li>
+<li>security posture reporting</li>
+</ul>
+<p>It coordinates with:</p>
+<ul>
+<li>Workspace System for ownership, membership, roles, and policy bindings</li>
+<li>Core for execution admission and lifecycle</li>
+<li>Tool Layer for action and effect enforcement</li>
+<li>Model Layer for provider and data-egress authorization</li>
+<li>Memory Layer for scoped retrieval, retention, and deletion</li>
+<li>Agent Layer for delegated execution identity</li>
+<li>Execution Environment for isolation enforcement</li>
+<li>Observability Layer for security telemetry</li>
+<li>Evolution Layer for safety constraints and approval gates</li>
+</ul>
+<hr>
+<h1 id="non-responsibilities">Non-Responsibilities<a href="#non-responsibilities" class="heading-anchor">#</a></h1>
+<p>The Security Layer does not own:</p>
+<ul>
+<li>workflow orchestration</li>
+<li>tool implementation</li>
+<li>model provider implementation</li>
+<li>memory storage</li>
+<li>workspace lifecycle</li>
+<li>operating system security itself</li>
+<li>identity-provider operation</li>
+<li>benchmark execution</li>
+<li>evolution decisions</li>
+</ul>
+<p>The Security Layer defines and evaluates required controls.</p>
+<p>Subsystems remain responsible for enforcing controls at their boundaries and reporting outcomes.</p>
+<hr>
+<h1 id="security-principles">Security Principles<a href="#security-principles" class="heading-anchor">#</a></h1>
+<h2 id="sec-001-explicit-identity">SEC-001 Explicit Identity<a href="#sec-001-explicit-identity" class="heading-anchor">#</a></h2>
+<p>Every privileged action is attributable to a principal and execution context.</p>
+<h2 id="sec-002-explicit-scope">SEC-002 Explicit Scope<a href="#sec-002-explicit-scope" class="heading-anchor">#</a></h2>
+<p>Every request declares workspace, optional project, resource, and action scope.</p>
+<h2 id="sec-003-least-privilege">SEC-003 Least Privilege<a href="#sec-003-least-privilege" class="heading-anchor">#</a></h2>
+<p>Permissions are narrow, temporary where practical, and revocable.</p>
+<h2 id="sec-004-deny-by-default">SEC-004 Deny By Default<a href="#sec-004-deny-by-default" class="heading-anchor">#</a></h2>
+<p>Missing or ambiguous authorization is denial.</p>
+<h2 id="sec-005-human-authority">SEC-005 Human Authority<a href="#sec-005-human-authority" class="heading-anchor">#</a></h2>
+<p>Critical operations remain subject to human approval and override.</p>
+<h2 id="sec-006-isolation">SEC-006 Isolation<a href="#sec-006-isolation" class="heading-anchor">#</a></h2>
+<p>Untrusted execution occurs in risk-appropriate isolation.</p>
+<h2 id="sec-007-audit-integrity">SEC-007 Audit Integrity<a href="#sec-007-audit-integrity" class="heading-anchor">#</a></h2>
+<p>Critical security decisions and actions are recorded in tamper-resistant audit history.</p>
+<h2 id="sec-008-data-minimization">SEC-008 Data Minimization<a href="#sec-008-data-minimization" class="heading-anchor">#</a></h2>
+<p>Only required data is exposed to models, tools, users, or remote services.</p>
+<h2 id="sec-009-recovery">SEC-009 Recovery<a href="#sec-009-recovery" class="heading-anchor">#</a></h2>
+<p>Security controls include containment, restoration, and evidence preservation.</p>
+<h2 id="sec-010-evolution-cannot-weaken-security">SEC-010 Evolution Cannot Weaken Security<a href="#sec-010-evolution-cannot-weaken-security" class="heading-anchor">#</a></h2>
+<p>The Evolution Layer may not alter security policy, permissions, approval requirements, or minimum isolation.</p>
+<hr>
+<h1 id="high-level-architecture">High-Level Architecture<a href="#high-level-architecture" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">Requesting Principal Or Workflow
+↓
+Authentication
+↓
+Identity And Scope Resolution
+↓
+Policy Decision Point
+├── Policy Store
+├── Workspace Bindings
+├── Resource Classification
+├── Risk Engine
+└── Approval State
+↓
+Allow, Deny, Or Require Approval
+↓
+Policy Enforcement Point
+├── Core Admission
+├── Tool Layer
+├── Model Layer
+├── Memory Layer
+└── Execution Environment
+↓
+Audit And Security Telemetry
+</code></pre>
+<hr>
+<h1 id="core-components">Core Components<a href="#core-components" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">Security Layer
+├── Identity Service
+├── Authentication Adapter Layer
+├── Policy Store
+├── Authorization Service
+├── Permission Grant Service
+├── Approval Service
+├── Risk Classification Service
+├── Secret Management Interface
+├── Key Management Service
+├── Sandbox Policy Service
+├── Audit Service
+├── Security Event Service
+└── Incident Response Coordinator
+</code></pre>
+<h2 id="identity-service">Identity Service<a href="#identity-service" class="heading-anchor">#</a></h2>
+<p>Maintains stable Damascus principal identities and their relationships to external or local authentication identities.</p>
+<h2 id="authorization-service">Authorization Service<a href="#authorization-service" class="heading-anchor">#</a></h2>
+<p>Evaluates requests using identity, action, resource, scope, policy, risk, and approval state.</p>
+<h2 id="permission-grant-service">Permission Grant Service<a href="#permission-grant-service" class="heading-anchor">#</a></h2>
+<p>Issues, tracks, and revokes bounded grants.</p>
+<h2 id="approval-service">Approval Service<a href="#approval-service" class="heading-anchor">#</a></h2>
+<p>Coordinates human approval requests and binds approvals to exact actions.</p>
+<h2 id="sandbox-policy-service">Sandbox Policy Service<a href="#sandbox-policy-service" class="heading-anchor">#</a></h2>
+<p>Determines minimum isolation requirements for actions and capabilities.</p>
+<h2 id="audit-service">Audit Service<a href="#audit-service" class="heading-anchor">#</a></h2>
+<p>Produces and protects security-relevant audit records.</p>
+<h2 id="incident-response-coordinator">Incident Response Coordinator<a href="#incident-response-coordinator" class="heading-anchor">#</a></h2>
+<p>Coordinates containment, evidence preservation, recovery, and post-incident actions.</p>
+<hr>
+<h1 id="trust-boundaries">Trust Boundaries<a href="#trust-boundaries" class="heading-anchor">#</a></h1>
+<h2 id="boundary-1-user-to-damascus">Boundary 1: User To Damascus<a href="#boundary-1-user-to-damascus" class="heading-anchor">#</a></h2>
+<p>Risks:</p>
+<ul>
+<li>account compromise</li>
+<li>unauthorized local access</li>
+<li>session hijacking</li>
+<li>social engineering</li>
+</ul>
+<p>Controls:</p>
+<ul>
+<li>authentication</li>
+<li>session protection</li>
+<li>approval confirmation</li>
+<li>audit</li>
+</ul>
+<h2 id="boundary-2-workspace-to-workspace">Boundary 2: Workspace To Workspace<a href="#boundary-2-workspace-to-workspace" class="heading-anchor">#</a></h2>
+<p>Workspaces are isolated ownership and policy boundaries.</p>
+<p>Cross-workspace access is denied by default.</p>
+<h2 id="boundary-3-workflow-to-capability">Boundary 3: Workflow To Capability<a href="#boundary-3-workflow-to-capability" class="heading-anchor">#</a></h2>
+<p>A workflow execution receives delegated authority.</p>
+<p>It does not inherit all permissions of the initiating user.</p>
+<h2 id="boundary-4-agent-and-model-output-to-action">Boundary 4: Agent And Model Output To Action<a href="#boundary-4-agent-and-model-output-to-action" class="heading-anchor">#</a></h2>
+<p>Agent reasoning and model output are untrusted proposals.</p>
+<p>They cannot authorize actions.</p>
+<h2 id="boundary-5-damascus-to-tool">Boundary 5: Damascus To Tool<a href="#boundary-5-damascus-to-tool" class="heading-anchor">#</a></h2>
+<p>Tools may produce real effects.</p>
+<p>They require authorization, isolation, and effect auditing.</p>
+<h2 id="boundary-6-damascus-to-cloud-provider">Boundary 6: Damascus To Cloud Provider<a href="#boundary-6-damascus-to-cloud-provider" class="heading-anchor">#</a></h2>
+<p>Remote model and API providers receive data outside the local trust domain.</p>
+<p>Data egress requires policy authorization.</p>
+<h2 id="boundary-7-damascus-to-local-execution-environment">Boundary 7: Damascus To Local Execution Environment<a href="#boundary-7-damascus-to-local-execution-environment" class="heading-anchor">#</a></h2>
+<p>Local processes and containers may access host resources if misconfigured.</p>
+<p>Isolation must be verified.</p>
+<h2 id="boundary-8-external-content-to-context">Boundary 8: External Content To Context<a href="#boundary-8-external-content-to-context" class="heading-anchor">#</a></h2>
+<p>Websites, files, repositories, memory imports, and API responses are untrusted content.</p>
+<p>They cannot redefine policy or authority.</p>
+<h2 id="boundary-9-plugin-adapter-and-mcp-integration">Boundary 9: Plugin, Adapter, And MCP Integration<a href="#boundary-9-plugin-adapter-and-mcp-integration" class="heading-anchor">#</a></h2>
+<p>Installed integrations extend executable code and capability surfaces.</p>
+<p>They require source verification, permissions, isolation, and lifecycle control.</p>
+<h2 id="boundary-10-evolution-arena-to-production">Boundary 10: Evolution Arena To Production<a href="#boundary-10-evolution-arena-to-production" class="heading-anchor">#</a></h2>
+<p>Experimental variants are untrusted candidates.</p>
+<p>They cannot become production behavior without benchmark evidence and promotion gates.</p>
+<hr>
+<h1 id="threat-model">Threat Model<a href="#threat-model" class="heading-anchor">#</a></h1>
+<h2 id="protected-assets">Protected Assets<a href="#protected-assets" class="heading-anchor">#</a></h2>
+<ul>
+<li>user data</li>
+<li>workspace resources</li>
+<li>memories</li>
+<li>credentials and keys</li>
+<li>workflow definitions</li>
+<li>audit history</li>
+<li>benchmark integrity</li>
+<li>evolution history</li>
+<li>system availability</li>
+<li>human authority</li>
+</ul>
+<h2 id="threat-actors">Threat Actors<a href="#threat-actors" class="heading-anchor">#</a></h2>
+<ul>
+<li>unauthorized local user</li>
+<li>compromised user account</li>
+<li>malicious document or website</li>
+<li>malicious or compromised tool</li>
+<li>malicious plugin or adapter</li>
+<li>compromised model provider</li>
+<li>compromised local model artifact</li>
+<li>external attacker</li>
+<li>over-privileged workflow</li>
+<li>faulty autonomous behavior</li>
+<li>malicious insider in future collaborative deployments</li>
+</ul>
+<h2 id="threat-categories">Threat Categories<a href="#threat-categories" class="heading-anchor">#</a></h2>
+<h3 id="unauthorized-access">Unauthorized Access<a href="#unauthorized-access" class="heading-anchor">#</a></h3>
+<p>Access outside granted workspace, project, memory, or resource scope.</p>
+<h3 id="prompt-injection">Prompt Injection<a href="#prompt-injection" class="heading-anchor">#</a></h3>
+<p>Untrusted content attempts to override instructions or induce unsafe actions.</p>
+<h3 id="privilege-escalation">Privilege Escalation<a href="#privilege-escalation" class="heading-anchor">#</a></h3>
+<p>A workflow, agent, tool, or plugin attempts to gain broader authority.</p>
+<h3 id="data-exfiltration">Data Exfiltration<a href="#data-exfiltration" class="heading-anchor">#</a></h3>
+<p>Sensitive data is sent to unauthorized models, APIs, tools, logs, or workspaces.</p>
+<h3 id="destructive-action">Destructive Action<a href="#destructive-action" class="heading-anchor">#</a></h3>
+<p>Files, repositories, services, memories, or configurations are destroyed or corrupted.</p>
+<h3 id="supply-chain-compromise">Supply Chain Compromise<a href="#supply-chain-compromise" class="heading-anchor">#</a></h3>
+<p>Models, tools, adapters, plugins, containers, or dependencies are malicious.</p>
+<h3 id="audit-tampering">Audit Tampering<a href="#audit-tampering" class="heading-anchor">#</a></h3>
+<p>An actor attempts to hide or rewrite actions.</p>
+<h3 id="benchmark-manipulation">Benchmark Manipulation<a href="#benchmark-manipulation" class="heading-anchor">#</a></h3>
+<p>An evolution candidate optimizes for or tampers with evaluation.</p>
+<h3 id="resource-exhaustion">Resource Exhaustion<a href="#resource-exhaustion" class="heading-anchor">#</a></h3>
+<p>Autonomous work consumes unbounded compute, storage, tokens, or external quotas.</p>
+<h3 id="cross-scope-leakage">Cross-Scope Leakage<a href="#cross-scope-leakage" class="heading-anchor">#</a></h3>
+<p>Data or authority leaks across projects or workspaces.</p>
+<hr>
+<h1 id="identity-management">Identity Management<a href="#identity-management" class="heading-anchor">#</a></h1>
+<h2 id="principal-types">Principal Types<a href="#principal-types" class="heading-anchor">#</a></h2>
+<ul>
+<li>Human User</li>
+<li>Local Service</li>
+<li>Workflow Execution</li>
+<li>Scheduled Operation</li>
+<li>Agent Component</li>
+<li>Tool Execution</li>
+<li>Future Organization</li>
+<li>Future Remote Installation</li>
+</ul>
+<h2 id="stable-identity">Stable Identity<a href="#stable-identity" class="heading-anchor">#</a></h2>
+<p>Damascus principal identity is stable and independent of display name or authentication provider.</p>
+<h2 id="authentication">Authentication<a href="#authentication" class="heading-anchor">#</a></h2>
+<p>Authentication mechanisms may include:</p>
+<ul>
+<li>local operating-system identity</li>
+<li>local credentials</li>
+<li>hardware-backed credentials</li>
+<li>external identity providers</li>
+<li>service credentials</li>
+<li>signed installation identity</li>
+</ul>
+<p>The architecture depends on authentication adapters.</p>
+<p>It does not depend on one identity provider.</p>
+<h2 id="delegation">Delegation<a href="#delegation" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Human User
+↓ delegates bounded authority
+Workflow Execution
+↓ delegates narrower authority
+Agent Or Tool Invocation
+</code></pre>
+<p>Delegation may only narrow authority.</p>
+<h2 id="session-management">Session Management<a href="#session-management" class="heading-anchor">#</a></h2>
+<p>Interactive sessions must include:</p>
+<ul>
+<li>principal identity</li>
+<li>authentication strength</li>
+<li>expiration</li>
+<li>revocation state</li>
+<li>device or installation context</li>
+</ul>
+<p>Critical approvals may require re-authentication.</p>
+<h2 id="service-identity">Service Identity<a href="#service-identity" class="heading-anchor">#</a></h2>
+<p>Services and background jobs use dedicated identities.</p>
+<p>They must not impersonate users through shared credentials.</p>
+<hr>
+<h1 id="permission-system">Permission System<a href="#permission-system" class="heading-anchor">#</a></h1>
+<h2 id="model">Model<a href="#model" class="heading-anchor">#</a></h2>
+<p>Damascus uses policy-based authorization with role and attribute inputs.</p>
+<p>Roles simplify administration.</p>
+<p>Attributes and policies preserve precise control.</p>
+<h2 id="permission-request">Permission Request<a href="#permission-request" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">AuthorizationRequest
+  principal_id
+  delegated_identity_chain
+  workspace_id
+  project_id | null
+  resource_id
+  action
+  effect_classes
+  data_classification
+  execution_context
+  requested_duration
+  policy_versions
+</code></pre>
+<h2 id="decision">Decision<a href="#decision" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">AuthorizationDecision
+  decision_id
+  outcome
+  obligations
+  required_approvals
+  effective_scope
+  expiration
+  policy_versions
+  explanation
+</code></pre>
+<p>Outcomes:</p>
+<ul>
+<li>Allow</li>
+<li>Deny</li>
+<li>RequireApproval</li>
+</ul>
+<h2 id="policy-decision-points">Policy Decision Points<a href="#policy-decision-points" class="heading-anchor">#</a></h2>
+<p>The Authorization Service is the policy decision point.</p>
+<h2 id="policy-enforcement-points">Policy Enforcement Points<a href="#policy-enforcement-points" class="heading-anchor">#</a></h2>
+<p>Enforcement occurs at:</p>
+<ul>
+<li>Core execution admission</li>
+<li>Workspace operations</li>
+<li>Memory capture and retrieval</li>
+<li>Model invocation and egress</li>
+<li>Tool invocation</li>
+<li>Execution Environment provisioning</li>
+<li>Evolution promotion</li>
+</ul>
+<h2 id="permission-inheritance">Permission Inheritance<a href="#permission-inheritance" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">System security baseline
+↓
+Workspace policy
+↓
+Project policy
+↓
+Workflow policy
+↓
+Invocation request
+</code></pre>
+<p>Lower levels may narrow authority.</p>
+<p>They may not silently broaden it.</p>
+<h2 id="grants">Grants<a href="#grants" class="heading-anchor">#</a></h2>
+<p>Execution grants are:</p>
+<ul>
+<li>action-specific</li>
+<li>scope-specific</li>
+<li>time-bound</li>
+<li>attributable</li>
+<li>revocable</li>
+</ul>
+<h2 id="revocation">Revocation<a href="#revocation" class="heading-anchor">#</a></h2>
+<p>Revocation affects:</p>
+<ul>
+<li>new operations immediately</li>
+<li>queued operations before admission</li>
+<li>running operations at enforceable boundaries</li>
+<li>credentials</li>
+<li>cached decisions</li>
+<li>schedules</li>
+</ul>
+<hr>
+<h1 id="workspace-permissions">Workspace Permissions<a href="#workspace-permissions" class="heading-anchor">#</a></h1>
+<p>Workspace System owns membership, role, resource ownership, and policy bindings.</p>
+<p>Security Layer evaluates and enforces them.</p>
+<p>Workspace permission classes include:</p>
+<ul>
+<li>read</li>
+<li>configure</li>
+<li>manage membership</li>
+<li>bind resource</li>
+<li>execute workflow</li>
+<li>export</li>
+<li>archive</li>
+<li>delete</li>
+<li>share</li>
+</ul>
+<p>A workspace role is not a universal system role.</p>
+<p>Cross-workspace access requires explicit grants.</p>
+<hr>
+<h1 id="agent-permissions">Agent Permissions<a href="#agent-permissions" class="heading-anchor">#</a></h1>
+<p>Agents are not human principals.</p>
+<p>They act through workflow execution identities.</p>
+<p>Agent permissions:</p>
+<ul>
+<li>derive from workflow grants</li>
+<li>are narrowed by agent profile</li>
+<li>expire with invocation</li>
+<li>cannot be expanded by agent output</li>
+</ul>
+<p>Agents may request actions.</p>
+<p>They cannot approve their own requests.</p>
+<hr>
+<h1 id="tool-permissions">Tool Permissions<a href="#tool-permissions" class="heading-anchor">#</a></h1>
+<p>Tool permissions bind:</p>
+<ul>
+<li>tool</li>
+<li>operation</li>
+<li>resource</li>
+<li>effect class</li>
+<li>execution</li>
+<li>duration</li>
+<li>isolation profile</li>
+</ul>
+<p>Broad tools such as terminals and generic HTTP clients require stricter controls.</p>
+<p>Tool registration does not grant use.</p>
+<hr>
+<h1 id="memory-permissions">Memory Permissions<a href="#memory-permissions" class="heading-anchor">#</a></h1>
+<p>Memory permissions apply to:</p>
+<ul>
+<li>capture</li>
+<li>read</li>
+<li>link</li>
+<li>promote</li>
+<li>restrict</li>
+<li>export</li>
+<li>delete</li>
+</ul>
+<p>Memory retrieval applies authorization and scope filters before ranking.</p>
+<p>Private principal memory and cross-workspace memory require explicit policy.</p>
+<p>Memory content cannot grant permissions.</p>
+<hr>
+<h1 id="model-and-data-egress-permissions">Model And Data-Egress Permissions<a href="#model-and-data-egress-permissions" class="heading-anchor">#</a></h1>
+<p>Model invocation authorization includes:</p>
+<ul>
+<li>provider</li>
+<li>profile</li>
+<li>locality</li>
+<li>data classification</li>
+<li>transmitted scope</li>
+<li>retention characteristics</li>
+<li>budget</li>
+</ul>
+<p>Selecting a cloud model does not authorize data egress.</p>
+<hr>
+<h1 id="approval-system">Approval System<a href="#approval-system" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>Approvals provide explicit human authorization for critical or exceptional actions.</p>
+<h2 id="approval-request">Approval Request<a href="#approval-request" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">ApprovalRequest
+  approval_request_id
+  requesting_principal
+  workflow_execution_id
+  action
+  resource_scope
+  predicted_effects
+  risk_level
+  expiration
+  policy_reference
+</code></pre>
+<h2 id="approval-states">Approval States<a href="#approval-states" class="heading-anchor">#</a></h2>
+<ul>
+<li>Requested</li>
+<li>Pending</li>
+<li>Approved</li>
+<li>Denied</li>
+<li>Expired</li>
+<li>Revoked</li>
+<li>Consumed</li>
+<li>Cancelled</li>
+</ul>
+<h2 id="binding">Binding<a href="#binding" class="heading-anchor">#</a></h2>
+<p>An approval binds to the exact action class, scope, effects, execution, and expiration.</p>
+<p>Approval for one action is not general permission.</p>
+<h2 id="approval-quality">Approval Quality<a href="#approval-quality" class="heading-anchor">#</a></h2>
+<p>Users must receive meaningful information:</p>
+<ul>
+<li>what will happen</li>
+<li>where</li>
+<li>why</li>
+<li>expected effects</li>
+<li>reversibility</li>
+<li>data exposure</li>
+<li>cost where material</li>
+</ul>
+<h2 id="separation-of-duties">Separation Of Duties<a href="#separation-of-duties" class="heading-anchor">#</a></h2>
+<p>Future collaborative deployments may require a different principal to approve sensitive operations.</p>
+<h2 id="emergency-approval">Emergency Approval<a href="#emergency-approval" class="heading-anchor">#</a></h2>
+<p>Emergency override must be exceptional, strongly authenticated, time-bound, and heavily audited.</p>
+<hr>
+<h1 id="audit-system">Audit System<a href="#audit-system" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>Audit provides durable accountability for critical decisions and actions.</p>
+<p>Audit is distinct from operational logs and observability traces.</p>
+<h2 id="audit-record">Audit Record<a href="#audit-record" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">AuditRecord
+  audit_id
+  event_type
+  principal_id
+  delegated_identity_chain
+  workspace_id
+  project_id | null
+  action
+  resource_reference
+  authorization_decision_id
+  approval_reference | null
+  outcome
+  timestamp
+  integrity_metadata
+</code></pre>
+<h2 id="audit-coverage">Audit Coverage<a href="#audit-coverage" class="heading-anchor">#</a></h2>
+<p>Audit must cover:</p>
+<ul>
+<li>authentication events</li>
+<li>permission and policy changes</li>
+<li>approvals</li>
+<li>critical tool actions</li>
+<li>model data egress</li>
+<li>memory export, promotion, and deletion</li>
+<li>workspace sharing and deletion</li>
+<li>evolution promotion and rollback</li>
+<li>incident-response actions</li>
+</ul>
+<h2 id="tamper-resistance">Tamper Resistance<a href="#tamper-resistance" class="heading-anchor">#</a></h2>
+<p>Audit storage should support:</p>
+<ul>
+<li>append-oriented records</li>
+<li>integrity chains or signatures</li>
+<li>restricted mutation</li>
+<li>independent backups</li>
+<li>retention policy</li>
+</ul>
+<h2 id="data-minimization">Data Minimization<a href="#data-minimization" class="heading-anchor">#</a></h2>
+<p>Audit records preserve accountability without duplicating secrets or unrestricted content.</p>
+<hr>
+<h1 id="encryption-strategy">Encryption Strategy<a href="#encryption-strategy" class="heading-anchor">#</a></h1>
+<h2 id="data-at-rest">Data At Rest<a href="#data-at-rest" class="heading-anchor">#</a></h2>
+<p>Sensitive data should be encrypted in:</p>
+<ul>
+<li>PostgreSQL storage</li>
+<li>Redis persistence where enabled</li>
+<li>Qdrant</li>
+<li>graph storage</li>
+<li>artifact storage</li>
+<li>backups</li>
+<li>exports</li>
+</ul>
+<h2 id="data-in-transit">Data In Transit<a href="#data-in-transit" class="heading-anchor">#</a></h2>
+<p>Internal and external communications use authenticated encryption appropriate to deployment.</p>
+<h2 id="key-hierarchy">Key Hierarchy<a href="#key-hierarchy" class="heading-anchor">#</a></h2>
+<p>Recommended hierarchy:</p>
+<pre><code class="language-diagram">Installation Root Key
+↓
+Workspace Key
+↓
+Data Category Or Export Key
+</code></pre>
+<p>Future multi-user deployments may add principal-specific wrapping keys.</p>
+<h2 id="key-management">Key Management<a href="#key-management" class="heading-anchor">#</a></h2>
+<p>Keys must support:</p>
+<ul>
+<li>generation</li>
+<li>secure storage</li>
+<li>rotation</li>
+<li>revocation</li>
+<li>backup and recovery</li>
+<li>destruction</li>
+</ul>
+<h2 id="secret-management">Secret Management<a href="#secret-management" class="heading-anchor">#</a></h2>
+<p>Secrets remain in approved secret storage.</p>
+<p>Subsystem records contain references, not secret values.</p>
+<h2 id="cryptographic-erasure">Cryptographic Erasure<a href="#cryptographic-erasure" class="heading-anchor">#</a></h2>
+<p>Key destruction may support erasure when physical deletion cannot be guaranteed.</p>
+<p>The system must report residual backups and limitations.</p>
+<hr>
+<h1 id="sandbox-architecture">Sandbox Architecture<a href="#sandbox-architecture" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>Sandboxes isolate untrusted or high-risk execution from host resources and unrelated workspace data.</p>
+<h2 id="control-flow">Control Flow<a href="#control-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Tool Or Workflow Requests Execution
+↓
+Security Classifies Risk
+↓
+Sandbox Policy Service Selects Minimum Profile
+↓
+Execution Environment Provisions Isolation
+↓
+Security Verifies Required Controls
+↓
+Execution Begins
+↓
+Telemetry And Effect Monitoring
+↓
+Cleanup And Verification
+</code></pre>
+<h2 id="sandbox-profiles">Sandbox Profiles<a href="#sandbox-profiles" class="heading-anchor">#</a></h2>
+<ul>
+<li>Read-Only Resource</li>
+<li>Project Write</li>
+<li>Network Restricted</li>
+<li>Disposable Browser</li>
+<li>Container Build</li>
+<li>Benchmark Arena</li>
+<li>Host Action Exception</li>
+</ul>
+<h2 id="isolation-controls">Isolation Controls<a href="#isolation-controls" class="heading-anchor">#</a></h2>
+<ul>
+<li>process isolation</li>
+<li>filesystem mounts</li>
+<li>network policy</li>
+<li>resource limits</li>
+<li>environment filtering</li>
+<li>credential injection</li>
+<li>device access control</li>
+<li>disposable state</li>
+</ul>
+<h2 id="fail-closed">Fail Closed<a href="#fail-closed" class="heading-anchor">#</a></h2>
+<p>If required isolation cannot be provisioned or verified, execution is denied.</p>
+<h2 id="sandbox-escape">Sandbox Escape<a href="#sandbox-escape" class="heading-anchor">#</a></h2>
+<p>Suspected escape triggers:</p>
+<ul>
+<li>immediate containment</li>
+<li>tool and worker quarantine</li>
+<li>credential revocation</li>
+<li>evidence preservation</li>
+<li>incident response</li>
+</ul>
+<hr>
+<h1 id="secure-execution">Secure Execution<a href="#secure-execution" class="heading-anchor">#</a></h1>
+<h2 id="execution-admission">Execution Admission<a href="#execution-admission" class="heading-anchor">#</a></h2>
+<p>Before execution:</p>
+<ol>
+<li>authenticate requester</li>
+<li>resolve scope</li>
+<li>evaluate permission</li>
+<li>resolve required approvals</li>
+<li>issue bounded grant</li>
+<li>provision isolation</li>
+<li>inject scoped credentials</li>
+<li>begin audit and telemetry</li>
+</ol>
+<h2 id="during-execution">During Execution<a href="#during-execution" class="heading-anchor">#</a></h2>
+<p>Security monitors:</p>
+<ul>
+<li>grant expiration</li>
+<li>policy revocation</li>
+<li>resource use</li>
+<li>sandbox violations</li>
+<li>unexpected effects</li>
+<li>data egress</li>
+</ul>
+<h2 id="after-execution">After Execution<a href="#after-execution" class="heading-anchor">#</a></h2>
+<p>Security coordinates:</p>
+<ul>
+<li>credential revocation</li>
+<li>sandbox cleanup</li>
+<li>effect reconciliation</li>
+<li>audit completion</li>
+<li>anomaly evaluation</li>
+</ul>
+<hr>
+<h1 id="local-first-security-model">Local-First Security Model<a href="#local-first-security-model" class="heading-anchor">#</a></h1>
+<h2 id="local-ownership">Local Ownership<a href="#local-ownership" class="heading-anchor">#</a></h2>
+<p>Local data remains under user-controlled storage and keys whenever possible.</p>
+<h2 id="local-attack-surface">Local Attack Surface<a href="#local-attack-surface" class="heading-anchor">#</a></h2>
+<p>Local-first deployments must account for:</p>
+<ul>
+<li>host compromise</li>
+<li>malicious local software</li>
+<li>shared user accounts</li>
+<li>insecure backups</li>
+<li>exposed local APIs</li>
+<li>over-privileged containers</li>
+<li>untrusted local models</li>
+</ul>
+<h2 id="default-local-posture">Default Local Posture<a href="#default-local-posture" class="heading-anchor">#</a></h2>
+<p>Recommended defaults:</p>
+<ul>
+<li>loopback-only service binding</li>
+<li>authenticated local APIs</li>
+<li>encrypted sensitive storage</li>
+<li>deny-by-default network egress for tools</li>
+<li>sandboxed execution</li>
+<li>no automatic cloud fallback</li>
+<li>no automatic cross-workspace access</li>
+<li>explicit secret use</li>
+</ul>
+<h2 id="offline-security">Offline Security<a href="#offline-security" class="heading-anchor">#</a></h2>
+<p>Offline mode must disable remote fallback, telemetry, and synchronization that require network access.</p>
+<p>Offline does not disable audit or local authorization.</p>
+<h2 id="host-trust">Host Trust<a href="#host-trust" class="heading-anchor">#</a></h2>
+<p>Damascus cannot fully protect data from a fully compromised host administrator.</p>
+<p>The architecture should state this limitation clearly and reduce exposure through encryption, isolation, and minimized persistence.</p>
+<hr>
+<h1 id="security-events">Security Events<a href="#security-events" class="heading-anchor">#</a></h1>
+<p>Recommended events:</p>
+<ul>
+<li>AuthenticationSucceeded</li>
+<li>AuthenticationFailed</li>
+<li>AuthorizationAllowed</li>
+<li>AuthorizationDenied</li>
+<li>ApprovalRequested</li>
+<li>ApprovalGranted</li>
+<li>ApprovalDenied</li>
+<li>ApprovalRevoked</li>
+<li>PermissionGranted</li>
+<li>PermissionRevoked</li>
+<li>PolicyChanged</li>
+<li>SecretAccessed</li>
+<li>DataEgressAuthorized</li>
+<li>DataEgressDenied</li>
+<li>SandboxProvisioned</li>
+<li>SandboxViolationDetected</li>
+<li>AuditIntegrityFailure</li>
+<li>SecurityIncidentDeclared</li>
+<li>SecurityIncidentContained</li>
+<li>RecoveryCompleted</li>
+</ul>
+<p>Events must avoid secret or unrestricted content.</p>
+<hr>
+<h1 id="incident-response">Incident Response<a href="#incident-response" class="heading-anchor">#</a></h1>
+<h2 id="incident-classes">Incident Classes<a href="#incident-classes" class="heading-anchor">#</a></h2>
+<ul>
+<li>Unauthorized Access</li>
+<li>Data Exposure</li>
+<li>Sandbox Escape</li>
+<li>Credential Compromise</li>
+<li>Audit Integrity Failure</li>
+<li>Supply Chain Compromise</li>
+<li>Malicious Integration</li>
+<li>Cross-Workspace Leakage</li>
+<li>Destructive Autonomous Action</li>
+<li>Benchmark Or Evolution Tampering</li>
+</ul>
+<h2 id="incident-lifecycle">Incident Lifecycle<a href="#incident-lifecycle" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Detect
+↓
+Classify
+↓
+Contain
+↓
+Preserve Evidence
+↓
+Assess Impact
+↓
+Eradicate
+↓
+Recover
+↓
+Notify
+↓
+Review And Improve
+</code></pre>
+<h2 id="containment-actions">Containment Actions<a href="#containment-actions" class="heading-anchor">#</a></h2>
+<ul>
+<li>suspend workspace</li>
+<li>pause workflows</li>
+<li>revoke grants</li>
+<li>rotate credentials</li>
+<li>quarantine tool, model, plugin, or worker</li>
+<li>disable network access</li>
+<li>isolate affected storage</li>
+</ul>
+<h2 id="evidence-preservation">Evidence Preservation<a href="#evidence-preservation" class="heading-anchor">#</a></h2>
+<p>Incident actions must preserve:</p>
+<ul>
+<li>audit records</li>
+<li>relevant traces</li>
+<li>policy versions</li>
+<li>approvals</li>
+<li>execution identities</li>
+<li>artifact hashes</li>
+</ul>
+<p>Evidence handling must avoid spreading sensitive content.</p>
+<hr>
+<h1 id="recovery-procedures">Recovery Procedures<a href="#recovery-procedures" class="heading-anchor">#</a></h1>
+<h2 id="credential-compromise">Credential Compromise<a href="#credential-compromise" class="heading-anchor">#</a></h2>
+<ol>
+<li>revoke credential</li>
+<li>stop dependent operations</li>
+<li>rotate secret</li>
+<li>identify usage</li>
+<li>validate affected resources</li>
+<li>restore service</li>
+</ol>
+<h2 id="cross-workspace-leakage">Cross-Workspace Leakage<a href="#cross-workspace-leakage" class="heading-anchor">#</a></h2>
+<ol>
+<li>stop affected retrieval and execution</li>
+<li>invalidate caches</li>
+<li>quarantine derived outputs</li>
+<li>trace exposure through provenance</li>
+<li>correct policy or implementation</li>
+<li>notify owners</li>
+<li>verify isolation</li>
+</ol>
+<h2 id="sandbox-escape">Sandbox Escape<a href="#sandbox-escape" class="heading-anchor">#</a></h2>
+<ol>
+<li>terminate worker where possible</li>
+<li>isolate host or worker</li>
+<li>revoke credentials</li>
+<li>quarantine integration</li>
+<li>preserve evidence</li>
+<li>rebuild from trusted state</li>
+</ol>
+<h2 id="audit-failure">Audit Failure<a href="#audit-failure" class="heading-anchor">#</a></h2>
+<ol>
+<li>stop critical autonomous actions</li>
+<li>preserve available records</li>
+<li>restore audit integrity</li>
+<li>reconcile actions from other evidence</li>
+<li>require review before reactivation</li>
+</ol>
+<h2 id="recovery-authority">Recovery Authority<a href="#recovery-authority" class="heading-anchor">#</a></h2>
+<p>Recovery operations may require elevated authority.</p>
+<p>Elevated recovery authority must be narrowly scoped, time-bound, and audited.</p>
+<hr>
+<h1 id="failure-modes">Failure Modes<a href="#failure-modes" class="heading-anchor">#</a></h1>
+<h2 id="identity-provider-unavailable">Identity Provider Unavailable<a href="#identity-provider-unavailable" class="heading-anchor">#</a></h2>
+<p>Fail closed for new privileged sessions.</p>
+<p>Existing sessions continue only according to cached-decision policy and risk.</p>
+<h2 id="policy-store-unavailable">Policy Store Unavailable<a href="#policy-store-unavailable" class="heading-anchor">#</a></h2>
+<p>Deny new privileged operations.</p>
+<p>Do not interpret missing policy as permission.</p>
+<h2 id="stale-authorization-cache">Stale Authorization Cache<a href="#stale-authorization-cache" class="heading-anchor">#</a></h2>
+<p>Use version-bound, short-lived decisions and invalidate on policy events.</p>
+<h2 id="approval-service-unavailable">Approval Service Unavailable<a href="#approval-service-unavailable" class="heading-anchor">#</a></h2>
+<p>Actions requiring approval remain paused.</p>
+<h2 id="key-service-unavailable">Key Service Unavailable<a href="#key-service-unavailable" class="heading-anchor">#</a></h2>
+<p>Encrypted data and secret-dependent actions remain unavailable.</p>
+<h2 id="audit-store-unavailable">Audit Store Unavailable<a href="#audit-store-unavailable" class="heading-anchor">#</a></h2>
+<p>Critical actions requiring audit fail closed.</p>
+<p>Low-risk operations may continue only under explicit policy.</p>
+<h2 id="sandbox-provisioning-failure">Sandbox Provisioning Failure<a href="#sandbox-provisioning-failure" class="heading-anchor">#</a></h2>
+<p>Execution fails closed.</p>
+<h2 id="revocation-propagation-failure">Revocation Propagation Failure<a href="#revocation-propagation-failure" class="heading-anchor">#</a></h2>
+<p>Pause affected execution domain and reconcile grants before resuming.</p>
+<hr>
+<h1 id="observability-and-security-metrics">Observability And Security Metrics<a href="#observability-and-security-metrics" class="heading-anchor">#</a></h1>
+<p>Metrics include:</p>
+<ul>
+<li>authorization allow and denial rates</li>
+<li>approval wait and denial rates</li>
+<li>privilege usage</li>
+<li>secret access</li>
+<li>data-egress volume</li>
+<li>sandbox violations</li>
+<li>failed cleanup</li>
+<li>cross-scope denial</li>
+<li>incident detection and recovery time</li>
+<li>stale grant count</li>
+<li>audit integrity status</li>
+</ul>
+<p>Security telemetry is access-controlled and may itself contain sensitive metadata.</p>
+<hr>
+<h1 id="architectural-constraints">Architectural Constraints<a href="#architectural-constraints" class="heading-anchor">#</a></h1>
+<h2 id="constraint-1">Constraint 1<a href="#constraint-1" class="heading-anchor">#</a></h2>
+<p>Security applies across all Damascus layers.</p>
+<h2 id="constraint-2">Constraint 2<a href="#constraint-2" class="heading-anchor">#</a></h2>
+<p>Missing or ambiguous authorization is denial.</p>
+<h2 id="constraint-3">Constraint 3<a href="#constraint-3" class="heading-anchor">#</a></h2>
+<p>Local resources are not automatically trusted.</p>
+<h2 id="constraint-4">Constraint 4<a href="#constraint-4" class="heading-anchor">#</a></h2>
+<p>Agents, models, tools, and workflows cannot approve their own authority expansion.</p>
+<h2 id="constraint-5">Constraint 5<a href="#constraint-5" class="heading-anchor">#</a></h2>
+<p>Permissions are scoped, attributable, revocable, and time-bound where practical.</p>
+<h2 id="constraint-6">Constraint 6<a href="#constraint-6" class="heading-anchor">#</a></h2>
+<p>Critical actions require audit integrity.</p>
+<h2 id="constraint-7">Constraint 7<a href="#constraint-7" class="heading-anchor">#</a></h2>
+<p>Required sandbox failure causes execution denial.</p>
+<h2 id="constraint-8">Constraint 8<a href="#constraint-8" class="heading-anchor">#</a></h2>
+<p>Secrets are referenced, not stored in workflows, profiles, logs, memory, or audit content.</p>
+<h2 id="constraint-9">Constraint 9<a href="#constraint-9" class="heading-anchor">#</a></h2>
+<p>Cross-workspace access and cloud data egress are denied by default.</p>
+<h2 id="constraint-10">Constraint 10<a href="#constraint-10" class="heading-anchor">#</a></h2>
+<p>Evolution may not modify security policy, permissions, approvals, or minimum isolation.</p>
+<h2 id="constraint-11">Constraint 11<a href="#constraint-11" class="heading-anchor">#</a></h2>
+<p>Security policy changes are versioned and auditable.</p>
+<h2 id="constraint-12">Constraint 12<a href="#constraint-12" class="heading-anchor">#</a></h2>
+<p>Human authority remains final.</p>
+<hr>
+<h1 id="future-evolution">Future Evolution<a href="#future-evolution" class="heading-anchor">#</a></h1>
+<p>Future security capabilities may include:</p>
+<ul>
+<li>hardware-backed installation identity</li>
+<li>workspace-specific keys by default</li>
+<li>remote attestation</li>
+<li>policy simulation</li>
+<li>formal policy verification</li>
+<li>organization-level separation of duties</li>
+<li>privacy-preserving audit aggregation</li>
+<li>anomaly detection</li>
+<li>isolated remote workers</li>
+</ul>
+<p>Security automation may improve detection and response recommendations.</p>
+<p>It may not autonomously weaken controls.</p>
+<hr>
+<h1 id="open-questions">Open Questions<a href="#open-questions" class="heading-anchor">#</a></h1>
+<ul>
+<li>Which authentication mechanism should the first local deployment use?</li>
+<li>Should each workspace receive a separate encryption key initially?</li>
+<li>Which operations require mandatory approval by default?</li>
+<li>How should local host administrator risk be communicated?</li>
+<li>Which audit integrity mechanism best fits local-first deployments?</li>
+<li>How should emergency recovery authority be governed?</li>
+<li>How should MCP and plugin trust be attested?</li>
+<li>Which low-risk operations may continue when audit storage is unavailable?</li>
+<li>How should collaborative workspace separation of duties work?</li>
+<li>How should users simulate policy changes before activation?</li>
+</ul>
+<hr>
+<h1 id="key-architectural-decisions">Key Architectural Decisions<a href="#key-architectural-decisions" class="heading-anchor">#</a></h1>
+<p>Security is a cross-cutting control system.</p>
+<p>The Security Layer owns identity contracts, policy decisions, approvals, audit integrity, encryption policy, and incident coordination.</p>
+<p>Subsystems enforce security at their operational boundaries.</p>
+<p>Local-first reduces unnecessary exposure but does not eliminate trust boundaries.</p>
+<p>Every autonomous action remains explicit, scoped, isolated, attributable, revocable, and subordinate to human authority.</p>
+
+        </article>
+        <div class="doc-footer-nav">
+      <a href="../02-Architecture/Model-Abstraction-Layer.html" class="nav-card prev">
+        <span class="nav-card-label">Previous</span>
+        <span class="nav-card-title">Model Abstraction Layer</span>
+      </a>
+    
+      <a href="../02-Architecture/Tool-Layer.html" class="nav-card next">
+        <span class="nav-card-label">Next</span>
+        <span class="nav-card-title">Tool Layer</span>
+      </a>
+    </div>
+      </div>
+    </main>
+
+    <!-- Right Table of Contents Sidebar -->
+    
+    <aside class="site-toc">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list">
+        <li class="toc-item depth-2">
+  <a href="#security-is-an-architectural-boundary" class="toc-link">Security Is An Architectural Boundary</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#local-does-not-mean-trusted" class="toc-link">Local Does Not Mean Trusted</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#least-authority" class="toc-link">Least Authority</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#deny-by-default" class="toc-link">Deny By Default</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#human-authority" class="toc-link">Human Authority</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#defense-in-depth" class="toc-link">Defense In Depth</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#secure-failure" class="toc-link">Secure Failure</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sec-001-explicit-identity" class="toc-link">SEC-001 Explicit Identity</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sec-002-explicit-scope" class="toc-link">SEC-002 Explicit Scope</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sec-003-least-privilege" class="toc-link">SEC-003 Least Privilege</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sec-004-deny-by-default" class="toc-link">SEC-004 Deny By Default</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sec-005-human-authority" class="toc-link">SEC-005 Human Authority</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sec-006-isolation" class="toc-link">SEC-006 Isolation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sec-007-audit-integrity" class="toc-link">SEC-007 Audit Integrity</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sec-008-data-minimization" class="toc-link">SEC-008 Data Minimization</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sec-009-recovery" class="toc-link">SEC-009 Recovery</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sec-010-evolution-cannot-weaken-security" class="toc-link">SEC-010 Evolution Cannot Weaken Security</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#identity-service" class="toc-link">Identity Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#authorization-service" class="toc-link">Authorization Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#permission-grant-service" class="toc-link">Permission Grant Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#approval-service" class="toc-link">Approval Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sandbox-policy-service" class="toc-link">Sandbox Policy Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#audit-service" class="toc-link">Audit Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#incident-response-coordinator" class="toc-link">Incident Response Coordinator</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#boundary-1-user-to-damascus" class="toc-link">Boundary 1: User To Damascus</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#boundary-2-workspace-to-workspace" class="toc-link">Boundary 2: Workspace To Workspace</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#boundary-3-workflow-to-capability" class="toc-link">Boundary 3: Workflow To Capability</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#boundary-4-agent-and-model-output-to-action" class="toc-link">Boundary 4: Agent And Model Output To Action</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#boundary-5-damascus-to-tool" class="toc-link">Boundary 5: Damascus To Tool</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#boundary-6-damascus-to-cloud-provider" class="toc-link">Boundary 6: Damascus To Cloud Provider</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#boundary-7-damascus-to-local-execution-environment" class="toc-link">Boundary 7: Damascus To Local Execution Environment</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#boundary-8-external-content-to-context" class="toc-link">Boundary 8: External Content To Context</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#boundary-9-plugin-adapter-and-mcp-integration" class="toc-link">Boundary 9: Plugin, Adapter, And MCP Integration</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#boundary-10-evolution-arena-to-production" class="toc-link">Boundary 10: Evolution Arena To Production</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#protected-assets" class="toc-link">Protected Assets</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#threat-actors" class="toc-link">Threat Actors</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#threat-categories" class="toc-link">Threat Categories</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#unauthorized-access" class="toc-link">Unauthorized Access</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#prompt-injection" class="toc-link">Prompt Injection</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#privilege-escalation" class="toc-link">Privilege Escalation</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#data-exfiltration" class="toc-link">Data Exfiltration</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#destructive-action" class="toc-link">Destructive Action</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#supply-chain-compromise" class="toc-link">Supply Chain Compromise</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#audit-tampering" class="toc-link">Audit Tampering</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#benchmark-manipulation" class="toc-link">Benchmark Manipulation</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#resource-exhaustion" class="toc-link">Resource Exhaustion</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#cross-scope-leakage" class="toc-link">Cross-Scope Leakage</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#principal-types" class="toc-link">Principal Types</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#stable-identity" class="toc-link">Stable Identity</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#authentication" class="toc-link">Authentication</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#delegation" class="toc-link">Delegation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#session-management" class="toc-link">Session Management</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#service-identity" class="toc-link">Service Identity</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#model" class="toc-link">Model</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#permission-request" class="toc-link">Permission Request</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#decision" class="toc-link">Decision</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#policy-decision-points" class="toc-link">Policy Decision Points</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#policy-enforcement-points" class="toc-link">Policy Enforcement Points</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#permission-inheritance" class="toc-link">Permission Inheritance</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#grants" class="toc-link">Grants</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#revocation" class="toc-link">Revocation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#approval-request" class="toc-link">Approval Request</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#approval-states" class="toc-link">Approval States</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#binding" class="toc-link">Binding</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#approval-quality" class="toc-link">Approval Quality</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#separation-of-duties" class="toc-link">Separation Of Duties</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#emergency-approval" class="toc-link">Emergency Approval</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#audit-record" class="toc-link">Audit Record</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#audit-coverage" class="toc-link">Audit Coverage</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tamper-resistance" class="toc-link">Tamper Resistance</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#data-minimization" class="toc-link">Data Minimization</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#data-at-rest" class="toc-link">Data At Rest</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#data-in-transit" class="toc-link">Data In Transit</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#key-hierarchy" class="toc-link">Key Hierarchy</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#key-management" class="toc-link">Key Management</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#secret-management" class="toc-link">Secret Management</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#cryptographic-erasure" class="toc-link">Cryptographic Erasure</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#control-flow" class="toc-link">Control Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sandbox-profiles" class="toc-link">Sandbox Profiles</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#isolation-controls" class="toc-link">Isolation Controls</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#fail-closed" class="toc-link">Fail Closed</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sandbox-escape" class="toc-link">Sandbox Escape</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#execution-admission" class="toc-link">Execution Admission</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#during-execution" class="toc-link">During Execution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#after-execution" class="toc-link">After Execution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#local-ownership" class="toc-link">Local Ownership</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#local-attack-surface" class="toc-link">Local Attack Surface</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#default-local-posture" class="toc-link">Default Local Posture</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#offline-security" class="toc-link">Offline Security</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#host-trust" class="toc-link">Host Trust</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#incident-classes" class="toc-link">Incident Classes</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#incident-lifecycle" class="toc-link">Incident Lifecycle</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#containment-actions" class="toc-link">Containment Actions</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evidence-preservation" class="toc-link">Evidence Preservation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#credential-compromise" class="toc-link">Credential Compromise</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#cross-workspace-leakage" class="toc-link">Cross-Workspace Leakage</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sandbox-escape" class="toc-link">Sandbox Escape</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#audit-failure" class="toc-link">Audit Failure</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#recovery-authority" class="toc-link">Recovery Authority</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#identity-provider-unavailable" class="toc-link">Identity Provider Unavailable</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#policy-store-unavailable" class="toc-link">Policy Store Unavailable</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#stale-authorization-cache" class="toc-link">Stale Authorization Cache</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#approval-service-unavailable" class="toc-link">Approval Service Unavailable</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#key-service-unavailable" class="toc-link">Key Service Unavailable</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#audit-store-unavailable" class="toc-link">Audit Store Unavailable</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sandbox-provisioning-failure" class="toc-link">Sandbox Provisioning Failure</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#revocation-propagation-failure" class="toc-link">Revocation Propagation Failure</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-1" class="toc-link">Constraint 1</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-2" class="toc-link">Constraint 2</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-3" class="toc-link">Constraint 3</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-4" class="toc-link">Constraint 4</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-5" class="toc-link">Constraint 5</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-6" class="toc-link">Constraint 6</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-7" class="toc-link">Constraint 7</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-8" class="toc-link">Constraint 8</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-9" class="toc-link">Constraint 9</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-10" class="toc-link">Constraint 10</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-11" class="toc-link">Constraint 11</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-12" class="toc-link">Constraint 12</a>
+</li>
+
+      </ul>
+    </aside>
+  
+
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

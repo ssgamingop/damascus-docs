@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tool Layer | Damascus Docs</title>
+  <meta name="description" content="Damascus - Privacy-first, local-first intelligence operating system documentation">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    window.damascusMermaid = mermaid;
+  </script>
+</head>
+<body data-root="../">
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="brand">
+      <button class="mobile-header-btn" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="../index.html" class="brand">
+        <div class="logo">D</div>
+        <span class="title">Damascus Docs</span>
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <!-- Search Input Container -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="search-input" placeholder="Search docs..." aria-label="Search documentation">
+          <kbd class="search-shortcut">/</kbd>
+        </div>
+        
+        <!-- Results Dropdown -->
+        <div class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" aria-label="Toggle theme">
+        <!-- Sun (Light Theme Icon) -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon (Dark Theme Icon) -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Layout Grid -->
+  <div class="layout-container">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="site-sidebar">
+      <div class="sidebar-section">
+  <div class="sidebar-section-title">Vision</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Mission.html" class="sidebar-nav-link ">Mission</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Vision.html" class="sidebar-nav-link ">Damascus Vision</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Why-Damascus.html" class="sidebar-nav-link ">Why Damascus Exists</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Research</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/AI-Operating-Systems.html" class="sidebar-nav-link ">AI Operating Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Hermes-Analysis.html" class="sidebar-nav-link ">Hermes Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Knowledge-Graphs.html" class="sidebar-nav-link ">Knowledge Graphs</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/LangGraph-Analysis.html" class="sidebar-nav-link ">LangGraph Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Memory-Systems.html" class="sidebar-nav-link ">Memory Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Multi-Agent-Systems.html" class="sidebar-nav-link ">Multi Agent Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Odysseus-Analysis.html" class="sidebar-nav-link ">Odysseus Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/OpenHands-Analysis.html" class="sidebar-nav-link ">OpenHands Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Self-Improving-Agents.html" class="sidebar-nav-link ">Self Improving Agents</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Architecture</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link ">Agent Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link ">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link ">Evolution Engine</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/High-Level-Architecture.html" class="sidebar-nav-link ">High Level Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Memory-Architecture.html" class="sidebar-nav-link ">Memory Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link ">Model Abstraction Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link ">Security Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Tool-Layer.html" class="sidebar-nav-link active">Tool Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link ">Workspace System</a>
+    </li>
+  </ul>
+</div>
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <article class="doc-content">
+          <div class="doc-meta"><span class="meta-badge">Version 0.1</span><span class="meta-badge status-architecture-foundation">Architecture Foundation</span><span class="meta-badge priority-critical">Priority Critical</span></div> <h1 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h1>
+<p>This document defines the Damascus Tool Layer.</p>
+<p>The Tool Layer provides controlled, observable, permission-bound interaction with applications, filesystems, terminals, browsers, IDEs, version control systems, containers, APIs, and future tool protocols.</p>
+<p>Tools are first-class execution primitives inside workflows.</p>
+<p>They are not informal extensions attached only to agents.</p>
+<p>A workflow may invoke a tool directly, through an agent node, through a deterministic node, or through a future execution primitive.</p>
+<p>The Tool Layer exists to make real-world action:</p>
+<ul>
+<li>explicit</li>
+<li>discoverable</li>
+<li>permission-bound</li>
+<li>isolated</li>
+<li>auditable</li>
+<li>recoverable</li>
+<li>benchmarkable</li>
+</ul>
+<hr>
+<h1 id="design-philosophy">Design Philosophy<a href="#design-philosophy" class="heading-anchor">#</a></h1>
+<h2 id="tools-are-first-class-execution-primitives">Tools Are First-Class Execution Primitives<a href="#tools-are-first-class-execution-primitives" class="heading-anchor">#</a></h2>
+<p>Damascus workflows may contain:</p>
+<pre><code class="language-diagram">Workflow
+├── Model Node
+├── Agent Node
+├── Tool Node
+├── Human Approval Node
+├── Benchmark Node
+└── Future Node
+</code></pre>
+<p>Tools do not require an agent to be valid workflow components.</p>
+<h2 id="capability-is-not-authority">Capability Is Not Authority<a href="#capability-is-not-authority" class="heading-anchor">#</a></h2>
+<p>A registered tool describes what Damascus can potentially do.</p>
+<p>Registration does not grant permission to use it.</p>
+<p>Discovery does not grant permission.</p>
+<p>Model selection does not grant permission.</p>
+<p>A tool invocation requires explicit authorization in the active scope.</p>
+<h2 id="isolation-by-default">Isolation By Default<a href="#isolation-by-default" class="heading-anchor">#</a></h2>
+<p>Tool execution interacts with systems that may be damaged, compromised, or sensitive.</p>
+<p>Every tool must execute within an isolation profile appropriate to its risk.</p>
+<p>Unrestricted host execution is exceptional and requires explicit authority.</p>
+<h2 id="structured-actions">Structured Actions<a href="#structured-actions" class="heading-anchor">#</a></h2>
+<p>Tools expose typed operations and typed inputs.</p>
+<p>Damascus should prefer:</p>
+<pre><code class="language-text">git.commit(message, paths)
+</code></pre>
+<p>over:</p>
+<pre><code class="language-text">run arbitrary shell string
+</code></pre>
+<p>when an appropriate structured tool exists.</p>
+<p>General tools remain necessary, but they carry broader permissions and higher risk.</p>
+<h2 id="observable-effects">Observable Effects<a href="#observable-effects" class="heading-anchor">#</a></h2>
+<p>Tool success is not merely a successful process exit.</p>
+<p>The Tool Layer should capture intended and observed effects where practical.</p>
+<h2 id="human-authority">Human Authority<a href="#human-authority" class="heading-anchor">#</a></h2>
+<p>Critical actions must remain inspectable, approvable, cancellable where possible, and auditable.</p>
+<hr>
+<h1 id="responsibilities">Responsibilities<a href="#responsibilities" class="heading-anchor">#</a></h1>
+<p>The Tool Layer owns:</p>
+<ul>
+<li>normalized Tool Interface</li>
+<li>tool definitions and versions</li>
+<li>tool-specific registry schema</li>
+<li>tool discovery and capability metadata</li>
+<li>invocation validation</li>
+<li>execution adapter coordination</li>
+<li>isolation profile selection inputs</li>
+<li>typed result normalization</li>
+<li>tool lifecycle</li>
+<li>tool health</li>
+<li>retry and failure classification</li>
+<li>tool telemetry and effect reporting</li>
+<li>audit event generation inputs</li>
+</ul>
+<p>The Tool Layer coordinates with:</p>
+<ul>
+<li>Core for workflow execution</li>
+<li>Runtime Interface for tool-node invocation</li>
+<li>Workspace System for resource scope</li>
+<li>Security Layer for authorization, approvals, and sandbox policy</li>
+<li>Execution Environment for process and environment isolation</li>
+<li>Registry Layer for discovery metadata</li>
+<li>Observability Layer for traces and telemetry</li>
+<li>Benchmark Registry for tool evaluation</li>
+<li>Evolution Layer for controlled tool-selection improvement</li>
+</ul>
+<hr>
+<h1 id="non-responsibilities">Non-Responsibilities<a href="#non-responsibilities" class="heading-anchor">#</a></h1>
+<p>The Tool Layer does not own:</p>
+<ul>
+<li>workflow orchestration</li>
+<li>user authentication</li>
+<li>security policy definitions</li>
+<li>permission approval decisions</li>
+<li>operating system isolation implementation</li>
+<li>model reasoning</li>
+<li>memory storage</li>
+<li>external application correctness</li>
+<li>benchmark definitions</li>
+<li>evolution promotion decisions</li>
+</ul>
+<p>The Tool Layer requests isolation.</p>
+<p>The Execution Environment implements isolation.</p>
+<p>The Tool Layer provides action and scope metadata.</p>
+<p>The Security Layer authorizes and enforces permission policy.</p>
+<hr>
+<h1 id="architectural-principles">Architectural Principles<a href="#architectural-principles" class="heading-anchor">#</a></h1>
+<h2 id="tl-001-explicit-invocation">TL-001 Explicit Invocation<a href="#tl-001-explicit-invocation" class="heading-anchor">#</a></h2>
+<p>Every tool action must be represented as a typed invocation.</p>
+<h2 id="tl-002-least-authority">TL-002 Least Authority<a href="#tl-002-least-authority" class="heading-anchor">#</a></h2>
+<p>Each invocation receives the minimum permissions, resources, credentials, and duration required.</p>
+<h2 id="tl-003-tool-identity">TL-003 Tool Identity<a href="#tl-003-tool-identity" class="heading-anchor">#</a></h2>
+<p>Every tool and operation has stable, versioned identity.</p>
+<h2 id="tl-004-scoped-effects">TL-004 Scoped Effects<a href="#tl-004-scoped-effects" class="heading-anchor">#</a></h2>
+<p>Tool actions must be bounded to authorized workspace, project, resource, and execution scope.</p>
+<h2 id="tl-005-isolation-appropriate-to-risk">TL-005 Isolation Appropriate To Risk<a href="#tl-005-isolation-appropriate-to-risk" class="heading-anchor">#</a></h2>
+<p>Isolation requirements are determined by action risk, not convenience.</p>
+<h2 id="tl-006-observable-execution">TL-006 Observable Execution<a href="#tl-006-observable-execution" class="heading-anchor">#</a></h2>
+<p>Inputs, decisions, outputs, effects, failures, and approvals must be attributable.</p>
+<h2 id="tl-007-structured-before-general">TL-007 Structured Before General<a href="#tl-007-structured-before-general" class="heading-anchor">#</a></h2>
+<p>Prefer narrow structured tools over broad interpreters when both satisfy the task.</p>
+<h2 id="tl-008-no-implicit-tool-authority">TL-008 No Implicit Tool Authority<a href="#tl-008-no-implicit-tool-authority" class="heading-anchor">#</a></h2>
+<p>Model output and agent intent are requests, not authorization.</p>
+<h2 id="tl-009-replaceable-implementations">TL-009 Replaceable Implementations<a href="#tl-009-replaceable-implementations" class="heading-anchor">#</a></h2>
+<p>Workflows depend on tool contracts, not a specific operating system command or vendor integration.</p>
+<h2 id="tl-010-measured-reliability">TL-010 Measured Reliability<a href="#tl-010-measured-reliability" class="heading-anchor">#</a></h2>
+<p>Tool selection and evolution use observed, benchmarked evidence.</p>
+<hr>
+<h1 id="high-level-architecture">High-Level Architecture<a href="#high-level-architecture" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">Workflow Node
+↓
+Damascus Core
+↓
+Tool Invocation Interface
+↓
+Tool Resolution And Validation
+├── Tool Registry
+├── Workspace Resource Catalog
+├── Security Authorization
+└── Isolation Policy
+↓
+Tool Execution Coordinator
+↓
+Execution Environment
+↓
+Tool Adapter
+↓
+External System
+↓
+Result And Effect Normalization
+↓
+Audit, Telemetry, And Workflow Result
+</code></pre>
+<hr>
+<h1 id="core-components">Core Components<a href="#core-components" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">Tool Layer
+├── Tool Invocation Service
+├── Tool Registry
+├── Tool Discovery Service
+├── Tool Resolver
+├── Permission And Approval Coordinator
+├── Tool Execution Coordinator
+├── Isolation Profile Resolver
+├── Result And Effect Normalizer
+├── Tool Health Monitor
+├── Tool Telemetry Publisher
+└── Tool Lifecycle Manager
+</code></pre>
+<h2 id="tool-invocation-service">Tool Invocation Service<a href="#tool-invocation-service" class="heading-anchor">#</a></h2>
+<p>The stable entry point for all tool actions.</p>
+<p>It validates:</p>
+<ul>
+<li>tool and operation identity</li>
+<li>input schema</li>
+<li>workflow execution context</li>
+<li>resource scope</li>
+<li>authorization context</li>
+<li>isolation requirements</li>
+<li>idempotency and retry policy</li>
+</ul>
+<h2 id="tool-resolver">Tool Resolver<a href="#tool-resolver" class="heading-anchor">#</a></h2>
+<p>Resolves a capability request or pinned tool reference to an eligible tool definition.</p>
+<p>Resolution may consider:</p>
+<ul>
+<li>required operation</li>
+<li>supported resource type</li>
+<li>operating environment</li>
+<li>permissions</li>
+<li>reliability</li>
+<li>latency</li>
+<li>benchmark evidence</li>
+</ul>
+<h2 id="permission-and-approval-coordinator">Permission And Approval Coordinator<a href="#permission-and-approval-coordinator" class="heading-anchor">#</a></h2>
+<p>Collects the exact action, resource, scope, and effect class needed by the Security Layer.</p>
+<p>It does not approve its own request.</p>
+<h2 id="tool-execution-coordinator">Tool Execution Coordinator<a href="#tool-execution-coordinator" class="heading-anchor">#</a></h2>
+<p>Coordinates invocation with the Execution Environment and selected adapter.</p>
+<p>Responsibilities:</p>
+<ul>
+<li>create execution request</li>
+<li>provision scoped credentials</li>
+<li>enforce timeout</li>
+<li>stream output</li>
+<li>propagate cancellation</li>
+<li>normalize completion</li>
+<li>record observed effects</li>
+</ul>
+<h2 id="isolation-profile-resolver">Isolation Profile Resolver<a href="#isolation-profile-resolver" class="heading-anchor">#</a></h2>
+<p>Maps invocation risk and policy to an isolation profile.</p>
+<p>It may request:</p>
+<ul>
+<li>process isolation</li>
+<li>container isolation</li>
+<li>network restrictions</li>
+<li>filesystem restrictions</li>
+<li>disposable browser profile</li>
+<li>credential scoping</li>
+<li>resource limits</li>
+</ul>
+<p>The Execution Environment implements the profile.</p>
+<h2 id="result-and-effect-normalizer">Result And Effect Normalizer<a href="#result-and-effect-normalizer" class="heading-anchor">#</a></h2>
+<p>Normalizes tool-specific results into:</p>
+<ul>
+<li>status</li>
+<li>typed output</li>
+<li>stdout and stderr references</li>
+<li>produced artifacts</li>
+<li>observed effects</li>
+<li>warnings</li>
+<li>failure type</li>
+<li>provenance</li>
+</ul>
+<hr>
+<h1 id="tool-interface">Tool Interface<a href="#tool-interface" class="heading-anchor">#</a></h1>
+<h2 id="tool-contract">Tool Contract<a href="#tool-contract" class="heading-anchor">#</a></h2>
+<p>Every tool implements a stable Damascus interface.</p>
+<p>Illustrative contract:</p>
+<pre><code class="language-text">ITool
+
+definition()
+operations()
+validate_configuration()
+health_check()
+estimate_effects(operation, input, context)
+execute(operation, input, execution_context)
+cancel(tool_execution_id)
+</code></pre>
+<p>Optional lifecycle methods:</p>
+<pre><code class="language-text">prepare(execution_context)
+cleanup(tool_execution_id)
+rollback(tool_execution_id, rollback_context)
+</code></pre>
+<p>Rollback is optional and must never be claimed when effects are irreversible.</p>
+<h2 id="tool-definition">Tool Definition<a href="#tool-definition" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">ToolDefinition
+  tool_id
+  tool_version
+  display_name
+  category
+  adapter_type
+  operations
+  required_permissions
+  isolation_requirements
+  supported_environments
+  lifecycle_state
+  reliability_profile
+  benchmark_summary
+</code></pre>
+<h2 id="operation-definition">Operation Definition<a href="#operation-definition" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">ToolOperation
+  operation_id
+  description
+  input_schema
+  output_schema
+  effect_class
+  idempotency_class
+  reversibility_class
+  required_permissions
+  default_timeout
+  isolation_requirements
+</code></pre>
+<h2 id="invocation-request">Invocation Request<a href="#invocation-request" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">ToolInvocationRequest
+  invocation_id
+  workspace_id
+  project_id | null
+  workflow_execution_id
+  node_execution_id
+  tool_id_or_capability_request
+  operation_id
+  input
+  resource_bindings
+  permission_context
+  approval_references
+  isolation_policy_reference
+  timeout
+  idempotency_key | null
+  trace_context
+</code></pre>
+<h2 id="invocation-result">Invocation Result<a href="#invocation-result" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">ToolInvocationResult
+  invocation_id
+  resolved_tool_id
+  resolved_tool_version
+  status
+  typed_output
+  produced_artifacts
+  observed_effects
+  warnings
+  telemetry
+  failure | null
+  provenance
+</code></pre>
+<h2 id="effect-classes">Effect Classes<a href="#effect-classes" class="heading-anchor">#</a></h2>
+<p>Initial effect classes:</p>
+<ul>
+<li>ReadOnly</li>
+<li>Create</li>
+<li>Modify</li>
+<li>Delete</li>
+<li>Execute</li>
+<li>NetworkTransmit</li>
+<li>ExternalPublish</li>
+<li>CredentialUse</li>
+<li>PrivilegeChange</li>
+</ul>
+<p>An operation may have multiple effect classes.</p>
+<h2 id="idempotency-classes">Idempotency Classes<a href="#idempotency-classes" class="heading-anchor">#</a></h2>
+<ul>
+<li>Idempotent</li>
+<li>IdempotentWithKey</li>
+<li>ConditionallyIdempotent</li>
+<li>NonIdempotent</li>
+<li>Unknown</li>
+</ul>
+<p>Retry behavior depends on this classification.</p>
+<h2 id="reversibility-classes">Reversibility Classes<a href="#reversibility-classes" class="heading-anchor">#</a></h2>
+<ul>
+<li>Reversible</li>
+<li>Compensatable</li>
+<li>Irreversible</li>
+<li>Unknown</li>
+</ul>
+<p>Critical irreversible operations require stronger approval and audit.</p>
+<hr>
+<h1 id="tool-registry">Tool Registry<a href="#tool-registry" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>The Tool Registry stores metadata required to discover and resolve tool capabilities.</p>
+<p>It is a discovery system.</p>
+<p>It is not an authorization engine or execution environment.</p>
+<h2 id="registry-contents">Registry Contents<a href="#registry-contents" class="heading-anchor">#</a></h2>
+<p>The Registry stores:</p>
+<ul>
+<li>tool definitions</li>
+<li>operation definitions</li>
+<li>versions</li>
+<li>capability tags</li>
+<li>supported environments</li>
+<li>required permissions</li>
+<li>isolation requirements</li>
+<li>health state</li>
+<li>reliability summaries</li>
+<li>benchmark references</li>
+<li>deprecation state</li>
+</ul>
+<h2 id="stable-identity">Stable Identity<a href="#stable-identity" class="heading-anchor">#</a></h2>
+<p>Tool identity is independent of:</p>
+<ul>
+<li>executable path</li>
+<li>container image tag</li>
+<li>API endpoint</li>
+<li>display name</li>
+</ul>
+<p>Those are implementation configuration.</p>
+<h2 id="registry-lifecycle-states">Registry Lifecycle States<a href="#registry-lifecycle-states" class="heading-anchor">#</a></h2>
+<ul>
+<li>Discovered</li>
+<li>Unverified</li>
+<li>Active</li>
+<li>Degraded</li>
+<li>Disabled</li>
+<li>Deprecated</li>
+<li>Retired</li>
+<li>Quarantined</li>
+</ul>
+<p>Quarantined tools cannot execute until reviewed and reactivated.</p>
+<h2 id="registry-ownership">Registry Ownership<a href="#registry-ownership" class="heading-anchor">#</a></h2>
+<p>The Core Registry Layer provides common registry infrastructure.</p>
+<p>The Tool Layer owns tool-specific schema, validation, discovery, and lifecycle semantics.</p>
+<hr>
+<h1 id="tool-categories">Tool Categories<a href="#tool-categories" class="heading-anchor">#</a></h1>
+<h2 id="browser-tools">Browser Tools<a href="#browser-tools" class="heading-anchor">#</a></h2>
+<p>Capabilities may include:</p>
+<ul>
+<li>navigate</li>
+<li>search</li>
+<li>read page</li>
+<li>interact with page</li>
+<li>download</li>
+<li>submit forms</li>
+<li>capture screenshot</li>
+</ul>
+<p>Security concerns:</p>
+<ul>
+<li>untrusted content</li>
+<li>prompt injection</li>
+<li>credential leakage</li>
+<li>downloads</li>
+<li>external publication</li>
+<li>session isolation</li>
+</ul>
+<p>Browser sessions should use isolated profiles by default.</p>
+<h2 id="file-system-tools">File System Tools<a href="#file-system-tools" class="heading-anchor">#</a></h2>
+<p>Capabilities may include:</p>
+<ul>
+<li>read</li>
+<li>list</li>
+<li>search</li>
+<li>create</li>
+<li>modify</li>
+<li>move</li>
+<li>delete</li>
+</ul>
+<p>Filesystem access must use bound resources or explicit approved paths.</p>
+<p>Path normalization must prevent traversal and symbolic-link escape.</p>
+<h2 id="terminal-tools">Terminal Tools<a href="#terminal-tools" class="heading-anchor">#</a></h2>
+<p>Capabilities may include:</p>
+<ul>
+<li>execute command</li>
+<li>stream output</li>
+<li>manage process</li>
+<li>inspect environment</li>
+</ul>
+<p>Terminal tools are broad-capability tools.</p>
+<p>They require strict isolation, command auditing, resource limits, and scoped working directories.</p>
+<p>Structured tools should be preferred where practical.</p>
+<h2 id="ide-tools">IDE Tools<a href="#ide-tools" class="heading-anchor">#</a></h2>
+<p>Capabilities may include:</p>
+<ul>
+<li>inspect diagnostics</li>
+<li>navigate symbols</li>
+<li>apply edits</li>
+<li>format</li>
+<li>run tests</li>
+<li>invoke language services</li>
+</ul>
+<p>IDE tools must distinguish editor state from filesystem state and report unsaved or conflicting changes.</p>
+<h2 id="git-tools">Git Tools<a href="#git-tools" class="heading-anchor">#</a></h2>
+<p>Capabilities may include:</p>
+<ul>
+<li>inspect status</li>
+<li>view history</li>
+<li>diff</li>
+<li>create branch</li>
+<li>stage</li>
+<li>commit</li>
+<li>fetch</li>
+<li>push</li>
+<li>open review requests through integrations</li>
+</ul>
+<p>Remote writes, force operations, history rewrites, and destructive cleanup require elevated policy.</p>
+<p>Git operations must preserve user changes unless explicitly authorized.</p>
+<h2 id="docker-tools">Docker Tools<a href="#docker-tools" class="heading-anchor">#</a></h2>
+<p>Capabilities may include:</p>
+<ul>
+<li>build image</li>
+<li>run container</li>
+<li>inspect container</li>
+<li>view logs</li>
+<li>stop container</li>
+<li>manage compose applications</li>
+</ul>
+<p>Container execution is not automatically safe.</p>
+<p>Privileged containers, host mounts, socket mounts, and broad network access require explicit restrictions.</p>
+<h2 id="api-tools">API Tools<a href="#api-tools" class="heading-anchor">#</a></h2>
+<p>Capabilities may include structured calls to approved external services.</p>
+<p>API tools must define:</p>
+<ul>
+<li>endpoint classes</li>
+<li>methods</li>
+<li>schemas</li>
+<li>credentials</li>
+<li>rate limits</li>
+<li>data classifications</li>
+<li>side-effect semantics</li>
+</ul>
+<p>Generic HTTP tools are broad-capability tools and require stricter permissions.</p>
+<h2 id="future-mcp-tools">Future MCP Tools<a href="#future-mcp-tools" class="heading-anchor">#</a></h2>
+<p>Future Model Context Protocol tools may be integrated through an MCP adapter.</p>
+<p>MCP tool metadata remains untrusted until:</p>
+<ul>
+<li>discovered</li>
+<li>inspected</li>
+<li>mapped to Damascus permission and effect classes</li>
+<li>assigned an isolation policy</li>
+<li>approved</li>
+</ul>
+<p>MCP does not replace Damascus authorization, auditing, isolation, or lifecycle controls.</p>
+<p>Provider-specific MCP concepts must terminate at the adapter boundary.</p>
+<hr>
+<h1 id="tool-discovery">Tool Discovery<a href="#tool-discovery" class="heading-anchor">#</a></h1>
+<h2 id="discovery-sources">Discovery Sources<a href="#discovery-sources" class="heading-anchor">#</a></h2>
+<p>Tools may be discovered from:</p>
+<ul>
+<li>built-in Damascus capabilities</li>
+<li>installed adapters</li>
+<li>local executables</li>
+<li>IDE integrations</li>
+<li>container images</li>
+<li>configured APIs</li>
+<li>future MCP servers</li>
+<li>approved plugin packages</li>
+</ul>
+<h2 id="discovery-flow">Discovery Flow<a href="#discovery-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Discover Candidate
+↓
+Extract Metadata
+↓
+Verify Source And Identity
+↓
+Inspect Operations And Schemas
+↓
+Classify Effects And Permissions
+↓
+Assign Isolation Requirements
+↓
+Validate In Controlled Environment
+↓
+Register As Unverified Or Active
+</code></pre>
+<p>Discovery must not automatically activate execution authority.</p>
+<h2 id="workflow-discovery">Workflow Discovery<a href="#workflow-discovery" class="heading-anchor">#</a></h2>
+<p>Workflows may request:</p>
+<ul>
+<li>a pinned tool version</li>
+<li>a named tool capability</li>
+<li>an operation class</li>
+</ul>
+<p>The Tool Resolver returns only eligible tools authorized in the active scope.</p>
+<h2 id="capability-matching">Capability Matching<a href="#capability-matching" class="heading-anchor">#</a></h2>
+<p>Capability matching uses structured metadata.</p>
+<p>It must not rely solely on natural-language descriptions generated by a tool provider.</p>
+<hr>
+<h1 id="tool-permissions">Tool Permissions<a href="#tool-permissions" class="heading-anchor">#</a></h1>
+<h2 id="permission-model">Permission Model<a href="#permission-model" class="heading-anchor">#</a></h2>
+<p>Tool permission evaluation includes:</p>
+<ul>
+<li>principal</li>
+<li>workflow execution identity</li>
+<li>tool</li>
+<li>operation</li>
+<li>resource</li>
+<li>effect class</li>
+<li>workspace and project scope</li>
+<li>data classification</li>
+<li>isolation profile</li>
+<li>approval state</li>
+<li>duration</li>
+</ul>
+<h2 id="authorization-flow">Authorization Flow<a href="#authorization-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Invocation Requested
+↓
+Resolve Tool And Operation
+↓
+Resolve Resource Scope
+↓
+Estimate Effects
+↓
+Security Layer Evaluates Policy
+↓
+Collect Required Approval
+↓
+Issue Bounded Execution Grant
+↓
+Execute
+</code></pre>
+<h2 id="execution-grants">Execution Grants<a href="#execution-grants" class="heading-anchor">#</a></h2>
+<p>A grant should bind:</p>
+<ul>
+<li>exact tool and operation</li>
+<li>resource scope</li>
+<li>effect classes</li>
+<li>workflow execution</li>
+<li>expiration</li>
+<li>credential references</li>
+<li>isolation requirements</li>
+</ul>
+<p>Grants must not be reusable across unrelated workflows.</p>
+<h2 id="approval-boundaries">Approval Boundaries<a href="#approval-boundaries" class="heading-anchor">#</a></h2>
+<p>Actions commonly requiring approval:</p>
+<ul>
+<li>deletion</li>
+<li>external publication</li>
+<li>remote push</li>
+<li>secret use</li>
+<li>host-level command execution</li>
+<li>access outside project bindings</li>
+<li>privileged containers</li>
+<li>irreversible API actions</li>
+</ul>
+<p>Approvals must describe meaningful effects to the user.</p>
+<h2 id="revocation">Revocation<a href="#revocation" class="heading-anchor">#</a></h2>
+<p>Revocation prevents new actions immediately and interrupts running actions where safe and supported.</p>
+<p>Credentials and execution grants must be invalidated.</p>
+<hr>
+<h1 id="tool-execution">Tool Execution<a href="#tool-execution" class="heading-anchor">#</a></h1>
+<h2 id="execution-flow">Execution Flow<a href="#execution-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Tool Node Ready
+↓
+Core Resolves Workflow State
+↓
+Tool Layer Resolves Tool
+↓
+Validate Input And Scope
+↓
+Authorize And Approve
+↓
+Provision Isolation Environment
+↓
+Provision Bounded Credentials
+↓
+Execute Tool
+↓
+Capture Output And Effects
+↓
+Validate Result
+↓
+Cleanup Environment
+↓
+Publish Telemetry And Audit Inputs
+↓
+Return Typed Result To Runtime
+</code></pre>
+<h2 id="runtime-interaction">Runtime Interaction<a href="#runtime-interaction" class="heading-anchor">#</a></h2>
+<p>Runtime adapters invoke tools through the Tool Invocation Interface.</p>
+<p>They must not execute shell commands, call external APIs, or manipulate files directly outside the Tool Layer.</p>
+<p>Architecture:</p>
+<pre><code class="language-diagram">Workflow
+↓
+Damascus Core
+↓
+Runtime Interface
+↓
+Runtime Adapter
+↓
+Tool Invocation Interface
+↓
+Tool Layer
+↓
+Execution Environment
+</code></pre>
+<h2 id="streaming">Streaming<a href="#streaming" class="heading-anchor">#</a></h2>
+<p>Long-running tools may emit:</p>
+<ul>
+<li>ToolExecutionStarted</li>
+<li>ProgressUpdated</li>
+<li>OutputChunk</li>
+<li>EffectObserved</li>
+<li>ApprovalRequired</li>
+<li>ToolExecutionCompleted</li>
+<li>ToolExecutionFailed</li>
+</ul>
+<p>Streaming output remains subject to redaction policy.</p>
+<h2 id="cancellation">Cancellation<a href="#cancellation" class="heading-anchor">#</a></h2>
+<p>Cancellation attempts to:</p>
+<ul>
+<li>stop the process or request</li>
+<li>revoke credentials</li>
+<li>stop further side effects</li>
+<li>preserve partial output</li>
+<li>run safe cleanup</li>
+</ul>
+<p>Cancellation does not imply rollback.</p>
+<h2 id="timeouts-and-resource-limits">Timeouts And Resource Limits<a href="#timeouts-and-resource-limits" class="heading-anchor">#</a></h2>
+<p>Every invocation has bounded:</p>
+<ul>
+<li>time</li>
+<li>CPU</li>
+<li>memory</li>
+<li>storage</li>
+<li>output volume</li>
+<li>network access</li>
+</ul>
+<p>Limits vary by operation and policy.</p>
+<hr>
+<h1 id="tool-isolation">Tool Isolation<a href="#tool-isolation" class="heading-anchor">#</a></h1>
+<h2 id="isolation-goals">Isolation Goals<a href="#isolation-goals" class="heading-anchor">#</a></h2>
+<p>Isolation limits:</p>
+<ul>
+<li>system damage</li>
+<li>data exposure</li>
+<li>privilege escalation</li>
+<li>cross-workspace access</li>
+<li>persistence after execution</li>
+<li>uncontrolled network activity</li>
+</ul>
+<h2 id="isolation-profiles">Isolation Profiles<a href="#isolation-profiles" class="heading-anchor">#</a></h2>
+<p>Example profiles:</p>
+<h3 id="read-only-resource-profile">Read-Only Resource Profile<a href="#read-only-resource-profile" class="heading-anchor">#</a></h3>
+<ul>
+<li>approved resources mounted read-only</li>
+<li>no network by default</li>
+<li>no secrets</li>
+<li>bounded process resources</li>
+</ul>
+<h3 id="project-write-profile">Project Write Profile<a href="#project-write-profile" class="heading-anchor">#</a></h3>
+<ul>
+<li>approved project resources writable</li>
+<li>other workspace resources inaccessible</li>
+<li>network denied or allowlisted</li>
+<li>bounded credentials</li>
+</ul>
+<h3 id="disposable-browser-profile">Disposable Browser Profile<a href="#disposable-browser-profile" class="heading-anchor">#</a></h3>
+<ul>
+<li>isolated browser storage</li>
+<li>controlled downloads</li>
+<li>restricted credential access</li>
+<li>domain policy</li>
+</ul>
+<h3 id="container-build-profile">Container Build Profile<a href="#container-build-profile" class="heading-anchor">#</a></h3>
+<ul>
+<li>isolated build environment</li>
+<li>controlled registry access</li>
+<li>no privileged mode</li>
+<li>bounded storage and network</li>
+</ul>
+<h3 id="host-action-profile">Host Action Profile<a href="#host-action-profile" class="heading-anchor">#</a></h3>
+<ul>
+<li>exceptional</li>
+<li>explicit approval</li>
+<li>exact command or operation</li>
+<li>narrow resource scope</li>
+<li>enhanced audit</li>
+</ul>
+<h2 id="isolation-boundaries">Isolation Boundaries<a href="#isolation-boundaries" class="heading-anchor">#</a></h2>
+<p>Possible mechanisms:</p>
+<ul>
+<li>operating system process sandbox</li>
+<li>containers</li>
+<li>virtual machines</li>
+<li>filesystem namespaces</li>
+<li>network namespaces</li>
+<li>capability restrictions</li>
+<li>disposable application profiles</li>
+<li>remote isolated workers</li>
+</ul>
+<p>No single mechanism is sufficient for every tool.</p>
+<h2 id="isolation-verification">Isolation Verification<a href="#isolation-verification" class="heading-anchor">#</a></h2>
+<p>The Tool Layer should verify that the requested isolation profile was actually provisioned.</p>
+<p>If required isolation cannot be established, execution fails closed.</p>
+<hr>
+<h1 id="tool-sandboxing">Tool Sandboxing<a href="#tool-sandboxing" class="heading-anchor">#</a></h1>
+<p>Sandboxing is the enforcement of an isolation profile for a specific invocation.</p>
+<p>Sandbox requirements include:</p>
+<ul>
+<li>clean or known starting state</li>
+<li>explicit mounts</li>
+<li>explicit environment variables</li>
+<li>explicit network policy</li>
+<li>bounded resource use</li>
+<li>output capture</li>
+<li>cleanup policy</li>
+</ul>
+<h2 id="filesystem-sandbox">Filesystem Sandbox<a href="#filesystem-sandbox" class="heading-anchor">#</a></h2>
+<p>Must address:</p>
+<ul>
+<li>path traversal</li>
+<li>symbolic links</li>
+<li>hard links</li>
+<li>mount escape</li>
+<li>sensitive temporary files</li>
+<li>file ownership</li>
+</ul>
+<h2 id="network-sandbox">Network Sandbox<a href="#network-sandbox" class="heading-anchor">#</a></h2>
+<p>Must support:</p>
+<ul>
+<li>deny by default</li>
+<li>domain or endpoint allowlists</li>
+<li>protocol restrictions</li>
+<li>egress logging</li>
+<li>credential scoping</li>
+</ul>
+<h2 id="credential-sandbox">Credential Sandbox<a href="#credential-sandbox" class="heading-anchor">#</a></h2>
+<p>Credentials should be:</p>
+<ul>
+<li>short-lived</li>
+<li>operation-scoped</li>
+<li>injected only after authorization</li>
+<li>hidden from model context</li>
+<li>revoked after execution</li>
+</ul>
+<h2 id="sandbox-cleanup">Sandbox Cleanup<a href="#sandbox-cleanup" class="heading-anchor">#</a></h2>
+<p>Cleanup records whether:</p>
+<ul>
+<li>temporary resources were removed</li>
+<li>credentials were revoked</li>
+<li>processes were stopped</li>
+<li>artifacts were retained</li>
+<li>cleanup failed</li>
+</ul>
+<p>Cleanup failure is a security-relevant event.</p>
+<hr>
+<h1 id="tool-auditing">Tool Auditing<a href="#tool-auditing" class="heading-anchor">#</a></h1>
+<h2 id="audit-scope">Audit Scope<a href="#audit-scope" class="heading-anchor">#</a></h2>
+<p>Audit records should capture:</p>
+<ul>
+<li>requester</li>
+<li>workflow execution</li>
+<li>tool and operation</li>
+<li>tool version</li>
+<li>authorization decision</li>
+<li>approvals</li>
+<li>resource scope</li>
+<li>requested and observed effect classes</li>
+<li>isolation profile</li>
+<li>result</li>
+<li>timestamps</li>
+<li>rollback or compensation</li>
+</ul>
+<h2 id="sensitive-data">Sensitive Data<a href="#sensitive-data" class="heading-anchor">#</a></h2>
+<p>Audit records should preserve accountability without copying unrestricted:</p>
+<ul>
+<li>file contents</li>
+<li>secrets</li>
+<li>terminal output</li>
+<li>API payloads</li>
+</ul>
+<p>Hashes, references, classifications, and redacted summaries should be used where appropriate.</p>
+<h2 id="audit-integrity">Audit Integrity<a href="#audit-integrity" class="heading-anchor">#</a></h2>
+<p>Ordinary tools and workflows may not modify their own audit records.</p>
+<hr>
+<h1 id="tool-telemetry">Tool Telemetry<a href="#tool-telemetry" class="heading-anchor">#</a></h1>
+<p>Telemetry supports operations, benchmarking, and evolution.</p>
+<p>Metrics may include:</p>
+<ul>
+<li>success rate</li>
+<li>failure type</li>
+<li>latency</li>
+<li>queue time</li>
+<li>resource usage</li>
+<li>retry rate</li>
+<li>cancellation rate</li>
+<li>cleanup success</li>
+<li>permission denial rate</li>
+<li>approval wait time</li>
+<li>observed effects</li>
+<li>output validation rate</li>
+</ul>
+<p>Telemetry must retain:</p>
+<ul>
+<li>workspace scope</li>
+<li>project scope where applicable</li>
+<li>workflow and node identity</li>
+<li>tool version</li>
+</ul>
+<p>Telemetry is not permission to store sensitive content.</p>
+<hr>
+<h1 id="tool-failure-handling">Tool Failure Handling<a href="#tool-failure-handling" class="heading-anchor">#</a></h1>
+<h2 id="failure-taxonomy">Failure Taxonomy<a href="#failure-taxonomy" class="heading-anchor">#</a></h2>
+<p>Tool failures include:</p>
+<ul>
+<li>ToolUnavailable</li>
+<li>ToolMisconfigured</li>
+<li>UnsupportedOperation</li>
+<li>InvalidInput</li>
+<li>AuthorizationDenied</li>
+<li>ApprovalDenied</li>
+<li>ApprovalExpired</li>
+<li>IsolationUnavailable</li>
+<li>SandboxViolation</li>
+<li>ResourceUnavailable</li>
+<li>ResourceConflict</li>
+<li>Timeout</li>
+<li>RateLimited</li>
+<li>ExternalSystemFailure</li>
+<li>PartialEffect</li>
+<li>OutputValidationFailure</li>
+<li>CleanupFailure</li>
+<li>Cancelled</li>
+<li>UnknownFailure</li>
+</ul>
+<h2 id="failure-flow">Failure Flow<a href="#failure-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Detect
+↓
+Stop Further Effects Where Possible
+↓
+Capture Partial Effects
+↓
+Classify
+↓
+Record And Audit
+↓
+Evaluate Retry, Compensation, Or Escalation
+↓
+Return Typed Outcome To Runtime
+</code></pre>
+<h2 id="retry-rules">Retry Rules<a href="#retry-rules" class="heading-anchor">#</a></h2>
+<p>Retry is allowed only when:</p>
+<ul>
+<li>policy permits</li>
+<li>idempotency is known</li>
+<li>partial effects are understood</li>
+<li>retry remains within budget and deadline</li>
+</ul>
+<p>Non-idempotent operations must not be retried automatically without a safe idempotency key or explicit strategy.</p>
+<h2 id="partial-effects">Partial Effects<a href="#partial-effects" class="heading-anchor">#</a></h2>
+<p>A tool may fail after changing an external system.</p>
+<p>Partial effects must be reported explicitly.</p>
+<p>The runtime must not treat these failures as if nothing happened.</p>
+<h2 id="compensation-and-rollback">Compensation And Rollback<a href="#compensation-and-rollback" class="heading-anchor">#</a></h2>
+<p>Rollback is used only when the tool can verify restoration.</p>
+<p>Compensation performs a separate corrective action.</p>
+<p>Examples:</p>
+<ul>
+<li>revert a created file</li>
+<li>delete a temporary branch</li>
+<li>cancel an external request</li>
+</ul>
+<p>Compensation itself requires authorization and audit.</p>
+<h2 id="quarantine">Quarantine<a href="#quarantine" class="heading-anchor">#</a></h2>
+<p>A tool may be quarantined after:</p>
+<ul>
+<li>sandbox escape</li>
+<li>repeated unexplained effects</li>
+<li>supply-chain compromise</li>
+<li>schema mismatch</li>
+<li>dangerous behavior</li>
+</ul>
+<p>Quarantined tools are excluded from discovery and execution.</p>
+<hr>
+<h1 id="tool-lifecycle">Tool Lifecycle<a href="#tool-lifecycle" class="heading-anchor">#</a></h1>
+<h2 id="lifecycle-states">Lifecycle States<a href="#lifecycle-states" class="heading-anchor">#</a></h2>
+<ul>
+<li>Discovered</li>
+<li>Unverified</li>
+<li>Active</li>
+<li>Degraded</li>
+<li>Disabled</li>
+<li>Deprecated</li>
+<li>Retired</li>
+<li>Quarantined</li>
+</ul>
+<h2 id="lifecycle-flow">Lifecycle Flow<a href="#lifecycle-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Discover
+↓
+Verify Source
+↓
+Inspect Contract
+↓
+Classify Permissions And Effects
+↓
+Assign Isolation Profile
+↓
+Test In Sandbox
+↓
+Benchmark
+↓
+Activate
+↓
+Monitor
+↓
+Upgrade, Degrade, Disable, Retire, Or Quarantine
+</code></pre>
+<h2 id="tool-upgrade">Tool Upgrade<a href="#tool-upgrade" class="heading-anchor">#</a></h2>
+<p>Tool upgrades require:</p>
+<ul>
+<li>new version identity</li>
+<li>contract compatibility check</li>
+<li>permission and effect review</li>
+<li>isolation review</li>
+<li>benchmark requalification where material</li>
+<li>controlled activation</li>
+</ul>
+<p>Historical executions retain the original tool version reference.</p>
+<h2 id="deprecation">Deprecation<a href="#deprecation" class="heading-anchor">#</a></h2>
+<p>Deprecated tools remain available only to explicitly permitted workflows during migration.</p>
+<p>Retired tools cannot execute new invocations.</p>
+<h2 id="removal">Removal<a href="#removal" class="heading-anchor">#</a></h2>
+<p>Removal must preserve:</p>
+<ul>
+<li>historical definition metadata</li>
+<li>execution provenance</li>
+<li>audit records</li>
+<li>migration guidance</li>
+</ul>
+<hr>
+<h1 id="tool-benchmarking">Tool Benchmarking<a href="#tool-benchmarking" class="heading-anchor">#</a></h1>
+<p>Tools should be benchmarked for:</p>
+<ul>
+<li>correctness</li>
+<li>effect accuracy</li>
+<li>latency</li>
+<li>reliability</li>
+<li>resource efficiency</li>
+<li>recovery behavior</li>
+<li>sandbox compliance</li>
+<li>output schema stability</li>
+</ul>
+<p>Benchmark records include:</p>
+<ul>
+<li>tool version</li>
+<li>operation</li>
+<li>environment</li>
+<li>isolation profile</li>
+<li>benchmark version</li>
+<li>sample size</li>
+<li>outcome</li>
+</ul>
+<p>Tool benchmarks can inform selection among equivalent tools.</p>
+<p>They do not grant permission.</p>
+<hr>
+<h1 id="security-considerations">Security Considerations<a href="#security-considerations" class="heading-anchor">#</a></h1>
+<h2 id="model-to-tool-boundary">Model-To-Tool Boundary<a href="#model-to-tool-boundary" class="heading-anchor">#</a></h2>
+<p>Models may propose tool calls.</p>
+<p>Every proposal must pass through:</p>
+<ul>
+<li>schema validation</li>
+<li>scope resolution</li>
+<li>authorization</li>
+<li>approval where required</li>
+<li>isolation</li>
+</ul>
+<p>Model-generated text may never directly become authority.</p>
+<h2 id="untrusted-tool-output">Untrusted Tool Output<a href="#untrusted-tool-output" class="heading-anchor">#</a></h2>
+<p>Tool output may contain:</p>
+<ul>
+<li>prompt injection</li>
+<li>malicious code</li>
+<li>false claims</li>
+<li>secrets</li>
+<li>oversized data</li>
+</ul>
+<p>Output must be classified and bounded before entering model context or memory.</p>
+<h2 id="supply-chain">Supply Chain<a href="#supply-chain" class="heading-anchor">#</a></h2>
+<p>Tool packages, executables, container images, plugins, and MCP servers may be compromised.</p>
+<p>Damascus should support:</p>
+<ul>
+<li>trusted sources</li>
+<li>checksums</li>
+<li>signatures</li>
+<li>pinned versions</li>
+<li>vulnerability metadata</li>
+<li>quarantine</li>
+</ul>
+<h2 id="confused-deputy-prevention">Confused Deputy Prevention<a href="#confused-deputy-prevention" class="heading-anchor">#</a></h2>
+<p>A tool must not use Damascus authority to perform an action that the requesting workflow could not perform directly.</p>
+<p>Delegation remains scoped to the original authorized intent.</p>
+<h2 id="cross-workspace-isolation">Cross-Workspace Isolation<a href="#cross-workspace-isolation" class="heading-anchor">#</a></h2>
+<p>Tool invocations must never inherit resources from the currently visible workspace.</p>
+<p>They use the immutable scope attached to the workflow execution.</p>
+<h2 id="secrets">Secrets<a href="#secrets" class="heading-anchor">#</a></h2>
+<p>Secrets are resolved only after authorization and injected only into the authorized tool environment.</p>
+<p>They must be redacted from output, telemetry, and errors.</p>
+<h2 id="external-side-effects">External Side Effects<a href="#external-side-effects" class="heading-anchor">#</a></h2>
+<p>External publication, financial action, account mutation, and irreversible API calls require explicit policies and usually human approval.</p>
+<hr>
+<h1 id="recovery-mechanisms">Recovery Mechanisms<a href="#recovery-mechanisms" class="heading-anchor">#</a></h1>
+<p>Recovery mechanisms include:</p>
+<ul>
+<li>process termination</li>
+<li>credential revocation</li>
+<li>sandbox destruction</li>
+<li>effect reconciliation</li>
+<li>safe retry</li>
+<li>compensation workflow</li>
+<li>tool quarantine</li>
+<li>resource snapshot restore</li>
+<li>manual human recovery</li>
+</ul>
+<h2 id="effect-reconciliation">Effect Reconciliation<a href="#effect-reconciliation" class="heading-anchor">#</a></h2>
+<p>Where external systems support inspection, Damascus should compare intended and observed state after uncertain failures.</p>
+<p>Reconciliation may determine:</p>
+<ul>
+<li>no effect occurred</li>
+<li>full effect occurred</li>
+<li>partial effect occurred</li>
+<li>effect remains unknown</li>
+</ul>
+<p>Unknown effects require escalation.</p>
+<h2 id="recovery-artifacts">Recovery Artifacts<a href="#recovery-artifacts" class="heading-anchor">#</a></h2>
+<p>Recovery information should include:</p>
+<ul>
+<li>tool invocation</li>
+<li>intended action</li>
+<li>known effects</li>
+<li>unknown effects</li>
+<li>suggested repair</li>
+<li>required permissions</li>
+</ul>
+<hr>
+<h1 id="data-flow-examples">Data Flow Examples<a href="#data-flow-examples" class="heading-anchor">#</a></h1>
+<h2 id="file-edit">File Edit<a href="#file-edit" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Workflow Requests File Modification
+↓
+Resolve Project Resource Binding
+↓
+Validate Path
+↓
+Authorize Write
+↓
+Create Project Write Sandbox
+↓
+Apply Structured Edit
+↓
+Validate Result
+↓
+Record Changed Artifact
+↓
+Return Diff And Provenance
+</code></pre>
+<h2 id="terminal-command">Terminal Command<a href="#terminal-command" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Workflow Requests Command
+↓
+Classify Command And Effects
+↓
+Authorize
+↓
+Provision Restricted Environment
+↓
+Execute With Limits
+↓
+Stream Redacted Output
+↓
+Capture Exit And Effects
+↓
+Cleanup
+↓
+Return Typed Result
+</code></pre>
+<h2 id="api-mutation">API Mutation<a href="#api-mutation" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Workflow Requests API Action
+↓
+Resolve Approved Endpoint
+↓
+Validate Payload
+↓
+Authorize Credential And Effect
+↓
+Collect Approval If Required
+↓
+Execute With Idempotency Key
+↓
+Validate Response
+↓
+Record External Effect
+↓
+Return Result
+</code></pre>
+<hr>
+<h1 id="events">Events<a href="#events" class="heading-anchor">#</a></h1>
+<p>Recommended events:</p>
+<ul>
+<li>ToolDiscovered</li>
+<li>ToolVerified</li>
+<li>ToolActivated</li>
+<li>ToolDegraded</li>
+<li>ToolDisabled</li>
+<li>ToolDeprecated</li>
+<li>ToolRetired</li>
+<li>ToolQuarantined</li>
+<li>ToolInvocationRequested</li>
+<li>ToolAuthorizationDenied</li>
+<li>ToolApprovalRequired</li>
+<li>ToolExecutionStarted</li>
+<li>ToolEffectObserved</li>
+<li>ToolExecutionCompleted</li>
+<li>ToolExecutionFailed</li>
+<li>ToolExecutionCancelled</li>
+<li>ToolCleanupFailed</li>
+<li>ToolCompensationStarted</li>
+<li>ToolCompensationCompleted</li>
+</ul>
+<p>Events must not contain secrets or unrestricted tool output.</p>
+<hr>
+<h1 id="performance-and-scalability">Performance And Scalability<a href="#performance-and-scalability" class="heading-anchor">#</a></h1>
+<h2 id="execution-pools">Execution Pools<a href="#execution-pools" class="heading-anchor">#</a></h2>
+<p>Tool executions may use separate pools by:</p>
+<ul>
+<li>risk</li>
+<li>resource class</li>
+<li>tool category</li>
+<li>workspace</li>
+<li>isolation mechanism</li>
+</ul>
+<h2 id="warm-environments">Warm Environments<a href="#warm-environments" class="heading-anchor">#</a></h2>
+<p>Warm sandboxes may reduce latency.</p>
+<p>They must not leak:</p>
+<ul>
+<li>workspace data</li>
+<li>credentials</li>
+<li>process state</li>
+<li>browser sessions</li>
+</ul>
+<p>Reuse requires verified cleanup and compatible scope.</p>
+<h2 id="output-limits">Output Limits<a href="#output-limits" class="heading-anchor">#</a></h2>
+<p>Tool output must be bounded and stored by reference when large.</p>
+<p>Unbounded terminal or API output must not overwhelm runtime state or model context.</p>
+<h2 id="concurrency">Concurrency<a href="#concurrency" class="heading-anchor">#</a></h2>
+<p>Concurrency limits protect:</p>
+<ul>
+<li>external services</li>
+<li>local resources</li>
+<li>workspace budgets</li>
+<li>filesystem integrity</li>
+</ul>
+<p>The Scheduler enforces allocation.</p>
+<p>The Tool Layer reports requirements and current tool capacity.</p>
+<hr>
+<h1 id="architectural-constraints">Architectural Constraints<a href="#architectural-constraints" class="heading-anchor">#</a></h1>
+<h2 id="constraint-1">Constraint 1<a href="#constraint-1" class="heading-anchor">#</a></h2>
+<p>Tools are first-class workflow execution primitives.</p>
+<p>They are not limited to agent usage.</p>
+<h2 id="constraint-2">Constraint 2<a href="#constraint-2" class="heading-anchor">#</a></h2>
+<p>Every tool invocation must pass through the Tool Invocation Interface.</p>
+<h2 id="constraint-3">Constraint 3<a href="#constraint-3" class="heading-anchor">#</a></h2>
+<p>Runtime adapters may not execute tools directly.</p>
+<h2 id="constraint-4">Constraint 4<a href="#constraint-4" class="heading-anchor">#</a></h2>
+<p>Registration and discovery do not grant execution permission.</p>
+<h2 id="constraint-5">Constraint 5<a href="#constraint-5" class="heading-anchor">#</a></h2>
+<p>The Security Layer remains the authorization and approval authority.</p>
+<h2 id="constraint-6">Constraint 6<a href="#constraint-6" class="heading-anchor">#</a></h2>
+<p>The Execution Environment remains responsible for implementing isolation.</p>
+<h2 id="constraint-7">Constraint 7<a href="#constraint-7" class="heading-anchor">#</a></h2>
+<p>Every invocation must declare workspace scope and workflow execution identity.</p>
+<h2 id="constraint-8">Constraint 8<a href="#constraint-8" class="heading-anchor">#</a></h2>
+<p>Cross-workspace resource access is denied by default.</p>
+<h2 id="constraint-9">Constraint 9<a href="#constraint-9" class="heading-anchor">#</a></h2>
+<p>Model output may propose an action.</p>
+<p>It may not authorize or directly execute it.</p>
+<h2 id="constraint-10">Constraint 10<a href="#constraint-10" class="heading-anchor">#</a></h2>
+<p>Retries must respect idempotency and known partial effects.</p>
+<h2 id="constraint-11">Constraint 11<a href="#constraint-11" class="heading-anchor">#</a></h2>
+<p>Irreversible and unknown-effect actions require explicit handling.</p>
+<h2 id="constraint-12">Constraint 12<a href="#constraint-12" class="heading-anchor">#</a></h2>
+<p>Secrets must not appear in tool definitions, workflows, telemetry, or audit output.</p>
+<h2 id="constraint-13">Constraint 13<a href="#constraint-13" class="heading-anchor">#</a></h2>
+<p>Required isolation failure causes execution to fail closed.</p>
+<h2 id="constraint-14">Constraint 14<a href="#constraint-14" class="heading-anchor">#</a></h2>
+<p>Tool versions and effects must remain attributable in historical executions.</p>
+<h2 id="constraint-15">Constraint 15<a href="#constraint-15" class="heading-anchor">#</a></h2>
+<p>MCP and future tool protocols remain behind Damascus adapters and security controls.</p>
+<h2 id="constraint-16">Constraint 16<a href="#constraint-16" class="heading-anchor">#</a></h2>
+<p>Evolution may improve tool selection and workflow usage only through benchmarked, controlled promotion.</p>
+<p>It may not weaken permissions or isolation.</p>
+<hr>
+<h1 id="future-evolution">Future Evolution<a href="#future-evolution" class="heading-anchor">#</a></h1>
+<p>The Tool Layer may evolve to support:</p>
+<ul>
+<li>remote isolated workers</li>
+<li>hardware and robotics tools</li>
+<li>richer MCP integration</li>
+<li>capability marketplaces</li>
+<li>automatically generated structured adapters</li>
+<li>effect simulation</li>
+<li>policy simulation</li>
+<li>stronger transactional tools</li>
+<li>formal verification of tool contracts</li>
+<li>privacy-preserving shared reliability data</li>
+</ul>
+<h2 id="tool-selection-evolution">Tool Selection Evolution<a href="#tool-selection-evolution" class="heading-anchor">#</a></h2>
+<p>Evolution may improve:</p>
+<ul>
+<li>selection among equivalent tools</li>
+<li>timeout policy</li>
+<li>retry policy</li>
+<li>isolation profile efficiency</li>
+<li>structured tool preference</li>
+<li>workflow tool sequences</li>
+</ul>
+<p>Promotion requires:</p>
+<ul>
+<li>benchmark evidence</li>
+<li>security compatibility</li>
+<li>effect compatibility</li>
+<li>rollback plan</li>
+<li>human approval where critical</li>
+</ul>
+<p>Evolution may not automatically grant new permissions, install untrusted tools, or weaken isolation.</p>
+<h2 id="generated-tools">Generated Tools<a href="#generated-tools" class="heading-anchor">#</a></h2>
+<p>Future Damascus versions may generate adapters or tools.</p>
+<p>Generated tools must follow the full lifecycle:</p>
+<pre><code class="language-diagram">Generate
+↓
+Inspect
+↓
+Classify Effects
+↓
+Sandbox Test
+↓
+Benchmark
+↓
+Security Review
+↓
+Controlled Activation
+</code></pre>
+<p>Generated code must never enter production execution directly.</p>
+<hr>
+<h1 id="open-questions">Open Questions<a href="#open-questions" class="heading-anchor">#</a></h1>
+<ul>
+<li>Which operations should Damascus standardize across tool categories?</li>
+<li>How should tool capability matching balance semantic discovery with strict schemas?</li>
+<li>What is the minimum acceptable isolation for local terminal execution?</li>
+<li>How should effect estimation be validated before execution?</li>
+<li>Which tool actions can support reliable rollback?</li>
+<li>How should unknown partial effects block downstream workflow nodes?</li>
+<li>How should MCP server trust and lifecycle be represented?</li>
+<li>Should tool permissions be operation-specific from the first implementation?</li>
+<li>How should browser authentication sessions be isolated and reused safely?</li>
+<li>How should local GUI and IDE tools prove observed effects?</li>
+<li>What benchmark evidence is required before preferring one tool over another?</li>
+<li>How should generated tools be signed and attributed?</li>
+</ul>
+<hr>
+<h1 id="key-architectural-decisions">Key Architectural Decisions<a href="#key-architectural-decisions" class="heading-anchor">#</a></h1>
+<p>Tools are first-class execution primitives inside workflows.</p>
+<p>The Tool Layer defines and resolves controlled actions.</p>
+<p>The Security Layer authorizes those actions.</p>
+<p>The Execution Environment isolates and executes them.</p>
+<p>Damascus Core coordinates their workflow lifecycle.</p>
+<p>Every tool action is explicit, scoped, versioned, observable, and subject to least authority.</p>
+<p>This makes real execution a production-grade capability without allowing agents, models, runtimes, or tool providers to bypass human authority.</p>
+
+        </article>
+        <div class="doc-footer-nav">
+      <a href="../02-Architecture/Security-Architecture.html" class="nav-card prev">
+        <span class="nav-card-label">Previous</span>
+        <span class="nav-card-title">Security Architecture</span>
+      </a>
+    
+      <a href="../02-Architecture/Workspace-System.html" class="nav-card next">
+        <span class="nav-card-label">Next</span>
+        <span class="nav-card-title">Workspace System</span>
+      </a>
+    </div>
+      </div>
+    </main>
+
+    <!-- Right Table of Contents Sidebar -->
+    
+    <aside class="site-toc">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list">
+        <li class="toc-item depth-2">
+  <a href="#tools-are-first-class-execution-primitives" class="toc-link">Tools Are First-Class Execution Primitives</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#capability-is-not-authority" class="toc-link">Capability Is Not Authority</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#isolation-by-default" class="toc-link">Isolation By Default</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#structured-actions" class="toc-link">Structured Actions</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#observable-effects" class="toc-link">Observable Effects</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#human-authority" class="toc-link">Human Authority</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tl-001-explicit-invocation" class="toc-link">TL-001 Explicit Invocation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tl-002-least-authority" class="toc-link">TL-002 Least Authority</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tl-003-tool-identity" class="toc-link">TL-003 Tool Identity</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tl-004-scoped-effects" class="toc-link">TL-004 Scoped Effects</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tl-005-isolation-appropriate-to-risk" class="toc-link">TL-005 Isolation Appropriate To Risk</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tl-006-observable-execution" class="toc-link">TL-006 Observable Execution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tl-007-structured-before-general" class="toc-link">TL-007 Structured Before General</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tl-008-no-implicit-tool-authority" class="toc-link">TL-008 No Implicit Tool Authority</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tl-009-replaceable-implementations" class="toc-link">TL-009 Replaceable Implementations</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tl-010-measured-reliability" class="toc-link">TL-010 Measured Reliability</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tool-invocation-service" class="toc-link">Tool Invocation Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tool-resolver" class="toc-link">Tool Resolver</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#permission-and-approval-coordinator" class="toc-link">Permission And Approval Coordinator</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tool-execution-coordinator" class="toc-link">Tool Execution Coordinator</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#isolation-profile-resolver" class="toc-link">Isolation Profile Resolver</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#result-and-effect-normalizer" class="toc-link">Result And Effect Normalizer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tool-contract" class="toc-link">Tool Contract</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tool-definition" class="toc-link">Tool Definition</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#operation-definition" class="toc-link">Operation Definition</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#invocation-request" class="toc-link">Invocation Request</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#invocation-result" class="toc-link">Invocation Result</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#effect-classes" class="toc-link">Effect Classes</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#idempotency-classes" class="toc-link">Idempotency Classes</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#reversibility-classes" class="toc-link">Reversibility Classes</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#registry-contents" class="toc-link">Registry Contents</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#stable-identity" class="toc-link">Stable Identity</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#registry-lifecycle-states" class="toc-link">Registry Lifecycle States</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#registry-ownership" class="toc-link">Registry Ownership</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#browser-tools" class="toc-link">Browser Tools</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#file-system-tools" class="toc-link">File System Tools</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#terminal-tools" class="toc-link">Terminal Tools</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ide-tools" class="toc-link">IDE Tools</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#git-tools" class="toc-link">Git Tools</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#docker-tools" class="toc-link">Docker Tools</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#api-tools" class="toc-link">API Tools</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#future-mcp-tools" class="toc-link">Future MCP Tools</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#discovery-sources" class="toc-link">Discovery Sources</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#discovery-flow" class="toc-link">Discovery Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workflow-discovery" class="toc-link">Workflow Discovery</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#capability-matching" class="toc-link">Capability Matching</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#permission-model" class="toc-link">Permission Model</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#authorization-flow" class="toc-link">Authorization Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#execution-grants" class="toc-link">Execution Grants</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#approval-boundaries" class="toc-link">Approval Boundaries</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#revocation" class="toc-link">Revocation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#execution-flow" class="toc-link">Execution Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#runtime-interaction" class="toc-link">Runtime Interaction</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#streaming" class="toc-link">Streaming</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#cancellation" class="toc-link">Cancellation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#timeouts-and-resource-limits" class="toc-link">Timeouts And Resource Limits</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#isolation-goals" class="toc-link">Isolation Goals</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#isolation-profiles" class="toc-link">Isolation Profiles</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#read-only-resource-profile" class="toc-link">Read-Only Resource Profile</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#project-write-profile" class="toc-link">Project Write Profile</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#disposable-browser-profile" class="toc-link">Disposable Browser Profile</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#container-build-profile" class="toc-link">Container Build Profile</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#host-action-profile" class="toc-link">Host Action Profile</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#isolation-boundaries" class="toc-link">Isolation Boundaries</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#isolation-verification" class="toc-link">Isolation Verification</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#filesystem-sandbox" class="toc-link">Filesystem Sandbox</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#network-sandbox" class="toc-link">Network Sandbox</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#credential-sandbox" class="toc-link">Credential Sandbox</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sandbox-cleanup" class="toc-link">Sandbox Cleanup</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#audit-scope" class="toc-link">Audit Scope</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sensitive-data" class="toc-link">Sensitive Data</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#audit-integrity" class="toc-link">Audit Integrity</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#failure-taxonomy" class="toc-link">Failure Taxonomy</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#failure-flow" class="toc-link">Failure Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#retry-rules" class="toc-link">Retry Rules</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#partial-effects" class="toc-link">Partial Effects</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#compensation-and-rollback" class="toc-link">Compensation And Rollback</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#quarantine" class="toc-link">Quarantine</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#lifecycle-states" class="toc-link">Lifecycle States</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#lifecycle-flow" class="toc-link">Lifecycle Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tool-upgrade" class="toc-link">Tool Upgrade</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#deprecation" class="toc-link">Deprecation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#removal" class="toc-link">Removal</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#model-to-tool-boundary" class="toc-link">Model-To-Tool Boundary</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#untrusted-tool-output" class="toc-link">Untrusted Tool Output</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#supply-chain" class="toc-link">Supply Chain</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#confused-deputy-prevention" class="toc-link">Confused Deputy Prevention</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#cross-workspace-isolation" class="toc-link">Cross-Workspace Isolation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#secrets" class="toc-link">Secrets</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#external-side-effects" class="toc-link">External Side Effects</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#effect-reconciliation" class="toc-link">Effect Reconciliation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#recovery-artifacts" class="toc-link">Recovery Artifacts</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#file-edit" class="toc-link">File Edit</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#terminal-command" class="toc-link">Terminal Command</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#api-mutation" class="toc-link">API Mutation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#execution-pools" class="toc-link">Execution Pools</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#warm-environments" class="toc-link">Warm Environments</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#output-limits" class="toc-link">Output Limits</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#concurrency" class="toc-link">Concurrency</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-1" class="toc-link">Constraint 1</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-2" class="toc-link">Constraint 2</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-3" class="toc-link">Constraint 3</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-4" class="toc-link">Constraint 4</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-5" class="toc-link">Constraint 5</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-6" class="toc-link">Constraint 6</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-7" class="toc-link">Constraint 7</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-8" class="toc-link">Constraint 8</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-9" class="toc-link">Constraint 9</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-10" class="toc-link">Constraint 10</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-11" class="toc-link">Constraint 11</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-12" class="toc-link">Constraint 12</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-13" class="toc-link">Constraint 13</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-14" class="toc-link">Constraint 14</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-15" class="toc-link">Constraint 15</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-16" class="toc-link">Constraint 16</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tool-selection-evolution" class="toc-link">Tool Selection Evolution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#generated-tools" class="toc-link">Generated Tools</a>
+</li>
+
+      </ul>
+    </aside>
+  
+
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

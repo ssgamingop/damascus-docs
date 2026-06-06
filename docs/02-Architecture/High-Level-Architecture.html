@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>High Level Architecture | Damascus Docs</title>
+  <meta name="description" content="Damascus - Privacy-first, local-first intelligence operating system documentation">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    window.damascusMermaid = mermaid;
+  </script>
+</head>
+<body data-root="../">
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="brand">
+      <button class="mobile-header-btn" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="../index.html" class="brand">
+        <div class="logo">D</div>
+        <span class="title">Damascus Docs</span>
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <!-- Search Input Container -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="search-input" placeholder="Search docs..." aria-label="Search documentation">
+          <kbd class="search-shortcut">/</kbd>
+        </div>
+        
+        <!-- Results Dropdown -->
+        <div class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" aria-label="Toggle theme">
+        <!-- Sun (Light Theme Icon) -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon (Dark Theme Icon) -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Layout Grid -->
+  <div class="layout-container">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="site-sidebar">
+      <div class="sidebar-section">
+  <div class="sidebar-section-title">Vision</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Mission.html" class="sidebar-nav-link ">Mission</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Vision.html" class="sidebar-nav-link ">Damascus Vision</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Why-Damascus.html" class="sidebar-nav-link ">Why Damascus Exists</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Research</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/AI-Operating-Systems.html" class="sidebar-nav-link ">AI Operating Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Hermes-Analysis.html" class="sidebar-nav-link ">Hermes Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Knowledge-Graphs.html" class="sidebar-nav-link ">Knowledge Graphs</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/LangGraph-Analysis.html" class="sidebar-nav-link ">LangGraph Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Memory-Systems.html" class="sidebar-nav-link ">Memory Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Multi-Agent-Systems.html" class="sidebar-nav-link ">Multi Agent Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Odysseus-Analysis.html" class="sidebar-nav-link ">Odysseus Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/OpenHands-Analysis.html" class="sidebar-nav-link ">OpenHands Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Self-Improving-Agents.html" class="sidebar-nav-link ">Self Improving Agents</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Architecture</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link ">Agent Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link ">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link ">Evolution Engine</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/High-Level-Architecture.html" class="sidebar-nav-link active">High Level Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Memory-Architecture.html" class="sidebar-nav-link ">Memory Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link ">Model Abstraction Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link ">Security Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Tool-Layer.html" class="sidebar-nav-link ">Tool Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link ">Workspace System</a>
+    </li>
+  </ul>
+</div>
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <article class="doc-content">
+          <div class="doc-meta"><span class="meta-badge">Version 0.2</span><span class="meta-badge status-architecture-foundation">Architecture Foundation</span><span class="meta-badge priority-critical">Priority Critical</span></div> <h1 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h1>
+<p>This document defines the high-level architecture of Damascus.</p>
+<p>The goal is not to describe implementation details.</p>
+<p>The goal is to establish the major architectural systems, their responsibilities, boundaries, and interactions.</p>
+<p>Future architecture documents will expand each subsystem individually.</p>
+<hr>
+<h1 id="architectural-philosophy">Architectural Philosophy<a href="#architectural-philosophy" class="heading-anchor">#</a></h1>
+<p>Most AI systems are built around agents.</p>
+<p>Typical architecture:</p>
+<pre><code class="language-diagram">User
+↓
+Agent
+↓
+Tool
+↓
+Result
+</code></pre>
+<p>Damascus intentionally takes a different approach.</p>
+<p>The platform is designed around workflows, state, memory, and evolution.</p>
+<pre><code class="language-diagram">User
+↓
+Workspace
+↓
+Workflow
+↓
+Execution
+↓
+Learning
+↓
+Evolution
+</code></pre>
+<p>The architecture is built around the belief that:</p>
+<p>Current AI systems execute tasks.</p>
+<p>Damascus improves how tasks are executed.</p>
+<hr>
+<h1 id="core-architectural-principles">Core Architectural Principles<a href="#core-architectural-principles" class="heading-anchor">#</a></h1>
+<h2 id="local-first">Local First<a href="#local-first" class="heading-anchor">#</a></h2>
+<p>User data should remain local whenever possible.</p>
+<p>Cloud infrastructure should be optional.</p>
+<hr>
+<h2 id="model-agnostic">Model Agnostic<a href="#model-agnostic" class="heading-anchor">#</a></h2>
+<p>No subsystem should depend directly on a specific model provider.</p>
+<p>Models are replaceable resources.</p>
+<hr>
+<h2 id="workspace-centric">Workspace Centric<a href="#workspace-centric" class="heading-anchor">#</a></h2>
+<p>The primary organizational unit is a workspace.</p>
+<p>Not a conversation.</p>
+<p>Not an agent.</p>
+<hr>
+<h2 id="workflow-centric">Workflow Centric<a href="#workflow-centric" class="heading-anchor">#</a></h2>
+<p>The primary execution unit is a workflow.</p>
+<p>Agents, tools, models, approvals, and benchmarks exist inside workflows.</p>
+<hr>
+<h2 id="memory-as-infrastructure">Memory As Infrastructure<a href="#memory-as-infrastructure" class="heading-anchor">#</a></h2>
+<p>Memory is a foundational system used by every major subsystem.</p>
+<hr>
+<h2 id="evolution-through-measurement">Evolution Through Measurement<a href="#evolution-through-measurement" class="heading-anchor">#</a></h2>
+<p>Improvement requires evidence.</p>
+<p>Every important capability should be benchmarkable.</p>
+<hr>
+<h2 id="human-authority">Human Authority<a href="#human-authority" class="heading-anchor">#</a></h2>
+<p>Users retain ultimate control.</p>
+<p>Autonomy never overrides ownership.</p>
+<hr>
+<h1 id="system-overview">System Overview<a href="#system-overview" class="heading-anchor">#</a></h1>
+<p>Damascus consists of three major architectural domains.</p>
+<ol>
+<li>Core Infrastructure</li>
+<li>Capability Systems</li>
+<li>Execution Environment</li>
+</ol>
+<hr>
+<h1 id="core-infrastructure">Core Infrastructure<a href="#core-infrastructure" class="heading-anchor">#</a></h1>
+<p>The Core Infrastructure provides the operational foundation of Damascus.</p>
+<p>These systems coordinate execution but do not provide intelligence themselves.</p>
+<pre><code class="language-diagram">Damascus Core
+├── Orchestration Runtime
+├── State Manager
+├── Event Bus
+├── Scheduler
+├── Registry Layer
+└── Observability Layer
+</code></pre>
+<hr>
+<h1 id="capability-systems">Capability Systems<a href="#capability-systems" class="heading-anchor">#</a></h1>
+<p>Capability systems provide intelligence functionality.</p>
+<pre><code class="language-diagram">Capabilities
+├── Workspace System
+├── Agent Layer
+├── Memory Layer
+├── Knowledge Layer
+├── Tool Layer
+├── Model Layer
+├── Research Layer
+├── Evolution Layer
+└── Security Layer
+</code></pre>
+<hr>
+<h1 id="execution-environment">Execution Environment<a href="#execution-environment" class="heading-anchor">#</a></h1>
+<p>The execution environment provides controlled interaction with external systems.</p>
+<p>Examples:</p>
+<ul>
+<li>Applications</li>
+<li>Browsers</li>
+<li>IDEs</li>
+<li>Docker Containers</li>
+<li>APIs</li>
+<li>Operating Systems</li>
+</ul>
+<hr>
+<h1 id="high-level-architecture">High-Level Architecture<a href="#high-level-architecture" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">User
+↓
+Workspace System
+↓
+Workflow
+↓
+Damascus Core
+├── Runtime
+├── State
+├── Events
+├── Scheduler
+├── Registry
+└── Observability
+↓
+Capabilities
+├── Agents
+├── Memory
+├── Knowledge
+├── Models
+├── Tools
+├── Research
+├── Evolution
+└── Security
+↓
+Execution Environment
+↓
+Applications
+↓
+Operating System
+</code></pre>
+<hr>
+<h1 id="core-infrastructure">Core Infrastructure<a href="#core-infrastructure" class="heading-anchor">#</a></h1>
+<h2 id="orchestration-runtime">Orchestration Runtime<a href="#orchestration-runtime" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Execute workflows.</p>
+<p>Responsibilities:</p>
+<ul>
+<li>workflow execution</li>
+<li>coordination</li>
+<li>checkpointing</li>
+<li>recovery</li>
+<li>lifecycle management</li>
+</ul>
+<p>The runtime executes workflows through a runtime interface.</p>
+<p>Initial implementation:</p>
+<p>LangGraph Runtime Adapter.</p>
+<p>The architecture must remain independent of LangGraph-specific concepts.</p>
+<hr>
+<h2 id="state-manager">State Manager<a href="#state-manager" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Maintain workflow execution state.</p>
+<p>Responsibilities:</p>
+<ul>
+<li>execution state</li>
+<li>workflow state</li>
+<li>checkpoint state</li>
+<li>recovery state</li>
+</ul>
+<hr>
+<h2 id="event-bus">Event Bus<a href="#event-bus" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Enable subsystem communication.</p>
+<p>Examples:</p>
+<ul>
+<li>Workflow Started</li>
+<li>Workflow Completed</li>
+<li>Benchmark Finished</li>
+<li>Memory Updated</li>
+<li>Research Discovered</li>
+</ul>
+<p>The Event Bus becomes the communication backbone of Damascus.</p>
+<hr>
+<h2 id="scheduler">Scheduler<a href="#scheduler" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Control execution priorities and resource allocation.</p>
+<p>Responsibilities:</p>
+<ul>
+<li>queue management</li>
+<li>resource allocation</li>
+<li>concurrency control</li>
+<li>background job execution</li>
+</ul>
+<hr>
+<h2 id="registry-layer">Registry Layer<a href="#registry-layer" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Store metadata describing system capabilities.</p>
+<p>Registries include:</p>
+<ul>
+<li>Workflow Registry</li>
+<li>Agent Registry</li>
+<li>Tool Registry</li>
+<li>Model Registry</li>
+<li>Benchmark Registry</li>
+<li>Research Registry</li>
+</ul>
+<p>Registries are discovery systems.</p>
+<p>Not memory systems.</p>
+<hr>
+<h2 id="observability-layer">Observability Layer<a href="#observability-layer" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Provide transparency and learning infrastructure.</p>
+<p>Track:</p>
+<ul>
+<li>execution traces</li>
+<li>failures</li>
+<li>performance</li>
+<li>costs</li>
+<li>benchmark results</li>
+<li>evolution events</li>
+</ul>
+<p>Observability enables future evolution.</p>
+<hr>
+<h1 id="capability-systems">Capability Systems<a href="#capability-systems" class="heading-anchor">#</a></h1>
+<h2 id="workspace-system">Workspace System<a href="#workspace-system" class="heading-anchor">#</a></h2>
+<p>Organizational boundary.</p>
+<p>Contains:</p>
+<ul>
+<li>projects</li>
+<li>tasks</li>
+<li>workflows</li>
+<li>memories</li>
+<li>benchmarks</li>
+</ul>
+<hr>
+<h2 id="agent-layer">Agent Layer<a href="#agent-layer" class="heading-anchor">#</a></h2>
+<p>Provides specialized reasoning and execution capabilities.</p>
+<p>Agents operate inside workflows.</p>
+<p>Agents are not the primary architectural unit.</p>
+<hr>
+<h2 id="memory-layer">Memory Layer<a href="#memory-layer" class="heading-anchor">#</a></h2>
+<p>Provides long-term intelligence infrastructure.</p>
+<p>Supports:</p>
+<ul>
+<li>working memory</li>
+<li>episodic memory</li>
+<li>semantic memory</li>
+<li>procedural memory</li>
+<li>evolution memory</li>
+</ul>
+<hr>
+<h2 id="knowledge-layer">Knowledge Layer<a href="#knowledge-layer" class="heading-anchor">#</a></h2>
+<p>Maintains relationships between entities.</p>
+<p>Likely implemented through knowledge graphs.</p>
+<p>Answers:</p>
+<p>&quot;What is connected?&quot;</p>
+<hr>
+<h2 id="tool-layer">Tool Layer<a href="#tool-layer" class="heading-anchor">#</a></h2>
+<p>Provides operational capabilities.</p>
+<p>Examples:</p>
+<ul>
+<li>terminal</li>
+<li>browser</li>
+<li>git</li>
+<li>docker</li>
+<li>file system</li>
+</ul>
+<hr>
+<h2 id="model-layer">Model Layer<a href="#model-layer" class="heading-anchor">#</a></h2>
+<p>Provides access to reasoning providers.</p>
+<p>Supports:</p>
+<ul>
+<li>local models</li>
+<li>commercial models</li>
+<li>future providers</li>
+</ul>
+<p>through a common abstraction layer.</p>
+<hr>
+<h2 id="research-layer">Research Layer<a href="#research-layer" class="heading-anchor">#</a></h2>
+<p>Acquires new knowledge.</p>
+<p>Supports:</p>
+<ul>
+<li>paper analysis</li>
+<li>repository monitoring</li>
+<li>technique extraction</li>
+<li>knowledge synthesis</li>
+</ul>
+<hr>
+<h2 id="evolution-layer">Evolution Layer<a href="#evolution-layer" class="heading-anchor">#</a></h2>
+<p>The defining subsystem of Damascus.</p>
+<p>Responsibilities:</p>
+<ul>
+<li>workflow evolution</li>
+<li>benchmark evaluation</li>
+<li>variant generation</li>
+<li>promotion decisions</li>
+</ul>
+<p>The Evolution Layer improves workflows over time.</p>
+<hr>
+<h2 id="security-layer">Security Layer<a href="#security-layer" class="heading-anchor">#</a></h2>
+<p>Provides protection and governance.</p>
+<p>Responsibilities:</p>
+<ul>
+<li>permissions</li>
+<li>approvals</li>
+<li>sandboxing</li>
+<li>auditing</li>
+<li>encryption</li>
+</ul>
+<p>Security applies across all layers.</p>
+<hr>
+<h1 id="intelligence-flow">Intelligence Flow<a href="#intelligence-flow" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">User Goal
+↓
+Workspace
+↓
+Workflow
+↓
+Runtime
+↓
+Execution
+↓
+Observability
+↓
+Memory
+↓
+Evolution
+↓
+Improved Workflow
+</code></pre>
+<p>This transforms execution into learning.</p>
+<hr>
+<h1 id="evolution-flow">Evolution Flow<a href="#evolution-flow" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">Workflow
+↓
+Execute
+↓
+Observe
+↓
+Measure
+↓
+Generate Variants
+↓
+Benchmark Variants
+↓
+Compare Results
+↓
+Promote Winner
+↓
+Update Procedural Memory
+</code></pre>
+<p>This is the core Damascus improvement loop.</p>
+<hr>
+<h1 id="architectural-constraints">Architectural Constraints<a href="#architectural-constraints" class="heading-anchor">#</a></h1>
+<h2 id="constraint-1">Constraint 1<a href="#constraint-1" class="heading-anchor">#</a></h2>
+<p>Workflows are the primary execution unit.</p>
+<hr>
+<h2 id="constraint-2">Constraint 2<a href="#constraint-2" class="heading-anchor">#</a></h2>
+<p>Agents are workflow components.</p>
+<p>Not architectural roots.</p>
+<hr>
+<h2 id="constraint-3">Constraint 3<a href="#constraint-3" class="heading-anchor">#</a></h2>
+<p>Memory survives agents.</p>
+<hr>
+<h2 id="constraint-4">Constraint 4<a href="#constraint-4" class="heading-anchor">#</a></h2>
+<p>Models are replaceable.</p>
+<hr>
+<h2 id="constraint-5">Constraint 5<a href="#constraint-5" class="heading-anchor">#</a></h2>
+<p>Execution must remain observable.</p>
+<hr>
+<h2 id="constraint-6">Constraint 6<a href="#constraint-6" class="heading-anchor">#</a></h2>
+<p>Execution must remain recoverable.</p>
+<hr>
+<h2 id="constraint-7">Constraint 7<a href="#constraint-7" class="heading-anchor">#</a></h2>
+<p>Security boundaries may never be bypassed.</p>
+<hr>
+<h2 id="constraint-8">Constraint 8<a href="#constraint-8" class="heading-anchor">#</a></h2>
+<p>The Core must remain runtime-independent.</p>
+<hr>
+<h2 id="constraint-9">Constraint 9<a href="#constraint-9" class="heading-anchor">#</a></h2>
+<p>Evolution may improve workflows.</p>
+<p>Evolution may not modify security policies.</p>
+<hr>
+<h2 id="constraint-10">Constraint 10<a href="#constraint-10" class="heading-anchor">#</a></h2>
+<p>Human authority remains final.</p>
+<hr>
+<h1 id="key-insight">Key Insight<a href="#key-insight" class="heading-anchor">#</a></h1>
+<p>Most AI systems are agent-centric.</p>
+<p>Damascus is workflow-centric.</p>
+<p>Most AI systems execute tasks.</p>
+<p>Damascus evolves how tasks are executed.</p>
+<p>This distinction defines the architecture of the platform.</p>
+
+        </article>
+        <div class="doc-footer-nav">
+      <a href="../02-Architecture/Evolution-Engine.html" class="nav-card prev">
+        <span class="nav-card-label">Previous</span>
+        <span class="nav-card-title">Evolution Engine</span>
+      </a>
+    
+      <a href="../02-Architecture/Memory-Architecture.html" class="nav-card next">
+        <span class="nav-card-label">Next</span>
+        <span class="nav-card-title">Memory Architecture</span>
+      </a>
+    </div>
+      </div>
+    </main>
+
+    <!-- Right Table of Contents Sidebar -->
+    
+    <aside class="site-toc">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list">
+        <li class="toc-item depth-2">
+  <a href="#local-first" class="toc-link">Local First</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#model-agnostic" class="toc-link">Model Agnostic</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workspace-centric" class="toc-link">Workspace Centric</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workflow-centric" class="toc-link">Workflow Centric</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#memory-as-infrastructure" class="toc-link">Memory As Infrastructure</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evolution-through-measurement" class="toc-link">Evolution Through Measurement</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#human-authority" class="toc-link">Human Authority</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#orchestration-runtime" class="toc-link">Orchestration Runtime</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#state-manager" class="toc-link">State Manager</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#event-bus" class="toc-link">Event Bus</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#scheduler" class="toc-link">Scheduler</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#registry-layer" class="toc-link">Registry Layer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#observability-layer" class="toc-link">Observability Layer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workspace-system" class="toc-link">Workspace System</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agent-layer" class="toc-link">Agent Layer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#memory-layer" class="toc-link">Memory Layer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#knowledge-layer" class="toc-link">Knowledge Layer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tool-layer" class="toc-link">Tool Layer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#model-layer" class="toc-link">Model Layer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#research-layer" class="toc-link">Research Layer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evolution-layer" class="toc-link">Evolution Layer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#security-layer" class="toc-link">Security Layer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-1" class="toc-link">Constraint 1</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-2" class="toc-link">Constraint 2</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-3" class="toc-link">Constraint 3</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-4" class="toc-link">Constraint 4</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-5" class="toc-link">Constraint 5</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-6" class="toc-link">Constraint 6</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-7" class="toc-link">Constraint 7</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-8" class="toc-link">Constraint 8</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-9" class="toc-link">Constraint 9</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-10" class="toc-link">Constraint 10</a>
+</li>
+
+      </ul>
+    </aside>
+  
+
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

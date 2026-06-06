@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi Agent Systems | Damascus Docs</title>
+  <meta name="description" content="Damascus - Privacy-first, local-first intelligence operating system documentation">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    window.damascusMermaid = mermaid;
+  </script>
+</head>
+<body data-root="../">
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="brand">
+      <button class="mobile-header-btn" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="../index.html" class="brand">
+        <div class="logo">D</div>
+        <span class="title">Damascus Docs</span>
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <!-- Search Input Container -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="search-input" placeholder="Search docs..." aria-label="Search documentation">
+          <kbd class="search-shortcut">/</kbd>
+        </div>
+        
+        <!-- Results Dropdown -->
+        <div class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" aria-label="Toggle theme">
+        <!-- Sun (Light Theme Icon) -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon (Dark Theme Icon) -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Layout Grid -->
+  <div class="layout-container">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="site-sidebar">
+      <div class="sidebar-section">
+  <div class="sidebar-section-title">Vision</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Mission.html" class="sidebar-nav-link ">Mission</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Vision.html" class="sidebar-nav-link ">Damascus Vision</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Why-Damascus.html" class="sidebar-nav-link ">Why Damascus Exists</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Research</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/AI-Operating-Systems.html" class="sidebar-nav-link ">AI Operating Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Hermes-Analysis.html" class="sidebar-nav-link ">Hermes Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Knowledge-Graphs.html" class="sidebar-nav-link ">Knowledge Graphs</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/LangGraph-Analysis.html" class="sidebar-nav-link ">LangGraph Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Memory-Systems.html" class="sidebar-nav-link ">Memory Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Multi-Agent-Systems.html" class="sidebar-nav-link active">Multi Agent Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Odysseus-Analysis.html" class="sidebar-nav-link ">Odysseus Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/OpenHands-Analysis.html" class="sidebar-nav-link ">OpenHands Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Self-Improving-Agents.html" class="sidebar-nav-link ">Self Improving Agents</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Architecture</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link ">Agent Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link ">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link ">Evolution Engine</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/High-Level-Architecture.html" class="sidebar-nav-link ">High Level Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Memory-Architecture.html" class="sidebar-nav-link ">Memory Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link ">Model Abstraction Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link ">Security Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Tool-Layer.html" class="sidebar-nav-link ">Tool Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link ">Workspace System</a>
+    </li>
+  </ul>
+</div>
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <article class="doc-content">
+          <div class="doc-meta"><span class="meta-badge">Version 0.1</span><span class="meta-badge status-core-research-document">Core Research Document</span><span class="meta-badge priority-critical">Priority Critical</span></div> <h1 id="executive-summary">Executive Summary<a href="#executive-summary" class="heading-anchor">#</a></h1>
+<p>A multi-agent system (MAS) is a system composed of multiple intelligent entities that collaborate, compete, coordinate, or communicate to accomplish goals.</p>
+<p>In modern AI systems, agents are typically specialized workers responsible for different tasks.</p>
+<p>Examples:</p>
+<ul>
+<li>Research Agent</li>
+<li>Planner Agent</li>
+<li>Architect Agent</li>
+<li>Coding Agent</li>
+<li>Reviewer Agent</li>
+</ul>
+<p>The primary promise of multi-agent systems is specialization.</p>
+<p>Instead of one generalist solving everything, multiple specialists collaborate.</p>
+<p>However, multi-agent systems introduce significant complexity.</p>
+<p>Coordination, communication, evaluation, and resource management become major challenges.</p>
+<p>For Damascus, multi-agent architectures should be viewed as tools rather than goals.</p>
+<p>The objective is not to maximize the number of agents.</p>
+<p>The objective is to maximize capability.</p>
+<hr>
+<h1 id="research-goals">Research Goals<a href="#research-goals" class="heading-anchor">#</a></h1>
+<p>This document seeks to answer:</p>
+<ol>
+<li>What is a multi-agent system?</li>
+<li>Why do multi-agent systems exist?</li>
+<li>What advantages do they provide?</li>
+<li>What problems do they introduce?</li>
+<li>How should Damascus approach them?</li>
+</ol>
+<hr>
+<h1 id="what-is-a-multi-agent-system">What Is A Multi-Agent System?<a href="#what-is-a-multi-agent-system" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">Single-Agent System
+User
+↓
+Agent
+↓
+Result
+</code></pre>
+<hr>
+<pre><code class="language-diagram">Multi-Agent System
+User
+↓
+Planner
+↓
+Researcher
+↓
+Architect
+↓
+Coder
+↓
+Reviewer
+↓
+Result
+</code></pre>
+<p>Multiple agents contribute to solving the task.</p>
+<hr>
+<h1 id="why-multi-agent-systems-exist">Why Multi-Agent Systems Exist<a href="#why-multi-agent-systems-exist" class="heading-anchor">#</a></h1>
+<p>Complex tasks often require multiple skills.</p>
+<p>Example:</p>
+<p>Build a SaaS Product</p>
+<p>Requires:</p>
+<ul>
+<li>market research</li>
+<li>planning</li>
+<li>architecture</li>
+<li>coding</li>
+<li>testing</li>
+<li>deployment</li>
+</ul>
+<p>A single agent may struggle to perform all roles optimally.</p>
+<p>Specialization can improve quality.</p>
+<hr>
+<h1 id="core-benefits">Core Benefits<a href="#core-benefits" class="heading-anchor">#</a></h1>
+<h2 id="specialization">Specialization<a href="#specialization" class="heading-anchor">#</a></h2>
+<p>Each agent focuses on a narrow responsibility.</p>
+<p>Example:</p>
+<p>Research Agent</p>
+<p>Goal:</p>
+<p>Find information.</p>
+<hr>
+<p>Code Agent</p>
+<p>Goal:</p>
+<p>Implement solutions.</p>
+<hr>
+<p>Benefits:</p>
+<ul>
+<li>clearer reasoning</li>
+<li>reduced context overload</li>
+<li>improved outputs</li>
+</ul>
+<hr>
+<h2 id="parallel-execution">Parallel Execution<a href="#parallel-execution" class="heading-anchor">#</a></h2>
+<p>Multiple agents can work simultaneously.</p>
+<p>Example:</p>
+<pre><code class="language-diagram">Research Agent
++
+Competitor Analysis Agent
++
+Architecture Agent
+</code></pre>
+<p>running in parallel.</p>
+<p>Benefits:</p>
+<ul>
+<li>faster execution</li>
+<li>broader coverage</li>
+</ul>
+<hr>
+<h2 id="verification">Verification<a href="#verification" class="heading-anchor">#</a></h2>
+<p>One agent can review another.</p>
+<p>Example:</p>
+<pre><code class="language-diagram">Code Agent
+↓
+Reviewer Agent
+</code></pre>
+<p>Benefits:</p>
+<ul>
+<li>error detection</li>
+<li>improved reliability</li>
+</ul>
+<hr>
+<h2 id="modular-design">Modular Design<a href="#modular-design" class="heading-anchor">#</a></h2>
+<p>Agents become reusable building blocks.</p>
+<p>Example:</p>
+<p>Research Agent can be reused across many projects.</p>
+<hr>
+<h1 id="common-multi-agent-architectures">Common Multi-Agent Architectures<a href="#common-multi-agent-architectures" class="heading-anchor">#</a></h1>
+<h2 id="sequential-pipeline">Sequential Pipeline<a href="#sequential-pipeline" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Research
+↓
+Plan
+↓
+Code
+↓
+Review
+</code></pre>
+<p>Advantages:</p>
+<ul>
+<li>simple</li>
+<li>predictable</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>slower</li>
+<li>bottlenecks</li>
+</ul>
+<hr>
+<h2 id="parallel-teams">Parallel Teams<a href="#parallel-teams" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Research Agent
++
+Architecture Agent
++
+Competitor Agent
+↓
+Combined Output
+</code></pre>
+<p>Advantages:</p>
+<ul>
+<li>speed</li>
+<li>breadth</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>coordination complexity</li>
+</ul>
+<hr>
+<h2 id="hierarchical-systems">Hierarchical Systems<a href="#hierarchical-systems" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Manager Agent
+↓
+Worker Agents
+</code></pre>
+<p>Advantages:</p>
+<ul>
+<li>organization</li>
+<li>scalability</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>manager bottlenecks</li>
+</ul>
+<hr>
+<h2 id="graph-based-systems">Graph-Based Systems<a href="#graph-based-systems" class="heading-anchor">#</a></h2>
+<p>Agents connected through workflows.</p>
+<p>Advantages:</p>
+<ul>
+<li>flexibility</li>
+<li>adaptability</li>
+</ul>
+<p>This model aligns strongly with Damascus.</p>
+<hr>
+<h1 id="multi-agent-communication">Multi-Agent Communication<a href="#multi-agent-communication" class="heading-anchor">#</a></h1>
+<p>A critical challenge.</p>
+<p>Agents must exchange:</p>
+<ul>
+<li>information</li>
+<li>plans</li>
+<li>tasks</li>
+<li>results</li>
+</ul>
+<p>Poor communication creates:</p>
+<ul>
+<li>duplication</li>
+<li>confusion</li>
+<li>wasted resources</li>
+</ul>
+<p>Communication architecture is often more important than agent count.</p>
+<hr>
+<h1 id="the-coordination-problem">The Coordination Problem<a href="#the-coordination-problem" class="heading-anchor">#</a></h1>
+<p>Adding agents increases complexity.</p>
+<p>Example:</p>
+<p>2 Agents</p>
+<p>Communication Links:</p>
+<p>1</p>
+<hr>
+<p>10 Agents</p>
+<p>Communication Links:</p>
+<p>45</p>
+<hr>
+<p>20 Agents</p>
+<p>Communication Links:</p>
+<p>190</p>
+<p>The coordination burden grows rapidly.</p>
+<p>More agents do not automatically create better outcomes.</p>
+<hr>
+<h1 id="common-failure-modes">Common Failure Modes<a href="#common-failure-modes" class="heading-anchor">#</a></h1>
+<h2 id="agent-loops">Agent Loops<a href="#agent-loops" class="heading-anchor">#</a></h2>
+<p>Example:</p>
+<p>Agent A asks Agent B</p>
+<p>Agent B asks Agent A</p>
+<p>System stalls.</p>
+<hr>
+<h2 id="duplicate-work">Duplicate Work<a href="#duplicate-work" class="heading-anchor">#</a></h2>
+<p>Multiple agents perform identical research.</p>
+<p>Resources wasted.</p>
+<hr>
+<h2 id="conflicting-outputs">Conflicting Outputs<a href="#conflicting-outputs" class="heading-anchor">#</a></h2>
+<p>Agent A:</p>
+<p>Use PostgreSQL</p>
+<p>Agent B:</p>
+<p>Use MongoDB</p>
+<p>No resolution mechanism exists.</p>
+<hr>
+<h2 id="context-drift">Context Drift<a href="#context-drift" class="heading-anchor">#</a></h2>
+<p>Agents lose awareness of the broader objective.</p>
+<hr>
+<h2 id="communication-overhead">Communication Overhead<a href="#communication-overhead" class="heading-anchor">#</a></h2>
+<p>Too much discussion.</p>
+<p>Too little execution.</p>
+<hr>
+<h1 id="existing-industry-approaches">Existing Industry Approaches<a href="#existing-industry-approaches" class="heading-anchor">#</a></h1>
+<h2 id="crewai">CrewAI<a href="#crewai" class="heading-anchor">#</a></h2>
+<p>Role-based teams.</p>
+<p>Focus:</p>
+<p>Specialization.</p>
+<hr>
+<h2 id="autogen">AutoGen<a href="#autogen" class="heading-anchor">#</a></h2>
+<p>Conversation-driven agent collaboration.</p>
+<p>Focus:</p>
+<p>Communication.</p>
+<hr>
+<h2 id="langgraph">LangGraph<a href="#langgraph" class="heading-anchor">#</a></h2>
+<p>Graph-based orchestration.</p>
+<p>Focus:</p>
+<p>State and execution control.</p>
+<hr>
+<h2 id="openhands">OpenHands<a href="#openhands" class="heading-anchor">#</a></h2>
+<p>Execution-oriented agents.</p>
+<p>Focus:</p>
+<p>Practical work completion.</p>
+<hr>
+<h1 id="damascus-principles">Damascus Principles<a href="#damascus-principles" class="heading-anchor">#</a></h1>
+<h2 id="principle-1">Principle 1<a href="#principle-1" class="heading-anchor">#</a></h2>
+<p>Agents Exist To Solve Problems</p>
+<p>Not to increase complexity.</p>
+<hr>
+<h2 id="principle-2">Principle 2<a href="#principle-2" class="heading-anchor">#</a></h2>
+<p>Every Agent Must Have A Clear Purpose</p>
+<p>No generic filler agents.</p>
+<hr>
+<h2 id="principle-3">Principle 3<a href="#principle-3" class="heading-anchor">#</a></h2>
+<p>Agents Must Be Measurable</p>
+<p>Performance must be tracked.</p>
+<hr>
+<h2 id="principle-4">Principle 4<a href="#principle-4" class="heading-anchor">#</a></h2>
+<p>Agents Must Be Replaceable</p>
+<p>No agent should be irreplaceable.</p>
+<hr>
+<h2 id="principle-5">Principle 5<a href="#principle-5" class="heading-anchor">#</a></h2>
+<p>Agents Must Learn</p>
+<p>Agent performance should influence future team design.</p>
+<hr>
+<h1 id="dynamic-team-formation">Dynamic Team Formation<a href="#dynamic-team-formation" class="heading-anchor">#</a></h1>
+<p>One of Damascus&#39;s most promising ideas.</p>
+<p>Current Systems:</p>
+<p>Developers create teams.</p>
+<hr>
+<p>Future Damascus:</p>
+<pre><code class="language-diagram">Task
+↓
+Analysis
+↓
+Generate Team
+↓
+Assign Models
+↓
+Assign Tools
+↓
+Execute
+</code></pre>
+<p>Teams become adaptive.</p>
+<hr>
+<h1 id="example">Example<a href="#example" class="heading-anchor">#</a></h1>
+<p>Task:</p>
+<p>Build Mobile App</p>
+<p>Generated Team:</p>
+<pre><code class="language-diagram">Planner
+↓
+Mobile Architect
+↓
+Flutter Expert
+↓
+Tester
+</code></pre>
+<hr>
+<p>Task:</p>
+<p>Research New AI Technique</p>
+<p>Generated Team:</p>
+<pre><code class="language-diagram">Researcher
+↓
+Paper Analyst
+↓
+Critic
+↓
+Summarizer
+</code></pre>
+<p>Different tasks create different teams.</p>
+<hr>
+<h1 id="agent-evolution">Agent Evolution<a href="#agent-evolution" class="heading-anchor">#</a></h1>
+<p>Future Damascus systems should learn:</p>
+<p>Which agents help?</p>
+<p>Which agents hurt?</p>
+<p>Which agents are redundant?</p>
+<p>Example:</p>
+<p>Team A</p>
+<p>Success Rate:
+78%</p>
+<hr>
+<p>Team B</p>
+<p>Success Rate:
+91%</p>
+<p>↓</p>
+<p>Promote Team B</p>
+<p>This creates organizational learning.</p>
+<hr>
+<h1 id="agent-registry-concept">Agent Registry Concept<a href="#agent-registry-concept" class="heading-anchor">#</a></h1>
+<p>Future architecture may include:</p>
+<p>Agent Registry</p>
+<p>Stores:</p>
+<ul>
+<li>agent definitions</li>
+<li>performance history</li>
+<li>benchmark scores</li>
+<li>capabilities</li>
+</ul>
+<p>This becomes the organizational memory of Damascus.</p>
+<hr>
+<h1 id="model-routing">Model Routing<a href="#model-routing" class="heading-anchor">#</a></h1>
+<p>Different agents may use different models.</p>
+<p>Example:</p>
+<p>Research Agent</p>
+<p>Gemini</p>
+<hr>
+<p>Code Agent</p>
+<p>Claude</p>
+<hr>
+<p>Reviewer Agent</p>
+<p>GPT</p>
+<p>This allows specialization beyond agent roles.</p>
+<hr>
+<h1 id="resource-considerations">Resource Considerations<a href="#resource-considerations" class="heading-anchor">#</a></h1>
+<p>Multi-agent systems are expensive.</p>
+<p>Costs:</p>
+<ul>
+<li>latency</li>
+<li>tokens</li>
+<li>memory</li>
+<li>compute</li>
+</ul>
+<p>Dynamic teams should justify their existence through measurable gains.</p>
+<hr>
+<h1 id="damascus-architecture-direction">Damascus Architecture Direction<a href="#damascus-architecture-direction" class="heading-anchor">#</a></h1>
+<p>Short-Term</p>
+<p>Small Teams</p>
+<p>3-5 agents</p>
+<hr>
+<p>Medium-Term</p>
+<p>Adaptive Teams</p>
+<p>5-10 agents</p>
+<hr>
+<p>Long-Term</p>
+<p>Generated Teams</p>
+<p>Variable size</p>
+<p>Task dependent</p>
+<hr>
+<h1 id="risks">Risks<a href="#risks" class="heading-anchor">#</a></h1>
+<h2 id="agent-explosion">Agent Explosion<a href="#agent-explosion" class="heading-anchor">#</a></h2>
+<p>Too many agents.</p>
+<p>Performance decreases.</p>
+<hr>
+<h2 id="evaluation-complexity">Evaluation Complexity<a href="#evaluation-complexity" class="heading-anchor">#</a></h2>
+<p>Hard to identify which agent helped.</p>
+<hr>
+<h2 id="resource-waste">Resource Waste<a href="#resource-waste" class="heading-anchor">#</a></h2>
+<p>Unnecessary reasoning.</p>
+<hr>
+<h2 id="coordination-failures">Coordination Failures<a href="#coordination-failures" class="heading-anchor">#</a></h2>
+<p>Communication breakdowns.</p>
+<hr>
+<h2 id="emergent-errors">Emergent Errors<a href="#emergent-errors" class="heading-anchor">#</a></h2>
+<p>Complex systems create unexpected behavior.</p>
+<hr>
+<h1 id="mitigation-strategies">Mitigation Strategies<a href="#mitigation-strategies" class="heading-anchor">#</a></h1>
+<ul>
+<li>benchmarking</li>
+<li>performance tracking</li>
+<li>communication protocols</li>
+<li>team evaluation</li>
+<li>promotion systems</li>
+<li>rollback mechanisms</li>
+</ul>
+<hr>
+<h1 id="key-insight">Key Insight<a href="#key-insight" class="heading-anchor">#</a></h1>
+<p>Most multi-agent systems ask:</p>
+<p>How should agents collaborate?</p>
+<p>Damascus should ask:</p>
+<p>Which agents should exist in the first place?</p>
+<p>This shifts the focus from static coordination to adaptive organizational design.</p>
+<hr>
+<h1 id="long-term-vision">Long-Term Vision<a href="#long-term-vision" class="heading-anchor">#</a></h1>
+<p>Future Damascus systems should become capable of:</p>
+<ul>
+<li>creating agents</li>
+<li>evaluating agents</li>
+<li>retiring agents</li>
+<li>improving teams</li>
+<li>preserving organizational knowledge</li>
+</ul>
+<p>The goal is not merely a collection of agents.</p>
+<p>The goal is an evolving intelligence organization.</p>
+<hr>
+<h1 id="open-research-questions">Open Research Questions<a href="#open-research-questions" class="heading-anchor">#</a></h1>
+<ol>
+<li>How should agents communicate?</li>
+<li>How should dynamic teams be generated?</li>
+<li>How should agent performance be measured?</li>
+<li>How should agents be retired?</li>
+<li>How should models be assigned?</li>
+<li>How should team quality be benchmarked?</li>
+<li>How should agent knowledge be preserved?</li>
+</ol>
+<p>These questions will directly influence future Agent Layer and Evolution Engine architecture documents.</p>
+
+        </article>
+        <div class="doc-footer-nav">
+      <a href="../01-Research/Memory-Systems.html" class="nav-card prev">
+        <span class="nav-card-label">Previous</span>
+        <span class="nav-card-title">Memory Systems</span>
+      </a>
+    
+      <a href="../01-Research/Odysseus-Analysis.html" class="nav-card next">
+        <span class="nav-card-label">Next</span>
+        <span class="nav-card-title">Odysseus Analysis</span>
+      </a>
+    </div>
+      </div>
+    </main>
+
+    <!-- Right Table of Contents Sidebar -->
+    
+    <aside class="site-toc">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list">
+        <li class="toc-item depth-2">
+  <a href="#specialization" class="toc-link">Specialization</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#parallel-execution" class="toc-link">Parallel Execution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#verification" class="toc-link">Verification</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#modular-design" class="toc-link">Modular Design</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sequential-pipeline" class="toc-link">Sequential Pipeline</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#parallel-teams" class="toc-link">Parallel Teams</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#hierarchical-systems" class="toc-link">Hierarchical Systems</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#graph-based-systems" class="toc-link">Graph-Based Systems</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agent-loops" class="toc-link">Agent Loops</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#duplicate-work" class="toc-link">Duplicate Work</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#conflicting-outputs" class="toc-link">Conflicting Outputs</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#context-drift" class="toc-link">Context Drift</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#communication-overhead" class="toc-link">Communication Overhead</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#crewai" class="toc-link">CrewAI</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#autogen" class="toc-link">AutoGen</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#langgraph" class="toc-link">LangGraph</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#openhands" class="toc-link">OpenHands</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#principle-1" class="toc-link">Principle 1</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#principle-2" class="toc-link">Principle 2</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#principle-3" class="toc-link">Principle 3</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#principle-4" class="toc-link">Principle 4</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#principle-5" class="toc-link">Principle 5</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agent-explosion" class="toc-link">Agent Explosion</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evaluation-complexity" class="toc-link">Evaluation Complexity</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#resource-waste" class="toc-link">Resource Waste</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#coordination-failures" class="toc-link">Coordination Failures</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#emergent-errors" class="toc-link">Emergent Errors</a>
+</li>
+
+      </ul>
+    </aside>
+  
+
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

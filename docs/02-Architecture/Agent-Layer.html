@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Layer | Damascus Docs</title>
+  <meta name="description" content="Damascus - Privacy-first, local-first intelligence operating system documentation">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    window.damascusMermaid = mermaid;
+  </script>
+</head>
+<body data-root="../">
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="brand">
+      <button class="mobile-header-btn" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="../index.html" class="brand">
+        <div class="logo">D</div>
+        <span class="title">Damascus Docs</span>
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <!-- Search Input Container -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="search-input" placeholder="Search docs..." aria-label="Search documentation">
+          <kbd class="search-shortcut">/</kbd>
+        </div>
+        
+        <!-- Results Dropdown -->
+        <div class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" aria-label="Toggle theme">
+        <!-- Sun (Light Theme Icon) -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon (Dark Theme Icon) -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Layout Grid -->
+  <div class="layout-container">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="site-sidebar">
+      <div class="sidebar-section">
+  <div class="sidebar-section-title">Vision</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Mission.html" class="sidebar-nav-link ">Mission</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Vision.html" class="sidebar-nav-link ">Damascus Vision</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Why-Damascus.html" class="sidebar-nav-link ">Why Damascus Exists</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Research</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/AI-Operating-Systems.html" class="sidebar-nav-link ">AI Operating Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Hermes-Analysis.html" class="sidebar-nav-link ">Hermes Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Knowledge-Graphs.html" class="sidebar-nav-link ">Knowledge Graphs</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/LangGraph-Analysis.html" class="sidebar-nav-link ">LangGraph Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Memory-Systems.html" class="sidebar-nav-link ">Memory Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Multi-Agent-Systems.html" class="sidebar-nav-link ">Multi Agent Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Odysseus-Analysis.html" class="sidebar-nav-link ">Odysseus Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/OpenHands-Analysis.html" class="sidebar-nav-link ">OpenHands Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Self-Improving-Agents.html" class="sidebar-nav-link ">Self Improving Agents</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Architecture</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link active">Agent Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link ">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link ">Evolution Engine</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/High-Level-Architecture.html" class="sidebar-nav-link ">High Level Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Memory-Architecture.html" class="sidebar-nav-link ">Memory Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link ">Model Abstraction Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link ">Security Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Tool-Layer.html" class="sidebar-nav-link ">Tool Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link ">Workspace System</a>
+    </li>
+  </ul>
+</div>
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <article class="doc-content">
+          <div class="doc-meta"><span class="meta-badge">Version 0.1</span><span class="meta-badge status-architecture-foundation">Architecture Foundation</span><span class="meta-badge priority-critical">Priority Critical</span></div> <h1 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h1>
+<p>This document defines the Damascus Agent Layer.</p>
+<p>Agents are specialized reasoning and execution components used inside workflows.</p>
+<p>Agents are not the primary Damascus abstraction.</p>
+<p>Workflows are the primary execution unit.</p>
+<p>The Agent Layer exists to provide reusable, measurable, replaceable role capabilities that workflows may compose when specialized reasoning is useful.</p>
+<p>An agent may plan, research, design, code, review, or evaluate.</p>
+<p>An agent does not own the workflow, user goal, workspace, permissions, memory, tools, or evolution process.</p>
+<hr>
+<h1 id="foundational-position">Foundational Position<a href="#foundational-position" class="heading-anchor">#</a></h1>
+<p>Incorrect architecture:</p>
+<pre><code class="language-diagram">User
+↓
+Agent
+↓
+Result
+</code></pre>
+<p>Damascus architecture:</p>
+<pre><code class="language-diagram">User
+↓
+Workspace
+↓
+Workflow
+↓
+Agent Component
+↓
+Models, Memory, Tools
+↓
+Result
+↓
+Evaluation
+↓
+Evolution
+</code></pre>
+<p>Agents are workflow components.</p>
+<p>A valid workflow may contain:</p>
+<ul>
+<li>one agent</li>
+<li>many agents</li>
+<li>no agents</li>
+</ul>
+<p>The system must never require agent-centric organization.</p>
+<hr>
+<h1 id="design-philosophy">Design Philosophy<a href="#design-philosophy" class="heading-anchor">#</a></h1>
+<h2 id="agents-exist-to-serve-workflows">Agents Exist To Serve Workflows<a href="#agents-exist-to-serve-workflows" class="heading-anchor">#</a></h2>
+<p>Agents provide specialization.</p>
+<p>Workflows provide coordination, state, recovery, approvals, and lifecycle.</p>
+<h2 id="clear-purpose">Clear Purpose<a href="#clear-purpose" class="heading-anchor">#</a></h2>
+<p>Every agent must have a defined responsibility, capability profile, input contract, output contract, and evaluation criteria.</p>
+<p>Generic agents without measurable purpose create complexity without evidence of value.</p>
+<h2 id="replaceability">Replaceability<a href="#replaceability" class="heading-anchor">#</a></h2>
+<p>Agents are replaceable definitions.</p>
+<p>Their useful knowledge persists through Memory Architecture and workflow history.</p>
+<h2 id="bounded-authority">Bounded Authority<a href="#bounded-authority" class="heading-anchor">#</a></h2>
+<p>Agents reason within delegated workflow scope.</p>
+<p>They may request models, memory, or tools.</p>
+<p>They do not inherit unrestricted access.</p>
+<h2 id="measured-specialization">Measured Specialization<a href="#measured-specialization" class="heading-anchor">#</a></h2>
+<p>An agent role is justified only when it improves relevant workflow outcomes.</p>
+<p>More agents do not imply more capability.</p>
+<h2 id="dynamic-organization">Dynamic Organization<a href="#dynamic-organization" class="heading-anchor">#</a></h2>
+<p>Teams may be selected or generated according to task requirements.</p>
+<p>Generated teams remain explicit workflow structures subject to validation and benchmarking.</p>
+<hr>
+<h1 id="responsibilities">Responsibilities<a href="#responsibilities" class="heading-anchor">#</a></h1>
+<p>The Agent Layer owns:</p>
+<ul>
+<li>agent definition contracts</li>
+<li>agent profiles and versions</li>
+<li>Agent Registry schema</li>
+<li>role capability descriptions</li>
+<li>agent invocation interface</li>
+<li>agent context assembly constraints</li>
+<li>agent communication contracts</li>
+<li>agent lifecycle</li>
+<li>agent and team performance telemetry</li>
+<li>agent compatibility metadata</li>
+<li>dynamic team proposal generation</li>
+<li>retirement and deprecation</li>
+</ul>
+<p>It coordinates with:</p>
+<ul>
+<li>Core and Runtime for workflow execution</li>
+<li>Workflow Registry for executable workflow definitions</li>
+<li>Model Layer for inference</li>
+<li>Memory Layer for bounded context and durable learning</li>
+<li>Tool Layer for controlled actions</li>
+<li>Workspace System for scope and policy</li>
+<li>Security Layer for authorization</li>
+<li>Benchmark Registry for evaluation</li>
+<li>Evolution Layer for controlled agent and team improvement</li>
+</ul>
+<hr>
+<h1 id="non-responsibilities">Non-Responsibilities<a href="#non-responsibilities" class="heading-anchor">#</a></h1>
+<p>The Agent Layer does not own:</p>
+<ul>
+<li>workflow orchestration</li>
+<li>workflow lifecycle</li>
+<li>workflow state checkpoints</li>
+<li>model provider selection</li>
+<li>durable memory storage</li>
+<li>tool execution</li>
+<li>security authorization</li>
+<li>benchmark definitions</li>
+<li>evolution promotion decisions</li>
+<li>user goals</li>
+</ul>
+<p>Agents may propose plans.</p>
+<p>They do not become the Core Scheduler.</p>
+<p>Agents may propose tool calls.</p>
+<p>They do not execute tools outside the Tool Layer.</p>
+<p>Agents may propose memories.</p>
+<p>They do not write durable memory directly.</p>
+<hr>
+<h1 id="architectural-principles">Architectural Principles<a href="#architectural-principles" class="heading-anchor">#</a></h1>
+<h2 id="ag-001-workflow-primacy">AG-001 Workflow Primacy<a href="#ag-001-workflow-primacy" class="heading-anchor">#</a></h2>
+<p>Agents execute only as workflow components.</p>
+<h2 id="ag-002-explicit-role">AG-002 Explicit Role<a href="#ag-002-explicit-role" class="heading-anchor">#</a></h2>
+<p>Every agent has bounded responsibility and measurable outputs.</p>
+<h2 id="ag-003-replaceability">AG-003 Replaceability<a href="#ag-003-replaceability" class="heading-anchor">#</a></h2>
+<p>Agent definitions may be changed or retired without losing organizational memory.</p>
+<h2 id="ag-004-delegated-authority">AG-004 Delegated Authority<a href="#ag-004-delegated-authority" class="heading-anchor">#</a></h2>
+<p>Agent authority derives from workflow execution scope and expires with it.</p>
+<h2 id="ag-005-structured-communication">AG-005 Structured Communication<a href="#ag-005-structured-communication" class="heading-anchor">#</a></h2>
+<p>Agent communication occurs through workflow state and typed messages.</p>
+<h2 id="ag-006-bounded-context">AG-006 Bounded Context<a href="#ag-006-bounded-context" class="heading-anchor">#</a></h2>
+<p>Agents receive only the context required for their role.</p>
+<h2 id="ag-007-measured-value">AG-007 Measured Value<a href="#ag-007-measured-value" class="heading-anchor">#</a></h2>
+<p>Agent and team usefulness must be benchmarkable.</p>
+<h2 id="ag-008-no-hidden-coordination">AG-008 No Hidden Coordination<a href="#ag-008-no-hidden-coordination" class="heading-anchor">#</a></h2>
+<p>Agent-to-agent interactions must remain visible to the workflow and runtime.</p>
+<h2 id="ag-009-provider-independence">AG-009 Provider Independence<a href="#ag-009-provider-independence" class="heading-anchor">#</a></h2>
+<p>Agent definitions request model capabilities, not direct provider APIs.</p>
+<h2 id="ag-010-controlled-evolution">AG-010 Controlled Evolution<a href="#ag-010-controlled-evolution" class="heading-anchor">#</a></h2>
+<p>Agent and team changes require benchmarked promotion.</p>
+<hr>
+<h1 id="high-level-architecture">High-Level Architecture<a href="#high-level-architecture" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">Workflow Definition
+↓
+Damascus Core
+↓
+Runtime Interface
+↓
+Agent Invocation Interface
+↓
+Agent Resolver
+├── Agent Registry
+├── Scope And Policy
+├── Model Requirements
+├── Tool Requirements
+└── Performance Evidence
+↓
+Agent Execution Context
+├── Bounded Memory
+├── Model Access
+├── Tool Request Access
+└── Typed Communication
+↓
+Agent Result
+↓
+Workflow State
+↓
+Observability, Memory, Evaluation
+</code></pre>
+<hr>
+<h1 id="core-components">Core Components<a href="#core-components" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">Agent Layer
+├── Agent Invocation Service
+├── Agent Registry
+├── Agent Resolver
+├── Agent Context Manager
+├── Agent State Adapter
+├── Communication Service
+├── Team Formation Service
+├── Team Evaluation Service
+├── Performance Tracking Service
+└── Agent Lifecycle Manager
+</code></pre>
+<h2 id="agent-invocation-service">Agent Invocation Service<a href="#agent-invocation-service" class="heading-anchor">#</a></h2>
+<p>Provides the stable interface used by workflow nodes to invoke agents.</p>
+<p>It validates:</p>
+<ul>
+<li>agent profile</li>
+<li>workflow scope</li>
+<li>input contract</li>
+<li>allowed model capabilities</li>
+<li>allowed memory requests</li>
+<li>allowed tool requests</li>
+<li>output contract</li>
+</ul>
+<h2 id="agent-resolver">Agent Resolver<a href="#agent-resolver" class="heading-anchor">#</a></h2>
+<p>Resolves a pinned agent profile or capability request to an eligible agent.</p>
+<p>It may consider:</p>
+<ul>
+<li>required role</li>
+<li>domain capability</li>
+<li>model compatibility</li>
+<li>tool compatibility</li>
+<li>benchmark evidence</li>
+<li>cost</li>
+<li>latency</li>
+<li>lifecycle state</li>
+</ul>
+<h2 id="agent-context-manager">Agent Context Manager<a href="#agent-context-manager" class="heading-anchor">#</a></h2>
+<p>Assembles bounded context for an agent invocation.</p>
+<p>It does not grant permission or retrieve unrestricted workspace memory.</p>
+<h2 id="agent-state-adapter">Agent State Adapter<a href="#agent-state-adapter" class="heading-anchor">#</a></h2>
+<p>Maps agent-local reasoning state into workflow node state without making the agent the owner of workflow state.</p>
+<h2 id="communication-service">Communication Service<a href="#communication-service" class="heading-anchor">#</a></h2>
+<p>Provides typed, traceable messages between agent nodes through workflow channels.</p>
+<h2 id="team-formation-service">Team Formation Service<a href="#team-formation-service" class="heading-anchor">#</a></h2>
+<p>Proposes team structures and workflow fragments for tasks requiring multiple roles.</p>
+<h2 id="team-evaluation-service">Team Evaluation Service<a href="#team-evaluation-service" class="heading-anchor">#</a></h2>
+<p>Measures whether a team structure improved outcomes relative to alternatives.</p>
+<hr>
+<h1 id="agent-architecture">Agent Architecture<a href="#agent-architecture" class="heading-anchor">#</a></h1>
+<h2 id="agent-definition">Agent Definition<a href="#agent-definition" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">AgentDefinition
+  agent_id
+  display_name
+  role
+  purpose
+  capability_requirements
+  input_contract
+  output_contract
+  model_capability_request
+  memory_access_profile
+  tool_request_profile
+  communication_contract
+  evaluation_profile
+  lifecycle_state
+</code></pre>
+<h2 id="agent-profile">Agent Profile<a href="#agent-profile" class="heading-anchor">#</a></h2>
+<p>A versioned operational configuration:</p>
+<pre><code class="language-text">AgentProfile
+  agent_profile_id
+  agent_id
+  profile_version
+  instruction_reference
+  strategy_reference
+  model_routing_policy
+  context_policy
+  tool_policy_reference
+  benchmark_summary
+  compatibility
+  created_at
+</code></pre>
+<h2 id="agent-invocation">Agent Invocation<a href="#agent-invocation" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">AgentInvocationRequest
+  invocation_id
+  workspace_id
+  project_id | null
+  workflow_execution_id
+  node_execution_id
+  agent_profile_id_or_capability_request
+  goal
+  inputs
+  context_budget
+  allowed_output_contract
+  trace_context
+</code></pre>
+<h2 id="agent-result">Agent Result<a href="#agent-result" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">AgentInvocationResult
+  invocation_id
+  resolved_agent_profile_id
+  status
+  output
+  proposals
+  communication_events
+  model_usage
+  memory_usage
+  tool_request_history
+  warnings
+  provenance
+</code></pre>
+<p>Proposals may include:</p>
+<ul>
+<li>plan</li>
+<li>tool request</li>
+<li>memory candidate</li>
+<li>workflow adjustment request</li>
+<li>escalation request</li>
+</ul>
+<p>Proposals are not automatically authoritative.</p>
+<hr>
+<h1 id="runtime-interaction">Runtime Interaction<a href="#runtime-interaction" class="heading-anchor">#</a></h1>
+<p>The Runtime executes agent nodes as workflow nodes.</p>
+<p>Runtime adapters must not create hidden agent conversations or bypass Core state.</p>
+<p>Execution:</p>
+<pre><code class="language-diagram">Agent Node Ready
+↓
+Core Resolves Scope And Node State
+↓
+Agent Layer Resolves Profile
+↓
+Context Manager Builds Bounded Context
+↓
+Agent Invokes Models And Requests Tools Through Capability Layers
+↓
+Agent Returns Typed Result
+↓
+Runtime Updates Workflow State
+</code></pre>
+<h2 id="pause-and-resume">Pause And Resume<a href="#pause-and-resume" class="heading-anchor">#</a></h2>
+<p>Long-running agent nodes must support checkpoint-safe pause and resume where the workflow requires it.</p>
+<p>Agent-local state needed for resume is stored through Core node state or approved working memory references.</p>
+<h2 id="cancellation">Cancellation<a href="#cancellation" class="heading-anchor">#</a></h2>
+<p>Cancellation propagates to:</p>
+<ul>
+<li>model invocations</li>
+<li>tool requests</li>
+<li>agent-local work</li>
+</ul>
+<p>Cancellation does not erase already observed effects.</p>
+<hr>
+<h1 id="agent-registry">Agent Registry<a href="#agent-registry" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>The Agent Registry stores discoverable agent definitions, profiles, capabilities, compatibility, lifecycle, and performance summaries.</p>
+<p>It is not a workflow registry or memory store.</p>
+<h2 id="registry-contents">Registry Contents<a href="#registry-contents" class="heading-anchor">#</a></h2>
+<ul>
+<li>agent definitions</li>
+<li>agent profiles and versions</li>
+<li>role and domain tags</li>
+<li>model requirements</li>
+<li>tool requirements</li>
+<li>communication contracts</li>
+<li>benchmark references</li>
+<li>performance summaries</li>
+<li>lifecycle state</li>
+<li>ownership and provenance</li>
+</ul>
+<h2 id="lifecycle-states">Lifecycle States<a href="#lifecycle-states" class="heading-anchor">#</a></h2>
+<ul>
+<li>Draft</li>
+<li>Candidate</li>
+<li>Active</li>
+<li>Degraded</li>
+<li>Deprecated</li>
+<li>Retired</li>
+<li>Quarantined</li>
+</ul>
+<p>Only eligible profiles may be resolved for new workflows.</p>
+<h2 id="registry-ownership">Registry Ownership<a href="#registry-ownership" class="heading-anchor">#</a></h2>
+<p>The Core Registry Layer provides common registry infrastructure.</p>
+<p>The Agent Layer owns agent-specific schema and lifecycle.</p>
+<hr>
+<h1 id="agent-types">Agent Types<a href="#agent-types" class="heading-anchor">#</a></h1>
+<p>Agent types are role patterns, not mandatory fixed classes.</p>
+<h2 id="planner">Planner<a href="#planner" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Transform goals into structured execution proposals.</p>
+<p>Responsibilities:</p>
+<ul>
+<li>decompose goals</li>
+<li>identify dependencies</li>
+<li>identify risks</li>
+<li>propose workflow steps</li>
+<li>identify approval points</li>
+</ul>
+<p>Non-responsibilities:</p>
+<ul>
+<li>executing the whole plan independently</li>
+<li>granting permissions</li>
+<li>changing active workflows without authorization</li>
+</ul>
+<h2 id="researcher">Researcher<a href="#researcher" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Acquire and synthesize evidence.</p>
+<p>Responsibilities:</p>
+<ul>
+<li>identify sources</li>
+<li>collect evidence through approved tools</li>
+<li>compare findings</li>
+<li>preserve citations and provenance</li>
+<li>identify uncertainty</li>
+</ul>
+<h2 id="architect">Architect<a href="#architect" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Design systems and evaluate structural tradeoffs.</p>
+<p>Responsibilities:</p>
+<ul>
+<li>define boundaries</li>
+<li>propose interfaces</li>
+<li>identify failure modes</li>
+<li>assess maintainability</li>
+<li>preserve architectural constraints</li>
+</ul>
+<h2 id="coder">Coder<a href="#coder" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Implement approved changes.</p>
+<p>Responsibilities:</p>
+<ul>
+<li>inspect existing code</li>
+<li>modify scoped resources</li>
+<li>run validation through tools</li>
+<li>report changes and unresolved risks</li>
+</ul>
+<p>Coder agents do not receive unrestricted terminal or filesystem authority.</p>
+<h2 id="reviewer">Reviewer<a href="#reviewer" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Find defects, regressions, and missing evidence.</p>
+<p>Responsibilities:</p>
+<ul>
+<li>inspect outputs</li>
+<li>compare against requirements</li>
+<li>identify risks</li>
+<li>request correction</li>
+</ul>
+<p>Reviewers should be independent enough to challenge producer assumptions.</p>
+<h2 id="evaluator">Evaluator<a href="#evaluator" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Measure outcomes against explicit criteria.</p>
+<p>Responsibilities:</p>
+<ul>
+<li>run or interpret benchmarks</li>
+<li>score results</li>
+<li>compare variants</li>
+<li>report confidence and regressions</li>
+</ul>
+<p>Evaluators do not independently promote candidates.</p>
+<hr>
+<h1 id="agent-lifecycle">Agent Lifecycle<a href="#agent-lifecycle" class="heading-anchor">#</a></h1>
+<h2 id="lifecycle-flow">Lifecycle Flow<a href="#lifecycle-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Define
+↓
+Validate Contract
+↓
+Test In Workflow
+↓
+Benchmark
+↓
+Activate
+↓
+Monitor
+↓
+Improve, Deprecate, Retire, Or Quarantine
+</code></pre>
+<h2 id="creation">Creation<a href="#creation" class="heading-anchor">#</a></h2>
+<p>Agent creation requires:</p>
+<ul>
+<li>explicit purpose</li>
+<li>input and output contracts</li>
+<li>bounded capability requirements</li>
+<li>evaluation profile</li>
+<li>ownership</li>
+</ul>
+<h2 id="activation">Activation<a href="#activation" class="heading-anchor">#</a></h2>
+<p>Activation requires:</p>
+<ul>
+<li>contract validation</li>
+<li>security compatibility</li>
+<li>model and tool compatibility</li>
+<li>benchmark qualification</li>
+</ul>
+<h2 id="deprecation">Deprecation<a href="#deprecation" class="heading-anchor">#</a></h2>
+<p>Deprecated agents remain available to pinned workflows during migration.</p>
+<h2 id="quarantine">Quarantine<a href="#quarantine" class="heading-anchor">#</a></h2>
+<p>Agents may be quarantined for:</p>
+<ul>
+<li>repeated unsafe proposals</li>
+<li>contract violations</li>
+<li>unexplained regressions</li>
+<li>prompt injection susceptibility</li>
+<li>policy incompatibility</li>
+</ul>
+<hr>
+<h1 id="agent-state">Agent State<a href="#agent-state" class="heading-anchor">#</a></h1>
+<h2 id="state-ownership">State Ownership<a href="#state-ownership" class="heading-anchor">#</a></h2>
+<p>Core State Manager owns authoritative workflow and node execution state.</p>
+<p>Agent state is node-local execution data.</p>
+<p>It may include:</p>
+<ul>
+<li>current reasoning phase</li>
+<li>partial plan</li>
+<li>unresolved questions</li>
+<li>pending tool requests</li>
+<li>communication cursor</li>
+</ul>
+<h2 id="state-constraints">State Constraints<a href="#state-constraints" class="heading-anchor">#</a></h2>
+<p>Agent state must be:</p>
+<ul>
+<li>serializable where checkpointing is required</li>
+<li>scoped to workflow execution</li>
+<li>bounded</li>
+<li>versioned</li>
+<li>free of raw secrets</li>
+</ul>
+<h2 id="durable-learning">Durable Learning<a href="#durable-learning" class="heading-anchor">#</a></h2>
+<p>Agent state does not become durable learning automatically.</p>
+<p>Useful lessons are proposed to Memory Layer and validated.</p>
+<hr>
+<h1 id="agent-context-management">Agent Context Management<a href="#agent-context-management" class="heading-anchor">#</a></h1>
+<h2 id="context-sources">Context Sources<a href="#context-sources" class="heading-anchor">#</a></h2>
+<p>Agent context may include:</p>
+<ul>
+<li>workflow goal</li>
+<li>node instructions</li>
+<li>relevant workflow state</li>
+<li>bounded memory retrieval</li>
+<li>artifact references</li>
+<li>prior typed messages</li>
+<li>applicable policies</li>
+<li>available capability descriptions</li>
+</ul>
+<h2 id="context-assembly-flow">Context Assembly Flow<a href="#context-assembly-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Agent Invocation
+↓
+Resolve Role And Scope
+↓
+Determine Context Budget
+↓
+Request Eligible Memory
+↓
+Select Relevant Workflow State
+↓
+Include Capability And Policy Boundaries
+↓
+Assemble Context
+↓
+Record Provenance
+</code></pre>
+<h2 id="context-isolation">Context Isolation<a href="#context-isolation" class="heading-anchor">#</a></h2>
+<p>Agents receive only relevant context.</p>
+<p>An agent in one project must not receive sibling project memory by default.</p>
+<h2 id="context-compression">Context Compression<a href="#context-compression" class="heading-anchor">#</a></h2>
+<p>Long-running agent context may be summarized.</p>
+<p>Summaries retain:</p>
+<ul>
+<li>source links</li>
+<li>unresolved decisions</li>
+<li>constraints</li>
+<li>confidence</li>
+</ul>
+<hr>
+<h1 id="agent-communication">Agent Communication<a href="#agent-communication" class="heading-anchor">#</a></h1>
+<h2 id="communication-model">Communication Model<a href="#communication-model" class="heading-anchor">#</a></h2>
+<p>Agents communicate through workflow-managed typed messages and shared state.</p>
+<p>They do not create unmanaged peer-to-peer channels.</p>
+<h2 id="message-contract">Message Contract<a href="#message-contract" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">AgentMessage
+  message_id
+  workflow_execution_id
+  sender_node_id
+  recipient_node_id_or_channel
+  message_type
+  payload_reference
+  schema_version
+  created_at
+  trace_context
+</code></pre>
+<h2 id="message-types">Message Types<a href="#message-types" class="heading-anchor">#</a></h2>
+<ul>
+<li>Request</li>
+<li>Response</li>
+<li>Proposal</li>
+<li>Evidence</li>
+<li>Critique</li>
+<li>DecisionRequest</li>
+<li>Escalation</li>
+<li>Status</li>
+</ul>
+<h2 id="communication-constraints">Communication Constraints<a href="#communication-constraints" class="heading-anchor">#</a></h2>
+<p>Messages must be:</p>
+<ul>
+<li>typed</li>
+<li>scoped</li>
+<li>observable</li>
+<li>size-bounded</li>
+<li>persisted when required for recovery</li>
+</ul>
+<p>Communication does not bypass workflow dependencies or permissions.</p>
+<h2 id="loop-prevention">Loop Prevention<a href="#loop-prevention" class="heading-anchor">#</a></h2>
+<p>Workflows should enforce:</p>
+<ul>
+<li>message budgets</li>
+<li>iteration limits</li>
+<li>progress criteria</li>
+<li>timeout</li>
+<li>escalation paths</li>
+</ul>
+<hr>
+<h1 id="agent-performance-tracking">Agent Performance Tracking<a href="#agent-performance-tracking" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>Performance tracking determines whether agents contribute measurable value.</p>
+<h2 id="metrics">Metrics<a href="#metrics" class="heading-anchor">#</a></h2>
+<p>Possible metrics:</p>
+<ul>
+<li>task success contribution</li>
+<li>output quality</li>
+<li>factual accuracy</li>
+<li>defect rate</li>
+<li>review findings</li>
+<li>tool request success</li>
+<li>cost</li>
+<li>latency</li>
+<li>context efficiency</li>
+<li>communication overhead</li>
+<li>recovery rate</li>
+</ul>
+<h2 id="attribution-limits">Attribution Limits<a href="#attribution-limits" class="heading-anchor">#</a></h2>
+<p>Agent contribution is difficult to isolate in teams.</p>
+<p>Performance reports must distinguish:</p>
+<ul>
+<li>direct evidence</li>
+<li>inferred contribution</li>
+<li>team-level outcome</li>
+</ul>
+<h2 id="performance-records">Performance Records<a href="#performance-records" class="heading-anchor">#</a></h2>
+<p>Performance summaries live in the Agent Registry.</p>
+<p>Detailed evidence remains in Observability, Benchmark Registry, and Evolution Memory.</p>
+<hr>
+<h1 id="dynamic-team-formation">Dynamic Team Formation<a href="#dynamic-team-formation" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>Dynamic Team Formation selects a suitable set of agent roles and coordination structure for a task.</p>
+<p>It is optional.</p>
+<p>Simple tasks should not incur team overhead.</p>
+<h2 id="formation-inputs">Formation Inputs<a href="#formation-inputs" class="heading-anchor">#</a></h2>
+<ul>
+<li>task characteristics</li>
+<li>required capabilities</li>
+<li>risk</li>
+<li>budget</li>
+<li>latency objective</li>
+<li>available agent profiles</li>
+<li>model and tool availability</li>
+<li>benchmark evidence</li>
+<li>workspace policy</li>
+</ul>
+<h2 id="formation-flow">Formation Flow<a href="#formation-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Analyze Task
+↓
+Determine Whether Team Is Justified
+↓
+Identify Required Roles
+↓
+Select Candidate Agent Profiles
+↓
+Generate Workflow Fragment
+↓
+Validate Dependencies And Permissions
+↓
+Estimate Cost And Latency
+↓
+Execute Or Benchmark
+</code></pre>
+<p>The output is a workflow proposal.</p>
+<p>It is not an unmanaged team process.</p>
+<hr>
+<h1 id="team-generation">Team Generation<a href="#team-generation" class="heading-anchor">#</a></h1>
+<h2 id="team-definition">Team Definition<a href="#team-definition" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">TeamDefinition
+  team_definition_id
+  purpose
+  member_agent_profiles
+  workflow_fragment_reference
+  communication_channels
+  coordination_strategy
+  budget
+  evaluation_profile
+  provenance
+</code></pre>
+<h2 id="generation-strategies">Generation Strategies<a href="#generation-strategies" class="heading-anchor">#</a></h2>
+<ul>
+<li>template selection</li>
+<li>role composition</li>
+<li>retrieval of successful prior teams</li>
+<li>constrained variant generation</li>
+<li>human-defined team</li>
+</ul>
+<h2 id="constraints">Constraints<a href="#constraints" class="heading-anchor">#</a></h2>
+<p>Generated teams must:</p>
+<ul>
+<li>have clear member responsibilities</li>
+<li>define communication paths</li>
+<li>avoid redundant roles unless justified</li>
+<li>fit resource budgets</li>
+<li>satisfy permission policy</li>
+<li>remain workflow-representable</li>
+</ul>
+<hr>
+<h1 id="team-evaluation">Team Evaluation<a href="#team-evaluation" class="heading-anchor">#</a></h1>
+<p>Teams are evaluated against:</p>
+<ul>
+<li>single-agent baseline</li>
+<li>simpler workflow baseline</li>
+<li>alternative team structures</li>
+<li>cost and latency budget</li>
+<li>task quality</li>
+<li>reliability</li>
+<li>coordination overhead</li>
+</ul>
+<h2 id="evaluation-questions">Evaluation Questions<a href="#evaluation-questions" class="heading-anchor">#</a></h2>
+<ul>
+<li>Did each role contribute?</li>
+<li>Was any role redundant?</li>
+<li>Did communication improve outcomes?</li>
+<li>Did review catch material issues?</li>
+<li>Did the team justify its cost?</li>
+<li>Did the structure generalize?</li>
+</ul>
+<p>Team evaluation produces evidence.</p>
+<p>It does not directly change production workflows.</p>
+<hr>
+<h1 id="agent-benchmarking">Agent Benchmarking<a href="#agent-benchmarking" class="heading-anchor">#</a></h1>
+<h2 id="benchmark-types">Benchmark Types<a href="#benchmark-types" class="heading-anchor">#</a></h2>
+<ul>
+<li>role-specific benchmarks</li>
+<li>domain benchmarks</li>
+<li>tool-use benchmarks</li>
+<li>context-management benchmarks</li>
+<li>communication benchmarks</li>
+<li>team benchmarks</li>
+<li>safety and policy-compliance benchmarks</li>
+</ul>
+<h2 id="benchmark-context">Benchmark Context<a href="#benchmark-context" class="heading-anchor">#</a></h2>
+<p>Results must record:</p>
+<ul>
+<li>agent profile version</li>
+<li>workflow context</li>
+<li>model routing policy</li>
+<li>tool availability</li>
+<li>memory policy</li>
+<li>benchmark version</li>
+<li>cost and latency</li>
+</ul>
+<p>An agent benchmark without its environment is incomplete.</p>
+<h2 id="comparative-evaluation">Comparative Evaluation<a href="#comparative-evaluation" class="heading-anchor">#</a></h2>
+<p>Agents should be compared within relevant roles and constraints.</p>
+<p>A fast planner and a high-quality architect solve different problems.</p>
+<hr>
+<h1 id="agent-retirement">Agent Retirement<a href="#agent-retirement" class="heading-anchor">#</a></h1>
+<h2 id="reasons">Reasons<a href="#reasons" class="heading-anchor">#</a></h2>
+<ul>
+<li>persistent underperformance</li>
+<li>redundancy</li>
+<li>policy incompatibility</li>
+<li>obsolete capability</li>
+<li>unavailable dependencies</li>
+<li>unsafe behavior</li>
+</ul>
+<h2 id="retirement-flow">Retirement Flow<a href="#retirement-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Identify Candidate
+↓
+Analyze Active Dependencies
+↓
+Compare Replacement
+↓
+Migrate Or Pin Existing Workflows
+↓
+Retire Agent Profile
+↓
+Preserve Historical Records And Memory
+</code></pre>
+<p>Retirement removes an agent from new resolution.</p>
+<p>It does not delete:</p>
+<ul>
+<li>execution history</li>
+<li>benchmark evidence</li>
+<li>procedural knowledge</li>
+<li>evolution history</li>
+</ul>
+<hr>
+<h1 id="agent-evolution">Agent Evolution<a href="#agent-evolution" class="heading-anchor">#</a></h1>
+<h2 id="evolution-targets">Evolution Targets<a href="#evolution-targets" class="heading-anchor">#</a></h2>
+<p>Evolution may improve:</p>
+<ul>
+<li>instructions</li>
+<li>strategies</li>
+<li>context policy</li>
+<li>model routing policy</li>
+<li>tool request strategy</li>
+<li>communication contract</li>
+<li>team composition</li>
+</ul>
+<h2 id="evolution-flow">Evolution Flow<a href="#evolution-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Observe Performance
+↓
+Identify Weakness
+↓
+Generate Agent Or Team Variant
+↓
+Execute In Controlled Benchmark
+↓
+Compare Against Baseline
+↓
+Propose Promotion
+↓
+Approve
+↓
+Activate New Profile Or Workflow Version
+</code></pre>
+<h2 id="boundaries">Boundaries<a href="#boundaries" class="heading-anchor">#</a></h2>
+<p>Evolution may not:</p>
+<ul>
+<li>modify security policy</li>
+<li>grant permissions</li>
+<li>self-deploy production code</li>
+<li>bypass benchmarks</li>
+<li>erase failed experiment history</li>
+</ul>
+<p>Agent evolution is subordinate to workflow evolution.</p>
+<p>Improving an agent matters only when it improves workflow outcomes.</p>
+<hr>
+<h1 id="failure-modes">Failure Modes<a href="#failure-modes" class="heading-anchor">#</a></h1>
+<h2 id="agent-loop">Agent Loop<a href="#agent-loop" class="heading-anchor">#</a></h2>
+<p>Mitigation:</p>
+<ul>
+<li>iteration limits</li>
+<li>progress checks</li>
+<li>workflow timeout</li>
+<li>evaluator or human escalation</li>
+</ul>
+<h2 id="context-drift">Context Drift<a href="#context-drift" class="heading-anchor">#</a></h2>
+<p>Mitigation:</p>
+<ul>
+<li>restate goal and constraints</li>
+<li>bounded context</li>
+<li>checkpointed decisions</li>
+<li>reviewer validation</li>
+</ul>
+<h2 id="duplicate-work">Duplicate Work<a href="#duplicate-work" class="heading-anchor">#</a></h2>
+<p>Mitigation:</p>
+<ul>
+<li>explicit role ownership</li>
+<li>workflow dependency visibility</li>
+<li>shared evidence channels</li>
+</ul>
+<h2 id="conflicting-outputs">Conflicting Outputs<a href="#conflicting-outputs" class="heading-anchor">#</a></h2>
+<p>Mitigation:</p>
+<ul>
+<li>typed proposals</li>
+<li>decision node</li>
+<li>evaluator</li>
+<li>human approval where material</li>
+</ul>
+<h2 id="contract-violation">Contract Violation<a href="#contract-violation" class="heading-anchor">#</a></h2>
+<p>Mitigation:</p>
+<ul>
+<li>output validation</li>
+<li>bounded repair</li>
+<li>retry or alternate profile</li>
+<li>node failure</li>
+</ul>
+<h2 id="unsafe-tool-proposal">Unsafe Tool Proposal<a href="#unsafe-tool-proposal" class="heading-anchor">#</a></h2>
+<p>Mitigation:</p>
+<ul>
+<li>Tool Layer authorization</li>
+<li>approval</li>
+<li>sandboxing</li>
+<li>agent performance penalty</li>
+</ul>
+<h2 id="agent-dependency-unavailable">Agent Dependency Unavailable<a href="#agent-dependency-unavailable" class="heading-anchor">#</a></h2>
+<p>Mitigation:</p>
+<ul>
+<li>resolve compatible agent profile</li>
+<li>substitute eligible model or tool through capability layers</li>
+<li>pause or fail explicitly</li>
+</ul>
+<h2 id="team-explosion">Team Explosion<a href="#team-explosion" class="heading-anchor">#</a></h2>
+<p>Mitigation:</p>
+<ul>
+<li>maximum members</li>
+<li>cost budget</li>
+<li>role justification</li>
+<li>simpler baseline comparison</li>
+</ul>
+<hr>
+<h1 id="recovery-mechanisms">Recovery Mechanisms<a href="#recovery-mechanisms" class="heading-anchor">#</a></h1>
+<ul>
+<li>restore agent node from Core checkpoint</li>
+<li>retry with same profile</li>
+<li>resolve compatible profile</li>
+<li>reduce context</li>
+<li>escalate to reviewer or human</li>
+<li>simplify team</li>
+<li>quarantine profile</li>
+<li>rollback promoted profile</li>
+</ul>
+<p>Recovery remains visible in workflow traces.</p>
+<hr>
+<h1 id="security-considerations">Security Considerations<a href="#security-considerations" class="heading-anchor">#</a></h1>
+<h2 id="agent-identity">Agent Identity<a href="#agent-identity" class="heading-anchor">#</a></h2>
+<p>Agent identity is not a human principal.</p>
+<p>Agents act through bounded workflow execution identities.</p>
+<h2 id="permission-boundary">Permission Boundary<a href="#permission-boundary" class="heading-anchor">#</a></h2>
+<p>Agents request access.</p>
+<p>Security Layer authorizes access.</p>
+<h2 id="model-output">Model Output<a href="#model-output" class="heading-anchor">#</a></h2>
+<p>Agent reasoning produced by models is untrusted.</p>
+<p>It cannot approve actions or rewrite policy.</p>
+<h2 id="memory">Memory<a href="#memory" class="heading-anchor">#</a></h2>
+<p>Agents receive scoped memory and may propose candidates.</p>
+<p>They cannot directly promote or delete memory.</p>
+<h2 id="tools">Tools<a href="#tools" class="heading-anchor">#</a></h2>
+<p>Agents request tools through Tool Layer.</p>
+<p>Tool permissions, isolation, and auditing always apply.</p>
+<h2 id="prompt-injection">Prompt Injection<a href="#prompt-injection" class="heading-anchor">#</a></h2>
+<p>Agents consuming external content must preserve trust boundaries and resist instructions that conflict with workflow or security policy.</p>
+<h2 id="communication">Communication<a href="#communication" class="heading-anchor">#</a></h2>
+<p>Messages must not become covert channels across workspaces or projects.</p>
+<hr>
+<h1 id="observability">Observability<a href="#observability" class="heading-anchor">#</a></h1>
+<p>Every agent invocation should record:</p>
+<ul>
+<li>agent profile</li>
+<li>workflow and node</li>
+<li>context sources</li>
+<li>model usage</li>
+<li>memory retrieval references</li>
+<li>tool requests</li>
+<li>messages</li>
+<li>output validation</li>
+<li>failures and retries</li>
+<li>cost and latency</li>
+</ul>
+<p>Content retention follows policy.</p>
+<p>Observability supports debugging, benchmarking, and evolution.</p>
+<hr>
+<h1 id="architectural-constraints">Architectural Constraints<a href="#architectural-constraints" class="heading-anchor">#</a></h1>
+<h2 id="constraint-1">Constraint 1<a href="#constraint-1" class="heading-anchor">#</a></h2>
+<p>Workflows are the primary execution unit.</p>
+<p>Agents are workflow components.</p>
+<h2 id="constraint-2">Constraint 2<a href="#constraint-2" class="heading-anchor">#</a></h2>
+<p>A workflow may contain zero, one, or many agents.</p>
+<h2 id="constraint-3">Constraint 3<a href="#constraint-3" class="heading-anchor">#</a></h2>
+<p>Agents may not execute outside Damascus Core and Runtime lifecycle.</p>
+<h2 id="constraint-4">Constraint 4<a href="#constraint-4" class="heading-anchor">#</a></h2>
+<p>Agents may not call model providers, memory backends, or tools directly.</p>
+<h2 id="constraint-5">Constraint 5<a href="#constraint-5" class="heading-anchor">#</a></h2>
+<p>Agent authority is delegated, scoped, and temporary.</p>
+<h2 id="constraint-6">Constraint 6<a href="#constraint-6" class="heading-anchor">#</a></h2>
+<p>Agent communication is workflow-managed and observable.</p>
+<h2 id="constraint-7">Constraint 7<a href="#constraint-7" class="heading-anchor">#</a></h2>
+<p>Core State Manager owns workflow and node execution state.</p>
+<h2 id="constraint-8">Constraint 8<a href="#constraint-8" class="heading-anchor">#</a></h2>
+<p>Agent state does not become durable memory automatically.</p>
+<h2 id="constraint-9">Constraint 9<a href="#constraint-9" class="heading-anchor">#</a></h2>
+<p>Dynamic teams must be represented as workflows or workflow fragments.</p>
+<h2 id="constraint-10">Constraint 10<a href="#constraint-10" class="heading-anchor">#</a></h2>
+<p>More agents require measurable justification.</p>
+<h2 id="constraint-11">Constraint 11<a href="#constraint-11" class="heading-anchor">#</a></h2>
+<p>Agent and team promotion requires benchmark evidence.</p>
+<h2 id="constraint-12">Constraint 12<a href="#constraint-12" class="heading-anchor">#</a></h2>
+<p>Retirement preserves memory, provenance, and historical evidence.</p>
+<h2 id="constraint-13">Constraint 13<a href="#constraint-13" class="heading-anchor">#</a></h2>
+<p>Evolution may improve agents only through controlled promotion.</p>
+<h2 id="constraint-14">Constraint 14<a href="#constraint-14" class="heading-anchor">#</a></h2>
+<p>Agents may propose actions.</p>
+<p>They may not grant themselves authority.</p>
+<hr>
+<h1 id="future-evolution">Future Evolution<a href="#future-evolution" class="heading-anchor">#</a></h1>
+<p>Future Agent Layer capabilities may include:</p>
+<ul>
+<li>domain-generated role profiles</li>
+<li>adaptive team formation</li>
+<li>learned communication topology</li>
+<li>role-specific context optimization</li>
+<li>cross-workspace published agent templates</li>
+<li>formal agent contracts</li>
+<li>agent contribution attribution</li>
+<li>human-agent mixed teams</li>
+</ul>
+<p>Future systems should ask:</p>
+<p>Which agent components improve this workflow?</p>
+<p>Not:</p>
+<p>How many agents can be added?</p>
+<hr>
+<h1 id="open-questions">Open Questions<a href="#open-questions" class="heading-anchor">#</a></h1>
+<ul>
+<li>What minimum contract should every agent implement?</li>
+<li>How should team contribution be attributed?</li>
+<li>When should a role be an agent versus a deterministic workflow node?</li>
+<li>How should dynamic teams prove value before production use?</li>
+<li>Which agent state must be checkpointed?</li>
+<li>How should communication budgets be allocated?</li>
+<li>How should agent confidence be calibrated?</li>
+<li>What evidence justifies agent retirement?</li>
+<li>How should agent profiles reference evolving procedural memory?</li>
+<li>Should generated agents require human review before benchmark execution?</li>
+<li>How should human collaborators participate in generated teams?</li>
+</ul>
+<hr>
+<h1 id="key-architectural-decisions">Key Architectural Decisions<a href="#key-architectural-decisions" class="heading-anchor">#</a></h1>
+<p>Agents are specialized, replaceable workflow components.</p>
+<p>They do not organize Damascus.</p>
+<p>They do not own execution.</p>
+<p>They do not own memory or authority.</p>
+<p>Workflows coordinate agents through Damascus Core.</p>
+<p>Agents use models, memory, and tools through dedicated capability layers.</p>
+<p>Dynamic teams are explicit workflow structures that must justify their complexity through measurable outcomes.</p>
+<p>This preserves agent usefulness without allowing agent-centric architecture to replace Damascus&#39;s workflow-centric foundation.</p>
+
+        </article>
+        <div class="doc-footer-nav">
+      <a href="../01-Research/Self-Improving-Agents.html" class="nav-card prev">
+        <span class="nav-card-label">Previous</span>
+        <span class="nav-card-title">Self Improving Agents</span>
+      </a>
+    
+      <a href="../02-Architecture/Core-System.html" class="nav-card next">
+        <span class="nav-card-label">Next</span>
+        <span class="nav-card-title">Core System</span>
+      </a>
+    </div>
+      </div>
+    </main>
+
+    <!-- Right Table of Contents Sidebar -->
+    
+    <aside class="site-toc">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list">
+        <li class="toc-item depth-2">
+  <a href="#agents-exist-to-serve-workflows" class="toc-link">Agents Exist To Serve Workflows</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#clear-purpose" class="toc-link">Clear Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#replaceability" class="toc-link">Replaceability</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#bounded-authority" class="toc-link">Bounded Authority</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#measured-specialization" class="toc-link">Measured Specialization</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#dynamic-organization" class="toc-link">Dynamic Organization</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ag-001-workflow-primacy" class="toc-link">AG-001 Workflow Primacy</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ag-002-explicit-role" class="toc-link">AG-002 Explicit Role</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ag-003-replaceability" class="toc-link">AG-003 Replaceability</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ag-004-delegated-authority" class="toc-link">AG-004 Delegated Authority</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ag-005-structured-communication" class="toc-link">AG-005 Structured Communication</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ag-006-bounded-context" class="toc-link">AG-006 Bounded Context</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ag-007-measured-value" class="toc-link">AG-007 Measured Value</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ag-008-no-hidden-coordination" class="toc-link">AG-008 No Hidden Coordination</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ag-009-provider-independence" class="toc-link">AG-009 Provider Independence</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ag-010-controlled-evolution" class="toc-link">AG-010 Controlled Evolution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agent-invocation-service" class="toc-link">Agent Invocation Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agent-resolver" class="toc-link">Agent Resolver</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agent-context-manager" class="toc-link">Agent Context Manager</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agent-state-adapter" class="toc-link">Agent State Adapter</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#communication-service" class="toc-link">Communication Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#team-formation-service" class="toc-link">Team Formation Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#team-evaluation-service" class="toc-link">Team Evaluation Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agent-definition" class="toc-link">Agent Definition</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agent-profile" class="toc-link">Agent Profile</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agent-invocation" class="toc-link">Agent Invocation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agent-result" class="toc-link">Agent Result</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#pause-and-resume" class="toc-link">Pause And Resume</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#cancellation" class="toc-link">Cancellation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#registry-contents" class="toc-link">Registry Contents</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#lifecycle-states" class="toc-link">Lifecycle States</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#registry-ownership" class="toc-link">Registry Ownership</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#planner" class="toc-link">Planner</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#researcher" class="toc-link">Researcher</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#architect" class="toc-link">Architect</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#coder" class="toc-link">Coder</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#reviewer" class="toc-link">Reviewer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evaluator" class="toc-link">Evaluator</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#lifecycle-flow" class="toc-link">Lifecycle Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#creation" class="toc-link">Creation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#activation" class="toc-link">Activation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#deprecation" class="toc-link">Deprecation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#quarantine" class="toc-link">Quarantine</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#state-ownership" class="toc-link">State Ownership</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#state-constraints" class="toc-link">State Constraints</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#durable-learning" class="toc-link">Durable Learning</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#context-sources" class="toc-link">Context Sources</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#context-assembly-flow" class="toc-link">Context Assembly Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#context-isolation" class="toc-link">Context Isolation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#context-compression" class="toc-link">Context Compression</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#communication-model" class="toc-link">Communication Model</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#message-contract" class="toc-link">Message Contract</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#message-types" class="toc-link">Message Types</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#communication-constraints" class="toc-link">Communication Constraints</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#loop-prevention" class="toc-link">Loop Prevention</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#metrics" class="toc-link">Metrics</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#attribution-limits" class="toc-link">Attribution Limits</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#performance-records" class="toc-link">Performance Records</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#formation-inputs" class="toc-link">Formation Inputs</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#formation-flow" class="toc-link">Formation Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#team-definition" class="toc-link">Team Definition</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#generation-strategies" class="toc-link">Generation Strategies</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraints" class="toc-link">Constraints</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evaluation-questions" class="toc-link">Evaluation Questions</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#benchmark-types" class="toc-link">Benchmark Types</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#benchmark-context" class="toc-link">Benchmark Context</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#comparative-evaluation" class="toc-link">Comparative Evaluation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#reasons" class="toc-link">Reasons</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#retirement-flow" class="toc-link">Retirement Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evolution-targets" class="toc-link">Evolution Targets</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evolution-flow" class="toc-link">Evolution Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#boundaries" class="toc-link">Boundaries</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agent-loop" class="toc-link">Agent Loop</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#context-drift" class="toc-link">Context Drift</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#duplicate-work" class="toc-link">Duplicate Work</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#conflicting-outputs" class="toc-link">Conflicting Outputs</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#contract-violation" class="toc-link">Contract Violation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#unsafe-tool-proposal" class="toc-link">Unsafe Tool Proposal</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agent-dependency-unavailable" class="toc-link">Agent Dependency Unavailable</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#team-explosion" class="toc-link">Team Explosion</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agent-identity" class="toc-link">Agent Identity</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#permission-boundary" class="toc-link">Permission Boundary</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#model-output" class="toc-link">Model Output</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#memory" class="toc-link">Memory</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tools" class="toc-link">Tools</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#prompt-injection" class="toc-link">Prompt Injection</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#communication" class="toc-link">Communication</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-1" class="toc-link">Constraint 1</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-2" class="toc-link">Constraint 2</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-3" class="toc-link">Constraint 3</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-4" class="toc-link">Constraint 4</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-5" class="toc-link">Constraint 5</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-6" class="toc-link">Constraint 6</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-7" class="toc-link">Constraint 7</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-8" class="toc-link">Constraint 8</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-9" class="toc-link">Constraint 9</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-10" class="toc-link">Constraint 10</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-11" class="toc-link">Constraint 11</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-12" class="toc-link">Constraint 12</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-13" class="toc-link">Constraint 13</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-14" class="toc-link">Constraint 14</a>
+</li>
+
+      </ul>
+    </aside>
+  
+
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

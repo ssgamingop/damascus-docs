@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evolution Engine | Damascus Docs</title>
+  <meta name="description" content="Damascus - Privacy-first, local-first intelligence operating system documentation">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    window.damascusMermaid = mermaid;
+  </script>
+</head>
+<body data-root="../">
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="brand">
+      <button class="mobile-header-btn" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="../index.html" class="brand">
+        <div class="logo">D</div>
+        <span class="title">Damascus Docs</span>
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <!-- Search Input Container -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="search-input" placeholder="Search docs..." aria-label="Search documentation">
+          <kbd class="search-shortcut">/</kbd>
+        </div>
+        
+        <!-- Results Dropdown -->
+        <div class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" aria-label="Toggle theme">
+        <!-- Sun (Light Theme Icon) -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon (Dark Theme Icon) -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Layout Grid -->
+  <div class="layout-container">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="site-sidebar">
+      <div class="sidebar-section">
+  <div class="sidebar-section-title">Vision</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Mission.html" class="sidebar-nav-link ">Mission</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Vision.html" class="sidebar-nav-link ">Damascus Vision</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Why-Damascus.html" class="sidebar-nav-link ">Why Damascus Exists</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Research</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/AI-Operating-Systems.html" class="sidebar-nav-link ">AI Operating Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Hermes-Analysis.html" class="sidebar-nav-link ">Hermes Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Knowledge-Graphs.html" class="sidebar-nav-link ">Knowledge Graphs</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/LangGraph-Analysis.html" class="sidebar-nav-link ">LangGraph Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Memory-Systems.html" class="sidebar-nav-link ">Memory Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Multi-Agent-Systems.html" class="sidebar-nav-link ">Multi Agent Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Odysseus-Analysis.html" class="sidebar-nav-link ">Odysseus Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/OpenHands-Analysis.html" class="sidebar-nav-link ">OpenHands Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Self-Improving-Agents.html" class="sidebar-nav-link ">Self Improving Agents</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Architecture</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link ">Agent Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link ">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link active">Evolution Engine</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/High-Level-Architecture.html" class="sidebar-nav-link ">High Level Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Memory-Architecture.html" class="sidebar-nav-link ">Memory Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link ">Model Abstraction Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link ">Security Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Tool-Layer.html" class="sidebar-nav-link ">Tool Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link ">Workspace System</a>
+    </li>
+  </ul>
+</div>
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <article class="doc-content">
+          <div class="doc-meta"><span class="meta-badge">Version 0.1</span><span class="meta-badge status-architecture-foundation">Architecture Foundation</span><span class="meta-badge priority-defining">Priority Defining</span></div> <h1 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h1>
+<p>This document defines the Damascus Evolution Engine.</p>
+<p>The Evolution Engine is the defining subsystem of Damascus.</p>
+<p>Most systems execute tasks.</p>
+<p>Damascus improves how tasks are executed.</p>
+<p>The Evolution Engine transforms observations, failures, benchmark evidence, and research into controlled, measurable, reversible improvements.</p>
+<p>It does not perform unrestricted self-modification.</p>
+<p>It does not directly rewrite production source code.</p>
+<p>It does not modify security policies or grant permissions.</p>
+<p>It evolves versioned operational artifacts through experimentation, evaluation, promotion, and rollback.</p>
+<p>Core loop:</p>
+<pre><code class="language-diagram">Observe
+↓
+Evaluate
+↓
+Generate Variant
+↓
+Benchmark
+↓
+Compare
+↓
+Promote
+↓
+Monitor
+↓
+Retain Or Roll Back
+</code></pre>
+<hr>
+<h1 id="design-philosophy">Design Philosophy<a href="#design-philosophy" class="heading-anchor">#</a></h1>
+<h2 id="improvement-requires-behavior-change">Improvement Requires Behavior Change<a href="#improvement-requires-behavior-change" class="heading-anchor">#</a></h2>
+<p>Storing memories is not improvement.</p>
+<p>Collecting traces is not improvement.</p>
+<p>Generating alternatives is not improvement.</p>
+<p>Improvement occurs only when a measured, superior behavior is safely adopted and continues to perform in practice.</p>
+<h2 id="evidence-before-promotion">Evidence Before Promotion<a href="#evidence-before-promotion" class="heading-anchor">#</a></h2>
+<p>No candidate is promoted because it appears better.</p>
+<p>Promotion requires relevant, reproducible evidence.</p>
+<h2 id="controlled-branch-model">Controlled Branch Model<a href="#controlled-branch-model" class="heading-anchor">#</a></h2>
+<p>Evolution occurs through versioned branches:</p>
+<pre><code class="language-diagram">Production Baseline
+↓
+Candidate Variants
+↓
+Isolated Experiments
+↓
+Benchmark Comparison
+↓
+Promotion Proposal
+↓
+Approval Gates
+↓
+Controlled Activation
+</code></pre>
+<h2 id="reversibility">Reversibility<a href="#reversibility" class="heading-anchor">#</a></h2>
+<p>Every promoted change must have:</p>
+<ul>
+<li>previous stable version</li>
+<li>activation record</li>
+<li>monitoring plan</li>
+<li>rollback criteria</li>
+<li>rollback mechanism</li>
+</ul>
+<h2 id="workflow-primacy">Workflow Primacy<a href="#workflow-primacy" class="heading-anchor">#</a></h2>
+<p>Workflows are the primary evolution unit.</p>
+<p>Agents, teams, models, tools, prompts, and strategies are components or policies within workflow behavior.</p>
+<h2 id="human-authority">Human Authority<a href="#human-authority" class="heading-anchor">#</a></h2>
+<p>The Evolution Engine may discover and recommend improvements.</p>
+<p>Human authority and workspace policy determine what may enter production.</p>
+<h2 id="safety-is-non-optimizable">Safety Is Non-Optimizable<a href="#safety-is-non-optimizable" class="heading-anchor">#</a></h2>
+<p>Security baselines, permissions, approval gates, audit requirements, and human authority are immutable constraints from the perspective of evolution.</p>
+<hr>
+<h1 id="responsibilities">Responsibilities<a href="#responsibilities" class="heading-anchor">#</a></h1>
+<p>The Evolution Engine owns:</p>
+<ul>
+<li>improvement opportunity analysis</li>
+<li>evolution target selection</li>
+<li>experiment definitions</li>
+<li>variant generation coordination</li>
+<li>Evolution Arena coordination</li>
+<li>evaluation and comparison</li>
+<li>promotion proposals</li>
+<li>rollback coordination</li>
+<li>experiment tracking</li>
+<li>workflow lineage</li>
+<li>regression detection</li>
+<li>evolution telemetry</li>
+<li>interaction with Evolution Memory</li>
+</ul>
+<p>It coordinates with:</p>
+<ul>
+<li>Core for scheduling and workflow execution</li>
+<li>Workflow Registry for versions and activation</li>
+<li>Benchmark Registry for benchmark definitions and results</li>
+<li>Memory Layer for Evolution Memory</li>
+<li>Observability Layer for traces and production metrics</li>
+<li>Security Layer for safety constraints and approvals</li>
+<li>Workspace System for ownership and governance</li>
+<li>Agent Layer for team and agent variants</li>
+<li>Tool Layer for tool-selection variants</li>
+<li>Model Layer for routing variants</li>
+<li>Research Layer for candidate techniques</li>
+</ul>
+<hr>
+<h1 id="non-responsibilities">Non-Responsibilities<a href="#non-responsibilities" class="heading-anchor">#</a></h1>
+<p>The Evolution Engine does not own:</p>
+<ul>
+<li>production workflow execution</li>
+<li>security policy</li>
+<li>permission grants</li>
+<li>benchmark definition ownership</li>
+<li>model inference</li>
+<li>tool execution</li>
+<li>agent execution</li>
+<li>source-code deployment</li>
+<li>user approval decisions</li>
+<li>memory storage implementation</li>
+</ul>
+<p>It proposes promotion.</p>
+<p>It does not bypass promotion authority.</p>
+<hr>
+<h1 id="evolution-principles">Evolution Principles<a href="#evolution-principles" class="heading-anchor">#</a></h1>
+<h2 id="evo-001-measured-improvement">EVO-001 Measured Improvement<a href="#evo-001-measured-improvement" class="heading-anchor">#</a></h2>
+<p>Every improvement claim references evidence.</p>
+<h2 id="evo-002-reproducibility">EVO-002 Reproducibility<a href="#evo-002-reproducibility" class="heading-anchor">#</a></h2>
+<p>Experiments record enough context to reproduce or explain limitations.</p>
+<h2 id="evo-003-reversibility">EVO-003 Reversibility<a href="#evo-003-reversibility" class="heading-anchor">#</a></h2>
+<p>Production activation requires a rollback path.</p>
+<h2 id="evo-004-explainability">EVO-004 Explainability<a href="#evo-004-explainability" class="heading-anchor">#</a></h2>
+<p>Promotion proposals state what changed, why, evidence, tradeoffs, and risks.</p>
+<h2 id="evo-005-isolation">EVO-005 Isolation<a href="#evo-005-isolation" class="heading-anchor">#</a></h2>
+<p>Candidates execute in the Evolution Arena, not unrestricted production.</p>
+<h2 id="evo-006-baseline-comparison">EVO-006 Baseline Comparison<a href="#evo-006-baseline-comparison" class="heading-anchor">#</a></h2>
+<p>Candidates are evaluated against relevant baselines.</p>
+<h2 id="evo-007-multi-metric-evaluation">EVO-007 Multi-Metric Evaluation<a href="#evo-007-multi-metric-evaluation" class="heading-anchor">#</a></h2>
+<p>One improved metric cannot silently hide regressions elsewhere.</p>
+<h2 id="evo-008-safety-constraints">EVO-008 Safety Constraints<a href="#evo-008-safety-constraints" class="heading-anchor">#</a></h2>
+<p>Evolution cannot weaken immutable safety constraints.</p>
+<h2 id="evo-009-historical-preservation">EVO-009 Historical Preservation<a href="#evo-009-historical-preservation" class="heading-anchor">#</a></h2>
+<p>Failed, rejected, and rolled-back experiments remain Evolution Memory.</p>
+<h2 id="evo-010-workflow-centric-evolution">EVO-010 Workflow-Centric Evolution<a href="#evo-010-workflow-centric-evolution" class="heading-anchor">#</a></h2>
+<p>Component improvements matter only through their effect on workflows and user capability.</p>
+<hr>
+<h1 id="high-level-architecture">High-Level Architecture<a href="#high-level-architecture" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">Production Execution And Research
+↓
+Observation Ingestion
+↓
+Opportunity Analyzer
+↓
+Experiment Planner
+↓
+Variant Generator
+↓
+Evolution Arena
+├── Benchmark Engine
+├── Evaluation Engine
+├── Safety Validator
+└── Resource Controller
+↓
+Comparison And Regression Detection
+↓
+Promotion Engine
+↓
+Approval Gates
+↓
+Controlled Activation
+↓
+Production Monitoring
+↓
+Retain Or Rollback Engine
+↓
+Evolution Memory And Lineage
+</code></pre>
+<hr>
+<h1 id="core-components">Core Components<a href="#core-components" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">Evolution Engine
+├── Observation Ingestion Service
+├── Opportunity Analyzer
+├── Experiment Planner
+├── Variant Generator
+├── Evolution Arena
+├── Benchmark Engine
+├── Evaluation Engine
+├── Regression Detector
+├── Promotion Engine
+├── Rollback Engine
+├── Lineage Service
+├── Experiment Tracker
+├── Safety Constraint Validator
+└── Evolution Telemetry Service
+</code></pre>
+<h2 id="observation-ingestion-service">Observation Ingestion Service<a href="#observation-ingestion-service" class="heading-anchor">#</a></h2>
+<p>Collects eligible evidence from:</p>
+<ul>
+<li>workflow traces</li>
+<li>failures</li>
+<li>benchmark results</li>
+<li>user feedback</li>
+<li>tool telemetry</li>
+<li>model routing telemetry</li>
+<li>agent and team performance</li>
+<li>research findings</li>
+<li>prior evolution experiments</li>
+</ul>
+<p>Raw production telemetry is not automatically a valid optimization objective.</p>
+<h2 id="opportunity-analyzer">Opportunity Analyzer<a href="#opportunity-analyzer" class="heading-anchor">#</a></h2>
+<p>Identifies candidate weaknesses and improvement opportunities.</p>
+<p>Examples:</p>
+<ul>
+<li>repeated workflow failure</li>
+<li>high latency</li>
+<li>excessive cost</li>
+<li>redundant agent role</li>
+<li>weak tool reliability</li>
+<li>poor model routing</li>
+<li>recurring human correction</li>
+</ul>
+<h2 id="experiment-planner">Experiment Planner<a href="#experiment-planner" class="heading-anchor">#</a></h2>
+<p>Defines:</p>
+<ul>
+<li>target</li>
+<li>hypothesis</li>
+<li>baseline</li>
+<li>variants</li>
+<li>benchmark suite</li>
+<li>metrics</li>
+<li>safety constraints</li>
+<li>resource budget</li>
+<li>approval requirements</li>
+<li>termination criteria</li>
+</ul>
+<h2 id="safety-constraint-validator">Safety Constraint Validator<a href="#safety-constraint-validator" class="heading-anchor">#</a></h2>
+<p>Rejects variants and plans that violate immutable constraints before execution or promotion.</p>
+<hr>
+<h1 id="evolution-targets">Evolution Targets<a href="#evolution-targets" class="heading-anchor">#</a></h1>
+<h2 id="workflows">Workflows<a href="#workflows" class="heading-anchor">#</a></h2>
+<p>Possible changes:</p>
+<ul>
+<li>node structure</li>
+<li>branching</li>
+<li>ordering</li>
+<li>parallelism</li>
+<li>retries</li>
+<li>checkpoints</li>
+<li>approval placement</li>
+<li>context strategy</li>
+</ul>
+<p>Workflow variants remain runtime-independent definitions.</p>
+<h2 id="teams">Teams<a href="#teams" class="heading-anchor">#</a></h2>
+<p>Possible changes:</p>
+<ul>
+<li>roles</li>
+<li>agent profiles</li>
+<li>team size</li>
+<li>communication topology</li>
+<li>reviewer placement</li>
+<li>evaluator independence</li>
+</ul>
+<p>More agents require measurable justification.</p>
+<h2 id="tool-selection">Tool Selection<a href="#tool-selection" class="heading-anchor">#</a></h2>
+<p>Possible changes:</p>
+<ul>
+<li>structured tool preference</li>
+<li>tool selection policy</li>
+<li>fallback selection</li>
+<li>retry strategy</li>
+<li>timeout</li>
+</ul>
+<p>Tool permissions and minimum isolation cannot be weakened.</p>
+<h2 id="strategies">Strategies<a href="#strategies" class="heading-anchor">#</a></h2>
+<p>Possible changes:</p>
+<ul>
+<li>planning methods</li>
+<li>retrieval strategies</li>
+<li>decomposition</li>
+<li>critique loops</li>
+<li>verification strategies</li>
+<li>recovery strategies</li>
+</ul>
+<h2 id="model-routing">Model Routing<a href="#model-routing" class="heading-anchor">#</a></h2>
+<p>Possible changes:</p>
+<ul>
+<li>routing weights</li>
+<li>capability thresholds</li>
+<li>escalation policy</li>
+<li>fallback class</li>
+<li>multi-model structure</li>
+</ul>
+<p>Data-egress permissions and provider authorization remain fixed constraints.</p>
+<hr>
+<h1 id="evolution-arena">Evolution Arena<a href="#evolution-arena" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>The Evolution Arena is the controlled environment in which candidates are tested.</p>
+<p>It separates experimentation from production behavior.</p>
+<h2 id="arena-requirements">Arena Requirements<a href="#arena-requirements" class="heading-anchor">#</a></h2>
+<ul>
+<li>isolated execution</li>
+<li>fixed or recorded dependencies</li>
+<li>explicit resource budgets</li>
+<li>benchmark-controlled inputs</li>
+<li>immutable safety constraints</li>
+<li>complete telemetry</li>
+<li>no unauthorized production side effects</li>
+<li>reproducible configuration</li>
+</ul>
+<h2 id="arena-modes">Arena Modes<a href="#arena-modes" class="heading-anchor">#</a></h2>
+<h3 id="replay-arena">Replay Arena<a href="#replay-arena" class="heading-anchor">#</a></h3>
+<p>Replays historical or synthetic tasks.</p>
+<h3 id="shadow-arena">Shadow Arena<a href="#shadow-arena" class="heading-anchor">#</a></h3>
+<p>Evaluates candidates against production-like inputs without allowing production effects.</p>
+<h3 id="simulation-arena">Simulation Arena<a href="#simulation-arena" class="heading-anchor">#</a></h3>
+<p>Uses simulated tools or environments.</p>
+<h3 id="controlled-live-arena">Controlled Live Arena<a href="#controlled-live-arena" class="heading-anchor">#</a></h3>
+<p>Allows narrow, approved real-world execution with enhanced monitoring.</p>
+<h2 id="arena-boundary">Arena Boundary<a href="#arena-boundary" class="heading-anchor">#</a></h2>
+<p>Arena credentials, resources, memory, and tools are separate from production by default.</p>
+<p>Production secrets and unrestricted workspace resources are not inherited.</p>
+<h2 id="contamination-prevention">Contamination Prevention<a href="#contamination-prevention" class="heading-anchor">#</a></h2>
+<p>Benchmark inputs, expected results, and evaluator internals must be protected from candidates when disclosure would invalidate evaluation.</p>
+<hr>
+<h1 id="variant-generator">Variant Generator<a href="#variant-generator" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>The Variant Generator creates candidate alternatives under explicit constraints.</p>
+<h2 id="variant-sources">Variant Sources<a href="#variant-sources" class="heading-anchor">#</a></h2>
+<ul>
+<li>deterministic mutation rules</li>
+<li>prior successful procedures</li>
+<li>research-derived techniques</li>
+<li>model-generated proposals</li>
+<li>human proposals</li>
+<li>recombination of proven components</li>
+<li>failure-driven repair</li>
+</ul>
+<h2 id="variant-contract">Variant Contract<a href="#variant-contract" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">Variant
+  variant_id
+  experiment_id
+  target_type
+  baseline_version_id
+  parent_variant_ids
+  change_set
+  hypothesis
+  expected_benefits
+  known_risks
+  required_capabilities
+  safety_validation_state
+  lifecycle_state
+</code></pre>
+<h2 id="generation-constraints">Generation Constraints<a href="#generation-constraints" class="heading-anchor">#</a></h2>
+<p>Variants may not:</p>
+<ul>
+<li>modify security policy</li>
+<li>grant permissions</li>
+<li>remove mandatory approvals</li>
+<li>change audit requirements</li>
+<li>deploy production source code</li>
+<li>access unauthorized data</li>
+</ul>
+<h2 id="diversity">Diversity<a href="#diversity" class="heading-anchor">#</a></h2>
+<p>Variant diversity helps avoid local optima.</p>
+<p>It must remain bounded by resource budgets and hypothesis relevance.</p>
+<p>Generating many arbitrary variants is not useful evolution.</p>
+<hr>
+<h1 id="benchmark-engine">Benchmark Engine<a href="#benchmark-engine" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>The Benchmark Engine coordinates execution of benchmark suites against baselines and candidates.</p>
+<p>The Benchmark Registry remains authoritative for benchmark definitions and stored results.</p>
+<h2 id="benchmark-definition">Benchmark Definition<a href="#benchmark-definition" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">BenchmarkDefinition
+  benchmark_id
+  benchmark_version
+  purpose
+  target_types
+  dataset_reference
+  metrics
+  scoring_rules
+  environment_requirements
+  safety_requirements
+  validity_period
+</code></pre>
+<h2 id="benchmark-run">Benchmark Run<a href="#benchmark-run" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">BenchmarkRun
+  benchmark_run_id
+  experiment_id
+  target_version_id
+  benchmark_version
+  environment_snapshot
+  capability_snapshot
+  started_at
+  completed_at
+  metrics
+  artifacts
+  validity_state
+</code></pre>
+<h2 id="benchmark-categories">Benchmark Categories<a href="#benchmark-categories" class="heading-anchor">#</a></h2>
+<ul>
+<li>quality</li>
+<li>correctness</li>
+<li>reliability</li>
+<li>safety</li>
+<li>policy compliance</li>
+<li>latency</li>
+<li>cost</li>
+<li>resource usage</li>
+<li>recovery</li>
+<li>user preference</li>
+</ul>
+<h2 id="reproducibility">Reproducibility<a href="#reproducibility" class="heading-anchor">#</a></h2>
+<p>Runs should record:</p>
+<ul>
+<li>workflow version</li>
+<li>agent profiles</li>
+<li>model profiles or routing policy</li>
+<li>tool versions</li>
+<li>memory snapshot or policy</li>
+<li>environment</li>
+<li>seeds where applicable</li>
+<li>dataset version</li>
+</ul>
+<h2 id="benchmark-integrity">Benchmark Integrity<a href="#benchmark-integrity" class="heading-anchor">#</a></h2>
+<p>Candidates must not:</p>
+<ul>
+<li>alter benchmark definitions</li>
+<li>inspect hidden expected outputs</li>
+<li>tamper with evaluator results</li>
+<li>write to authoritative benchmark storage</li>
+</ul>
+<hr>
+<h1 id="evaluation-engine">Evaluation Engine<a href="#evaluation-engine" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>The Evaluation Engine interprets benchmark results and determines whether evidence supports improvement.</p>
+<h2 id="evaluation-inputs">Evaluation Inputs<a href="#evaluation-inputs" class="heading-anchor">#</a></h2>
+<ul>
+<li>candidate results</li>
+<li>baseline results</li>
+<li>metric definitions</li>
+<li>confidence thresholds</li>
+<li>regression limits</li>
+<li>resource costs</li>
+<li>safety outcomes</li>
+<li>scope applicability</li>
+</ul>
+<h2 id="evaluation-methods">Evaluation Methods<a href="#evaluation-methods" class="heading-anchor">#</a></h2>
+<ul>
+<li>deterministic scoring</li>
+<li>statistical comparison</li>
+<li>human evaluation</li>
+<li>model-assisted evaluation</li>
+<li>pairwise comparison</li>
+<li>adversarial evaluation</li>
+</ul>
+<p>Model-assisted evaluation cannot be the sole authority for critical promotion.</p>
+<h2 id="evaluation-output">Evaluation Output<a href="#evaluation-output" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">EvaluationReport
+  evaluation_id
+  experiment_id
+  baseline_id
+  candidate_id
+  metric_comparisons
+  confidence
+  regressions
+  safety_findings
+  limitations
+  recommendation
+</code></pre>
+<p>Recommendations:</p>
+<ul>
+<li>Promote</li>
+<li>PromoteWithConditions</li>
+<li>ContinueExperiment</li>
+<li>Reject</li>
+<li>Inconclusive</li>
+</ul>
+<hr>
+<h1 id="promotion-engine">Promotion Engine<a href="#promotion-engine" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>The Promotion Engine converts validated candidates into controlled production activation proposals and coordinates approved activation.</p>
+<h2 id="promotion-criteria">Promotion Criteria<a href="#promotion-criteria" class="heading-anchor">#</a></h2>
+<p>Promotion requires:</p>
+<ul>
+<li>valid candidate lifecycle state</li>
+<li>relevant benchmark evidence</li>
+<li>baseline comparison</li>
+<li>no blocking safety failure</li>
+<li>acceptable regression profile</li>
+<li>reproducibility threshold</li>
+<li>compatibility validation</li>
+<li>rollback plan</li>
+<li>required approvals</li>
+</ul>
+<h2 id="promotion-proposal">Promotion Proposal<a href="#promotion-proposal" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">PromotionProposal
+  promotion_id
+  target_type
+  baseline_version_id
+  candidate_version_id
+  evidence_references
+  expected_benefits
+  regressions
+  scope
+  activation_plan
+  monitoring_plan
+  rollback_plan
+  required_approvals
+  lifecycle_state
+</code></pre>
+<h2 id="promotion-modes">Promotion Modes<a href="#promotion-modes" class="heading-anchor">#</a></h2>
+<ul>
+<li>Manual Activation</li>
+<li>Scheduled Activation</li>
+<li>Canary Activation</li>
+<li>Percentage Rollout</li>
+<li>Workspace-Limited Activation</li>
+<li>Project-Limited Activation</li>
+</ul>
+<h2 id="activation">Activation<a href="#activation" class="heading-anchor">#</a></h2>
+<p>Promotion creates a new active version or policy reference.</p>
+<p>It does not overwrite historical versions.</p>
+<hr>
+<h1 id="rollback-engine">Rollback Engine<a href="#rollback-engine" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>The Rollback Engine restores a prior stable operational version after failed activation or detected regression.</p>
+<h2 id="rollback-triggers">Rollback Triggers<a href="#rollback-triggers" class="heading-anchor">#</a></h2>
+<ul>
+<li>blocking safety event</li>
+<li>regression threshold exceeded</li>
+<li>user rejection</li>
+<li>operational failure</li>
+<li>unexpected cost or latency</li>
+<li>incompatibility</li>
+<li>incident response</li>
+</ul>
+<h2 id="rollback-plan">Rollback Plan<a href="#rollback-plan" class="heading-anchor">#</a></h2>
+<p>Each promotion defines:</p>
+<ul>
+<li>prior stable version</li>
+<li>rollback eligibility</li>
+<li>state compatibility</li>
+<li>active execution handling</li>
+<li>memory and artifact handling</li>
+<li>verification steps</li>
+</ul>
+<h2 id="rollback-limits">Rollback Limits<a href="#rollback-limits" class="heading-anchor">#</a></h2>
+<p>Rollback cannot always undo external effects created by workflows.</p>
+<p>It restores future behavior and coordinates compensating actions where possible.</p>
+<h2 id="rollback-record">Rollback Record<a href="#rollback-record" class="heading-anchor">#</a></h2>
+<p>Rollback is stored in Evolution Memory with cause, evidence, and outcome.</p>
+<hr>
+<h1 id="regression-detection">Regression Detection<a href="#regression-detection" class="heading-anchor">#</a></h1>
+<h2 id="regression-classes">Regression Classes<a href="#regression-classes" class="heading-anchor">#</a></h2>
+<ul>
+<li>quality regression</li>
+<li>safety regression</li>
+<li>policy-compliance regression</li>
+<li>latency regression</li>
+<li>cost regression</li>
+<li>reliability regression</li>
+<li>domain-specific regression</li>
+<li>scope-specific regression</li>
+</ul>
+<h2 id="detection-sources">Detection Sources<a href="#detection-sources" class="heading-anchor">#</a></h2>
+<ul>
+<li>benchmark comparison</li>
+<li>canary telemetry</li>
+<li>production telemetry</li>
+<li>user feedback</li>
+<li>incident reports</li>
+<li>drift analysis</li>
+</ul>
+<h2 id="detection-windows">Detection Windows<a href="#detection-windows" class="heading-anchor">#</a></h2>
+<p>Regressions may be:</p>
+<ul>
+<li>immediate</li>
+<li>short-term</li>
+<li>long-term</li>
+<li>rare-event</li>
+</ul>
+<p>Promotion monitoring must define relevant windows.</p>
+<h2 id="blocking-regressions">Blocking Regressions<a href="#blocking-regressions" class="heading-anchor">#</a></h2>
+<p>Safety, permission, audit, or data-exposure regressions are blocking regardless of aggregate quality gains.</p>
+<hr>
+<h1 id="safety-constraints">Safety Constraints<a href="#safety-constraints" class="heading-anchor">#</a></h1>
+<p>Immutable constraints from the Evolution Engine perspective:</p>
+<ul>
+<li>no security policy modification</li>
+<li>no permission expansion</li>
+<li>no removal of mandatory approvals</li>
+<li>no audit weakening</li>
+<li>no reduced required isolation</li>
+<li>no unauthorized data access</li>
+<li>no direct production source-code self-modification</li>
+<li>no hidden production deployment</li>
+<li>no deletion of failed experiment history</li>
+<li>no benchmark tampering</li>
+</ul>
+<p>Candidates violating constraints are rejected before Arena execution where detectable.</p>
+<p>Runtime safety enforcement still applies during experiments.</p>
+<hr>
+<h1 id="approval-gates">Approval Gates<a href="#approval-gates" class="heading-anchor">#</a></h1>
+<p>Approval gates are defined by target, scope, risk, and policy.</p>
+<h2 id="gate-types">Gate Types<a href="#gate-types" class="heading-anchor">#</a></h2>
+<ul>
+<li>Experiment Approval</li>
+<li>Controlled Live Test Approval</li>
+<li>Promotion Approval</li>
+<li>Expanded Rollout Approval</li>
+<li>Rollback Approval</li>
+<li>Emergency Rollback Authority</li>
+</ul>
+<h2 id="gate-inputs">Gate Inputs<a href="#gate-inputs" class="heading-anchor">#</a></h2>
+<p>Approvers receive:</p>
+<ul>
+<li>change summary</li>
+<li>evidence</li>
+<li>benchmark limitations</li>
+<li>regressions</li>
+<li>safety findings</li>
+<li>cost impact</li>
+<li>activation scope</li>
+<li>rollback plan</li>
+</ul>
+<h2 id="automatic-promotion">Automatic Promotion<a href="#automatic-promotion" class="heading-anchor">#</a></h2>
+<p>Automatic promotion may be permitted only for narrowly scoped, low-risk targets under explicit policy.</p>
+<p>Security-related changes are never automatically promoted by Evolution.</p>
+<hr>
+<h1 id="variant-lifecycle">Variant Lifecycle<a href="#variant-lifecycle" class="heading-anchor">#</a></h1>
+<h2 id="states">States<a href="#states" class="heading-anchor">#</a></h2>
+<ul>
+<li>Proposed</li>
+<li>Validating</li>
+<li>RejectedBySafety</li>
+<li>ReadyForExperiment</li>
+<li>Experimenting</li>
+<li>Evaluating</li>
+<li>Qualified</li>
+<li>Rejected</li>
+<li>PromotionProposed</li>
+<li>Approved</li>
+<li>Activating</li>
+<li>ActiveCanary</li>
+<li>Active</li>
+<li>RolledBack</li>
+<li>Retired</li>
+<li>Inconclusive</li>
+</ul>
+<h2 id="state-machine">State Machine<a href="#state-machine" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Proposed
+↓
+Validating
+├── RejectedBySafety
+└── ReadyForExperiment
+    ↓
+    Experimenting
+    ↓
+    Evaluating
+    ├── Rejected
+    ├── Inconclusive
+    └── Qualified
+        ↓
+        PromotionProposed
+        ├── Rejected
+        └── Approved
+            ↓
+            Activating
+            ↓
+            ActiveCanary
+            ├── RolledBack
+            └── Active
+                ├── RolledBack
+                └── Retired
+</code></pre>
+<p>Transitions are versioned and auditable.</p>
+<hr>
+<h1 id="experiment-lifecycle">Experiment Lifecycle<a href="#experiment-lifecycle" class="heading-anchor">#</a></h1>
+<h2 id="states">States<a href="#states" class="heading-anchor">#</a></h2>
+<ul>
+<li>Draft</li>
+<li>AwaitingApproval</li>
+<li>Scheduled</li>
+<li>Running</li>
+<li>Paused</li>
+<li>Evaluating</li>
+<li>Completed</li>
+<li>Failed</li>
+<li>Cancelled</li>
+<li>Archived</li>
+</ul>
+<h2 id="state-machine">State Machine<a href="#state-machine" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Draft
+↓
+AwaitingApproval
+├── Cancelled
+└── Scheduled
+    ↓
+    Running
+    ├── Paused
+    ├── Failed
+    ├── Cancelled
+    └── Evaluating
+        ├── Failed
+        └── Completed
+            ↓
+            Archived
+</code></pre>
+<p>Core manages workflow execution states.</p>
+<p>Evolution Engine manages experiment-domain states and maps them to Core executions.</p>
+<hr>
+<h1 id="promotion-lifecycle">Promotion Lifecycle<a href="#promotion-lifecycle" class="heading-anchor">#</a></h1>
+<h2 id="states">States<a href="#states" class="heading-anchor">#</a></h2>
+<ul>
+<li>Draft</li>
+<li>AwaitingApproval</li>
+<li>Approved</li>
+<li>Rejected</li>
+<li>Scheduled</li>
+<li>Activating</li>
+<li>Canary</li>
+<li>Active</li>
+<li>Failed</li>
+<li>RollingBack</li>
+<li>RolledBack</li>
+<li>Retired</li>
+</ul>
+<h2 id="state-machine">State Machine<a href="#state-machine" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Draft
+↓
+AwaitingApproval
+├── Rejected
+└── Approved
+    ↓
+    Scheduled
+    ↓
+    Activating
+    ├── Failed
+    └── Canary
+        ├── RollingBack → RolledBack
+        └── Active
+            ├── RollingBack → RolledBack
+            └── Retired
+</code></pre>
+<hr>
+<h1 id="detailed-data-flows">Detailed Data Flows<a href="#detailed-data-flows" class="heading-anchor">#</a></h1>
+<h2 id="flow-1-production-observation-to-experiment">Flow 1: Production Observation To Experiment<a href="#flow-1-production-observation-to-experiment" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Workflow Executions
+↓
+Observability Produces Metrics And Traces
+↓
+Memory Layer Produces Eligible Episodes
+↓
+Observation Ingestion Filters Scope And Quality
+↓
+Opportunity Analyzer Detects Repeated Weakness
+↓
+Experiment Planner Defines Hypothesis And Baseline
+↓
+Security Validates Experiment Policy
+↓
+Experiment Created
+</code></pre>
+<h2 id="flow-2-variant-generation">Flow 2: Variant Generation<a href="#flow-2-variant-generation" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Experiment Plan
+↓
+Load Baseline And Constraints
+↓
+Retrieve Relevant Evolution And Procedural Memory
+↓
+Generate Bounded Variants
+↓
+Validate Schemas And Compatibility
+↓
+Safety Constraint Validation
+↓
+Register Qualified Candidates
+</code></pre>
+<h2 id="flow-3-arena-execution">Flow 3: Arena Execution<a href="#flow-3-arena-execution" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Qualified Candidate
+↓
+Resolve Benchmark Suite
+↓
+Provision Isolated Arena
+↓
+Pin Or Record Models, Tools, Agents, Memory, Environment
+↓
+Core Executes Benchmark Workflows
+↓
+Capture Results And Effects
+↓
+Validate Benchmark Integrity
+↓
+Store Benchmark Results
+</code></pre>
+<h2 id="flow-4-evaluation-and-comparison">Flow 4: Evaluation And Comparison<a href="#flow-4-evaluation-and-comparison" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Candidate Results
++
+Baseline Results
+↓
+Metric Validation
+↓
+Statistical And Domain Comparison
+↓
+Regression Detection
+↓
+Safety Review
+↓
+Evaluation Report
+↓
+Qualified, Rejected, Or Inconclusive
+</code></pre>
+<h2 id="flow-5-promotion">Flow 5: Promotion<a href="#flow-5-promotion" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Qualified Candidate
+↓
+Build Promotion Proposal
+↓
+Validate Compatibility And Rollback
+↓
+Resolve Approval Gates
+↓
+Human Or Policy Approval
+↓
+Register New Version
+↓
+Activate Canary
+↓
+Monitor
+↓
+Expand Activation Or Roll Back
+</code></pre>
+<h2 id="flow-6-rollback">Flow 6: Rollback<a href="#flow-6-rollback" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Regression Or Incident Detected
+↓
+Freeze Rollout
+↓
+Resolve Prior Stable Version
+↓
+Pause Or Route New Executions
+↓
+Activate Prior Version
+↓
+Handle In-Flight Executions
+↓
+Verify Recovery
+↓
+Record Rollback And Evidence
+↓
+Retire Or Reopen Candidate
+</code></pre>
+<h2 id="flow-7-research-derived-evolution">Flow 7: Research-Derived Evolution<a href="#flow-7-research-derived-evolution" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Research Finding
+↓
+Technique Extraction
+↓
+Applicability Review
+↓
+Variant Proposal
+↓
+Safety Validation
+↓
+Arena Benchmark
+↓
+Evaluation
+↓
+Promotion Proposal Or Rejection
+</code></pre>
+<p>Research findings never enter production directly.</p>
+<hr>
+<h1 id="evolution-memory">Evolution Memory<a href="#evolution-memory" class="heading-anchor">#</a></h1>
+<p>Evolution Memory is the durable historical record of improvement activity.</p>
+<p>It stores:</p>
+<ul>
+<li>opportunities</li>
+<li>hypotheses</li>
+<li>experiments</li>
+<li>variants</li>
+<li>benchmark references</li>
+<li>evaluation reports</li>
+<li>promotions</li>
+<li>rollbacks</li>
+<li>rejections</li>
+<li>human rationale</li>
+<li>lineage</li>
+</ul>
+<p>The Memory Layer owns storage and lifecycle.</p>
+<p>The Evolution Engine owns creation and interpretation of evolution-domain records.</p>
+<p>Evolution Memory is append-oriented and preserves failed experiments.</p>
+<hr>
+<h1 id="experiment-tracking">Experiment Tracking<a href="#experiment-tracking" class="heading-anchor">#</a></h1>
+<h2 id="experiment-record">Experiment Record<a href="#experiment-record" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">Experiment
+  experiment_id
+  workspace_id
+  project_id | null
+  target_type
+  target_id
+  hypothesis
+  baseline_version_id
+  benchmark_suite_id
+  metric_policy
+  safety_constraints
+  budget
+  lifecycle_state
+  created_by
+  created_at
+</code></pre>
+<h2 id="tracking-requirements">Tracking Requirements<a href="#tracking-requirements" class="heading-anchor">#</a></h2>
+<p>Every experiment records:</p>
+<ul>
+<li>ownership</li>
+<li>causation</li>
+<li>inputs</li>
+<li>environment</li>
+<li>candidate lineage</li>
+<li>executions</li>
+<li>costs</li>
+<li>failures</li>
+<li>results</li>
+<li>decisions</li>
+</ul>
+<p>Experiment identity remains stable across retries.</p>
+<hr>
+<h1 id="benchmark-storage">Benchmark Storage<a href="#benchmark-storage" class="heading-anchor">#</a></h1>
+<p>The Benchmark Registry is authoritative for:</p>
+<ul>
+<li>benchmark definitions</li>
+<li>benchmark versions</li>
+<li>benchmark run results</li>
+<li>metric schemas</li>
+</ul>
+<p>Evolution Memory references benchmark results and records how they influenced decisions.</p>
+<p>Large benchmark artifacts remain in approved artifact storage.</p>
+<p>Benchmark storage must be protected from candidate mutation.</p>
+<hr>
+<h1 id="workflow-lineage">Workflow Lineage<a href="#workflow-lineage" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>Workflow lineage explains how active behavior evolved.</p>
+<h2 id="lineage-relationships">Lineage Relationships<a href="#lineage-relationships" class="heading-anchor">#</a></h2>
+<ul>
+<li>FORKED_FROM</li>
+<li>MUTATED_FROM</li>
+<li>COMBINED_FROM</li>
+<li>EVALUATED_AGAINST</li>
+<li>PROMOTED_FROM</li>
+<li>REPLACED</li>
+<li>ROLLED_BACK_TO</li>
+<li>RETIRED_BY</li>
+</ul>
+<h2 id="lineage-record">Lineage Record<a href="#lineage-record" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">WorkflowLineage
+  lineage_id
+  source_version_ids
+  destination_version_id
+  relationship_type
+  experiment_id
+  promotion_id | null
+  rationale
+  created_at
+</code></pre>
+<p>Lineage is stored through Evolution Memory and projected into the Knowledge Graph.</p>
+<p>No workflow version is silently overwritten.</p>
+<hr>
+<h1 id="promotion-criteria">Promotion Criteria<a href="#promotion-criteria" class="heading-anchor">#</a></h1>
+<h2 id="required-criteria">Required Criteria<a href="#required-criteria" class="heading-anchor">#</a></h2>
+<ul>
+<li>target-specific success threshold met</li>
+<li>confidence threshold met</li>
+<li>benchmark validity confirmed</li>
+<li>no blocking regression</li>
+<li>no safety constraint violation</li>
+<li>resource impact acceptable</li>
+<li>scope applicability understood</li>
+<li>dependencies available</li>
+<li>rollback plan tested or validated</li>
+<li>approvals satisfied</li>
+</ul>
+<h2 id="multi-objective-scoring">Multi-Objective Scoring<a href="#multi-objective-scoring" class="heading-anchor">#</a></h2>
+<p>Promotion evaluates:</p>
+<ul>
+<li>quality</li>
+<li>reliability</li>
+<li>safety</li>
+<li>cost</li>
+<li>latency</li>
+<li>resource usage</li>
+<li>maintainability</li>
+</ul>
+<p>Weighted scores may assist comparison.</p>
+<p>They may not override blocking constraints.</p>
+<h2 id="inconclusive-evidence">Inconclusive Evidence<a href="#inconclusive-evidence" class="heading-anchor">#</a></h2>
+<p>Inconclusive results do not become promotion.</p>
+<p>The Engine may:</p>
+<ul>
+<li>collect more samples</li>
+<li>refine benchmarks</li>
+<li>narrow scope</li>
+<li>reject the candidate</li>
+</ul>
+<hr>
+<h1 id="failure-handling">Failure Handling<a href="#failure-handling" class="heading-anchor">#</a></h1>
+<h2 id="variant-generation-failure">Variant Generation Failure<a href="#variant-generation-failure" class="heading-anchor">#</a></h2>
+<p>Record failure, preserve hypothesis, and stop or generate bounded alternatives.</p>
+<h2 id="arena-provisioning-failure">Arena Provisioning Failure<a href="#arena-provisioning-failure" class="heading-anchor">#</a></h2>
+<p>Do not execute without required isolation.</p>
+<p>Retry provisioning or fail experiment.</p>
+<h2 id="benchmark-failure">Benchmark Failure<a href="#benchmark-failure" class="heading-anchor">#</a></h2>
+<p>Distinguish:</p>
+<ul>
+<li>candidate failure</li>
+<li>benchmark infrastructure failure</li>
+<li>external dependency failure</li>
+<li>invalid benchmark</li>
+</ul>
+<p>Do not score infrastructure failure as candidate quality failure.</p>
+<h2 id="evaluation-failure">Evaluation Failure<a href="#evaluation-failure" class="heading-anchor">#</a></h2>
+<p>Mark experiment inconclusive and preserve raw validated results.</p>
+<h2 id="promotion-activation-failure">Promotion Activation Failure<a href="#promotion-activation-failure" class="heading-anchor">#</a></h2>
+<p>Freeze rollout and invoke rollback plan.</p>
+<h2 id="rollback-failure">Rollback Failure<a href="#rollback-failure" class="heading-anchor">#</a></h2>
+<p>Escalate as critical operational incident.</p>
+<p>Pause affected workflows and require human recovery.</p>
+<h2 id="experiment-explosion">Experiment Explosion<a href="#experiment-explosion" class="heading-anchor">#</a></h2>
+<p>Enforce:</p>
+<ul>
+<li>candidate limits</li>
+<li>budget limits</li>
+<li>time limits</li>
+<li>expected-value thresholds</li>
+<li>duplicate detection</li>
+</ul>
+<h2 id="benchmark-overfitting">Benchmark Overfitting<a href="#benchmark-overfitting" class="heading-anchor">#</a></h2>
+<p>Mitigate through:</p>
+<ul>
+<li>hidden tests</li>
+<li>diverse suites</li>
+<li>production monitoring</li>
+<li>holdout tasks</li>
+<li>periodic benchmark refresh</li>
+</ul>
+<h2 id="false-improvement">False Improvement<a href="#false-improvement" class="heading-anchor">#</a></h2>
+<p>Mitigate through:</p>
+<ul>
+<li>multi-metric criteria</li>
+<li>canary rollout</li>
+<li>user feedback</li>
+<li>long-window regression detection</li>
+<li>rollback</li>
+</ul>
+<hr>
+<h1 id="recovery-mechanisms">Recovery Mechanisms<a href="#recovery-mechanisms" class="heading-anchor">#</a></h1>
+<ul>
+<li>restart experiment from immutable plan</li>
+<li>reproduce benchmark run</li>
+<li>quarantine invalid results</li>
+<li>rebuild derived comparison views</li>
+<li>resume from Core checkpoints</li>
+<li>rollback active candidate</li>
+<li>restore prior stable registry reference</li>
+<li>reconcile lineage</li>
+<li>preserve incomplete experiment evidence</li>
+<li>human incident recovery</li>
+</ul>
+<h2 id="recovery-principles">Recovery Principles<a href="#recovery-principles" class="heading-anchor">#</a></h2>
+<p>Recovery must:</p>
+<ul>
+<li>preserve evidence</li>
+<li>avoid promoting uncertain results</li>
+<li>keep production stable</li>
+<li>remain auditable</li>
+<li>avoid repeating known unsafe experiments</li>
+</ul>
+<hr>
+<h1 id="security-considerations">Security Considerations<a href="#security-considerations" class="heading-anchor">#</a></h1>
+<h2 id="arena-isolation">Arena Isolation<a href="#arena-isolation" class="heading-anchor">#</a></h2>
+<p>Candidates are untrusted.</p>
+<p>They receive only benchmark-required permissions and resources.</p>
+<h2 id="authority">Authority<a href="#authority" class="heading-anchor">#</a></h2>
+<p>Evolution cannot grant permissions or approve itself.</p>
+<h2 id="benchmark-integrity">Benchmark Integrity<a href="#benchmark-integrity" class="heading-anchor">#</a></h2>
+<p>Candidate access to benchmarks, expected answers, and evaluator internals is controlled.</p>
+<h2 id="data-scope">Data Scope<a href="#data-scope" class="heading-anchor">#</a></h2>
+<p>Experiments use authorized datasets and memory snapshots.</p>
+<p>Production private data is not automatically available.</p>
+<h2 id="tool-and-model-use">Tool And Model Use<a href="#tool-and-model-use" class="heading-anchor">#</a></h2>
+<p>Normal Tool and Model Layer permissions remain active in the Arena.</p>
+<h2 id="generated-content">Generated Content<a href="#generated-content" class="heading-anchor">#</a></h2>
+<p>Generated workflows, strategies, teams, or routing policies are proposals until validated and promoted.</p>
+<h2 id="audit">Audit<a href="#audit" class="heading-anchor">#</a></h2>
+<p>Experiments, promotions, approvals, and rollbacks are auditable.</p>
+<hr>
+<h1 id="observability-and-metrics">Observability And Metrics<a href="#observability-and-metrics" class="heading-anchor">#</a></h1>
+<p>Evolution metrics include:</p>
+<ul>
+<li>opportunities identified</li>
+<li>variants generated</li>
+<li>variants rejected by safety</li>
+<li>experiment completion rate</li>
+<li>benchmark validity rate</li>
+<li>promotion rate</li>
+<li>rollback rate</li>
+<li>realized production improvement</li>
+<li>regression frequency</li>
+<li>experiment cost</li>
+<li>time to validated improvement</li>
+<li>repeated experiment avoidance</li>
+</ul>
+<p>The defining success metric is not variants generated.</p>
+<p>It is sustained, safe capability improvement.</p>
+<hr>
+<h1 id="lifecycle-reliability">Lifecycle Reliability<a href="#lifecycle-reliability" class="heading-anchor">#</a></h1>
+<p>Evolution operations span registries, Core executions, benchmark storage, memory, and approvals.</p>
+<p>They require durable operation records and idempotent steps.</p>
+<p>Promotion and rollback use coordinated sagas.</p>
+<p>Partial activation must never be reported as full success.</p>
+<hr>
+<h1 id="architectural-constraints">Architectural Constraints<a href="#architectural-constraints" class="heading-anchor">#</a></h1>
+<h2 id="constraint-1">Constraint 1<a href="#constraint-1" class="heading-anchor">#</a></h2>
+<p>The Evolution Engine is the defining improvement subsystem of Damascus.</p>
+<h2 id="constraint-2">Constraint 2<a href="#constraint-2" class="heading-anchor">#</a></h2>
+<p>Workflows are the primary evolution unit.</p>
+<h2 id="constraint-3">Constraint 3<a href="#constraint-3" class="heading-anchor">#</a></h2>
+<p>Evolution occurs through versioned candidates, experiments, benchmarks, and promotion.</p>
+<h2 id="constraint-4">Constraint 4<a href="#constraint-4" class="heading-anchor">#</a></h2>
+<p>The Evolution Engine may not directly modify production source code.</p>
+<h2 id="constraint-5">Constraint 5<a href="#constraint-5" class="heading-anchor">#</a></h2>
+<p>The Evolution Engine may not modify security policy, permissions, approvals, audit requirements, or minimum isolation.</p>
+<h2 id="constraint-6">Constraint 6<a href="#constraint-6" class="heading-anchor">#</a></h2>
+<p>Candidates execute in an isolated Evolution Arena.</p>
+<h2 id="constraint-7">Constraint 7<a href="#constraint-7" class="heading-anchor">#</a></h2>
+<p>Promotion requires relevant benchmark evidence and regression analysis.</p>
+<h2 id="constraint-8">Constraint 8<a href="#constraint-8" class="heading-anchor">#</a></h2>
+<p>Every promotion has a rollback plan and lineage record.</p>
+<h2 id="constraint-9">Constraint 9<a href="#constraint-9" class="heading-anchor">#</a></h2>
+<p>Failed, rejected, and rolled-back experiments remain Evolution Memory.</p>
+<h2 id="constraint-10">Constraint 10<a href="#constraint-10" class="heading-anchor">#</a></h2>
+<p>Benchmark definitions and results remain authoritative in Benchmark Registry.</p>
+<h2 id="constraint-11">Constraint 11<a href="#constraint-11" class="heading-anchor">#</a></h2>
+<p>Human authority remains final for critical promotion.</p>
+<h2 id="constraint-12">Constraint 12<a href="#constraint-12" class="heading-anchor">#</a></h2>
+<p>No candidate may approve or promote itself.</p>
+<h2 id="constraint-13">Constraint 13<a href="#constraint-13" class="heading-anchor">#</a></h2>
+<p>Improved aggregate score may not override blocking safety regressions.</p>
+<h2 id="constraint-14">Constraint 14<a href="#constraint-14" class="heading-anchor">#</a></h2>
+<p>Production activation is controlled, observable, and reversible.</p>
+<hr>
+<h1 id="implementation-guidance">Implementation Guidance<a href="#implementation-guidance" class="heading-anchor">#</a></h1>
+<h2 id="recommended-initial-scope">Recommended Initial Scope<a href="#recommended-initial-scope" class="heading-anchor">#</a></h2>
+<p>First implementation should support:</p>
+<ul>
+<li>workflow variants</li>
+<li>deterministic variant generation</li>
+<li>isolated benchmark execution</li>
+<li>baseline comparison</li>
+<li>manual promotion approval</li>
+<li>workflow version lineage</li>
+<li>explicit rollback</li>
+<li>Evolution Memory records</li>
+</ul>
+<h2 id="deferred-capabilities">Deferred Capabilities<a href="#deferred-capabilities" class="heading-anchor">#</a></h2>
+<p>May be deferred:</p>
+<ul>
+<li>autonomous opportunity discovery</li>
+<li>generated teams</li>
+<li>model-generated variants</li>
+<li>automatic low-risk promotion</li>
+<li>cross-workspace shared evolution</li>
+<li>advanced statistical experimentation</li>
+</ul>
+<p>The initial system should prefer reliable experiment discipline over broad autonomy.</p>
+<h2 id="minimum-test-categories">Minimum Test Categories<a href="#minimum-test-categories" class="heading-anchor">#</a></h2>
+<ul>
+<li>unsafe variant rejected</li>
+<li>benchmark tampering blocked</li>
+<li>candidate cannot access production secrets</li>
+<li>inconclusive result cannot promote</li>
+<li>blocking regression prevents promotion</li>
+<li>approval required before activation</li>
+<li>failed canary triggers rollback</li>
+<li>lineage preserved after rollback</li>
+<li>failed experiments remain queryable</li>
+<li>Evolution cannot modify security policy</li>
+</ul>
+<hr>
+<h1 id="future-evolution">Future Evolution<a href="#future-evolution" class="heading-anchor">#</a></h1>
+<p>Future Evolution Engine capabilities may include:</p>
+<ul>
+<li>adaptive experiment selection</li>
+<li>multi-objective optimization</li>
+<li>causal performance analysis</li>
+<li>privacy-preserving shared evolution</li>
+<li>automated research-to-experiment pipelines</li>
+<li>portfolio optimization across workflows</li>
+<li>counterfactual evaluation</li>
+<li>learned variant generation</li>
+<li>federated benchmark evidence</li>
+</ul>
+<p>Future autonomy must increase only when evidence shows that the governance and recovery architecture remains reliable.</p>
+<hr>
+<h1 id="open-questions">Open Questions<a href="#open-questions" class="heading-anchor">#</a></h1>
+<ul>
+<li>What minimum benchmark evidence is required per evolution target?</li>
+<li>Which targets may ever support automatic low-risk promotion?</li>
+<li>How should user preference be balanced with objective metrics?</li>
+<li>How should benchmark suites resist long-term overfitting?</li>
+<li>How should production drift trigger re-evaluation?</li>
+<li>How should multi-objective tradeoffs be presented to users?</li>
+<li>Which historical tasks may be replayed without privacy risk?</li>
+<li>How should cross-workspace evolution evidence be shared safely?</li>
+<li>How should stateful workflows migrate across promoted versions?</li>
+<li>What rollback guarantees are possible for workflows with external effects?</li>
+<li>How should Evolution measure its own cost-effectiveness?</li>
+<li>When should repeated inconclusive experiments be retired?</li>
+</ul>
+<hr>
+<h1 id="key-architectural-decisions">Key Architectural Decisions<a href="#key-architectural-decisions" class="heading-anchor">#</a></h1>
+<p>The Evolution Engine is the defining Damascus subsystem.</p>
+<p>It converts execution into evidence and evidence into controlled improvement.</p>
+<p>It evolves workflows, teams, tool selection, strategies, and model routing through isolated experiments.</p>
+<p>It does not self-modify production source code or security authority.</p>
+<p>Every candidate is versioned.</p>
+<p>Every improvement is benchmarked.</p>
+<p>Every promotion is gated.</p>
+<p>Every activation is monitored.</p>
+<p>Every rollback is preserved.</p>
+<p>Damascus does not assume it improved.</p>
+<p>Damascus proves it improved.</p>
+
+        </article>
+        <div class="doc-footer-nav">
+      <a href="../02-Architecture/Core-System.html" class="nav-card prev">
+        <span class="nav-card-label">Previous</span>
+        <span class="nav-card-title">Core System</span>
+      </a>
+    
+      <a href="../02-Architecture/High-Level-Architecture.html" class="nav-card next">
+        <span class="nav-card-label">Next</span>
+        <span class="nav-card-title">High Level Architecture</span>
+      </a>
+    </div>
+      </div>
+    </main>
+
+    <!-- Right Table of Contents Sidebar -->
+    
+    <aside class="site-toc">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list">
+        <li class="toc-item depth-2">
+  <a href="#improvement-requires-behavior-change" class="toc-link">Improvement Requires Behavior Change</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evidence-before-promotion" class="toc-link">Evidence Before Promotion</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#controlled-branch-model" class="toc-link">Controlled Branch Model</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#reversibility" class="toc-link">Reversibility</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workflow-primacy" class="toc-link">Workflow Primacy</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#human-authority" class="toc-link">Human Authority</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#safety-is-non-optimizable" class="toc-link">Safety Is Non-Optimizable</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evo-001-measured-improvement" class="toc-link">EVO-001 Measured Improvement</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evo-002-reproducibility" class="toc-link">EVO-002 Reproducibility</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evo-003-reversibility" class="toc-link">EVO-003 Reversibility</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evo-004-explainability" class="toc-link">EVO-004 Explainability</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evo-005-isolation" class="toc-link">EVO-005 Isolation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evo-006-baseline-comparison" class="toc-link">EVO-006 Baseline Comparison</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evo-007-multi-metric-evaluation" class="toc-link">EVO-007 Multi-Metric Evaluation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evo-008-safety-constraints" class="toc-link">EVO-008 Safety Constraints</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evo-009-historical-preservation" class="toc-link">EVO-009 Historical Preservation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evo-010-workflow-centric-evolution" class="toc-link">EVO-010 Workflow-Centric Evolution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#observation-ingestion-service" class="toc-link">Observation Ingestion Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#opportunity-analyzer" class="toc-link">Opportunity Analyzer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#experiment-planner" class="toc-link">Experiment Planner</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#safety-constraint-validator" class="toc-link">Safety Constraint Validator</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workflows" class="toc-link">Workflows</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#teams" class="toc-link">Teams</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tool-selection" class="toc-link">Tool Selection</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#strategies" class="toc-link">Strategies</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#model-routing" class="toc-link">Model Routing</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#arena-requirements" class="toc-link">Arena Requirements</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#arena-modes" class="toc-link">Arena Modes</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#replay-arena" class="toc-link">Replay Arena</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#shadow-arena" class="toc-link">Shadow Arena</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#simulation-arena" class="toc-link">Simulation Arena</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#controlled-live-arena" class="toc-link">Controlled Live Arena</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#arena-boundary" class="toc-link">Arena Boundary</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#contamination-prevention" class="toc-link">Contamination Prevention</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#variant-sources" class="toc-link">Variant Sources</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#variant-contract" class="toc-link">Variant Contract</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#generation-constraints" class="toc-link">Generation Constraints</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#diversity" class="toc-link">Diversity</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#benchmark-definition" class="toc-link">Benchmark Definition</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#benchmark-run" class="toc-link">Benchmark Run</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#benchmark-categories" class="toc-link">Benchmark Categories</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#reproducibility" class="toc-link">Reproducibility</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#benchmark-integrity" class="toc-link">Benchmark Integrity</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evaluation-inputs" class="toc-link">Evaluation Inputs</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evaluation-methods" class="toc-link">Evaluation Methods</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evaluation-output" class="toc-link">Evaluation Output</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#promotion-criteria" class="toc-link">Promotion Criteria</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#promotion-proposal" class="toc-link">Promotion Proposal</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#promotion-modes" class="toc-link">Promotion Modes</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#activation" class="toc-link">Activation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#rollback-triggers" class="toc-link">Rollback Triggers</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#rollback-plan" class="toc-link">Rollback Plan</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#rollback-limits" class="toc-link">Rollback Limits</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#rollback-record" class="toc-link">Rollback Record</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#regression-classes" class="toc-link">Regression Classes</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#detection-sources" class="toc-link">Detection Sources</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#detection-windows" class="toc-link">Detection Windows</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#blocking-regressions" class="toc-link">Blocking Regressions</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#gate-types" class="toc-link">Gate Types</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#gate-inputs" class="toc-link">Gate Inputs</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#automatic-promotion" class="toc-link">Automatic Promotion</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#states" class="toc-link">States</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#state-machine" class="toc-link">State Machine</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#states" class="toc-link">States</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#state-machine" class="toc-link">State Machine</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#states" class="toc-link">States</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#state-machine" class="toc-link">State Machine</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#flow-1-production-observation-to-experiment" class="toc-link">Flow 1: Production Observation To Experiment</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#flow-2-variant-generation" class="toc-link">Flow 2: Variant Generation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#flow-3-arena-execution" class="toc-link">Flow 3: Arena Execution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#flow-4-evaluation-and-comparison" class="toc-link">Flow 4: Evaluation And Comparison</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#flow-5-promotion" class="toc-link">Flow 5: Promotion</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#flow-6-rollback" class="toc-link">Flow 6: Rollback</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#flow-7-research-derived-evolution" class="toc-link">Flow 7: Research-Derived Evolution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#experiment-record" class="toc-link">Experiment Record</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tracking-requirements" class="toc-link">Tracking Requirements</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#lineage-relationships" class="toc-link">Lineage Relationships</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#lineage-record" class="toc-link">Lineage Record</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#required-criteria" class="toc-link">Required Criteria</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#multi-objective-scoring" class="toc-link">Multi-Objective Scoring</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#inconclusive-evidence" class="toc-link">Inconclusive Evidence</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#variant-generation-failure" class="toc-link">Variant Generation Failure</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#arena-provisioning-failure" class="toc-link">Arena Provisioning Failure</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#benchmark-failure" class="toc-link">Benchmark Failure</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evaluation-failure" class="toc-link">Evaluation Failure</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#promotion-activation-failure" class="toc-link">Promotion Activation Failure</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#rollback-failure" class="toc-link">Rollback Failure</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#experiment-explosion" class="toc-link">Experiment Explosion</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#benchmark-overfitting" class="toc-link">Benchmark Overfitting</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#false-improvement" class="toc-link">False Improvement</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#recovery-principles" class="toc-link">Recovery Principles</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#arena-isolation" class="toc-link">Arena Isolation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#authority" class="toc-link">Authority</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#benchmark-integrity" class="toc-link">Benchmark Integrity</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#data-scope" class="toc-link">Data Scope</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tool-and-model-use" class="toc-link">Tool And Model Use</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#generated-content" class="toc-link">Generated Content</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#audit" class="toc-link">Audit</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-1" class="toc-link">Constraint 1</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-2" class="toc-link">Constraint 2</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-3" class="toc-link">Constraint 3</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-4" class="toc-link">Constraint 4</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-5" class="toc-link">Constraint 5</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-6" class="toc-link">Constraint 6</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-7" class="toc-link">Constraint 7</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-8" class="toc-link">Constraint 8</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-9" class="toc-link">Constraint 9</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-10" class="toc-link">Constraint 10</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-11" class="toc-link">Constraint 11</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-12" class="toc-link">Constraint 12</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-13" class="toc-link">Constraint 13</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-14" class="toc-link">Constraint 14</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#recommended-initial-scope" class="toc-link">Recommended Initial Scope</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#deferred-capabilities" class="toc-link">Deferred Capabilities</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#minimum-test-categories" class="toc-link">Minimum Test Categories</a>
+</li>
+
+      </ul>
+    </aside>
+  
+
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
