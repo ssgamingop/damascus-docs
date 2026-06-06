@@ -1,0 +1,654 @@
+# Knowledge-Graphs.md
+
+Version: 0.1
+
+Status: Core Research Document
+
+Priority: Critical
+
+Purpose:
+To understand knowledge graphs, evaluate their role in intelligent systems, analyze their advantages and limitations, and define how knowledge graphs may be integrated into the future Damascus Memory Architecture.
+
+---
+
+# Executive Summary
+
+Most modern AI systems rely heavily on vector databases and embeddings.
+
+These systems excel at semantic similarity.
+
+However, intelligence requires more than similarity.
+
+Intelligence requires understanding relationships.
+
+Examples:
+
+* Who created this project?
+* Which workflow produced this result?
+* Which tools were involved?
+* What failures led to this improvement?
+* Which agent discovered this technique?
+
+These questions are fundamentally relational.
+
+Knowledge graphs are designed to represent relationships explicitly.
+
+For Damascus, knowledge graphs may become the foundation for long-term reasoning, memory organization, workflow evolution, and capability inheritance.
+
+---
+
+# Research Goals
+
+This document seeks to answer:
+
+1. What is a knowledge graph?
+2. Why are knowledge graphs useful?
+3. How do they differ from vector databases?
+4. What limitations exist?
+5. How should Damascus use them?
+
+---
+
+# What Is A Knowledge Graph?
+
+A knowledge graph is a structured representation of entities and their relationships.
+
+Example:
+
+User
+↓ owns
+Project
+↓ contains
+Tasks
+↓ executed by
+Agents
+↓ used
+Tools
+
+Rather than storing isolated facts, the graph stores connections.
+
+---
+
+# Core Components
+
+## Nodes
+
+Nodes represent entities.
+
+Examples:
+
+* User
+* Project
+* Agent
+* Tool
+* Memory
+* Workflow
+* Task
+
+---
+
+## Relationships
+
+Relationships connect nodes.
+
+Examples:
+
+User
+OWNS
+Project
+
+Agent
+COMPLETED
+Task
+
+Workflow
+PRODUCED
+Result
+
+---
+
+## Properties
+
+Nodes and relationships may contain metadata.
+
+Example:
+
+Task
+
+Properties:
+
+* created_at
+* status
+* score
+* duration
+
+---
+
+# Why Relationships Matter
+
+Consider:
+
+User:
+How did we solve authentication last month?
+
+A vector database may retrieve documents.
+
+A graph can answer:
+
+Project
+↓
+Task
+↓
+Workflow
+↓
+Agent
+↓
+Tool
+↓
+Result
+
+The path itself becomes knowledge.
+
+---
+
+# Vector Databases vs Knowledge Graphs
+
+## Vector Databases
+
+Strengths:
+
+* semantic search
+* document retrieval
+* similarity matching
+
+Example:
+
+Find documents similar to:
+
+"JWT Authentication"
+
+---
+
+Weaknesses:
+
+* weak structure
+* weak relationship modeling
+* difficult reasoning
+
+---
+
+## Knowledge Graphs
+
+Strengths:
+
+* relationship discovery
+* traceability
+* reasoning
+* explainability
+
+Example:
+
+Find:
+
+Projects
+→ Using JWT
+→ Built With FastAPI
+→ Successfully Deployed
+
+---
+
+Weaknesses:
+
+* harder to build
+* harder to maintain
+* more complex queries
+
+---
+
+# The False Choice
+
+Many systems ask:
+
+Vector OR Graph?
+
+This is incorrect.
+
+Future Damascus systems should likely use:
+
+Vector AND Graph
+
+Each solves different problems.
+
+---
+
+# Human Memory Analogy
+
+Humans rarely remember isolated facts.
+
+We remember networks.
+
+Example:
+
+Python
+↓
+Used In
+Damascus
+↓
+Uses
+LangGraph
+↓
+Uses
+Qdrant
+
+Relationships carry meaning.
+
+Graphs capture this naturally.
+
+---
+
+# Existing Industry Approaches
+
+## Search Engines
+
+Large search systems often use graph concepts.
+
+Purpose:
+
+Relationship discovery.
+
+---
+
+## Enterprise Knowledge Systems
+
+Used for:
+
+* organizational knowledge
+* dependency tracking
+* expertise mapping
+
+---
+
+## Modern AI Research
+
+Research increasingly combines:
+
+Vector Retrieval
++
+Knowledge Graphs
+
+to improve reasoning and retrieval quality.
+
+---
+
+# Damascus Use Cases
+
+## User Knowledge
+
+User
+↓
+Works On
+Damascus
+↓
+Uses
+Python
+
+Future queries become more personalized.
+
+---
+
+## Project Knowledge
+
+Project
+↓
+Contains
+Tasks
+↓
+Executed By
+Agents
+
+Enables project reasoning.
+
+---
+
+## Workflow Tracking
+
+Workflow
+↓
+Used Tool
+GitHub Search
+↓
+Produced
+Score 89
+
+Enables optimization.
+
+---
+
+## Evolution Tracking
+
+Workflow V1
+↓
+Improved Into
+Workflow V2
+↓
+Improved Into
+Workflow V3
+
+The graph becomes an evolutionary history.
+
+---
+
+## Research Tracking
+
+Research Paper
+↓
+Inspired
+Technique
+↓
+Implemented In
+Workflow
+
+This creates explainable innovation.
+
+---
+
+# Proposed Damascus Graph Model
+
+## User Domain
+
+User
+↓
+Owns
+Workspace
+↓
+Contains
+Projects
+
+---
+
+## Project Domain
+
+Project
+↓
+Contains
+Tasks
+
+Project
+↓
+Uses
+Technologies
+
+---
+
+## Agent Domain
+
+Agent
+↓
+Completed
+Task
+
+Agent
+↓
+Used
+Tool
+
+---
+
+## Workflow Domain
+
+Workflow
+↓
+Produced
+Result
+
+Workflow
+↓
+Improved Into
+Workflow
+
+---
+
+## Memory Domain
+
+Memory
+↓
+Related To
+Task
+
+Memory
+↓
+Created By
+Agent
+
+---
+
+## Evolution Domain
+
+Experiment
+↓
+Generated
+Variant
+
+Variant
+↓
+Scored
+Benchmark
+
+Variant
+↓
+Promoted To
+Production
+
+---
+
+# Graph Queries Damascus May Need
+
+Example:
+
+Show all workflows that:
+
+* used FastAPI
+* scored above 90
+* were generated by the evolution engine
+
+---
+
+Example:
+
+Find all improvements derived from a specific research paper.
+
+---
+
+Example:
+
+Identify the most successful coding workflow in the last six months.
+
+---
+
+These are difficult with vectors alone.
+
+---
+
+# Technology Candidates
+
+## Neo4j
+
+Advantages:
+
+* mature ecosystem
+* visualization
+* documentation
+
+Disadvantages:
+
+* licensing considerations
+* resource consumption
+
+---
+
+## Memgraph
+
+Advantages:
+
+* performance
+* graph focus
+
+---
+
+## Apache AGE
+
+Advantages:
+
+* graph support inside PostgreSQL
+
+Potentially attractive for Damascus.
+
+---
+
+# When Not To Use Graphs
+
+Avoid storing everything in a graph.
+
+Bad:
+
+Every message
+↓
+Graph Node
+
+This becomes expensive and difficult to manage.
+
+Graphs should represent meaningful entities and relationships.
+
+---
+
+# Proposed Damascus Strategy
+
+Working Memory
+
+Redis
+
+---
+
+Long-Term Memory
+
+PostgreSQL
+
+---
+
+Semantic Retrieval
+
+Qdrant
+
+---
+
+Relationship Layer
+
+Knowledge Graph
+
+---
+
+This creates a multi-layer memory architecture.
+
+Each layer solves a different problem.
+
+---
+
+# Risks
+
+## Graph Explosion
+
+Too many nodes create complexity.
+
+Solution:
+
+Entity selection rules.
+
+---
+
+## Relationship Noise
+
+Not every relationship is valuable.
+
+Solution:
+
+Importance scoring.
+
+---
+
+## Query Complexity
+
+Complex graphs require careful design.
+
+Solution:
+
+Domain-driven graph models.
+
+---
+
+## Synchronization Problems
+
+Graph
+Vector
+SQL
+
+must remain consistent.
+
+This will require dedicated architecture.
+
+---
+
+# Damascus Opportunity
+
+Most current AI systems stop at:
+
+LLM
++
+Vector Database
+
+Damascus can extend this to:
+
+LLM
++
+Vector Memory
++
+Graph Memory
++
+Procedural Memory
++
+Evolution Memory
+
+This creates a significantly richer intelligence foundation.
+
+---
+
+# Key Insight
+
+Vectors answer:
+
+"What looks similar?"
+
+Graphs answer:
+
+"What is connected?"
+
+Intelligence requires both.
+
+A future Damascus system should not merely remember information.
+
+It should understand how information relates to everything else it knows.
+
+That capability may become one of the most important foundations for long-term learning and self-improvement.
+
+---
+
+# Open Research Questions
+
+1. Which entities deserve graph nodes?
+2. Which relationships matter most?
+3. How should graph and vector retrieval interact?
+4. How should graph quality be measured?
+5. How should evolution history be represented?
+6. How should procedural memory integrate with graphs?
+7. Should every user have a separate graph or a shared graph architecture?
+
+These questions will influence future Damascus memory and architecture documents.
