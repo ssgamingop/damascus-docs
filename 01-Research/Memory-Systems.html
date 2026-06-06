@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Systems | Damascus Docs</title>
+  <meta name="description" content="Damascus - Privacy-first, local-first intelligence operating system documentation">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    window.damascusMermaid = mermaid;
+  </script>
+</head>
+<body data-root="../">
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="brand">
+      <button class="mobile-header-btn" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="../index.html" class="brand">
+        <div class="logo">D</div>
+        <span class="title">Damascus Docs</span>
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <!-- Search Input Container -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="search-input" placeholder="Search docs..." aria-label="Search documentation">
+          <kbd class="search-shortcut">/</kbd>
+        </div>
+        
+        <!-- Results Dropdown -->
+        <div class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" aria-label="Toggle theme">
+        <!-- Sun (Light Theme Icon) -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon (Dark Theme Icon) -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Layout Grid -->
+  <div class="layout-container">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="site-sidebar">
+      <div class="sidebar-section">
+  <div class="sidebar-section-title">Vision</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Mission.html" class="sidebar-nav-link ">Mission</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Vision.html" class="sidebar-nav-link ">Damascus Vision</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Why-Damascus.html" class="sidebar-nav-link ">Why Damascus Exists</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Research</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/AI-Operating-Systems.html" class="sidebar-nav-link ">AI Operating Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Hermes-Analysis.html" class="sidebar-nav-link ">Hermes Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Knowledge-Graphs.html" class="sidebar-nav-link ">Knowledge Graphs</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/LangGraph-Analysis.html" class="sidebar-nav-link ">LangGraph Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Memory-Systems.html" class="sidebar-nav-link active">Memory Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Multi-Agent-Systems.html" class="sidebar-nav-link ">Multi Agent Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Odysseus-Analysis.html" class="sidebar-nav-link ">Odysseus Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/OpenHands-Analysis.html" class="sidebar-nav-link ">OpenHands Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Self-Improving-Agents.html" class="sidebar-nav-link ">Self Improving Agents</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Architecture</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link ">Agent Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link ">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link ">Evolution Engine</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/High-Level-Architecture.html" class="sidebar-nav-link ">High Level Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Memory-Architecture.html" class="sidebar-nav-link ">Memory Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link ">Model Abstraction Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link ">Security Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Tool-Layer.html" class="sidebar-nav-link ">Tool Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link ">Workspace System</a>
+    </li>
+  </ul>
+</div>
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <article class="doc-content">
+          <div class="doc-meta"><span class="meta-badge">Version 0.1</span><span class="meta-badge status-core-research-document">Core Research Document</span><span class="meta-badge priority-critical">Priority Critical</span></div> <h1 id="executive-summary">Executive Summary<a href="#executive-summary" class="heading-anchor">#</a></h1>
+<p>Memory is the foundation of intelligence.</p>
+<p>Without memory:</p>
+<ul>
+<li>learning is impossible</li>
+<li>adaptation is impossible</li>
+<li>personalization is impossible</li>
+<li>evolution is impossible</li>
+</ul>
+<p>Most modern AI systems possess only limited forms of memory.</p>
+<p>Many systems store:</p>
+<ul>
+<li>conversations</li>
+<li>embeddings</li>
+<li>documents</li>
+</ul>
+<p>Very few systems possess memory architectures capable of supporting long-term improvement.</p>
+<p>Damascus should treat memory as infrastructure rather than a feature.</p>
+<p>Every major subsystem should depend on memory.</p>
+<hr>
+<h1 id="research-goals">Research Goals<a href="#research-goals" class="heading-anchor">#</a></h1>
+<p>This document seeks to answer:</p>
+<ol>
+<li>What is memory?</li>
+<li>Why do intelligent systems require memory?</li>
+<li>What types of memory exist?</li>
+<li>How do current systems implement memory?</li>
+<li>What are their weaknesses?</li>
+<li>What should Damascus do differently?</li>
+</ol>
+<hr>
+<h1 id="what-is-memory">What Is Memory?<a href="#what-is-memory" class="heading-anchor">#</a></h1>
+<p>Memory is the ability to:</p>
+<pre><code class="language-diagram">Store
+↓
+Retrieve
+↓
+Apply
+</code></pre>
+<p>information across time.</p>
+<p>For Damascus:</p>
+<p>Memory is any information that can improve future decisions.</p>
+<hr>
+<h1 id="why-memory-matters">Why Memory Matters<a href="#why-memory-matters" class="heading-anchor">#</a></h1>
+<p>Without memory:</p>
+<p>Every task starts from zero.</p>
+<p>Every mistake repeats.</p>
+<p>Every lesson is forgotten.</p>
+<p>Every success is wasted.</p>
+<p>This prevents long-term capability growth.</p>
+<hr>
+<h1 id="human-memory-model">Human Memory Model<a href="#human-memory-model" class="heading-anchor">#</a></h1>
+<p>Human cognition provides a useful reference.</p>
+<p>Not because Damascus should imitate humans perfectly.</p>
+<p>But because human memory has evolved to solve many similar problems.</p>
+<hr>
+<h1 id="working-memory">Working Memory<a href="#working-memory" class="heading-anchor">#</a></h1>
+<p>Purpose:</p>
+<p>Current thinking.</p>
+<p>Examples:</p>
+<ul>
+<li>active task</li>
+<li>active conversation</li>
+<li>active workflow</li>
+</ul>
+<p>Characteristics:</p>
+<ul>
+<li>short-lived</li>
+<li>fast access</li>
+<li>limited capacity</li>
+</ul>
+<hr>
+<h1 id="episodic-memory">Episodic Memory<a href="#episodic-memory" class="heading-anchor">#</a></h1>
+<p>Purpose:</p>
+<p>Experiences.</p>
+<p>Examples:</p>
+<ul>
+<li>conversations</li>
+<li>completed projects</li>
+<li>successes</li>
+<li>failures</li>
+</ul>
+<p>Question:</p>
+<p>What happened?</p>
+<hr>
+<h1 id="semantic-memory">Semantic Memory<a href="#semantic-memory" class="heading-anchor">#</a></h1>
+<p>Purpose:</p>
+<p>Knowledge.</p>
+<p>Examples:</p>
+<ul>
+<li>facts</li>
+<li>concepts</li>
+<li>relationships</li>
+</ul>
+<p>Question:</p>
+<p>What is true?</p>
+<hr>
+<h1 id="procedural-memory">Procedural Memory<a href="#procedural-memory" class="heading-anchor">#</a></h1>
+<p>Purpose:</p>
+<p>Skills.</p>
+<p>Examples:</p>
+<ul>
+<li>coding workflows</li>
+<li>deployment workflows</li>
+<li>research workflows</li>
+</ul>
+<p>Question:</p>
+<p>How do I do this?</p>
+<hr>
+<h1 id="meta-memory">Meta Memory<a href="#meta-memory" class="heading-anchor">#</a></h1>
+<p>Purpose:</p>
+<p>Knowledge about knowledge.</p>
+<p>Examples:</p>
+<ul>
+<li>confidence scores</li>
+<li>source reliability</li>
+<li>retrieval statistics</li>
+</ul>
+<p>Question:</p>
+<p>How trustworthy is this memory?</p>
+<hr>
+<h1 id="evolution-memory">Evolution Memory<a href="#evolution-memory" class="heading-anchor">#</a></h1>
+<p>Purpose:</p>
+<p>Improvement history.</p>
+<p>Examples:</p>
+<ul>
+<li>benchmark results</li>
+<li>workflow variants</li>
+<li>failed experiments</li>
+<li>successful optimizations</li>
+</ul>
+<p>Question:</p>
+<p>What made us better?</p>
+<p>This memory type is largely absent in current systems.</p>
+<p>It may become a major Damascus differentiator.</p>
+<hr>
+<h1 id="existing-industry-approaches">Existing Industry Approaches<a href="#existing-industry-approaches" class="heading-anchor">#</a></h1>
+<h2 id="conversation-history">Conversation History<a href="#conversation-history" class="heading-anchor">#</a></h2>
+<p>Used by:</p>
+<p>Most AI assistants.</p>
+<p>Storage:</p>
+<p>Messages.</p>
+<p>Advantages:</p>
+<p>Simple.</p>
+<p>Problems:</p>
+<ul>
+<li>poor retrieval</li>
+<li>poor organization</li>
+<li>poor scalability</li>
+</ul>
+<hr>
+<h2 id="vector-memory">Vector Memory<a href="#vector-memory" class="heading-anchor">#</a></h2>
+<p>Used by:</p>
+<p>Many RAG systems.</p>
+<p>Storage:</p>
+<p>Embeddings.</p>
+<p>Advantages:</p>
+<p>Semantic retrieval.</p>
+<p>Problems:</p>
+<ul>
+<li>weak structure</li>
+<li>weak relationships</li>
+<li>difficult reasoning</li>
+</ul>
+<p>A vector database alone is not memory.</p>
+<p>It is only one component.</p>
+<hr>
+<h2 id="knowledge-bases">Knowledge Bases<a href="#knowledge-bases" class="heading-anchor">#</a></h2>
+<p>Used by:</p>
+<p>Enterprise AI systems.</p>
+<p>Storage:</p>
+<p>Documents.</p>
+<p>Advantages:</p>
+<p>Good factual recall.</p>
+<p>Problems:</p>
+<ul>
+<li>weak experience storage</li>
+<li>weak procedural learning</li>
+</ul>
+<hr>
+<h2 id="agent-memory-systems">Agent Memory Systems<a href="#agent-memory-systems" class="heading-anchor">#</a></h2>
+<p>Used by:</p>
+<p>Modern agent frameworks.</p>
+<p>Storage:</p>
+<p>Tasks
+Memories
+Summaries</p>
+<p>Advantages:</p>
+<p>Better persistence.</p>
+<p>Problems:</p>
+<p>Usually disconnected from improvement systems.</p>
+<hr>
+<h1 id="the-memory-pyramid">The Memory Pyramid<a href="#the-memory-pyramid" class="heading-anchor">#</a></h1>
+<p>Damascus should treat memory as layers.</p>
+<p>Layer 1</p>
+<p>Working Memory</p>
+<p>Fast
+Temporary</p>
+<hr>
+<p>Layer 2</p>
+<p>Episodic Memory</p>
+<p>Experiences</p>
+<hr>
+<p>Layer 3</p>
+<p>Semantic Memory</p>
+<p>Knowledge</p>
+<hr>
+<p>Layer 4</p>
+<p>Procedural Memory</p>
+<p>Skills</p>
+<hr>
+<p>Layer 5</p>
+<p>Evolution Memory</p>
+<p>Improvement</p>
+<hr>
+<p>Layer 6</p>
+<p>Knowledge Graph</p>
+<p>Relationships</p>
+<hr>
+<h1 id="proposed-damascus-memory-architecture">Proposed Damascus Memory Architecture<a href="#proposed-damascus-memory-architecture" class="heading-anchor">#</a></h1>
+<p>Current industry approach:</p>
+<p>Vector Database</p>
+<p>Damascus approach:</p>
+<p>Memory System</p>
+<p>The difference is important.</p>
+<hr>
+<h1 id="component-1">Component 1<a href="#component-1" class="heading-anchor">#</a></h1>
+<p>Working Memory</p>
+<p>Technology:</p>
+<p>Redis</p>
+<p>Purpose:</p>
+<p>Current execution state.</p>
+<p>Retention:</p>
+<p>Minutes to hours.</p>
+<hr>
+<h1 id="component-2">Component 2<a href="#component-2" class="heading-anchor">#</a></h1>
+<p>Episodic Memory</p>
+<p>Technology:</p>
+<p>PostgreSQL</p>
+<p>Stores:</p>
+<ul>
+<li>conversations</li>
+<li>projects</li>
+<li>tasks</li>
+<li>outcomes</li>
+</ul>
+<p>Retention:</p>
+<p>Permanent</p>
+<hr>
+<h1 id="component-3">Component 3<a href="#component-3" class="heading-anchor">#</a></h1>
+<p>Semantic Memory</p>
+<p>Technology:</p>
+<p>Qdrant</p>
+<p>Stores:</p>
+<ul>
+<li>facts</li>
+<li>documents</li>
+<li>research</li>
+<li>embeddings</li>
+</ul>
+<p>Retention:</p>
+<p>Permanent</p>
+<hr>
+<h1 id="component-4">Component 4<a href="#component-4" class="heading-anchor">#</a></h1>
+<p>Procedural Memory</p>
+<p>Stores:</p>
+<ul>
+<li>workflows</li>
+<li>playbooks</li>
+<li>strategies</li>
+<li>agent structures</li>
+</ul>
+<p>Examples:</p>
+<pre><code class="language-diagram">Research
+↓
+Design
+↓
+Code
+↓
+Review
+</code></pre>
+<p>Retention:</p>
+<p>Permanent</p>
+<hr>
+<h1 id="component-5">Component 5<a href="#component-5" class="heading-anchor">#</a></h1>
+<p>Evolution Memory</p>
+<p>Unique to Damascus.</p>
+<p>Stores:</p>
+<p>Failure</p>
+<p>Workflow A</p>
+<p>Score: 72</p>
+<hr>
+<p>Success</p>
+<p>Workflow B</p>
+<p>Score: 91</p>
+<hr>
+<p>Promotion</p>
+<p>Workflow B Adopted</p>
+<p>Purpose:</p>
+<p>Track improvement history.</p>
+<hr>
+<h1 id="component-6">Component 6<a href="#component-6" class="heading-anchor">#</a></h1>
+<p>Knowledge Graph</p>
+<p>Stores:</p>
+<p>Relationships.</p>
+<p>Example:</p>
+<pre><code class="language-diagram">User
+↓
+Project
+↓
+Technology
+↓
+Workflow
+↓
+Result
+</code></pre>
+<p>This enables deeper reasoning than embeddings alone.</p>
+<hr>
+<h1 id="why-knowledge-graphs-matter">Why Knowledge Graphs Matter<a href="#why-knowledge-graphs-matter" class="heading-anchor">#</a></h1>
+<p>Vectors answer:</p>
+<p>What is similar?</p>
+<p>Graphs answer:</p>
+<p>What is connected?</p>
+<p>Future Damascus systems will likely require both.</p>
+<hr>
+<h1 id="memory-retrieval">Memory Retrieval<a href="#memory-retrieval" class="heading-anchor">#</a></h1>
+<p>Memory storage is easy.</p>
+<p>Retrieval is difficult.</p>
+<p>Damascus should support:</p>
+<h2 id="semantic-search">Semantic Search<a href="#semantic-search" class="heading-anchor">#</a></h2>
+<p>Vector similarity.</p>
+<hr>
+<h2 id="graph-traversal">Graph Traversal<a href="#graph-traversal" class="heading-anchor">#</a></h2>
+<p>Relationship discovery.</p>
+<hr>
+<h2 id="temporal-search">Temporal Search<a href="#temporal-search" class="heading-anchor">#</a></h2>
+<p>What happened recently?</p>
+<hr>
+<h2 id="procedural-search">Procedural Search<a href="#procedural-search" class="heading-anchor">#</a></h2>
+<p>How was this solved before?</p>
+<hr>
+<h2 id="evolution-search">Evolution Search<a href="#evolution-search" class="heading-anchor">#</a></h2>
+<p>What improvement worked previously?</p>
+<hr>
+<h1 id="memory-lifecycle">Memory Lifecycle<a href="#memory-lifecycle" class="heading-anchor">#</a></h1>
+<p>Memory should not be immortal.</p>
+<p>Process:</p>
+<pre><code class="language-diagram">Capture
+↓
+Validate
+↓
+Store
+↓
+Compress
+↓
+Link
+↓
+Retrieve
+↓
+Update
+</code></pre>
+<p>This lifecycle should become a dedicated subsystem.</p>
+<hr>
+<h1 id="cross-version-memory">Cross-Version Memory<a href="#cross-version-memory" class="heading-anchor">#</a></h1>
+<p>One of the most important Damascus ideas.</p>
+<p>Current systems:</p>
+<pre><code class="language-diagram">Agent Dies
+↓
+Knowledge Lost
+</code></pre>
+<p>Future Damascus:</p>
+<pre><code class="language-diagram">Version 1
+↓
+Memory
+↓
+Version 2
+</code></pre>
+<p>Knowledge survives upgrades.</p>
+<p>This principle should guide future architecture.</p>
+<hr>
+<h1 id="memory-risks">Memory Risks<a href="#memory-risks" class="heading-anchor">#</a></h1>
+<h2 id="memory-bloat">Memory Bloat<a href="#memory-bloat" class="heading-anchor">#</a></h2>
+<p>Too much memory reduces usefulness.</p>
+<p>Solution:</p>
+<p>Prioritization.</p>
+<hr>
+<h2 id="contradictory-memories">Contradictory Memories<a href="#contradictory-memories" class="heading-anchor">#</a></h2>
+<p>Example:</p>
+<p>Memory A</p>
+<p>Use Tool X</p>
+<p>Memory B</p>
+<p>Tool X Failed</p>
+<p>Solution:</p>
+<p>Confidence scores.</p>
+<hr>
+<h2 id="privacy-risks">Privacy Risks<a href="#privacy-risks" class="heading-anchor">#</a></h2>
+<p>Memory contains sensitive information.</p>
+<p>Requirements:</p>
+<ul>
+<li>encryption</li>
+<li>permissions</li>
+<li>local-first storage</li>
+</ul>
+<hr>
+<h2 id="retrieval-failures">Retrieval Failures<a href="#retrieval-failures" class="heading-anchor">#</a></h2>
+<p>Memory that cannot be retrieved is effectively lost.</p>
+<p>Retrieval quality should be benchmarked.</p>
+<hr>
+<h1 id="damascus-memory-principles">Damascus Memory Principles<a href="#damascus-memory-principles" class="heading-anchor">#</a></h1>
+<ol>
+<li>Memory Is Infrastructure.</li>
+<li>Memory Must Survive Agents.</li>
+<li>Memory Must Survive Models.</li>
+<li>Memory Must Survive Upgrades.</li>
+<li>Memory Must Support Learning.</li>
+<li>Memory Must Support Evolution.</li>
+<li>Memory Must Remain Under User Control.</li>
+</ol>
+<hr>
+<h1 id="key-insight">Key Insight<a href="#key-insight" class="heading-anchor">#</a></h1>
+<p>Most AI systems treat memory as a storage problem.</p>
+<p>Damascus should treat memory as an intelligence problem.</p>
+<p>The purpose of memory is not to remember.</p>
+<p>The purpose of memory is to improve future decisions.</p>
+<p>This distinction may become one of the most important architectural foundations of the entire project.</p>
+<hr>
+<h1 id="open-research-questions">Open Research Questions<a href="#open-research-questions" class="heading-anchor">#</a></h1>
+<ol>
+<li>How should memories be ranked?</li>
+<li>How should memories be compressed?</li>
+<li>How should memories evolve?</li>
+<li>How should procedural memories be generated?</li>
+<li>How should evolution memories be stored?</li>
+<li>How should graph and vector memories interact?</li>
+<li>How should memory quality be benchmarked?</li>
+</ol>
+<p>These questions will influence future Damascus architecture.</p>
+
+        </article>
+        <div class="doc-footer-nav">
+      <a href="../01-Research/LangGraph-Analysis.html" class="nav-card prev">
+        <span class="nav-card-label">Previous</span>
+        <span class="nav-card-title">LangGraph Analysis</span>
+      </a>
+    
+      <a href="../01-Research/Multi-Agent-Systems.html" class="nav-card next">
+        <span class="nav-card-label">Next</span>
+        <span class="nav-card-title">Multi Agent Systems</span>
+      </a>
+    </div>
+      </div>
+    </main>
+
+    <!-- Right Table of Contents Sidebar -->
+    
+    <aside class="site-toc">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list">
+        <li class="toc-item depth-2">
+  <a href="#conversation-history" class="toc-link">Conversation History</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#vector-memory" class="toc-link">Vector Memory</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#knowledge-bases" class="toc-link">Knowledge Bases</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agent-memory-systems" class="toc-link">Agent Memory Systems</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#semantic-search" class="toc-link">Semantic Search</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#graph-traversal" class="toc-link">Graph Traversal</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#temporal-search" class="toc-link">Temporal Search</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#procedural-search" class="toc-link">Procedural Search</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evolution-search" class="toc-link">Evolution Search</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#memory-bloat" class="toc-link">Memory Bloat</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#contradictory-memories" class="toc-link">Contradictory Memories</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#privacy-risks" class="toc-link">Privacy Risks</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#retrieval-failures" class="toc-link">Retrieval Failures</a>
+</li>
+
+      </ul>
+    </aside>
+  
+
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

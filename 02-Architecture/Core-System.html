@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Core System | Damascus Docs</title>
+  <meta name="description" content="Damascus - Privacy-first, local-first intelligence operating system documentation">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    window.damascusMermaid = mermaid;
+  </script>
+</head>
+<body data-root="../">
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="brand">
+      <button class="mobile-header-btn" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="../index.html" class="brand">
+        <div class="logo">D</div>
+        <span class="title">Damascus Docs</span>
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <!-- Search Input Container -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="search-input" placeholder="Search docs..." aria-label="Search documentation">
+          <kbd class="search-shortcut">/</kbd>
+        </div>
+        
+        <!-- Results Dropdown -->
+        <div class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" aria-label="Toggle theme">
+        <!-- Sun (Light Theme Icon) -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon (Dark Theme Icon) -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Layout Grid -->
+  <div class="layout-container">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="site-sidebar">
+      <div class="sidebar-section">
+  <div class="sidebar-section-title">Vision</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Mission.html" class="sidebar-nav-link ">Mission</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Vision.html" class="sidebar-nav-link ">Damascus Vision</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Why-Damascus.html" class="sidebar-nav-link ">Why Damascus Exists</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Research</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/AI-Operating-Systems.html" class="sidebar-nav-link ">AI Operating Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Hermes-Analysis.html" class="sidebar-nav-link ">Hermes Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Knowledge-Graphs.html" class="sidebar-nav-link ">Knowledge Graphs</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/LangGraph-Analysis.html" class="sidebar-nav-link ">LangGraph Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Memory-Systems.html" class="sidebar-nav-link ">Memory Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Multi-Agent-Systems.html" class="sidebar-nav-link ">Multi Agent Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Odysseus-Analysis.html" class="sidebar-nav-link ">Odysseus Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/OpenHands-Analysis.html" class="sidebar-nav-link ">OpenHands Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Self-Improving-Agents.html" class="sidebar-nav-link ">Self Improving Agents</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Architecture</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link ">Agent Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link active">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link ">Evolution Engine</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/High-Level-Architecture.html" class="sidebar-nav-link ">High Level Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Memory-Architecture.html" class="sidebar-nav-link ">Memory Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link ">Model Abstraction Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link ">Security Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Tool-Layer.html" class="sidebar-nav-link ">Tool Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link ">Workspace System</a>
+    </li>
+  </ul>
+</div>
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <article class="doc-content">
+          <div class="doc-meta"><span class="meta-badge">Version 0.1</span><span class="meta-badge status-architecture-foundation">Architecture Foundation</span><span class="meta-badge priority-critical">Priority Critical</span></div> <h1 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h1>
+<p>The Damascus Core is the central coordination system of the platform.</p>
+<p>It is responsible for orchestrating execution, managing workflow state, routing events, coordinating subsystems, and maintaining operational consistency across the entire intelligence environment.</p>
+<p>The Core is not responsible for reasoning, memory storage, tool execution, or model inference.</p>
+<p>Instead, it coordinates the systems that provide those capabilities.</p>
+<p>This distinction is fundamental.</p>
+<p>Damascus is not an agent framework.</p>
+<p>Damascus is an intelligence operating layer.</p>
+<p>Agents are capabilities.</p>
+<p>The Core is infrastructure.</p>
+<hr>
+<h1 id="design-philosophy">Design Philosophy<a href="#design-philosophy" class="heading-anchor">#</a></h1>
+<p>Most AI systems are built around agents.</p>
+<pre><code class="language-diagram">User
+↓
+Agent
+↓
+Result
+</code></pre>
+<p>Damascus is built around workflows.</p>
+<pre><code class="language-diagram">User
+↓
+Workspace
+↓
+Workflow
+↓
+Runtime
+↓
+State
+↓
+Result
+↓
+Learning
+↓
+Evolution
+</code></pre>
+<p>This architectural decision affects every subsystem.</p>
+<p>Agents are execution primitives inside workflows.</p>
+<p>Workflows are the primary execution unit.</p>
+<p>The platform evolves workflows, not agents.</p>
+<hr>
+<h1 id="core-responsibilities">Core Responsibilities<a href="#core-responsibilities" class="heading-anchor">#</a></h1>
+<p>The Damascus Core owns:</p>
+<ul>
+<li>Workflow orchestration</li>
+<li>Execution coordination</li>
+<li>State management</li>
+<li>Event routing</li>
+<li>Scheduling</li>
+<li>Lifecycle management</li>
+<li>Registry management</li>
+<li>Observability infrastructure</li>
+</ul>
+<p>The Damascus Core does not own:</p>
+<ul>
+<li>Long-term memory</li>
+<li>Tool implementations</li>
+<li>Model implementations</li>
+<li>Security policies</li>
+<li>Agent reasoning</li>
+<li>Evolution decisions</li>
+</ul>
+<p>Those responsibilities belong to dedicated subsystems.</p>
+<hr>
+<h1 id="core-architecture">Core Architecture<a href="#core-architecture" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">Damascus Core
+├── Orchestration Runtime
+├── State Manager
+├── Event Bus
+├── Scheduler
+├── Registry Layer
+├── Observability Layer
+└── Lifecycle Manager
+</code></pre>
+<p>The Core provides the execution environment within which all Damascus capabilities operate.</p>
+<hr>
+<h1 id="architectural-principle">Architectural Principle<a href="#architectural-principle" class="heading-anchor">#</a></h1>
+<p>The most important principle of Damascus Core is:</p>
+<p>Execution is workflow-centric.</p>
+<p>Not agent-centric.</p>
+<p>Everything executes as part of a workflow.</p>
+<p>Examples:</p>
+<pre><code class="language-diagram">Workflow
+├── Agent Node
+├── Tool Node
+├── Human Approval Node
+├── Model Node
+├── Research Node
+└── Benchmark Node
+</code></pre>
+<p>Future workflow types may contain entirely different node structures.</p>
+<p>The architecture must not assume agents are always present.</p>
+<hr>
+<h1 id="orchestration-runtime">Orchestration Runtime<a href="#orchestration-runtime" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>The Orchestration Runtime is responsible for executing workflows.</p>
+<p>It acts as the execution engine of Damascus.</p>
+<p>The runtime receives workflow definitions and coordinates their execution.</p>
+<hr>
+<h2 id="responsibilities">Responsibilities<a href="#responsibilities" class="heading-anchor">#</a></h2>
+<p>The runtime is responsible for:</p>
+<ul>
+<li>workflow execution</li>
+<li>task routing</li>
+<li>dependency management</li>
+<li>state transitions</li>
+<li>checkpoint creation</li>
+<li>workflow recovery</li>
+<li>execution tracing</li>
+</ul>
+<p>The runtime is not responsible for:</p>
+<ul>
+<li>workflow design</li>
+<li>workflow evolution</li>
+<li>memory storage</li>
+<li>security decisions</li>
+</ul>
+<hr>
+<h2 id="runtime-contract">Runtime Contract<a href="#runtime-contract" class="heading-anchor">#</a></h2>
+<p>Damascus defines a runtime interface.</p>
+<p>The architecture depends on the interface.</p>
+<p>Not the implementation.</p>
+<p>Example:</p>
+<p>IRuntime</p>
+<p>execute_workflow()</p>
+<p>pause_workflow()</p>
+<p>resume_workflow()</p>
+<p>cancel_workflow()</p>
+<p>get_workflow_state()</p>
+<p>get_execution_trace()</p>
+<p>emit_event()</p>
+<p>This contract represents the boundary between Damascus Core and runtime implementations.</p>
+<hr>
+<h2 id="initial-runtime-implementation">Initial Runtime Implementation<a href="#initial-runtime-implementation" class="heading-anchor">#</a></h2>
+<p>V1 Runtime:</p>
+<p>LangGraph Runtime Adapter</p>
+<p>Architecture:</p>
+<pre><code class="language-diagram">Damascus Core
+↓
+Runtime Interface
+↓
+LangGraph Runtime Adapter
+</code></pre>
+<p>The rest of Damascus must remain unaware of LangGraph-specific concepts.</p>
+<p>Future runtime implementations must be replaceable without requiring architectural changes.</p>
+<hr>
+<h1 id="state-manager">State Manager<a href="#state-manager" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>The State Manager maintains execution state throughout workflow lifecycles.</p>
+<p>State is treated as a first-class architectural concern.</p>
+<hr>
+<h2 id="responsibilities">Responsibilities<a href="#responsibilities" class="heading-anchor">#</a></h2>
+<p>Track:</p>
+<ul>
+<li>workflow state</li>
+<li>node state</li>
+<li>execution progress</li>
+<li>dependencies</li>
+<li>checkpoints</li>
+<li>retry status</li>
+</ul>
+<hr>
+<h2 id="workflow-states">Workflow States<a href="#workflow-states" class="heading-anchor">#</a></h2>
+<p>Minimum workflow states:</p>
+<p>Draft</p>
+<p>Pending</p>
+<p>Running</p>
+<p>Paused</p>
+<p>Waiting Approval</p>
+<p>Completed</p>
+<p>Failed</p>
+<p>Cancelled</p>
+<p>Archived</p>
+<p>Future workflow types may introduce additional states.</p>
+<hr>
+<h2 id="checkpointing">Checkpointing<a href="#checkpointing" class="heading-anchor">#</a></h2>
+<p>The State Manager should support execution checkpoints.</p>
+<p>Purpose:</p>
+<ul>
+<li>crash recovery</li>
+<li>pause and resume</li>
+<li>rollback</li>
+<li>long-running execution</li>
+</ul>
+<p>No workflow should be required to restart from the beginning after failure.</p>
+<hr>
+<h1 id="event-bus">Event Bus<a href="#event-bus" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>The Event Bus enables communication between subsystems.</p>
+<p>Subsystems should communicate through events rather than direct dependencies whenever possible.</p>
+<hr>
+<h2 id="example-events">Example Events<a href="#example-events" class="heading-anchor">#</a></h2>
+<p>WorkflowCreated</p>
+<p>WorkflowStarted</p>
+<p>WorkflowPaused</p>
+<p>WorkflowCompleted</p>
+<p>MemoryStored</p>
+<p>BenchmarkCompleted</p>
+<p>ResearchDiscovered</p>
+<p>AgentAssigned</p>
+<p>ToolExecuted</p>
+<p>EvolutionCandidateGenerated</p>
+<hr>
+<h2 id="benefits">Benefits<a href="#benefits" class="heading-anchor">#</a></h2>
+<p>Advantages:</p>
+<ul>
+<li>loose coupling</li>
+<li>easier observability</li>
+<li>extensibility</li>
+<li>scalability</li>
+<li>easier debugging</li>
+</ul>
+<p>The Event Bus becomes the nervous system of Damascus.</p>
+<hr>
+<h1 id="scheduler">Scheduler<a href="#scheduler" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>The Scheduler controls execution priorities and resource allocation.</p>
+<p>Not all workflows should execute immediately.</p>
+<p>The Scheduler determines:</p>
+<ul>
+<li>what runs</li>
+<li>when it runs</li>
+<li>where it runs</li>
+</ul>
+<hr>
+<h2 id="responsibilities">Responsibilities<a href="#responsibilities" class="heading-anchor">#</a></h2>
+<p>Manage:</p>
+<ul>
+<li>workflow queues</li>
+<li>execution priorities</li>
+<li>concurrency limits</li>
+<li>resource allocation</li>
+<li>background jobs</li>
+</ul>
+<hr>
+<h2 id="future-scheduling-domains">Future Scheduling Domains<a href="#future-scheduling-domains" class="heading-anchor">#</a></h2>
+<p>The Scheduler should eventually support:</p>
+<p>User Workflows</p>
+<p>Research Jobs</p>
+<p>Benchmark Jobs</p>
+<p>Evolution Jobs</p>
+<p>Maintenance Jobs</p>
+<p>Each domain may require different scheduling policies.</p>
+<hr>
+<h1 id="registry-layer">Registry Layer<a href="#registry-layer" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>The Registry Layer stores metadata about Damascus capabilities.</p>
+<p>Registries are discovery systems.</p>
+<p>Not memory systems.</p>
+<hr>
+<h1 id="workflow-registry">Workflow Registry<a href="#workflow-registry" class="heading-anchor">#</a></h1>
+<p>Stores:</p>
+<ul>
+<li>workflow definitions</li>
+<li>workflow versions</li>
+<li>benchmark history</li>
+<li>promotion history</li>
+<li>ownership information</li>
+</ul>
+<p>Workflows become first-class assets.</p>
+<hr>
+<h1 id="agent-registry">Agent Registry<a href="#agent-registry" class="heading-anchor">#</a></h1>
+<p>Stores:</p>
+<ul>
+<li>agent definitions</li>
+<li>capabilities</li>
+<li>performance metrics</li>
+<li>compatibility information</li>
+</ul>
+<hr>
+<h1 id="tool-registry">Tool Registry<a href="#tool-registry" class="heading-anchor">#</a></h1>
+<p>Stores:</p>
+<ul>
+<li>tool definitions</li>
+<li>permissions</li>
+<li>capabilities</li>
+<li>reliability metrics</li>
+</ul>
+<hr>
+<h1 id="model-registry">Model Registry<a href="#model-registry" class="heading-anchor">#</a></h1>
+<p>Stores:</p>
+<ul>
+<li>provider information</li>
+<li>capabilities</li>
+<li>context limits</li>
+<li>performance metrics</li>
+<li>routing metadata</li>
+</ul>
+<hr>
+<h1 id="benchmark-registry">Benchmark Registry<a href="#benchmark-registry" class="heading-anchor">#</a></h1>
+<p>Stores:</p>
+<ul>
+<li>benchmark definitions</li>
+<li>benchmark history</li>
+<li>benchmark metrics</li>
+<li>evaluation results</li>
+</ul>
+<hr>
+<h1 id="research-registry">Research Registry<a href="#research-registry" class="heading-anchor">#</a></h1>
+<p>Stores:</p>
+<ul>
+<li>research artifacts</li>
+<li>extracted techniques</li>
+<li>experimental findings</li>
+</ul>
+<hr>
+<h1 id="observability-layer">Observability Layer<a href="#observability-layer" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>Observability exists to support transparency, debugging, benchmarking, and evolution.</p>
+<p>Observability is not logging.</p>
+<p>Observability is learning infrastructure.</p>
+<hr>
+<h2 id="responsibilities">Responsibilities<a href="#responsibilities" class="heading-anchor">#</a></h2>
+<p>Capture:</p>
+<ul>
+<li>execution traces</li>
+<li>workflow performance</li>
+<li>agent activity</li>
+<li>tool usage</li>
+<li>benchmark results</li>
+<li>evolution events</li>
+<li>failures</li>
+<li>costs</li>
+</ul>
+<hr>
+<h2 id="trace-model">Trace Model<a href="#trace-model" class="heading-anchor">#</a></h2>
+<p>Every workflow execution should generate a trace.</p>
+<p>Example:</p>
+<pre><code class="language-diagram">Workflow
+↓
+Node
+↓
+Action
+↓
+Result
+↓
+Metric
+</code></pre>
+<p>This trace becomes an input for future analysis.</p>
+<hr>
+<h2 id="metrics">Metrics<a href="#metrics" class="heading-anchor">#</a></h2>
+<p>Core metrics may include:</p>
+<p>Success Rate</p>
+<p>Latency</p>
+<p>Cost</p>
+<p>Resource Usage</p>
+<p>Benchmark Score</p>
+<p>Failure Rate</p>
+<p>Recovery Rate</p>
+<p>Observability should support future evolution systems.</p>
+<hr>
+<h1 id="lifecycle-manager">Lifecycle Manager<a href="#lifecycle-manager" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>Manage workflow lifecycles.</p>
+<hr>
+<h2 id="responsibilities">Responsibilities<a href="#responsibilities" class="heading-anchor">#</a></h2>
+<p>Create Workflow</p>
+<p>Start Workflow</p>
+<p>Pause Workflow</p>
+<p>Resume Workflow</p>
+<p>Cancel Workflow</p>
+<p>Archive Workflow</p>
+<p>Delete Workflow</p>
+<p>Lifecycle transitions must remain auditable.</p>
+<hr>
+<h1 id="workflow-lifecycle">Workflow Lifecycle<a href="#workflow-lifecycle" class="heading-anchor">#</a></h1>
+<p>Example:</p>
+<pre><code class="language-diagram">Create
+↓
+Validate
+↓
+Schedule
+↓
+Execute
+↓
+Observe
+↓
+Complete
+↓
+Store Results
+↓
+Evaluate
+↓
+Archive
+</code></pre>
+<p>Every execution becomes part of organizational learning.</p>
+<hr>
+<h1 id="failure-handling">Failure Handling<a href="#failure-handling" class="heading-anchor">#</a></h1>
+<p>Failures are expected.</p>
+<p>The architecture must assume workflows will fail.</p>
+<p>Examples:</p>
+<ul>
+<li>model failure</li>
+<li>tool failure</li>
+<li>timeout</li>
+<li>permission denial</li>
+<li>dependency failure</li>
+</ul>
+<hr>
+<h2 id="failure-strategy">Failure Strategy<a href="#failure-strategy" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Detect
+↓
+Record
+↓
+Classify
+↓
+Recover
+↓
+Escalate
+</code></pre>
+<p>Failure information becomes future learning data.</p>
+<hr>
+<h1 id="recovery-mechanisms">Recovery Mechanisms<a href="#recovery-mechanisms" class="heading-anchor">#</a></h1>
+<p>Recovery strategies may include:</p>
+<p>Retry</p>
+<p>Rollback</p>
+<p>Checkpoint Restore</p>
+<p>Alternative Model</p>
+<p>Alternative Tool</p>
+<p>Human Intervention</p>
+<p>Recovery actions must be observable.</p>
+<hr>
+<h1 id="architectural-constraints">Architectural Constraints<a href="#architectural-constraints" class="heading-anchor">#</a></h1>
+<h2 id="constraint-1">Constraint 1<a href="#constraint-1" class="heading-anchor">#</a></h2>
+<p>Workflows are the primary execution unit.</p>
+<p>Not agents.</p>
+<hr>
+<h2 id="constraint-2">Constraint 2<a href="#constraint-2" class="heading-anchor">#</a></h2>
+<p>The Core never stores long-term memory.</p>
+<hr>
+<h2 id="constraint-3">Constraint 3<a href="#constraint-3" class="heading-anchor">#</a></h2>
+<p>The Core never performs reasoning.</p>
+<hr>
+<h2 id="constraint-4">Constraint 4<a href="#constraint-4" class="heading-anchor">#</a></h2>
+<p>The Core never directly depends on model providers.</p>
+<hr>
+<h2 id="constraint-5">Constraint 5<a href="#constraint-5" class="heading-anchor">#</a></h2>
+<p>All executions must be observable.</p>
+<hr>
+<h2 id="constraint-6">Constraint 6<a href="#constraint-6" class="heading-anchor">#</a></h2>
+<p>All executions must be recoverable.</p>
+<hr>
+<h2 id="constraint-7">Constraint 7<a href="#constraint-7" class="heading-anchor">#</a></h2>
+<p>All critical actions must be auditable.</p>
+<hr>
+<h2 id="constraint-8">Constraint 8<a href="#constraint-8" class="heading-anchor">#</a></h2>
+<p>The Core must remain runtime-independent.</p>
+<hr>
+<h2 id="constraint-9">Constraint 9<a href="#constraint-9" class="heading-anchor">#</a></h2>
+<p>Subsystems should communicate through events whenever possible.</p>
+<hr>
+<h2 id="constraint-10">Constraint 10<a href="#constraint-10" class="heading-anchor">#</a></h2>
+<p>Security boundaries may never be bypassed by the Core.</p>
+<hr>
+<h1 id="future-evolution">Future Evolution<a href="#future-evolution" class="heading-anchor">#</a></h1>
+<p>Future versions of Damascus may introduce:</p>
+<ul>
+<li>distributed execution</li>
+<li>remote workers</li>
+<li>workflow marketplaces</li>
+<li>runtime federation</li>
+<li>adaptive scheduling</li>
+<li>autonomous workflow generation</li>
+</ul>
+<p>The Core should support these possibilities without architectural redesign.</p>
+<hr>
+<h1 id="key-insight">Key Insight<a href="#key-insight" class="heading-anchor">#</a></h1>
+<p>The Damascus Core is not an agent manager.</p>
+<p>It is not a model router.</p>
+<p>It is not a memory database.</p>
+<p>The Damascus Core is an execution coordination system.</p>
+<p>Its responsibility is to coordinate workflows, state, events, and system operations while enabling the rest of the platform to reason, learn, evolve, and improve.</p>
+<p>Everything else in Damascus depends on this foundation.</p>
+
+        </article>
+        <div class="doc-footer-nav">
+      <a href="../02-Architecture/Agent-Layer.html" class="nav-card prev">
+        <span class="nav-card-label">Previous</span>
+        <span class="nav-card-title">Agent Layer</span>
+      </a>
+    
+      <a href="../02-Architecture/Evolution-Engine.html" class="nav-card next">
+        <span class="nav-card-label">Next</span>
+        <span class="nav-card-title">Evolution Engine</span>
+      </a>
+    </div>
+      </div>
+    </main>
+
+    <!-- Right Table of Contents Sidebar -->
+    
+    <aside class="site-toc">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list">
+        <li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#responsibilities" class="toc-link">Responsibilities</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#runtime-contract" class="toc-link">Runtime Contract</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#initial-runtime-implementation" class="toc-link">Initial Runtime Implementation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#responsibilities" class="toc-link">Responsibilities</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workflow-states" class="toc-link">Workflow States</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#checkpointing" class="toc-link">Checkpointing</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#example-events" class="toc-link">Example Events</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#benefits" class="toc-link">Benefits</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#responsibilities" class="toc-link">Responsibilities</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#future-scheduling-domains" class="toc-link">Future Scheduling Domains</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#responsibilities" class="toc-link">Responsibilities</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#trace-model" class="toc-link">Trace Model</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#metrics" class="toc-link">Metrics</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#responsibilities" class="toc-link">Responsibilities</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#failure-strategy" class="toc-link">Failure Strategy</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-1" class="toc-link">Constraint 1</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-2" class="toc-link">Constraint 2</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-3" class="toc-link">Constraint 3</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-4" class="toc-link">Constraint 4</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-5" class="toc-link">Constraint 5</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-6" class="toc-link">Constraint 6</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-7" class="toc-link">Constraint 7</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-8" class="toc-link">Constraint 8</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-9" class="toc-link">Constraint 9</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-10" class="toc-link">Constraint 10</a>
+</li>
+
+      </ul>
+    </aside>
+  
+
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

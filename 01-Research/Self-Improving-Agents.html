@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Self Improving Agents | Damascus Docs</title>
+  <meta name="description" content="Damascus - Privacy-first, local-first intelligence operating system documentation">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    window.damascusMermaid = mermaid;
+  </script>
+</head>
+<body data-root="../">
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="brand">
+      <button class="mobile-header-btn" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="../index.html" class="brand">
+        <div class="logo">D</div>
+        <span class="title">Damascus Docs</span>
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <!-- Search Input Container -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="search-input" placeholder="Search docs..." aria-label="Search documentation">
+          <kbd class="search-shortcut">/</kbd>
+        </div>
+        
+        <!-- Results Dropdown -->
+        <div class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" aria-label="Toggle theme">
+        <!-- Sun (Light Theme Icon) -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon (Dark Theme Icon) -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Layout Grid -->
+  <div class="layout-container">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="site-sidebar">
+      <div class="sidebar-section">
+  <div class="sidebar-section-title">Vision</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Mission.html" class="sidebar-nav-link ">Mission</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Vision.html" class="sidebar-nav-link ">Damascus Vision</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Why-Damascus.html" class="sidebar-nav-link ">Why Damascus Exists</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Research</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/AI-Operating-Systems.html" class="sidebar-nav-link ">AI Operating Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Hermes-Analysis.html" class="sidebar-nav-link ">Hermes Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Knowledge-Graphs.html" class="sidebar-nav-link ">Knowledge Graphs</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/LangGraph-Analysis.html" class="sidebar-nav-link ">LangGraph Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Memory-Systems.html" class="sidebar-nav-link ">Memory Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Multi-Agent-Systems.html" class="sidebar-nav-link ">Multi Agent Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Odysseus-Analysis.html" class="sidebar-nav-link ">Odysseus Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/OpenHands-Analysis.html" class="sidebar-nav-link ">OpenHands Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Self-Improving-Agents.html" class="sidebar-nav-link active">Self Improving Agents</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Architecture</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link ">Agent Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link ">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link ">Evolution Engine</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/High-Level-Architecture.html" class="sidebar-nav-link ">High Level Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Memory-Architecture.html" class="sidebar-nav-link ">Memory Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link ">Model Abstraction Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link ">Security Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Tool-Layer.html" class="sidebar-nav-link ">Tool Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link ">Workspace System</a>
+    </li>
+  </ul>
+</div>
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <article class="doc-content">
+          <div class="doc-meta"><span class="meta-badge">Version 0.1</span><span class="meta-badge status-core-research-document">Core Research Document</span><span class="meta-badge priority-critical">Priority Critical</span></div> <h1 id="executive-summary">Executive Summary<a href="#executive-summary" class="heading-anchor">#</a></h1>
+<p>Most modern AI agents are capable of:</p>
+<ul>
+<li>reasoning</li>
+<li>planning</li>
+<li>coding</li>
+<li>research</li>
+<li>execution</li>
+</ul>
+<p>However, most remain fundamentally static.</p>
+<p>A task may succeed or fail.</p>
+<p>The agent continues operating in largely the same way.</p>
+<p>This creates a significant limitation.</p>
+<p>Human experts improve because they learn from experience.</p>
+<p>Future intelligent systems must do the same.</p>
+<p>The central thesis of Damascus is:</p>
+<p>Intelligence should not only solve problems.</p>
+<p>Intelligence should improve how it solves problems.</p>
+<hr>
+<h1 id="research-goals">Research Goals<a href="#research-goals" class="heading-anchor">#</a></h1>
+<p>This document seeks to answer:</p>
+<ol>
+<li>What is self-improvement?</li>
+<li>Why do current systems struggle with it?</li>
+<li>What forms of improvement exist?</li>
+<li>What risks exist?</li>
+<li>How should Damascus approach improvement?</li>
+</ol>
+<hr>
+<h1 id="what-is-self-improvement">What Is Self-Improvement?<a href="#what-is-self-improvement" class="heading-anchor">#</a></h1>
+<p>Self-improvement is the process of using past experience to increase future performance.</p>
+<p>Example:</p>
+<pre><code class="language-diagram">Task
+↓
+Result
+↓
+Analysis
+↓
+Improvement
+↓
+Better Future Result
+</code></pre>
+<p>Without this cycle there is no learning.</p>
+<hr>
+<h1 id="what-self-improvement-is-not">What Self-Improvement Is Not<a href="#what-self-improvement-is-not" class="heading-anchor">#</a></h1>
+<p>Many systems incorrectly define self-improvement as:</p>
+<ul>
+<li>storing memories</li>
+<li>storing conversations</li>
+<li>collecting documents</li>
+</ul>
+<p>These are useful.</p>
+<p>They are not improvement.</p>
+<p>Improvement requires behavior change.</p>
+<hr>
+<h1 id="the-improvement-loop">The Improvement Loop<a href="#the-improvement-loop" class="heading-anchor">#</a></h1>
+<p>Fundamental model:</p>
+<pre><code class="language-diagram">Observe
+↓
+Evaluate
+↓
+Generate Alternative
+↓
+Test Alternative
+↓
+Compare Results
+↓
+Adopt Winner
+</code></pre>
+<p>This loop should eventually become a core Damascus subsystem.</p>
+<hr>
+<h1 id="current-industry-approaches">Current Industry Approaches<a href="#current-industry-approaches" class="heading-anchor">#</a></h1>
+<h2 id="prompt-refinement">Prompt Refinement<a href="#prompt-refinement" class="heading-anchor">#</a></h2>
+<p>System:</p>
+<pre><code class="language-diagram">Prompt
+↓
+Feedback
+↓
+Prompt Changes
+</code></pre>
+<p>Advantages:</p>
+<ul>
+<li>simple</li>
+<li>effective</li>
+</ul>
+<p>Limitations:</p>
+<ul>
+<li>narrow scope</li>
+<li>fragile</li>
+</ul>
+<hr>
+<h2 id="memory-based-learning">Memory-Based Learning<a href="#memory-based-learning" class="heading-anchor">#</a></h2>
+<p>System:</p>
+<pre><code class="language-diagram">Store Experience
+↓
+Retrieve Experience
+↓
+Apply Experience
+</code></pre>
+<p>Advantages:</p>
+<ul>
+<li>useful</li>
+<li>practical</li>
+</ul>
+<p>Limitations:</p>
+<ul>
+<li>does not necessarily improve workflows</li>
+</ul>
+<hr>
+<h2 id="fine-tuning">Fine-Tuning<a href="#fine-tuning" class="heading-anchor">#</a></h2>
+<p>System:</p>
+<pre><code class="language-diagram">Data
+↓
+Training
+↓
+Updated Model
+</code></pre>
+<p>Advantages:</p>
+<ul>
+<li>powerful</li>
+</ul>
+<p>Limitations:</p>
+<ul>
+<li>expensive</li>
+<li>slow</li>
+<li>difficult for local systems</li>
+</ul>
+<p>Not ideal for early Damascus versions.</p>
+<hr>
+<h2 id="reinforcement-learning">Reinforcement Learning<a href="#reinforcement-learning" class="heading-anchor">#</a></h2>
+<p>System:</p>
+<pre><code class="language-diagram">Action
+↓
+Reward
+↓
+Policy Improvement
+</code></pre>
+<p>Advantages:</p>
+<ul>
+<li>theoretically powerful</li>
+</ul>
+<p>Limitations:</p>
+<ul>
+<li>difficult reward design</li>
+<li>expensive experimentation</li>
+</ul>
+<p>Future possibility.</p>
+<hr>
+<h1 id="types-of-improvement">Types Of Improvement<a href="#types-of-improvement" class="heading-anchor">#</a></h1>
+<h2 id="knowledge-improvement">Knowledge Improvement<a href="#knowledge-improvement" class="heading-anchor">#</a></h2>
+<p>Learning new facts.</p>
+<p>Example:</p>
+<pre><code class="language-diagram">Research Paper
+↓
+Knowledge Extraction
+↓
+Memory
+</code></pre>
+<p>Question:</p>
+<p>What do we know?</p>
+<hr>
+<h2 id="procedural-improvement">Procedural Improvement<a href="#procedural-improvement" class="heading-anchor">#</a></h2>
+<p>Learning better workflows.</p>
+<p>Example:</p>
+<pre><code class="language-diagram">Workflow A
+Research
+↓
+Code
+Score: 72
+Workflow B
+Research
+↓
+Critic
+↓
+Code
+Score: 91
+</code></pre>
+<p>Adopt Workflow B.</p>
+<p>Question:</p>
+<p>How should we work?</p>
+<hr>
+<h2 id="tool-improvement">Tool Improvement<a href="#tool-improvement" class="heading-anchor">#</a></h2>
+<p>Learning better tools.</p>
+<p>Example:</p>
+<p>GitHub Search
+outperforms
+Generic Search</p>
+<p>Question:</p>
+<p>Which tools should be used?</p>
+<hr>
+<h2 id="team-improvement">Team Improvement<a href="#team-improvement" class="heading-anchor">#</a></h2>
+<p>Learning better agent structures.</p>
+<p>Example:</p>
+<pre><code class="language-diagram">Researcher
+↓
+Coder
+vs
+Researcher
+↓
+Architect
+↓
+Coder
+↓
+Reviewer
+</code></pre>
+<p>Question:</p>
+<p>Which team works best?</p>
+<hr>
+<h2 id="strategy-improvement">Strategy Improvement<a href="#strategy-improvement" class="heading-anchor">#</a></h2>
+<p>Learning better decision-making approaches.</p>
+<p>Question:</p>
+<p>How should resources be allocated?</p>
+<hr>
+<h1 id="why-most-systems-fail">Why Most Systems Fail<a href="#why-most-systems-fail" class="heading-anchor">#</a></h1>
+<p>Most systems stop here:</p>
+<pre><code class="language-diagram">Task
+↓
+Result
+</code></pre>
+<p>The cycle ends.</p>
+<p>Nothing changes.</p>
+<p>No learning occurs.</p>
+<p>No improvement occurs.</p>
+<hr>
+<h1 id="damascus-principle">Damascus Principle<a href="#damascus-principle" class="heading-anchor">#</a></h1>
+<p>Every task should generate information for future improvement.</p>
+<p>Every success teaches.</p>
+<p>Every failure teaches.</p>
+<p>Every benchmark teaches.</p>
+<p>Every experiment teaches.</p>
+<hr>
+<h1 id="the-evolution-arena-concept">The Evolution Arena Concept<a href="#the-evolution-arena-concept" class="heading-anchor">#</a></h1>
+<p>Core Damascus idea.</p>
+<pre><code class="language-diagram">Current Workflow
+↓
+Execute
+↓
+Measure
+</code></pre>
+<p>Not enough.</p>
+<hr>
+<pre><code class="language-diagram">Damascus Workflow
+Current Workflow
+↓
+Measure
+↓
+Generate Variants
+↓
+Benchmark Variants
+↓
+Select Winner
+↓
+Promote Winner
+</code></pre>
+<p>This creates measurable improvement.</p>
+<hr>
+<h1 id="example">Example<a href="#example" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">Workflow A
+Research
+↓
+Code
+↓
+Review
+Score: 74
+</code></pre>
+<hr>
+<pre><code class="language-diagram">Workflow B
+Research
+↓
+Critic
+↓
+Code
+↓
+Review
+Score: 89
+</code></pre>
+<hr>
+<p>Result</p>
+<p>Workflow B becomes production.</p>
+<p>Workflow A becomes historical knowledge.</p>
+<hr>
+<h1 id="improvement-targets">Improvement Targets<a href="#improvement-targets" class="heading-anchor">#</a></h1>
+<p>The system should be able to improve:</p>
+<h2 id="prompts">Prompts<a href="#prompts" class="heading-anchor">#</a></h2>
+<p>Example:</p>
+<p>Agent instructions.</p>
+<hr>
+<h2 id="workflows">Workflows<a href="#workflows" class="heading-anchor">#</a></h2>
+<p>Example:</p>
+<p>Task graphs.</p>
+<hr>
+<h2 id="tool-selection">Tool Selection<a href="#tool-selection" class="heading-anchor">#</a></h2>
+<p>Example:</p>
+<p>Choosing better tools.</p>
+<hr>
+<h2 id="agent-structures">Agent Structures<a href="#agent-structures" class="heading-anchor">#</a></h2>
+<p>Example:</p>
+<p>Creating better teams.</p>
+<hr>
+<h2 id="model-routing">Model Routing<a href="#model-routing" class="heading-anchor">#</a></h2>
+<p>Example:</p>
+<p>Assigning tasks to better models.</p>
+<hr>
+<h2 id="research-pipelines">Research Pipelines<a href="#research-pipelines" class="heading-anchor">#</a></h2>
+<p>Example:</p>
+<p>Finding better sources.</p>
+<hr>
+<h1 id="what-should-not-self-improve">What Should Not Self-Improve<a href="#what-should-not-self-improve" class="heading-anchor">#</a></h1>
+<p>Dangerous targets.</p>
+<h2 id="production-source-code">Production Source Code<a href="#production-source-code" class="heading-anchor">#</a></h2>
+<p>Avoid:</p>
+<pre><code class="language-diagram">Agent
+↓
+Rewrite Core System
+↓
+Deploy
+</code></pre>
+<p>Risks:</p>
+<ul>
+<li>instability</li>
+<li>security issues</li>
+<li>corruption</li>
+</ul>
+<hr>
+<h2 id="security-rules">Security Rules<a href="#security-rules" class="heading-anchor">#</a></h2>
+<p>Never self-modify.</p>
+<p>Security must remain human controlled.</p>
+<hr>
+<h2 id="permission-systems">Permission Systems<a href="#permission-systems" class="heading-anchor">#</a></h2>
+<p>Never self-modify.</p>
+<p>Human authority remains mandatory.</p>
+<hr>
+<h1 id="safe-self-improvement">Safe Self-Improvement<a href="#safe-self-improvement" class="heading-anchor">#</a></h1>
+<p>Preferred model:</p>
+<pre><code class="language-diagram">Production
+↓
+Branch
+↓
+Experiment
+↓
+Benchmark
+↓
+Compare
+↓
+Promote
+</code></pre>
+<p>This mirrors successful software development practices.</p>
+<hr>
+<h1 id="the-damascus-branch-model">The Damascus Branch Model<a href="#the-damascus-branch-model" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">Version 1
+↓
+Generate Variants
+Variant A
+Variant B
+Variant C
+↓
+Benchmark
+↓
+Select Winner
+↓
+Promote
+Version 2
+</code></pre>
+<p>This is significantly safer than unrestricted self-modification.</p>
+<hr>
+<h1 id="evolution-memory">Evolution Memory<a href="#evolution-memory" class="heading-anchor">#</a></h1>
+<p>Every experiment should be stored.</p>
+<p>Example:</p>
+<p>Experiment</p>
+<p>Workflow:
+Research → Code</p>
+<p>Score:
+72</p>
+<hr>
+<p>Experiment</p>
+<p>Workflow:
+Research → Critic → Code</p>
+<p>Score:
+89</p>
+<hr>
+<p>Decision:</p>
+<p>Promoted</p>
+<p>This becomes historical intelligence.</p>
+<hr>
+<h1 id="active-research-learning">Active Research Learning<a href="#active-research-learning" class="heading-anchor">#</a></h1>
+<p>Future Damascus versions may perform:</p>
+<pre><code class="language-diagram">Research Paper
+↓
+Technique Extraction
+↓
+Workflow Generation
+↓
+Benchmarking
+↓
+Deployment
+</code></pre>
+<p>This creates a continuous improvement cycle.</p>
+<hr>
+<h1 id="dynamic-team-evolution">Dynamic Team Evolution<a href="#dynamic-team-evolution" class="heading-anchor">#</a></h1>
+<p>Future systems should learn:</p>
+<p>Which agents help?</p>
+<p>Which agents hurt?</p>
+<p>Which structures perform best?</p>
+<p>Team design becomes a learnable problem.</p>
+<hr>
+<h1 id="improvement-metrics">Improvement Metrics<a href="#improvement-metrics" class="heading-anchor">#</a></h1>
+<p>Without metrics there is no improvement.</p>
+<p>Possible metrics:</p>
+<h2 id="coding">Coding<a href="#coding" class="heading-anchor">#</a></h2>
+<ul>
+<li>test pass rate</li>
+<li>execution success</li>
+<li>bug count</li>
+</ul>
+<hr>
+<h2 id="research">Research<a href="#research" class="heading-anchor">#</a></h2>
+<ul>
+<li>source quality</li>
+<li>factual accuracy</li>
+<li>coverage</li>
+</ul>
+<hr>
+<h2 id="planning">Planning<a href="#planning" class="heading-anchor">#</a></h2>
+<ul>
+<li>task completion</li>
+<li>efficiency</li>
+<li>resource usage</li>
+</ul>
+<hr>
+<h2 id="workflow">Workflow<a href="#workflow" class="heading-anchor">#</a></h2>
+<ul>
+<li>success rate</li>
+<li>latency</li>
+<li>cost</li>
+<li>quality</li>
+</ul>
+<hr>
+<h1 id="risks">Risks<a href="#risks" class="heading-anchor">#</a></h1>
+<h2 id="overfitting">Overfitting<a href="#overfitting" class="heading-anchor">#</a></h2>
+<p>Optimizing for benchmarks rather than usefulness.</p>
+<hr>
+<h2 id="local-optima">Local Optima<a href="#local-optima" class="heading-anchor">#</a></h2>
+<p>Finding a good solution but missing a better one.</p>
+<hr>
+<h2 id="experiment-explosion">Experiment Explosion<a href="#experiment-explosion" class="heading-anchor">#</a></h2>
+<p>Too many variants.</p>
+<p>Resource waste.</p>
+<hr>
+<h2 id="false-improvement">False Improvement<a href="#false-improvement" class="heading-anchor">#</a></h2>
+<p>Metrics improve.</p>
+<p>Real usefulness decreases.</p>
+<hr>
+<h2 id="catastrophic-regression">Catastrophic Regression<a href="#catastrophic-regression" class="heading-anchor">#</a></h2>
+<p>New workflow breaks previous capabilities.</p>
+<hr>
+<h1 id="mitigation-strategies">Mitigation Strategies<a href="#mitigation-strategies" class="heading-anchor">#</a></h1>
+<ul>
+<li>benchmark suites</li>
+<li>rollback systems</li>
+<li>promotion thresholds</li>
+<li>approval gates</li>
+<li>historical comparisons</li>
+</ul>
+<hr>
+<h1 id="damascus-self-improvement-principles">Damascus Self-Improvement Principles<a href="#damascus-self-improvement-principles" class="heading-anchor">#</a></h1>
+<ol>
+<li>Improvement Must Be Measured.</li>
+<li>Improvement Must Be Reproducible.</li>
+<li>Improvement Must Be Reversible.</li>
+<li>Improvement Must Be Explainable.</li>
+<li>Improvement Must Be Safe.</li>
+<li>Improvement Must Benefit Future Versions.</li>
+</ol>
+<hr>
+<h1 id="long-term-vision">Long-Term Vision<a href="#long-term-vision" class="heading-anchor">#</a></h1>
+<p>Future Damascus systems should eventually become capable of:</p>
+<ul>
+<li>discovering weaknesses</li>
+<li>generating alternatives</li>
+<li>benchmarking alternatives</li>
+<li>selecting improvements</li>
+<li>preserving knowledge</li>
+</ul>
+<p>without compromising safety or user control.</p>
+<p>The objective is not unrestricted self-modification.</p>
+<p>The objective is controlled, evidence-driven evolution.</p>
+<hr>
+<h1 id="key-insight">Key Insight<a href="#key-insight" class="heading-anchor">#</a></h1>
+<p>Most AI systems ask:</p>
+<p>How can we solve this task?</p>
+<p>Damascus should ask:</p>
+<p>How can we become better at solving this task?</p>
+<p>That question represents the central difference between an agent platform and an evolving intelligence system.</p>
+<hr>
+<h1 id="open-research-questions">Open Research Questions<a href="#open-research-questions" class="heading-anchor">#</a></h1>
+<ol>
+<li>How should variants be generated?</li>
+<li>How should workflows be benchmarked?</li>
+<li>How should promotion decisions work?</li>
+<li>How should evolution memory be structured?</li>
+<li>How should dynamic teams be evaluated?</li>
+<li>How should regressions be detected?</li>
+<li>How much autonomy should the evolution engine possess?</li>
+</ol>
+<p>These questions will directly influence the future Evolution Engine architecture.</p>
+
+        </article>
+        <div class="doc-footer-nav">
+      <a href="../01-Research/OpenHands-Analysis.html" class="nav-card prev">
+        <span class="nav-card-label">Previous</span>
+        <span class="nav-card-title">OpenHands Analysis</span>
+      </a>
+    
+      <a href="../02-Architecture/Agent-Layer.html" class="nav-card next">
+        <span class="nav-card-label">Next</span>
+        <span class="nav-card-title">Agent Layer</span>
+      </a>
+    </div>
+      </div>
+    </main>
+
+    <!-- Right Table of Contents Sidebar -->
+    
+    <aside class="site-toc">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list">
+        <li class="toc-item depth-2">
+  <a href="#prompt-refinement" class="toc-link">Prompt Refinement</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#memory-based-learning" class="toc-link">Memory-Based Learning</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#fine-tuning" class="toc-link">Fine-Tuning</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#reinforcement-learning" class="toc-link">Reinforcement Learning</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#knowledge-improvement" class="toc-link">Knowledge Improvement</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#procedural-improvement" class="toc-link">Procedural Improvement</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tool-improvement" class="toc-link">Tool Improvement</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#team-improvement" class="toc-link">Team Improvement</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#strategy-improvement" class="toc-link">Strategy Improvement</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#prompts" class="toc-link">Prompts</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workflows" class="toc-link">Workflows</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tool-selection" class="toc-link">Tool Selection</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agent-structures" class="toc-link">Agent Structures</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#model-routing" class="toc-link">Model Routing</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#research-pipelines" class="toc-link">Research Pipelines</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#production-source-code" class="toc-link">Production Source Code</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#security-rules" class="toc-link">Security Rules</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#permission-systems" class="toc-link">Permission Systems</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#coding" class="toc-link">Coding</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#research" class="toc-link">Research</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#planning" class="toc-link">Planning</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workflow" class="toc-link">Workflow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#overfitting" class="toc-link">Overfitting</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#local-optima" class="toc-link">Local Optima</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#experiment-explosion" class="toc-link">Experiment Explosion</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#false-improvement" class="toc-link">False Improvement</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#catastrophic-regression" class="toc-link">Catastrophic Regression</a>
+</li>
+
+      </ul>
+    </aside>
+  
+
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenHands Analysis | Damascus Docs</title>
+  <meta name="description" content="Damascus - Privacy-first, local-first intelligence operating system documentation">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    window.damascusMermaid = mermaid;
+  </script>
+</head>
+<body data-root="../">
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="brand">
+      <button class="mobile-header-btn" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="../index.html" class="brand">
+        <div class="logo">D</div>
+        <span class="title">Damascus Docs</span>
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <!-- Search Input Container -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="search-input" placeholder="Search docs..." aria-label="Search documentation">
+          <kbd class="search-shortcut">/</kbd>
+        </div>
+        
+        <!-- Results Dropdown -->
+        <div class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" aria-label="Toggle theme">
+        <!-- Sun (Light Theme Icon) -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon (Dark Theme Icon) -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Layout Grid -->
+  <div class="layout-container">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="site-sidebar">
+      <div class="sidebar-section">
+  <div class="sidebar-section-title">Vision</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Mission.html" class="sidebar-nav-link ">Mission</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Vision.html" class="sidebar-nav-link ">Damascus Vision</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Why-Damascus.html" class="sidebar-nav-link ">Why Damascus Exists</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Research</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/AI-Operating-Systems.html" class="sidebar-nav-link ">AI Operating Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Hermes-Analysis.html" class="sidebar-nav-link ">Hermes Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Knowledge-Graphs.html" class="sidebar-nav-link ">Knowledge Graphs</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/LangGraph-Analysis.html" class="sidebar-nav-link ">LangGraph Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Memory-Systems.html" class="sidebar-nav-link ">Memory Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Multi-Agent-Systems.html" class="sidebar-nav-link ">Multi Agent Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Odysseus-Analysis.html" class="sidebar-nav-link ">Odysseus Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/OpenHands-Analysis.html" class="sidebar-nav-link active">OpenHands Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Self-Improving-Agents.html" class="sidebar-nav-link ">Self Improving Agents</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Architecture</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link ">Agent Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link ">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link ">Evolution Engine</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/High-Level-Architecture.html" class="sidebar-nav-link ">High Level Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Memory-Architecture.html" class="sidebar-nav-link ">Memory Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link ">Model Abstraction Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link ">Security Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Tool-Layer.html" class="sidebar-nav-link ">Tool Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link ">Workspace System</a>
+    </li>
+  </ul>
+</div>
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <article class="doc-content">
+          <div class="doc-meta"><span class="meta-badge">Version 0.1</span><span class="meta-badge status-research-document">Research Document</span></div> <h1 id="executive-summary">Executive Summary<a href="#executive-summary" class="heading-anchor">#</a></h1>
+<p>OpenHands is one of the most significant open-source AI agent projects in the software engineering domain.</p>
+<p>Unlike traditional chat assistants, OpenHands was built around a simple idea:</p>
+<p>An AI agent should interact with computers similarly to a human software engineer.</p>
+<p>Instead of only generating text, the agent can:</p>
+<ul>
+<li>write code</li>
+<li>execute commands</li>
+<li>browse websites</li>
+<li>inspect files</li>
+<li>run tests</li>
+<li>debug software</li>
+</ul>
+<p>inside controlled execution environments.</p>
+<p>OpenHands demonstrates that AI agents become substantially more useful when given access to tools and execution environments rather than being limited to conversations.</p>
+<p>This principle strongly aligns with the long-term Damascus vision.</p>
+<hr>
+<h1 id="research-goals">Research Goals<a href="#research-goals" class="heading-anchor">#</a></h1>
+<p>This document seeks to answer:</p>
+<ol>
+<li>What problem does OpenHands solve?</li>
+<li>What architecture patterns does it use?</li>
+<li>What makes it successful?</li>
+<li>What limitations exist?</li>
+<li>What should Damascus learn?</li>
+</ol>
+<hr>
+<h1 id="the-problem-openhands-solves">The Problem OpenHands Solves<a href="#the-problem-openhands-solves" class="heading-anchor">#</a></h1>
+<p>Traditional AI assistants suffer from a major limitation.</p>
+<p>They can explain how to perform work.</p>
+<p>They often cannot perform the work themselves.</p>
+<p>Example:</p>
+<p>User:
+Fix this bug.</p>
+<p>Traditional Assistant:</p>
+<ul>
+<li>explains possible solutions</li>
+<li>generates code snippets</li>
+</ul>
+<p>OpenHands:</p>
+<ul>
+<li>reads repository</li>
+<li>modifies files</li>
+<li>executes tests</li>
+<li>validates results</li>
+</ul>
+<p>This significantly increases practical usefulness.</p>
+<hr>
+<h1 id="core-philosophy">Core Philosophy<a href="#core-philosophy" class="heading-anchor">#</a></h1>
+<p>OpenHands treats AI agents as software developers.</p>
+<p>The agent operates through:</p>
+<ul>
+<li>code</li>
+<li>terminals</li>
+<li>browsers</li>
+<li>execution environments</li>
+</ul>
+<p>rather than through conversation alone.</p>
+<p>This philosophy represents a major shift from assistant-oriented systems toward operator-oriented systems.</p>
+<hr>
+<h1 id="architectural-concepts">Architectural Concepts<a href="#architectural-concepts" class="heading-anchor">#</a></h1>
+<h2 id="agent">Agent<a href="#agent" class="heading-anchor">#</a></h2>
+<p>Responsible for reasoning and decision making.</p>
+<p>Responsibilities:</p>
+<ul>
+<li>planning</li>
+<li>coding</li>
+<li>debugging</li>
+<li>execution</li>
+</ul>
+<hr>
+<h2 id="tool-layer">Tool Layer<a href="#tool-layer" class="heading-anchor">#</a></h2>
+<p>The agent interacts with tools.</p>
+<p>Examples:</p>
+<ul>
+<li>terminal</li>
+<li>browser</li>
+<li>file system</li>
+<li>editor</li>
+</ul>
+<p>The tool layer dramatically expands capability.</p>
+<hr>
+<h2 id="sandbox-environment">Sandbox Environment<a href="#sandbox-environment" class="heading-anchor">#</a></h2>
+<p>One of OpenHands&#39; most important concepts.</p>
+<p>Actions occur inside controlled environments. OpenHands was explicitly designed around safe interaction with sandboxed execution environments.</p>
+<p>Benefits:</p>
+<ul>
+<li>safety</li>
+<li>reproducibility</li>
+<li>isolation</li>
+<li>recovery</li>
+</ul>
+<hr>
+<h2 id="evaluation-layer">Evaluation Layer<a href="#evaluation-layer" class="heading-anchor">#</a></h2>
+<p>OpenHands includes benchmark evaluation infrastructure and uses software engineering benchmarks to measure performance.</p>
+<p>This is extremely important.</p>
+<p>Without evaluation:</p>
+<p>Improvement cannot be measured.</p>
+<hr>
+<h1 id="architectural-strengths">Architectural Strengths<a href="#architectural-strengths" class="heading-anchor">#</a></h1>
+<h2 id="real-execution">Real Execution<a href="#real-execution" class="heading-anchor">#</a></h2>
+<p>One of the biggest strengths.</p>
+<p>The system performs actions.</p>
+<p>Examples:</p>
+<ul>
+<li>run commands</li>
+<li>execute code</li>
+<li>install dependencies</li>
+<li>test software</li>
+</ul>
+<p>This moves beyond simple text generation.</p>
+<hr>
+<h2 id="sandbox-safety">Sandbox Safety<a href="#sandbox-safety" class="heading-anchor">#</a></h2>
+<p>The use of isolated execution environments is a major design advantage.</p>
+<p>Benefits:</p>
+<ul>
+<li>prevents system damage</li>
+<li>simplifies debugging</li>
+<li>improves security</li>
+</ul>
+<p>Future Damascus systems should adopt a similar principle.</p>
+<hr>
+<h2 id="software-engineering-focus">Software Engineering Focus<a href="#software-engineering-focus" class="heading-anchor">#</a></h2>
+<p>OpenHands focuses on solving real software problems.</p>
+<p>Benefits:</p>
+<ul>
+<li>measurable outcomes</li>
+<li>benchmark availability</li>
+<li>clear success criteria</li>
+</ul>
+<p>This enables rigorous evaluation.</p>
+<hr>
+<h2 id="extensibility">Extensibility<a href="#extensibility" class="heading-anchor">#</a></h2>
+<p>OpenHands was designed as a platform for implementing different agents and tools.</p>
+<p>This is a valuable architectural principle.</p>
+<hr>
+<h2 id="model-agnosticism">Model Agnosticism<a href="#model-agnosticism" class="heading-anchor">#</a></h2>
+<p>Modern OpenHands architecture supports multiple model providers and routing strategies.</p>
+<p>This aligns strongly with Damascus.</p>
+<hr>
+<h1 id="architectural-weaknesses">Architectural Weaknesses<a href="#architectural-weaknesses" class="heading-anchor">#</a></h1>
+<h2 id="domain-concentration">Domain Concentration<a href="#domain-concentration" class="heading-anchor">#</a></h2>
+<p>OpenHands excels at software engineering.</p>
+<p>Its architecture is less focused on becoming a universal intelligence operating system.</p>
+<p>Damascus seeks a broader scope.</p>
+<hr>
+<h2 id="limited-workflow-evolution">Limited Workflow Evolution<a href="#limited-workflow-evolution" class="heading-anchor">#</a></h2>
+<p>OpenHands can solve tasks.</p>
+<p>It does not fundamentally optimize its own workflows through evolutionary mechanisms.</p>
+<p>Example:</p>
+<p>Workflow A performs poorly.</p>
+<p>The system does not automatically generate and benchmark Workflow B.</p>
+<p>This remains an opportunity for Damascus.</p>
+<hr>
+<h2 id="limited-cross-version-learning">Limited Cross-Version Learning<a href="#limited-cross-version-learning" class="heading-anchor">#</a></h2>
+<p>Knowledge persistence exists primarily within sessions, repositories, and workflows.</p>
+<p>Future Damascus systems should investigate:</p>
+<p>Cross-Version Knowledge Inheritance</p>
+<p>where future versions inherit improvements discovered by previous versions.</p>
+<hr>
+<h2 id="tool-centric-rather-than-knowledge-centric">Tool-Centric Rather Than Knowledge-Centric<a href="#tool-centric-rather-than-knowledge-centric" class="heading-anchor">#</a></h2>
+<p>OpenHands emphasizes execution.</p>
+<p>Damascus may need to balance:</p>
+<ul>
+<li>execution</li>
+<li>memory</li>
+<li>research</li>
+<li>evolution</li>
+</ul>
+<p>more evenly.</p>
+<hr>
+<h1 id="lessons-for-damascus">Lessons For Damascus<a href="#lessons-for-damascus" class="heading-anchor">#</a></h1>
+<h2 id="copy">Copy<a href="#copy" class="heading-anchor">#</a></h2>
+<h3 id="sandbox-execution">Sandbox Execution<a href="#sandbox-execution" class="heading-anchor">#</a></h3>
+<p>Mandatory.</p>
+<p>Never allow unrestricted execution.</p>
+<p>All actions should occur inside controlled environments.</p>
+<hr>
+<h3 id="real-tool-usage">Real Tool Usage<a href="#real-tool-usage" class="heading-anchor">#</a></h3>
+<p>Mandatory.</p>
+<p>Useful intelligence requires tools.</p>
+<hr>
+<h3 id="benchmark-integration">Benchmark Integration<a href="#benchmark-integration" class="heading-anchor">#</a></h3>
+<p>Mandatory.</p>
+<p>Claims of improvement require evidence.</p>
+<hr>
+<h3 id="workspace-thinking">Workspace Thinking<a href="#workspace-thinking" class="heading-anchor">#</a></h3>
+<p>Valuable.</p>
+<p>Projects should persist.</p>
+<hr>
+<h3 id="multi-model-support">Multi-Model Support<a href="#multi-model-support" class="heading-anchor">#</a></h3>
+<p>Mandatory.</p>
+<p>Avoid vendor dependence.</p>
+<hr>
+<h1 id="what-damascus-should-improve">What Damascus Should Improve<a href="#what-damascus-should-improve" class="heading-anchor">#</a></h1>
+<h2 id="long-term-memory">Long-Term Memory<a href="#long-term-memory" class="heading-anchor">#</a></h2>
+<p>OpenHands focuses primarily on execution.</p>
+<p>Damascus should invest heavily in memory systems.</p>
+<hr>
+<h2 id="workflow-evolution">Workflow Evolution<a href="#workflow-evolution" class="heading-anchor">#</a></h2>
+<p>OpenHands executes workflows.</p>
+<p>Damascus should improve workflows.</p>
+<hr>
+<h2 id="research-integration">Research Integration<a href="#research-integration" class="heading-anchor">#</a></h2>
+<p>OpenHands primarily reacts to user tasks.</p>
+<p>Future Damascus systems should continuously discover new techniques and improvements.</p>
+<hr>
+<h2 id="dynamic-team-formation">Dynamic Team Formation<a href="#dynamic-team-formation" class="heading-anchor">#</a></h2>
+<p>OpenHands generally uses predefined agent structures.</p>
+<p>Damascus should explore adaptive team generation.</p>
+<hr>
+<h1 id="damascus-opportunity">Damascus Opportunity<a href="#damascus-opportunity" class="heading-anchor">#</a></h1>
+<p>OpenHands solves:</p>
+<p>How can an AI act like a software engineer?</p>
+<p>Damascus should solve:</p>
+<p>How can an intelligence system continuously improve how it acts?</p>
+<p>This distinction is critical.</p>
+<hr>
+<h1 id="future-damascus-architecture">Future Damascus Architecture<a href="#future-damascus-architecture" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">User
+↓
+Workspace
+↓
+Damascus Core
+↓
+Evolution Engine
+↓
+Agent Runtime
+↓
+Tool Layer
+↓
+Sandbox Environment
+</code></pre>
+<p>In this architecture:</p>
+<p>OpenHands concepts help power execution.</p>
+<p>Damascus adds:</p>
+<ul>
+<li>memory</li>
+<li>benchmarking</li>
+<li>evolution</li>
+<li>research</li>
+<li>dynamic teams</li>
+</ul>
+<hr>
+<h1 id="security-lessons">Security Lessons<a href="#security-lessons" class="heading-anchor">#</a></h1>
+<p>OpenHands reinforces an important principle:</p>
+<p>Powerful agents require strong isolation.</p>
+<p>Future Damascus security architecture should include:</p>
+<pre><code class="language-diagram">Permission Layer
+↓
+Approval Layer
+↓
+Sandbox Layer
+↓
+Execution Layer
+</code></pre>
+<p>No single agent should possess unrestricted authority.</p>
+<hr>
+<h1 id="key-insight">Key Insight<a href="#key-insight" class="heading-anchor">#</a></h1>
+<p>OpenHands demonstrates that useful agents must interact with real environments rather than generating text alone.</p>
+<p>However, OpenHands primarily focuses on execution.</p>
+<p>Damascus should focus on execution plus continuous capability improvement.</p>
+<p>The goal is not merely to build an agent that works.</p>
+<p>The goal is to build an agent that becomes better at working over time.</p>
+<hr>
+<h1 id="damascus-action-items">Damascus Action Items<a href="#damascus-action-items" class="heading-anchor">#</a></h1>
+<p>Future architecture documents should investigate:</p>
+<ol>
+<li>Sandbox Architecture</li>
+<li>Tool Abstraction Layer</li>
+<li>Workspace Architecture</li>
+<li>Evolution Arena</li>
+<li>Benchmark Infrastructure</li>
+<li>Dynamic Team Formation</li>
+<li>Cross-Version Knowledge Inheritance</li>
+</ol>
+<p>These areas represent the largest opportunities beyond current OpenHands capabilities.</p>
+
+        </article>
+        <div class="doc-footer-nav">
+      <a href="../01-Research/Odysseus-Analysis.html" class="nav-card prev">
+        <span class="nav-card-label">Previous</span>
+        <span class="nav-card-title">Odysseus Analysis</span>
+      </a>
+    
+      <a href="../01-Research/Self-Improving-Agents.html" class="nav-card next">
+        <span class="nav-card-label">Next</span>
+        <span class="nav-card-title">Self Improving Agents</span>
+      </a>
+    </div>
+      </div>
+    </main>
+
+    <!-- Right Table of Contents Sidebar -->
+    
+    <aside class="site-toc">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list">
+        <li class="toc-item depth-2">
+  <a href="#agent" class="toc-link">Agent</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tool-layer" class="toc-link">Tool Layer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sandbox-environment" class="toc-link">Sandbox Environment</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evaluation-layer" class="toc-link">Evaluation Layer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#real-execution" class="toc-link">Real Execution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sandbox-safety" class="toc-link">Sandbox Safety</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#software-engineering-focus" class="toc-link">Software Engineering Focus</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#extensibility" class="toc-link">Extensibility</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#model-agnosticism" class="toc-link">Model Agnosticism</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#domain-concentration" class="toc-link">Domain Concentration</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#limited-workflow-evolution" class="toc-link">Limited Workflow Evolution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#limited-cross-version-learning" class="toc-link">Limited Cross-Version Learning</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tool-centric-rather-than-knowledge-centric" class="toc-link">Tool-Centric Rather Than Knowledge-Centric</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#copy" class="toc-link">Copy</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#sandbox-execution" class="toc-link">Sandbox Execution</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#real-tool-usage" class="toc-link">Real Tool Usage</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#benchmark-integration" class="toc-link">Benchmark Integration</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#workspace-thinking" class="toc-link">Workspace Thinking</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#multi-model-support" class="toc-link">Multi-Model Support</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#long-term-memory" class="toc-link">Long-Term Memory</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workflow-evolution" class="toc-link">Workflow Evolution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#research-integration" class="toc-link">Research Integration</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#dynamic-team-formation" class="toc-link">Dynamic Team Formation</a>
+</li>
+
+      </ul>
+    </aside>
+  
+
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

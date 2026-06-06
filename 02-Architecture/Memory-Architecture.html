@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Architecture | Damascus Docs</title>
+  <meta name="description" content="Damascus - Privacy-first, local-first intelligence operating system documentation">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    window.damascusMermaid = mermaid;
+  </script>
+</head>
+<body data-root="../">
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="brand">
+      <button class="mobile-header-btn" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="../index.html" class="brand">
+        <div class="logo">D</div>
+        <span class="title">Damascus Docs</span>
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <!-- Search Input Container -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="search-input" placeholder="Search docs..." aria-label="Search documentation">
+          <kbd class="search-shortcut">/</kbd>
+        </div>
+        
+        <!-- Results Dropdown -->
+        <div class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" aria-label="Toggle theme">
+        <!-- Sun (Light Theme Icon) -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon (Dark Theme Icon) -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Layout Grid -->
+  <div class="layout-container">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="site-sidebar">
+      <div class="sidebar-section">
+  <div class="sidebar-section-title">Vision</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Mission.html" class="sidebar-nav-link ">Mission</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Vision.html" class="sidebar-nav-link ">Damascus Vision</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Why-Damascus.html" class="sidebar-nav-link ">Why Damascus Exists</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Research</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/AI-Operating-Systems.html" class="sidebar-nav-link ">AI Operating Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Hermes-Analysis.html" class="sidebar-nav-link ">Hermes Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Knowledge-Graphs.html" class="sidebar-nav-link ">Knowledge Graphs</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/LangGraph-Analysis.html" class="sidebar-nav-link ">LangGraph Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Memory-Systems.html" class="sidebar-nav-link ">Memory Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Multi-Agent-Systems.html" class="sidebar-nav-link ">Multi Agent Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Odysseus-Analysis.html" class="sidebar-nav-link ">Odysseus Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/OpenHands-Analysis.html" class="sidebar-nav-link ">OpenHands Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Self-Improving-Agents.html" class="sidebar-nav-link ">Self Improving Agents</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Architecture</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link ">Agent Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link ">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link ">Evolution Engine</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/High-Level-Architecture.html" class="sidebar-nav-link ">High Level Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Memory-Architecture.html" class="sidebar-nav-link active">Memory Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link ">Model Abstraction Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link ">Security Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Tool-Layer.html" class="sidebar-nav-link ">Tool Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link ">Workspace System</a>
+    </li>
+  </ul>
+</div>
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <article class="doc-content">
+          <div class="doc-meta"><span class="meta-badge">Version 0.1</span><span class="meta-badge status-architecture-foundation">Architecture Foundation</span><span class="meta-badge priority-critical">Priority Critical</span></div> <h1 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h1>
+<p>This document defines the Damascus Memory Architecture.</p>
+<p>Memory is foundational intelligence infrastructure used by every major Damascus subsystem.</p>
+<p>The purpose of memory is not merely to retain information.</p>
+<p>The purpose of memory is to improve future decisions while preserving privacy, provenance, scope, and human authority.</p>
+<p>The Memory Architecture expands the findings of <code>01-Research/Memory-Systems.md</code> into an implementation-grade system design.</p>
+<p>It defines:</p>
+<ul>
+<li>Working Memory</li>
+<li>Episodic Memory</li>
+<li>Semantic Memory</li>
+<li>Procedural Memory</li>
+<li>Evolution Memory</li>
+<li>Knowledge Graph Layer</li>
+<li>storage responsibilities</li>
+<li>lifecycle and retrieval</li>
+<li>ranking and validation</li>
+<li>compression and aging</li>
+<li>promotion and inheritance</li>
+<li>interactions with workflows, agents, and Evolution Layer</li>
+</ul>
+<p>Memory must survive:</p>
+<ul>
+<li>sessions</li>
+<li>agents</li>
+<li>models</li>
+<li>workflow executions</li>
+<li>runtime adapter changes</li>
+<li>Damascus upgrades</li>
+</ul>
+<hr>
+<h1 id="design-philosophy">Design Philosophy<a href="#design-philosophy" class="heading-anchor">#</a></h1>
+<h2 id="memory-as-infrastructure">Memory As Infrastructure<a href="#memory-as-infrastructure" class="heading-anchor">#</a></h2>
+<p>Memory is not a chatbot feature.</p>
+<p>It is a shared capability consumed by workflows, agents, research, evaluation, and evolution.</p>
+<p>No single agent owns Damascus memory.</p>
+<h2 id="memory-is-more-than-storage">Memory Is More Than Storage<a href="#memory-is-more-than-storage" class="heading-anchor">#</a></h2>
+<p>Storage answers:</p>
+<p>Where is information persisted?</p>
+<p>Memory answers:</p>
+<ul>
+<li>What should be retained?</li>
+<li>What does it mean?</li>
+<li>How trustworthy is it?</li>
+<li>Who may retrieve it?</li>
+<li>When is it relevant?</li>
+<li>What supersedes it?</li>
+<li>How did it improve future behavior?</li>
+</ul>
+<h2 id="multi-layer-architecture">Multi-Layer Architecture<a href="#multi-layer-architecture" class="heading-anchor">#</a></h2>
+<p>No single storage technology satisfies all memory requirements.</p>
+<p>Damascus uses:</p>
+<ul>
+<li>Redis for fast temporary working memory</li>
+<li>PostgreSQL for authoritative durable memory records</li>
+<li>Qdrant for semantic retrieval</li>
+<li>a Graph Database for meaningful entities and relationships</li>
+</ul>
+<p>These systems form one logical memory architecture.</p>
+<p>They are not independent sources of truth.</p>
+<h2 id="provenance-before-recall">Provenance Before Recall<a href="#provenance-before-recall" class="heading-anchor">#</a></h2>
+<p>A retrieved statement without provenance may be useful.</p>
+<p>It is not trustworthy enough for critical decisions.</p>
+<p>Memory must preserve where information came from, how it was transformed, and what evidence supports it.</p>
+<h2 id="scope-before-similarity">Scope Before Similarity<a href="#scope-before-similarity" class="heading-anchor">#</a></h2>
+<p>Similarity does not grant access.</p>
+<p>Scope, permissions, classification, and lifecycle state filter memory before ranking.</p>
+<h2 id="controlled-learning">Controlled Learning<a href="#controlled-learning" class="heading-anchor">#</a></h2>
+<p>Every execution produces observations.</p>
+<p>Only validated and policy-eligible observations become durable memory.</p>
+<p>Only evidence-supported memories become promoted procedures or evolution knowledge.</p>
+<h2 id="human-authority">Human Authority<a href="#human-authority" class="heading-anchor">#</a></h2>
+<p>Users must be able to:</p>
+<ul>
+<li>inspect memory</li>
+<li>understand provenance</li>
+<li>correct or supersede memory</li>
+<li>restrict scope</li>
+<li>delete memory where policy permits</li>
+<li>reject promotion</li>
+<li>disable inheritance</li>
+</ul>
+<hr>
+<h1 id="responsibilities">Responsibilities<a href="#responsibilities" class="heading-anchor">#</a></h1>
+<p>The Memory Layer owns:</p>
+<ul>
+<li>memory record contracts</li>
+<li>memory category semantics</li>
+<li>capture and consolidation</li>
+<li>durable memory persistence</li>
+<li>semantic indexing</li>
+<li>graph linking</li>
+<li>retrieval planning</li>
+<li>ranking</li>
+<li>validation state</li>
+<li>compression</li>
+<li>aging and retention</li>
+<li>promotion</li>
+<li>inheritance manifests</li>
+<li>memory provenance</li>
+<li>memory quality telemetry</li>
+</ul>
+<p>It coordinates with:</p>
+<ul>
+<li>Workspace System for ownership scope and policy bindings</li>
+<li>Security Layer for authorization, classification, and deletion policy</li>
+<li>Core State Manager for execution-state references</li>
+<li>Workflows for memory requests and outputs</li>
+<li>Agent Layer for bounded context consumption</li>
+<li>Knowledge Layer for graph reasoning</li>
+<li>Observability Layer for execution evidence</li>
+<li>Benchmark Registry for performance evidence</li>
+<li>Evolution Layer for improvement history</li>
+</ul>
+<hr>
+<h1 id="non-responsibilities">Non-Responsibilities<a href="#non-responsibilities" class="heading-anchor">#</a></h1>
+<p>The Memory Layer does not own:</p>
+<ul>
+<li>workflow execution</li>
+<li>live workflow state transitions</li>
+<li>agent reasoning</li>
+<li>model inference</li>
+<li>tool execution</li>
+<li>security policy definitions</li>
+<li>benchmark execution</li>
+<li>evolution promotion authority</li>
+<li>source document ownership</li>
+</ul>
+<p>The Core State Manager owns authoritative live execution state.</p>
+<p>Working Memory may cache or enrich execution context, but must not replace Core checkpoints.</p>
+<p>The Knowledge Layer may provide graph reasoning services.</p>
+<p>The Memory Layer owns the memory-facing graph records and synchronization contract.</p>
+<hr>
+<h1 id="architectural-principles">Architectural Principles<a href="#architectural-principles" class="heading-anchor">#</a></h1>
+<h2 id="mem-001-durable-identity">MEM-001 Durable Identity<a href="#mem-001-durable-identity" class="heading-anchor">#</a></h2>
+<p>Every durable memory has immutable identity independent of storage backend.</p>
+<h2 id="mem-002-explicit-scope">MEM-002 Explicit Scope<a href="#mem-002-explicit-scope" class="heading-anchor">#</a></h2>
+<p>Every memory has an owning workspace and optional narrower scope.</p>
+<h2 id="mem-003-authoritative-record">MEM-003 Authoritative Record<a href="#mem-003-authoritative-record" class="heading-anchor">#</a></h2>
+<p>PostgreSQL durable records are the source of truth for long-term memory metadata, provenance, and lifecycle.</p>
+<h2 id="mem-004-derived-indexes">MEM-004 Derived Indexes<a href="#mem-004-derived-indexes" class="heading-anchor">#</a></h2>
+<p>Vector and graph representations are derived, rebuildable projections.</p>
+<h2 id="mem-005-provenance">MEM-005 Provenance<a href="#mem-005-provenance" class="heading-anchor">#</a></h2>
+<p>Every durable memory records origin, transformation, and evidence.</p>
+<h2 id="mem-006-validation-state">MEM-006 Validation State<a href="#mem-006-validation-state" class="heading-anchor">#</a></h2>
+<p>Memory confidence and validation are explicit.</p>
+<h2 id="mem-007-non-destructive-evolution">MEM-007 Non-Destructive Evolution<a href="#mem-007-non-destructive-evolution" class="heading-anchor">#</a></h2>
+<p>Correction and promotion create versioned relationships rather than silently rewriting history.</p>
+<h2 id="mem-008-bounded-retrieval">MEM-008 Bounded Retrieval<a href="#mem-008-bounded-retrieval" class="heading-anchor">#</a></h2>
+<p>Retrieval is scoped, permission-filtered, ranked, budgeted, and observable.</p>
+<h2 id="mem-009-cross-version-survival">MEM-009 Cross-Version Survival<a href="#mem-009-cross-version-survival" class="heading-anchor">#</a></h2>
+<p>Memory survives software upgrades through versioned schemas and controlled migration.</p>
+<h2 id="mem-010-measurable-usefulness">MEM-010 Measurable Usefulness<a href="#mem-010-measurable-usefulness" class="heading-anchor">#</a></h2>
+<p>Memory quality is evaluated by its effect on future decisions, not by volume stored.</p>
+<hr>
+<h1 id="high-level-architecture">High-Level Architecture<a href="#high-level-architecture" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">Memory Producers
+├── Workflows
+├── Agents
+├── Tools
+├── Research
+├── Observability
+└── Evolution
+↓
+Memory Capture Gateway
+↓
+Classification And Validation
+↓
+Authoritative Memory Store
+├── PostgreSQL
+├── Redis Working Store
+├── Qdrant Semantic Index
+└── Graph Database
+↓
+Retrieval Planner
+↓
+Scope And Permission Filter
+↓
+Candidate Retrieval
+↓
+Ranking And Context Assembly
+↓
+Memory Consumers
+</code></pre>
+<hr>
+<h1 id="core-components">Core Components<a href="#core-components" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">Memory Layer
+├── Memory Capture Gateway
+├── Memory Classifier
+├── Validation Service
+├── Authoritative Memory Repository
+├── Working Memory Service
+├── Semantic Index Service
+├── Knowledge Graph Adapter
+├── Retrieval Planner
+├── Ranking Engine
+├── Compression Service
+├── Linking Service
+├── Aging And Retention Service
+├── Promotion Service
+├── Inheritance Manager
+└── Memory Telemetry Service
+</code></pre>
+<h2 id="memory-capture-gateway">Memory Capture Gateway<a href="#memory-capture-gateway" class="heading-anchor">#</a></h2>
+<p>The only supported entry point for durable memory candidates.</p>
+<p>It validates:</p>
+<ul>
+<li>source identity</li>
+<li>workspace and project scope</li>
+<li>memory category proposal</li>
+<li>classification</li>
+<li>provenance</li>
+<li>retention policy</li>
+</ul>
+<h2 id="memory-classifier">Memory Classifier<a href="#memory-classifier" class="heading-anchor">#</a></h2>
+<p>Determines whether a candidate is:</p>
+<ul>
+<li>temporary context</li>
+<li>episode</li>
+<li>semantic knowledge</li>
+<li>procedure</li>
+<li>evolution record</li>
+<li>graph relationship candidate</li>
+<li>unsuitable for storage</li>
+</ul>
+<p>Classification may use deterministic rules, models, human input, or workflows.</p>
+<p>Classification output is a proposal until validated according to policy.</p>
+<h2 id="validation-service">Validation Service<a href="#validation-service" class="heading-anchor">#</a></h2>
+<p>Evaluates:</p>
+<ul>
+<li>source reliability</li>
+<li>internal consistency</li>
+<li>contradiction</li>
+<li>evidence</li>
+<li>sensitivity</li>
+<li>scope</li>
+<li>freshness</li>
+</ul>
+<h2 id="authoritative-memory-repository">Authoritative Memory Repository<a href="#authoritative-memory-repository" class="heading-anchor">#</a></h2>
+<p>Persists durable memory records, versions, provenance, validation, and lifecycle state.</p>
+<h2 id="retrieval-planner">Retrieval Planner<a href="#retrieval-planner" class="heading-anchor">#</a></h2>
+<p>Converts a memory request into a bounded retrieval plan spanning relational, vector, temporal, procedural, evolution, and graph retrieval.</p>
+<h2 id="ranking-engine">Ranking Engine<a href="#ranking-engine" class="heading-anchor">#</a></h2>
+<p>Ranks eligible candidates using relevance, quality, scope, recency, evidence, and task-specific factors.</p>
+<h2 id="linking-service">Linking Service<a href="#linking-service" class="heading-anchor">#</a></h2>
+<p>Creates and maintains meaningful memory relationships.</p>
+<h2 id="promotion-service">Promotion Service<a href="#promotion-service" class="heading-anchor">#</a></h2>
+<p>Coordinates controlled movement or derivation from narrow, provisional memory into broader or more authoritative memory.</p>
+<h2 id="inheritance-manager">Inheritance Manager<a href="#inheritance-manager" class="heading-anchor">#</a></h2>
+<p>Migrates and exposes eligible memory across Damascus versions without coupling memory to implementation versions.</p>
+<hr>
+<h1 id="unified-memory-record">Unified Memory Record<a href="#unified-memory-record" class="heading-anchor">#</a></h1>
+<p>Minimum durable record:</p>
+<pre><code class="language-text">MemoryRecord
+  memory_id
+  memory_version_id
+  memory_type
+  workspace_id
+  project_id | null
+  workflow_definition_id | null
+  workflow_execution_id | null
+  principal_id | null
+  title
+  content_reference
+  summary
+  provenance
+  classification
+  validation_state
+  confidence
+  importance
+  lifecycle_state
+  retention_policy_id
+  created_at
+  created_by
+  observed_at
+  valid_from | null
+  valid_until | null
+  supersedes_memory_version_id | null
+  schema_version
+</code></pre>
+<h2 id="lifecycle-states">Lifecycle States<a href="#lifecycle-states" class="heading-anchor">#</a></h2>
+<ul>
+<li>Candidate</li>
+<li>Validating</li>
+<li>Active</li>
+<li>Restricted</li>
+<li>Quarantined</li>
+<li>Superseded</li>
+<li>Archived</li>
+<li>Deletion Pending</li>
+<li>Deleted</li>
+</ul>
+<h2 id="validation-states">Validation States<a href="#validation-states" class="heading-anchor">#</a></h2>
+<ul>
+<li>Unverified</li>
+<li>SourceVerified</li>
+<li>Corroborated</li>
+<li>BenchmarkValidated</li>
+<li>HumanValidated</li>
+<li>Disputed</li>
+<li>Invalidated</li>
+</ul>
+<p>Validation is multi-dimensional.</p>
+<p>A memory may be source-verified but still semantically incorrect.</p>
+<hr>
+<h1 id="working-memory">Working Memory<a href="#working-memory" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>Working Memory provides fast, temporary context for active workflows and reasoning.</p>
+<p>Examples:</p>
+<ul>
+<li>current task context</li>
+<li>intermediate plans</li>
+<li>transient model outputs</li>
+<li>active retrieved context</li>
+<li>short-lived coordination state</li>
+</ul>
+<h2 id="storage">Storage<a href="#storage" class="heading-anchor">#</a></h2>
+<p>Primary technology:</p>
+<p>Redis</p>
+<p>Redis provides:</p>
+<ul>
+<li>low-latency access</li>
+<li>expiration</li>
+<li>bounded caches</li>
+<li>transient coordination</li>
+</ul>
+<h2 id="boundary-with-core-state">Boundary With Core State<a href="#boundary-with-core-state" class="heading-anchor">#</a></h2>
+<p>Core State Manager remains authoritative for:</p>
+<ul>
+<li>workflow lifecycle</li>
+<li>node state</li>
+<li>checkpoints</li>
+<li>retry state</li>
+</ul>
+<p>Working Memory contains cognitive and contextual data used during execution.</p>
+<p>It must not become the only copy of state required for workflow recovery.</p>
+<h2 id="lifecycle">Lifecycle<a href="#lifecycle" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Create
+↓
+Use
+↓
+Refresh Or Expire
+↓
+Summarize And Propose Durable Candidates
+↓
+Delete
+</code></pre>
+<h2 id="constraints">Constraints<a href="#constraints" class="heading-anchor">#</a></h2>
+<p>Working Memory must be:</p>
+<ul>
+<li>scope-bound</li>
+<li>size-limited</li>
+<li>TTL-controlled</li>
+<li>checkpoint-aware</li>
+<li>excluded from durable inheritance unless consolidated</li>
+</ul>
+<hr>
+<h1 id="episodic-memory">Episodic Memory<a href="#episodic-memory" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>Episodic Memory records what happened.</p>
+<p>Examples:</p>
+<ul>
+<li>workflow outcomes</li>
+<li>decisions</li>
+<li>failures</li>
+<li>recoveries</li>
+<li>user corrections</li>
+<li>completed project events</li>
+</ul>
+<h2 id="storage">Storage<a href="#storage" class="heading-anchor">#</a></h2>
+<p>Authoritative records:</p>
+<p>PostgreSQL</p>
+<p>Semantic representations:</p>
+<p>Qdrant</p>
+<p>Meaningful relationships:</p>
+<p>Graph Database</p>
+<h2 id="episode-structure">Episode Structure<a href="#episode-structure" class="heading-anchor">#</a></h2>
+<p>An episode should record:</p>
+<ul>
+<li>initiating goal</li>
+<li>relevant scope</li>
+<li>workflow and version</li>
+<li>material decisions</li>
+<li>result</li>
+<li>metrics</li>
+<li>failure and recovery</li>
+<li>lessons proposed</li>
+<li>provenance links</li>
+</ul>
+<p>Raw traces remain in Observability.</p>
+<p>Episodic Memory stores a durable, meaningful representation rather than duplicating every log line.</p>
+<h2 id="consolidation">Consolidation<a href="#consolidation" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Completed execution
+↓
+Trace Analysis
+↓
+Episode Candidate
+↓
+Validation And Redaction
+↓
+Durable Episode
+↓
+Semantic And Graph Indexing
+</code></pre>
+<hr>
+<h1 id="semantic-memory">Semantic Memory<a href="#semantic-memory" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>Semantic Memory records durable knowledge.</p>
+<p>It answers:</p>
+<p>What is known?</p>
+<p>Examples:</p>
+<ul>
+<li>facts</li>
+<li>concepts</li>
+<li>document-derived knowledge</li>
+<li>research findings</li>
+<li>project conventions</li>
+</ul>
+<h2 id="storage">Storage<a href="#storage" class="heading-anchor">#</a></h2>
+<p>PostgreSQL stores authoritative semantic records and provenance.</p>
+<p>Qdrant stores embeddings for semantic retrieval.</p>
+<p>Graph Database stores relationships among meaningful entities.</p>
+<h2 id="fact-model">Fact Model<a href="#fact-model" class="heading-anchor">#</a></h2>
+<p>Semantic memories should distinguish:</p>
+<ul>
+<li>claim</li>
+<li>evidence</li>
+<li>confidence</li>
+<li>temporal validity</li>
+<li>scope</li>
+<li>contradictions</li>
+</ul>
+<p>Facts are not timeless by default.</p>
+<h2 id="contradiction-handling">Contradiction Handling<a href="#contradiction-handling" class="heading-anchor">#</a></h2>
+<p>Contradictory memories are linked, not silently overwritten.</p>
+<p>Resolution may:</p>
+<ul>
+<li>prefer newer evidence</li>
+<li>prefer authoritative sources</li>
+<li>preserve domain-specific differences</li>
+<li>mark unresolved dispute</li>
+<li>require human decision</li>
+</ul>
+<hr>
+<h1 id="procedural-memory">Procedural Memory<a href="#procedural-memory" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>Procedural Memory records how work should be performed.</p>
+<p>Examples:</p>
+<ul>
+<li>workflows</li>
+<li>playbooks</li>
+<li>strategies</li>
+<li>team structures</li>
+<li>tool sequences</li>
+<li>recovery procedures</li>
+</ul>
+<h2 id="procedure-structure">Procedure Structure<a href="#procedure-structure" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">ProcedureMemory
+  procedure_id
+  procedure_version
+  purpose
+  applicability_conditions
+  workflow_reference | null
+  steps_or_strategy
+  required_capabilities
+  constraints
+  benchmark_evidence
+  known_failure_modes
+  rollback_reference
+  lifecycle_state
+</code></pre>
+<h2 id="relationship-to-workflow-registry">Relationship To Workflow Registry<a href="#relationship-to-workflow-registry" class="heading-anchor">#</a></h2>
+<p>The Workflow Registry stores executable workflow definitions and versions.</p>
+<p>Procedural Memory stores learned knowledge about when, why, and how procedures work.</p>
+<p>A procedural memory may reference a workflow.</p>
+<p>It does not replace the Workflow Registry.</p>
+<h2 id="promotion">Promotion<a href="#promotion" class="heading-anchor">#</a></h2>
+<p>Procedures require stronger promotion evidence than ordinary episodes.</p>
+<p>Promotion should consider:</p>
+<ul>
+<li>benchmark score</li>
+<li>repeated success</li>
+<li>failure rate</li>
+<li>scope applicability</li>
+<li>cost and latency</li>
+<li>security compatibility</li>
+</ul>
+<hr>
+<h1 id="evolution-memory">Evolution Memory<a href="#evolution-memory" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>Evolution Memory records what made Damascus better, worse, or unchanged.</p>
+<p>It is the historical intelligence of controlled improvement.</p>
+<h2 id="contents">Contents<a href="#contents" class="heading-anchor">#</a></h2>
+<ul>
+<li>baseline definitions</li>
+<li>variants</li>
+<li>experiment configurations</li>
+<li>benchmark results</li>
+<li>comparisons</li>
+<li>promotion decisions</li>
+<li>rejected candidates</li>
+<li>regressions</li>
+<li>rollbacks</li>
+<li>human rationale</li>
+</ul>
+<h2 id="immutability">Immutability<a href="#immutability" class="heading-anchor">#</a></h2>
+<p>Evolution Memory is append-oriented.</p>
+<p>Historical evidence and decisions must not be silently rewritten.</p>
+<p>Corrections create linked amendments.</p>
+<h2 id="relationship-to-evolution-layer">Relationship To Evolution Layer<a href="#relationship-to-evolution-layer" class="heading-anchor">#</a></h2>
+<p>The Evolution Layer owns:</p>
+<ul>
+<li>variant generation</li>
+<li>experiment execution</li>
+<li>comparison</li>
+<li>promotion proposals</li>
+</ul>
+<p>Evolution Memory owns durable records of those activities and their evidence.</p>
+<h2 id="example">Example<a href="#example" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">Experiment
+  baseline: workflow_v4
+  candidate: workflow_v5
+  benchmark_suite: coding_suite_v2
+  result: candidate +8.3%
+  regressions: latency +12%
+  decision: promoted
+  approved_by: user_...
+</code></pre>
+<hr>
+<h1 id="knowledge-graph-layer">Knowledge Graph Layer<a href="#knowledge-graph-layer" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>The Knowledge Graph Layer represents meaningful entities and relationships.</p>
+<p>Vectors answer:</p>
+<p>What is similar?</p>
+<p>Graphs answer:</p>
+<p>What is connected?</p>
+<h2 id="boundary">Boundary<a href="#boundary" class="heading-anchor">#</a></h2>
+<p>The Knowledge Layer provides graph infrastructure and reasoning capabilities.</p>
+<p>The Memory Layer defines memory-specific graph mappings, synchronization, and retrieval use.</p>
+<h2 id="candidate-entities">Candidate Entities<a href="#candidate-entities" class="heading-anchor">#</a></h2>
+<ul>
+<li>Workspace</li>
+<li>Project</li>
+<li>Task</li>
+<li>Workflow</li>
+<li>Workflow Version</li>
+<li>Execution</li>
+<li>Agent Definition</li>
+<li>Tool</li>
+<li>Model Profile</li>
+<li>Memory</li>
+<li>Artifact</li>
+<li>Benchmark</li>
+<li>Experiment</li>
+<li>Research Source</li>
+</ul>
+<h2 id="candidate-relationships">Candidate Relationships<a href="#candidate-relationships" class="heading-anchor">#</a></h2>
+<ul>
+<li>CONTAINS</li>
+<li>PRODUCED</li>
+<li>DERIVED_FROM</li>
+<li>USED</li>
+<li>EXECUTED_BY</li>
+<li>EVALUATED_BY</li>
+<li>IMPROVED_INTO</li>
+<li>SUPERSEDES</li>
+<li>CONTRADICTS</li>
+<li>SUPPORTS</li>
+<li>FAILED_WITH</li>
+<li>PROMOTED_TO</li>
+</ul>
+<h2 id="entity-selection">Entity Selection<a href="#entity-selection" class="heading-anchor">#</a></h2>
+<p>Not every message or token becomes a graph node.</p>
+<p>Entities and relationships require:</p>
+<ul>
+<li>stable identity</li>
+<li>meaningful future query value</li>
+<li>provenance</li>
+<li>scope</li>
+<li>confidence</li>
+</ul>
+<h2 id="graph-synchronization">Graph Synchronization<a href="#graph-synchronization" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Authoritative memory change
+↓
+Outbox Event
+↓
+Graph Projection Update
+↓
+Verification
+</code></pre>
+<p>Graph projection failure does not corrupt the authoritative memory record.</p>
+<p>It marks graph retrieval degraded until reconciled.</p>
+<hr>
+<h1 id="storage-architecture">Storage Architecture<a href="#storage-architecture" class="heading-anchor">#</a></h1>
+<h2 id="postgresql">PostgreSQL<a href="#postgresql" class="heading-anchor">#</a></h2>
+<p>PostgreSQL is authoritative for:</p>
+<ul>
+<li>durable memory records</li>
+<li>memory versions</li>
+<li>provenance</li>
+<li>validation</li>
+<li>lifecycle</li>
+<li>retention</li>
+<li>promotion records</li>
+<li>inheritance manifests</li>
+<li>projection status</li>
+</ul>
+<h2 id="redis">Redis<a href="#redis" class="heading-anchor">#</a></h2>
+<p>Redis stores:</p>
+<ul>
+<li>working memory</li>
+<li>retrieval caches</li>
+<li>bounded context caches</li>
+<li>short-lived ranking features</li>
+<li>consolidation queues</li>
+</ul>
+<p>Redis loss must not destroy durable memory.</p>
+<h2 id="qdrant">Qdrant<a href="#qdrant" class="heading-anchor">#</a></h2>
+<p>Qdrant stores semantic vectors and retrieval metadata.</p>
+<p>Every vector point must include:</p>
+<ul>
+<li>memory identity</li>
+<li>memory version</li>
+<li>workspace scope</li>
+<li>optional project scope</li>
+<li>classification</li>
+<li>lifecycle eligibility</li>
+<li>embedding profile</li>
+</ul>
+<p>Qdrant is a derived index.</p>
+<h2 id="graph-database">Graph Database<a href="#graph-database" class="heading-anchor">#</a></h2>
+<p>The graph database stores meaningful relationship projections.</p>
+<p>Technology may include:</p>
+<ul>
+<li>Neo4j</li>
+<li>Memgraph</li>
+<li>Apache AGE</li>
+<li>future graph systems</li>
+</ul>
+<p>The architecture depends on a graph interface, not a specific vendor.</p>
+<h2 id="consistency-model">Consistency Model<a href="#consistency-model" class="heading-anchor">#</a></h2>
+<p>PostgreSQL commits authoritative change and an outbox event atomically.</p>
+<p>Vector and graph projections update asynchronously.</p>
+<p>Retrieval must detect stale or failed projections and degrade safely.</p>
+<h2 id="rebuildability">Rebuildability<a href="#rebuildability" class="heading-anchor">#</a></h2>
+<p>Qdrant and graph projections must be rebuildable from authoritative records, source artifacts, and provenance.</p>
+<hr>
+<h1 id="memory-lifecycle">Memory Lifecycle<a href="#memory-lifecycle" class="heading-anchor">#</a></h1>
+<h2 id="full-lifecycle">Full Lifecycle<a href="#full-lifecycle" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Observe
+↓
+Capture Candidate
+↓
+Classify
+↓
+Scope And Authorize
+↓
+Validate
+↓
+Store Authoritative Record
+↓
+Index And Link
+↓
+Retrieve And Apply
+↓
+Measure Usefulness
+↓
+Age, Compress, Promote, Restrict, Supersede, Or Delete
+</code></pre>
+<h2 id="capture">Capture<a href="#capture" class="heading-anchor">#</a></h2>
+<p>Memory capture may be initiated by:</p>
+<ul>
+<li>workflow completion</li>
+<li>agent proposal</li>
+<li>user action</li>
+<li>research ingestion</li>
+<li>benchmark result</li>
+<li>evolution experiment</li>
+<li>system reconciliation</li>
+</ul>
+<p>Capture is policy-controlled.</p>
+<h2 id="consolidation">Consolidation<a href="#consolidation" class="heading-anchor">#</a></h2>
+<p>Consolidation transforms raw observations into durable memory candidates.</p>
+<p>It should:</p>
+<ul>
+<li>remove duplication</li>
+<li>preserve provenance</li>
+<li>extract lessons</li>
+<li>classify sensitivity</li>
+<li>identify relationships</li>
+</ul>
+<h2 id="deletion">Deletion<a href="#deletion" class="heading-anchor">#</a></h2>
+<p>Deletion must propagate to:</p>
+<ul>
+<li>authoritative records</li>
+<li>vectors</li>
+<li>graph projections</li>
+<li>caches</li>
+<li>derived summaries</li>
+<li>exports and backups according to policy</li>
+</ul>
+<p>Minimal tombstones may remain for integrity and audit.</p>
+<hr>
+<h1 id="memory-retrieval">Memory Retrieval<a href="#memory-retrieval" class="heading-anchor">#</a></h1>
+<h2 id="retrieval-request">Retrieval Request<a href="#retrieval-request" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">MemoryRetrievalRequest
+  workspace_id
+  project_id | null
+  workflow_execution_id
+  requesting_principal
+  query
+  requested_memory_types
+  temporal_constraints
+  relationship_constraints
+  validation_threshold
+  classification_limit
+  result_budget
+  token_budget
+</code></pre>
+<h2 id="retrieval-flow">Retrieval Flow<a href="#retrieval-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Request
+↓
+Resolve Scope And Permissions
+↓
+Build Retrieval Plan
+↓
+Query Eligible Stores
+↓
+Merge And Deduplicate Candidates
+↓
+Validate Candidate Eligibility
+↓
+Rank
+↓
+Assemble Bounded Context
+↓
+Record Retrieval Provenance
+</code></pre>
+<h2 id="retrieval-modes">Retrieval Modes<a href="#retrieval-modes" class="heading-anchor">#</a></h2>
+<ul>
+<li>exact identifier lookup</li>
+<li>semantic similarity</li>
+<li>temporal retrieval</li>
+<li>graph traversal</li>
+<li>procedural retrieval</li>
+<li>evolution retrieval</li>
+<li>hybrid retrieval</li>
+</ul>
+<h2 id="hybrid-retrieval">Hybrid Retrieval<a href="#hybrid-retrieval" class="heading-anchor">#</a></h2>
+<p>Hybrid retrieval combines:</p>
+<ul>
+<li>lexical match</li>
+<li>vector similarity</li>
+<li>graph proximity</li>
+<li>temporal relevance</li>
+<li>procedural applicability</li>
+<li>validation quality</li>
+</ul>
+<p>The Retrieval Planner chooses strategies based on request type and budget.</p>
+<h2 id="context-assembly">Context Assembly<a href="#context-assembly" class="heading-anchor">#</a></h2>
+<p>Retrieved memory is assembled with:</p>
+<ul>
+<li>source identity</li>
+<li>confidence</li>
+<li>age</li>
+<li>scope</li>
+<li>relevant warnings</li>
+<li>contradiction markers</li>
+</ul>
+<p>The system must not present uncertain memory as unquestioned truth.</p>
+<hr>
+<h1 id="memory-ranking">Memory Ranking<a href="#memory-ranking" class="heading-anchor">#</a></h1>
+<h2 id="ranking-factors">Ranking Factors<a href="#ranking-factors" class="heading-anchor">#</a></h2>
+<p>Candidate ranking may include:</p>
+<ul>
+<li>semantic relevance</li>
+<li>graph relevance</li>
+<li>scope proximity</li>
+<li>task applicability</li>
+<li>validation strength</li>
+<li>source reliability</li>
+<li>recency</li>
+<li>temporal validity</li>
+<li>importance</li>
+<li>prior usefulness</li>
+<li>contradiction status</li>
+<li>diversity</li>
+</ul>
+<h2 id="hard-filters-before-ranking">Hard Filters Before Ranking<a href="#hard-filters-before-ranking" class="heading-anchor">#</a></h2>
+<p>Candidates are removed before ranking when they fail:</p>
+<ul>
+<li>authorization</li>
+<li>scope</li>
+<li>classification</li>
+<li>lifecycle eligibility</li>
+<li>retention</li>
+<li>minimum validation</li>
+</ul>
+<h2 id="ranking-explainability">Ranking Explainability<a href="#ranking-explainability" class="heading-anchor">#</a></h2>
+<p>For critical retrieval, Damascus should expose why a memory ranked highly.</p>
+<p>Example:</p>
+<ul>
+<li>project-scoped</li>
+<li>directly linked to current workflow</li>
+<li>human-validated</li>
+<li>used successfully three times</li>
+</ul>
+<h2 id="feedback">Feedback<a href="#feedback" class="heading-anchor">#</a></h2>
+<p>Retrieval outcomes may update usefulness telemetry.</p>
+<p>They must not automatically rewrite truth confidence.</p>
+<hr>
+<h1 id="memory-compression">Memory Compression<a href="#memory-compression" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>Compression reduces storage and context cost while preserving useful knowledge and provenance.</p>
+<h2 id="compression-types">Compression Types<a href="#compression-types" class="heading-anchor">#</a></h2>
+<ul>
+<li>lossless deduplication</li>
+<li>episode summarization</li>
+<li>cluster summarization</li>
+<li>archival compression</li>
+<li>procedural extraction</li>
+<li>graph consolidation</li>
+</ul>
+<h2 id="compression-rules">Compression Rules<a href="#compression-rules" class="heading-anchor">#</a></h2>
+<p>Compression must:</p>
+<ul>
+<li>retain source links</li>
+<li>state whether transformation is lossy</li>
+<li>preserve critical decisions and evidence</li>
+<li>avoid broadening scope</li>
+<li>remain reversible where source retention policy allows</li>
+</ul>
+<h2 id="summary-validation">Summary Validation<a href="#summary-validation" class="heading-anchor">#</a></h2>
+<p>Generated summaries are new memory candidates.</p>
+<p>They require validation and must not replace source records immediately.</p>
+<hr>
+<h1 id="memory-linking">Memory Linking<a href="#memory-linking" class="heading-anchor">#</a></h1>
+<p>Memory links provide structure across types.</p>
+<p>Examples:</p>
+<p>Episode
+DERIVED
+Procedure</p>
+<p>Procedure
+EVALUATED_BY
+Benchmark</p>
+<p>Experiment
+PROMOTED
+Workflow Version</p>
+<p>Semantic Claim
+SUPPORTED_BY
+Research Source</p>
+<p>Links include:</p>
+<ul>
+<li>relationship type</li>
+<li>source and target</li>
+<li>confidence</li>
+<li>provenance</li>
+<li>scope</li>
+<li>lifecycle</li>
+</ul>
+<p>Links must obey cross-scope policy.</p>
+<hr>
+<h1 id="memory-validation">Memory Validation<a href="#memory-validation" class="heading-anchor">#</a></h1>
+<h2 id="validation-methods">Validation Methods<a href="#validation-methods" class="heading-anchor">#</a></h2>
+<ul>
+<li>source verification</li>
+<li>schema validation</li>
+<li>cross-source corroboration</li>
+<li>contradiction detection</li>
+<li>benchmark validation</li>
+<li>workflow outcome validation</li>
+<li>human review</li>
+</ul>
+<h2 id="validation-flow">Validation Flow<a href="#validation-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Candidate
+↓
+Validate Source And Scope
+↓
+Check Existing Knowledge
+↓
+Detect Contradictions
+↓
+Assign Confidence And State
+↓
+Activate, Restrict, Quarantine, Or Reject
+</code></pre>
+<h2 id="invalid-memory">Invalid Memory<a href="#invalid-memory" class="heading-anchor">#</a></h2>
+<p>Invalid memory is not always deleted.</p>
+<p>Failed procedures and rejected hypotheses may be valuable evolution memory.</p>
+<p>They must be clearly typed and excluded from ordinary factual retrieval.</p>
+<hr>
+<h1 id="memory-aging">Memory Aging<a href="#memory-aging" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>Aging reduces the influence and storage cost of stale or low-value memory.</p>
+<p>Memory is not immortal by default.</p>
+<h2 id="aging-factors">Aging Factors<a href="#aging-factors" class="heading-anchor">#</a></h2>
+<ul>
+<li>time since observation</li>
+<li>temporal validity</li>
+<li>retrieval frequency</li>
+<li>demonstrated usefulness</li>
+<li>supersession</li>
+<li>source freshness</li>
+<li>policy retention</li>
+</ul>
+<h2 id="aging-actions">Aging Actions<a href="#aging-actions" class="heading-anchor">#</a></h2>
+<ul>
+<li>reduce ranking weight</li>
+<li>request revalidation</li>
+<li>compress</li>
+<li>archive</li>
+<li>restrict</li>
+<li>delete</li>
+</ul>
+<h2 id="category-specific-aging">Category-Specific Aging<a href="#category-specific-aging" class="heading-anchor">#</a></h2>
+<p>Working Memory expires quickly.</p>
+<p>Episodes may compress over time.</p>
+<p>Semantic facts require validity review.</p>
+<p>Procedures age when dependencies or environments change.</p>
+<p>Evolution Memory is retained longer because failed experiments prevent repeated mistakes.</p>
+<hr>
+<h1 id="memory-promotion">Memory Promotion<a href="#memory-promotion" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>Promotion converts narrower or provisional learning into broader, trusted, reusable memory.</p>
+<p>Examples:</p>
+<ul>
+<li>execution observation to episode</li>
+<li>episode lesson to semantic memory</li>
+<li>repeated successful method to procedure</li>
+<li>benchmark result to evolution memory</li>
+<li>project procedure to workspace procedure</li>
+</ul>
+<h2 id="promotion-flow">Promotion Flow<a href="#promotion-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Candidate
+↓
+Validate
+↓
+Check Scope And Sensitive Data
+↓
+Check Evidence Threshold
+↓
+Create Promoted Version
+↓
+Link Provenance
+↓
+Approve If Required
+↓
+Activate
+</code></pre>
+<p>Promotion creates a new memory version or artifact.</p>
+<p>It does not silently mutate the source.</p>
+<h2 id="promotion-authority">Promotion Authority<a href="#promotion-authority" class="heading-anchor">#</a></h2>
+<p>The Memory Layer validates and executes memory promotion.</p>
+<p>The Workspace and Security policies determine scope authority.</p>
+<p>Evolution Layer proposes evidence-based procedural and evolution promotions.</p>
+<p>Human approval remains required where policy specifies.</p>
+<hr>
+<h1 id="cross-version-memory-inheritance">Cross-Version Memory Inheritance<a href="#cross-version-memory-inheritance" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>Memory must survive Damascus upgrades and remain usable by future versions.</p>
+<p>Cross-version inheritance is schema and meaning preservation, not raw database copying alone.</p>
+<h2 id="inheritance-contract">Inheritance Contract<a href="#inheritance-contract" class="heading-anchor">#</a></h2>
+<p>Each release defines:</p>
+<ul>
+<li>supported memory schema versions</li>
+<li>migration functions</li>
+<li>compatibility rules</li>
+<li>deprecated memory types</li>
+<li>required re-indexing</li>
+<li>required revalidation</li>
+</ul>
+<h2 id="inheritance-flow">Inheritance Flow<a href="#inheritance-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Pre-Upgrade Integrity Check
+↓
+Create Inheritance Manifest
+↓
+Backup Authoritative Memory
+↓
+Migrate Schema
+↓
+Validate Scope And Provenance
+↓
+Rebuild Derived Indexes
+↓
+Run Compatibility Benchmarks
+↓
+Activate New Version
+↓
+Retain Rollback Path
+</code></pre>
+<h2 id="inheritance-manifest">Inheritance Manifest<a href="#inheritance-manifest" class="heading-anchor">#</a></h2>
+<p>Records:</p>
+<ul>
+<li>source Damascus version</li>
+<li>destination version</li>
+<li>memory counts by type and state</li>
+<li>migration operations</li>
+<li>failed records</li>
+<li>quarantined records</li>
+<li>index rebuild status</li>
+<li>validation results</li>
+</ul>
+<h2 id="behavioral-inheritance">Behavioral Inheritance<a href="#behavioral-inheritance" class="heading-anchor">#</a></h2>
+<p>Procedural and evolution memories may describe workflows or capabilities no longer available.</p>
+<p>They remain historical knowledge but must be marked incompatible until adapted and re-benchmarked.</p>
+<hr>
+<h1 id="interaction-with-workflows">Interaction With Workflows<a href="#interaction-with-workflows" class="heading-anchor">#</a></h1>
+<p>Workflows are primary memory producers and consumers.</p>
+<h2 id="before-execution">Before Execution<a href="#before-execution" class="heading-anchor">#</a></h2>
+<p>Workflow requests bounded relevant memory.</p>
+<h2 id="during-execution">During Execution<a href="#during-execution" class="heading-anchor">#</a></h2>
+<p>Workflow uses working memory and may propose memory candidates.</p>
+<h2 id="after-execution">After Execution<a href="#after-execution" class="heading-anchor">#</a></h2>
+<p>Workflow results, traces, and metrics may be consolidated into episodes, procedures, or evolution records.</p>
+<h2 id="constraints">Constraints<a href="#constraints" class="heading-anchor">#</a></h2>
+<p>Workflows must:</p>
+<ul>
+<li>declare memory scope</li>
+<li>declare retrieval budget</li>
+<li>respect provenance and confidence</li>
+<li>avoid direct storage-backend access</li>
+<li>submit durable candidates through Memory Capture Gateway</li>
+</ul>
+<hr>
+<h1 id="interaction-with-agents">Interaction With Agents<a href="#interaction-with-agents" class="heading-anchor">#</a></h1>
+<p>Agents consume memory only within workflow-defined context and permissions.</p>
+<p>Agents may:</p>
+<ul>
+<li>request retrieval</li>
+<li>use retrieved context</li>
+<li>propose memory candidates</li>
+<li>propose links</li>
+<li>flag contradictions</li>
+</ul>
+<p>Agents may not:</p>
+<ul>
+<li>access all workspace memory by default</li>
+<li>directly write durable memory</li>
+<li>promote their own claims without validation</li>
+<li>change memory permissions</li>
+<li>erase audit or evolution history</li>
+</ul>
+<p>Agent identity is retained in provenance.</p>
+<p>Memory survives agent retirement.</p>
+<hr>
+<h1 id="interaction-with-evolution-engine">Interaction With Evolution Engine<a href="#interaction-with-evolution-engine" class="heading-anchor">#</a></h1>
+<p>Evolution depends on Memory Architecture for:</p>
+<ul>
+<li>baseline history</li>
+<li>variant history</li>
+<li>benchmark evidence</li>
+<li>failure patterns</li>
+<li>promotion and rollback history</li>
+<li>procedural knowledge</li>
+</ul>
+<p>Evolution writes candidates and experiment records through memory contracts.</p>
+<p>Evolution does not directly alter active memory truth or security policy.</p>
+<p>Evolution memory closes the loop:</p>
+<pre><code class="language-diagram">Observe
+↓
+Evaluate
+↓
+Generate Variant
+↓
+Benchmark
+↓
+Compare
+↓
+Promote
+↓
+Remember Why
+</code></pre>
+<hr>
+<h1 id="failure-modes">Failure Modes<a href="#failure-modes" class="heading-anchor">#</a></h1>
+<h2 id="redis-loss">Redis Loss<a href="#redis-loss" class="heading-anchor">#</a></h2>
+<p>Impact:</p>
+<p>Working context and caches are lost.</p>
+<p>Recovery:</p>
+<ul>
+<li>restore from Core checkpoints where applicable</li>
+<li>rebuild caches</li>
+<li>restart affected nodes according to workflow policy</li>
+</ul>
+<h2 id="postgresql-unavailable">PostgreSQL Unavailable<a href="#postgresql-unavailable" class="heading-anchor">#</a></h2>
+<p>Impact:</p>
+<p>Authoritative durable memory cannot be trusted or written.</p>
+<p>Recovery:</p>
+<ul>
+<li>deny durable writes and critical retrieval</li>
+<li>buffer only where loss and ordering are explicitly acceptable</li>
+<li>recover database</li>
+<li>reconcile projections</li>
+</ul>
+<h2 id="qdrant-divergence">Qdrant Divergence<a href="#qdrant-divergence" class="heading-anchor">#</a></h2>
+<p>Impact:</p>
+<p>Semantic retrieval becomes stale or incorrect.</p>
+<p>Recovery:</p>
+<ul>
+<li>disable affected semantic index</li>
+<li>rebuild from authoritative records</li>
+<li>validate scope filters</li>
+</ul>
+<h2 id="graph-divergence">Graph Divergence<a href="#graph-divergence" class="heading-anchor">#</a></h2>
+<p>Impact:</p>
+<p>Relationship retrieval is incomplete or stale.</p>
+<p>Recovery:</p>
+<ul>
+<li>mark graph retrieval degraded</li>
+<li>replay outbox</li>
+<li>rebuild affected projections</li>
+</ul>
+<h2 id="scope-leakage">Scope Leakage<a href="#scope-leakage" class="heading-anchor">#</a></h2>
+<p>Impact:</p>
+<p>Unauthorized memory exposure.</p>
+<p>Recovery:</p>
+<ul>
+<li>stop retrieval</li>
+<li>invalidate caches</li>
+<li>quarantine derived outputs</li>
+<li>trace exposure through provenance</li>
+<li>notify authorized users</li>
+</ul>
+<h2 id="corrupted-memory">Corrupted Memory<a href="#corrupted-memory" class="heading-anchor">#</a></h2>
+<p>Recovery:</p>
+<ul>
+<li>quarantine record</li>
+<li>preserve forensic evidence</li>
+<li>restore prior valid version</li>
+<li>rebuild projections</li>
+</ul>
+<h2 id="false-promotion">False Promotion<a href="#false-promotion" class="heading-anchor">#</a></h2>
+<p>Recovery:</p>
+<ul>
+<li>deactivate promoted memory</li>
+<li>restore previous active procedure</li>
+<li>record rollback in Evolution Memory</li>
+<li>re-evaluate affected decisions</li>
+</ul>
+<h2 id="migration-failure">Migration Failure<a href="#migration-failure" class="heading-anchor">#</a></h2>
+<p>Recovery:</p>
+<ul>
+<li>leave new version inactive</li>
+<li>restore authoritative backup</li>
+<li>preserve inheritance manifest</li>
+<li>quarantine incompatible records</li>
+</ul>
+<hr>
+<h1 id="recovery-mechanisms">Recovery Mechanisms<a href="#recovery-mechanisms" class="heading-anchor">#</a></h1>
+<ul>
+<li>authoritative backups</li>
+<li>point-in-time recovery</li>
+<li>outbox replay</li>
+<li>vector and graph index rebuild</li>
+<li>memory version rollback</li>
+<li>quarantine</li>
+<li>reconciliation jobs</li>
+<li>schema migration rollback</li>
+<li>manual correction and approval</li>
+</ul>
+<h2 id="reconciliation">Reconciliation<a href="#reconciliation" class="heading-anchor">#</a></h2>
+<p>Reconciliation detects:</p>
+<ul>
+<li>missing projections</li>
+<li>orphaned vectors</li>
+<li>invalid graph edges</li>
+<li>scope mismatch</li>
+<li>stale lifecycle state</li>
+<li>unresolved contradictions</li>
+<li>failed deletion propagation</li>
+</ul>
+<p>Reconciliation must not silently broaden scope or validation.</p>
+<hr>
+<h1 id="security-considerations">Security Considerations<a href="#security-considerations" class="heading-anchor">#</a></h1>
+<h2 id="authorization">Authorization<a href="#authorization" class="heading-anchor">#</a></h2>
+<p>Every capture, retrieval, link, promotion, export, and deletion operation requires authorization.</p>
+<h2 id="data-classification">Data Classification<a href="#data-classification" class="heading-anchor">#</a></h2>
+<p>Memory classification controls:</p>
+<ul>
+<li>eligible consumers</li>
+<li>model egress</li>
+<li>indexing</li>
+<li>sharing</li>
+<li>retention</li>
+<li>export</li>
+</ul>
+<h2 id="sensitive-memory">Sensitive Memory<a href="#sensitive-memory" class="heading-anchor">#</a></h2>
+<p>Secrets should not become general memory.</p>
+<p>References to secrets may be stored.</p>
+<p>Secret values remain in approved secret storage.</p>
+<h2 id="prompt-injection">Prompt Injection<a href="#prompt-injection" class="heading-anchor">#</a></h2>
+<p>Retrieved memory is untrusted content.</p>
+<p>Provenance and trust metadata must remain visible to consuming workflows.</p>
+<p>Memory cannot grant permissions or approve actions.</p>
+<h2 id="encryption">Encryption<a href="#encryption" class="heading-anchor">#</a></h2>
+<p>Durable memory, indexes, backups, and exports should use encryption appropriate to classification.</p>
+<h2 id="deletion">Deletion<a href="#deletion" class="heading-anchor">#</a></h2>
+<p>Deletion must propagate to all derived representations and report incomplete removal.</p>
+<hr>
+<h1 id="observability-and-benchmarking">Observability And Benchmarking<a href="#observability-and-benchmarking" class="heading-anchor">#</a></h1>
+<p>Memory telemetry should capture:</p>
+<ul>
+<li>capture rate</li>
+<li>validation outcomes</li>
+<li>retrieval latency</li>
+<li>retrieval precision and usefulness</li>
+<li>ranking explanations</li>
+<li>stale result rate</li>
+<li>contradiction rate</li>
+<li>promotion outcomes</li>
+<li>compression ratio</li>
+<li>index divergence</li>
+<li>inheritance success</li>
+</ul>
+<h2 id="memory-benchmarks">Memory Benchmarks<a href="#memory-benchmarks" class="heading-anchor">#</a></h2>
+<p>Memory benchmarks should evaluate:</p>
+<ul>
+<li>relevant recall</li>
+<li>irrelevant recall</li>
+<li>scope isolation</li>
+<li>factual accuracy</li>
+<li>provenance completeness</li>
+<li>temporal correctness</li>
+<li>procedural usefulness</li>
+<li>impact on workflow outcomes</li>
+</ul>
+<p>More retrieved memory is not necessarily better.</p>
+<hr>
+<h1 id="architectural-constraints">Architectural Constraints<a href="#architectural-constraints" class="heading-anchor">#</a></h1>
+<h2 id="constraint-1">Constraint 1<a href="#constraint-1" class="heading-anchor">#</a></h2>
+<p>Memory is infrastructure and survives agents, models, runtimes, and upgrades.</p>
+<h2 id="constraint-2">Constraint 2<a href="#constraint-2" class="heading-anchor">#</a></h2>
+<p>PostgreSQL is authoritative for durable memory records and lifecycle.</p>
+<h2 id="constraint-3">Constraint 3<a href="#constraint-3" class="heading-anchor">#</a></h2>
+<p>Redis working memory may not replace Core execution checkpoints.</p>
+<h2 id="constraint-4">Constraint 4<a href="#constraint-4" class="heading-anchor">#</a></h2>
+<p>Qdrant and Graph Database representations are derived and rebuildable.</p>
+<h2 id="constraint-5">Constraint 5<a href="#constraint-5" class="heading-anchor">#</a></h2>
+<p>Every durable memory has explicit workspace scope and provenance.</p>
+<h2 id="constraint-6">Constraint 6<a href="#constraint-6" class="heading-anchor">#</a></h2>
+<p>Scope and permission filters apply before ranking.</p>
+<h2 id="constraint-7">Constraint 7<a href="#constraint-7" class="heading-anchor">#</a></h2>
+<p>Agents and workflows may not access storage backends directly.</p>
+<h2 id="constraint-8">Constraint 8<a href="#constraint-8" class="heading-anchor">#</a></h2>
+<p>Memory promotion is versioned, evidence-aware, and auditable.</p>
+<h2 id="constraint-9">Constraint 9<a href="#constraint-9" class="heading-anchor">#</a></h2>
+<p>Contradictory memory must not be silently overwritten.</p>
+<h2 id="constraint-10">Constraint 10<a href="#constraint-10" class="heading-anchor">#</a></h2>
+<p>Evolution Memory preserves failed and rejected experiments.</p>
+<h2 id="constraint-11">Constraint 11<a href="#constraint-11" class="heading-anchor">#</a></h2>
+<p>Cross-version inheritance requires migration, validation, and rollback.</p>
+<h2 id="constraint-12">Constraint 12<a href="#constraint-12" class="heading-anchor">#</a></h2>
+<p>Memory may inform decisions.</p>
+<p>It may not grant authority.</p>
+<hr>
+<h1 id="future-evolution">Future Evolution<a href="#future-evolution" class="heading-anchor">#</a></h1>
+<p>Future Memory Architecture may support:</p>
+<ul>
+<li>learned retrieval planning</li>
+<li>adaptive ranking</li>
+<li>privacy-preserving shared learning</li>
+<li>richer temporal knowledge</li>
+<li>causal relationship modeling</li>
+<li>automated contradiction resolution proposals</li>
+<li>federated memory</li>
+<li>personalized memory policies</li>
+<li>hardware-aware local indexing</li>
+</ul>
+<p>Evolution may propose improvements to:</p>
+<ul>
+<li>retrieval strategy</li>
+<li>ranking weights</li>
+<li>compression methods</li>
+<li>promotion thresholds</li>
+<li>memory consolidation workflows</li>
+</ul>
+<p>All changes require benchmark evidence and controlled promotion.</p>
+<hr>
+<h1 id="open-questions">Open Questions<a href="#open-questions" class="heading-anchor">#</a></h1>
+<ul>
+<li>Which PostgreSQL schemas should separate memory categories?</li>
+<li>Which entities deserve graph representation?</li>
+<li>How should ranking quality be benchmarked per workflow class?</li>
+<li>When should an episode become a procedure?</li>
+<li>How should confidence decay over time?</li>
+<li>How should temporal contradictions be represented?</li>
+<li>Which memories may safely exist at installation scope?</li>
+<li>How should private principal memory behave in collaborative workspaces?</li>
+<li>How should source deletion affect derived summaries and procedures?</li>
+<li>What evidence threshold permits automatic promotion?</li>
+<li>How should incompatible procedural memory be adapted across versions?</li>
+<li>How much raw execution history should be retained outside Observability?</li>
+</ul>
+<hr>
+<h1 id="key-architectural-decisions">Key Architectural Decisions<a href="#key-architectural-decisions" class="heading-anchor">#</a></h1>
+<p>Damascus Memory is a multi-layer intelligence infrastructure.</p>
+<p>Redis provides temporary working memory.</p>
+<p>PostgreSQL stores authoritative durable records.</p>
+<p>Qdrant enables semantic retrieval.</p>
+<p>The Graph Database represents meaningful relationships.</p>
+<p>Workflows and agents consume memory through bounded interfaces.</p>
+<p>Evolution preserves improvement history through Evolution Memory.</p>
+<p>Every memory remains scoped, attributable, validatable, aging-aware, and inheritable across future Damascus versions.</p>
+
+        </article>
+        <div class="doc-footer-nav">
+      <a href="../02-Architecture/High-Level-Architecture.html" class="nav-card prev">
+        <span class="nav-card-label">Previous</span>
+        <span class="nav-card-title">High Level Architecture</span>
+      </a>
+    
+      <a href="../02-Architecture/Model-Abstraction-Layer.html" class="nav-card next">
+        <span class="nav-card-label">Next</span>
+        <span class="nav-card-title">Model Abstraction Layer</span>
+      </a>
+    </div>
+      </div>
+    </main>
+
+    <!-- Right Table of Contents Sidebar -->
+    
+    <aside class="site-toc">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list">
+        <li class="toc-item depth-2">
+  <a href="#memory-as-infrastructure" class="toc-link">Memory As Infrastructure</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#memory-is-more-than-storage" class="toc-link">Memory Is More Than Storage</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#multi-layer-architecture" class="toc-link">Multi-Layer Architecture</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#provenance-before-recall" class="toc-link">Provenance Before Recall</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#scope-before-similarity" class="toc-link">Scope Before Similarity</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#controlled-learning" class="toc-link">Controlled Learning</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#human-authority" class="toc-link">Human Authority</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#mem-001-durable-identity" class="toc-link">MEM-001 Durable Identity</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#mem-002-explicit-scope" class="toc-link">MEM-002 Explicit Scope</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#mem-003-authoritative-record" class="toc-link">MEM-003 Authoritative Record</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#mem-004-derived-indexes" class="toc-link">MEM-004 Derived Indexes</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#mem-005-provenance" class="toc-link">MEM-005 Provenance</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#mem-006-validation-state" class="toc-link">MEM-006 Validation State</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#mem-007-non-destructive-evolution" class="toc-link">MEM-007 Non-Destructive Evolution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#mem-008-bounded-retrieval" class="toc-link">MEM-008 Bounded Retrieval</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#mem-009-cross-version-survival" class="toc-link">MEM-009 Cross-Version Survival</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#mem-010-measurable-usefulness" class="toc-link">MEM-010 Measurable Usefulness</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#memory-capture-gateway" class="toc-link">Memory Capture Gateway</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#memory-classifier" class="toc-link">Memory Classifier</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#validation-service" class="toc-link">Validation Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#authoritative-memory-repository" class="toc-link">Authoritative Memory Repository</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#retrieval-planner" class="toc-link">Retrieval Planner</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ranking-engine" class="toc-link">Ranking Engine</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#linking-service" class="toc-link">Linking Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#promotion-service" class="toc-link">Promotion Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#inheritance-manager" class="toc-link">Inheritance Manager</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#lifecycle-states" class="toc-link">Lifecycle States</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#validation-states" class="toc-link">Validation States</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#storage" class="toc-link">Storage</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#boundary-with-core-state" class="toc-link">Boundary With Core State</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#lifecycle" class="toc-link">Lifecycle</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraints" class="toc-link">Constraints</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#storage" class="toc-link">Storage</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#episode-structure" class="toc-link">Episode Structure</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#consolidation" class="toc-link">Consolidation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#storage" class="toc-link">Storage</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#fact-model" class="toc-link">Fact Model</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#contradiction-handling" class="toc-link">Contradiction Handling</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#procedure-structure" class="toc-link">Procedure Structure</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#relationship-to-workflow-registry" class="toc-link">Relationship To Workflow Registry</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#promotion" class="toc-link">Promotion</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#contents" class="toc-link">Contents</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#immutability" class="toc-link">Immutability</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#relationship-to-evolution-layer" class="toc-link">Relationship To Evolution Layer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#example" class="toc-link">Example</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#boundary" class="toc-link">Boundary</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#candidate-entities" class="toc-link">Candidate Entities</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#candidate-relationships" class="toc-link">Candidate Relationships</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#entity-selection" class="toc-link">Entity Selection</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#graph-synchronization" class="toc-link">Graph Synchronization</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#postgresql" class="toc-link">PostgreSQL</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#redis" class="toc-link">Redis</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#qdrant" class="toc-link">Qdrant</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#graph-database" class="toc-link">Graph Database</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#consistency-model" class="toc-link">Consistency Model</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#rebuildability" class="toc-link">Rebuildability</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#full-lifecycle" class="toc-link">Full Lifecycle</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#capture" class="toc-link">Capture</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#consolidation" class="toc-link">Consolidation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#deletion" class="toc-link">Deletion</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#retrieval-request" class="toc-link">Retrieval Request</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#retrieval-flow" class="toc-link">Retrieval Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#retrieval-modes" class="toc-link">Retrieval Modes</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#hybrid-retrieval" class="toc-link">Hybrid Retrieval</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#context-assembly" class="toc-link">Context Assembly</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ranking-factors" class="toc-link">Ranking Factors</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#hard-filters-before-ranking" class="toc-link">Hard Filters Before Ranking</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ranking-explainability" class="toc-link">Ranking Explainability</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#feedback" class="toc-link">Feedback</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#compression-types" class="toc-link">Compression Types</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#compression-rules" class="toc-link">Compression Rules</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#summary-validation" class="toc-link">Summary Validation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#validation-methods" class="toc-link">Validation Methods</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#validation-flow" class="toc-link">Validation Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#invalid-memory" class="toc-link">Invalid Memory</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#aging-factors" class="toc-link">Aging Factors</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#aging-actions" class="toc-link">Aging Actions</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#category-specific-aging" class="toc-link">Category-Specific Aging</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#promotion-flow" class="toc-link">Promotion Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#promotion-authority" class="toc-link">Promotion Authority</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#inheritance-contract" class="toc-link">Inheritance Contract</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#inheritance-flow" class="toc-link">Inheritance Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#inheritance-manifest" class="toc-link">Inheritance Manifest</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#behavioral-inheritance" class="toc-link">Behavioral Inheritance</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#before-execution" class="toc-link">Before Execution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#during-execution" class="toc-link">During Execution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#after-execution" class="toc-link">After Execution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraints" class="toc-link">Constraints</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#redis-loss" class="toc-link">Redis Loss</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#postgresql-unavailable" class="toc-link">PostgreSQL Unavailable</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#qdrant-divergence" class="toc-link">Qdrant Divergence</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#graph-divergence" class="toc-link">Graph Divergence</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#scope-leakage" class="toc-link">Scope Leakage</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#corrupted-memory" class="toc-link">Corrupted Memory</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#false-promotion" class="toc-link">False Promotion</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#migration-failure" class="toc-link">Migration Failure</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#reconciliation" class="toc-link">Reconciliation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#authorization" class="toc-link">Authorization</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#data-classification" class="toc-link">Data Classification</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#sensitive-memory" class="toc-link">Sensitive Memory</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#prompt-injection" class="toc-link">Prompt Injection</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#encryption" class="toc-link">Encryption</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#deletion" class="toc-link">Deletion</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#memory-benchmarks" class="toc-link">Memory Benchmarks</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-1" class="toc-link">Constraint 1</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-2" class="toc-link">Constraint 2</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-3" class="toc-link">Constraint 3</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-4" class="toc-link">Constraint 4</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-5" class="toc-link">Constraint 5</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-6" class="toc-link">Constraint 6</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-7" class="toc-link">Constraint 7</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-8" class="toc-link">Constraint 8</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-9" class="toc-link">Constraint 9</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-10" class="toc-link">Constraint 10</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-11" class="toc-link">Constraint 11</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-12" class="toc-link">Constraint 12</a>
+</li>
+
+      </ul>
+    </aside>
+  
+
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

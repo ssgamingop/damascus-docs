@@ -1,0 +1,2822 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workspace System | Damascus Docs</title>
+  <meta name="description" content="Damascus - Privacy-first, local-first intelligence operating system documentation">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    window.damascusMermaid = mermaid;
+  </script>
+</head>
+<body data-root="../">
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="brand">
+      <button class="mobile-header-btn" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="../index.html" class="brand">
+        <div class="logo">D</div>
+        <span class="title">Damascus Docs</span>
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <!-- Search Input Container -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="search-input" placeholder="Search docs..." aria-label="Search documentation">
+          <kbd class="search-shortcut">/</kbd>
+        </div>
+        
+        <!-- Results Dropdown -->
+        <div class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" aria-label="Toggle theme">
+        <!-- Sun (Light Theme Icon) -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon (Dark Theme Icon) -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Layout Grid -->
+  <div class="layout-container">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="site-sidebar">
+      <div class="sidebar-section">
+  <div class="sidebar-section-title">Vision</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Mission.html" class="sidebar-nav-link ">Mission</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Vision.html" class="sidebar-nav-link ">Damascus Vision</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Why-Damascus.html" class="sidebar-nav-link ">Why Damascus Exists</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Research</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/AI-Operating-Systems.html" class="sidebar-nav-link ">AI Operating Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Hermes-Analysis.html" class="sidebar-nav-link ">Hermes Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Knowledge-Graphs.html" class="sidebar-nav-link ">Knowledge Graphs</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/LangGraph-Analysis.html" class="sidebar-nav-link ">LangGraph Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Memory-Systems.html" class="sidebar-nav-link ">Memory Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Multi-Agent-Systems.html" class="sidebar-nav-link ">Multi Agent Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Odysseus-Analysis.html" class="sidebar-nav-link ">Odysseus Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/OpenHands-Analysis.html" class="sidebar-nav-link ">OpenHands Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Self-Improving-Agents.html" class="sidebar-nav-link ">Self Improving Agents</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Architecture</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link ">Agent Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link ">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link ">Evolution Engine</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/High-Level-Architecture.html" class="sidebar-nav-link ">High Level Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Memory-Architecture.html" class="sidebar-nav-link ">Memory Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link ">Model Abstraction Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link ">Security Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Tool-Layer.html" class="sidebar-nav-link ">Tool Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link active">Workspace System</a>
+    </li>
+  </ul>
+</div>
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <article class="doc-content">
+          <div class="doc-meta"><span class="meta-badge">Version 0.1</span><span class="meta-badge status-architecture-foundation">Architecture Foundation</span><span class="meta-badge priority-critical">Priority Critical</span></div> <h1 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h1>
+<p>This document defines the architecture of the Damascus Workspace System.</p>
+<p>The Workspace System is the primary user-facing abstraction of Damascus.</p>
+<p>It provides the durable organizational, contextual, policy, and ownership boundary through which users interact with projects, workflows, memories, knowledge, benchmarks, and execution history.</p>
+<p>The Workspace System exists because an intelligence operating layer requires a stable unit of context larger than a conversation and more durable than an execution.</p>
+<p>A conversation is temporary.</p>
+<p>An agent is replaceable.</p>
+<p>A model is replaceable.</p>
+<p>A workflow execution is transient.</p>
+<p>A workspace persists across all of them.</p>
+<p>The Workspace System must make it possible for Damascus to understand:</p>
+<ul>
+<li>what body of work is active</li>
+<li>which projects belong together</li>
+<li>which memories may be used</li>
+<li>which capabilities are available</li>
+<li>which permissions apply</li>
+<li>which workflows and results are owned by the user</li>
+<li>which actions require approval</li>
+<li>which improvements are eligible for promotion</li>
+</ul>
+<p>The Workspace System is not merely a folder hierarchy or user interface container.</p>
+<p>It is the durable context and governance boundary between the user and Damascus capabilities.</p>
+<hr>
+<h1 id="architectural-position">Architectural Position<a href="#architectural-position" class="heading-anchor">#</a></h1>
+<p>Damascus is organized around the following primary flow:</p>
+<pre><code class="language-diagram">User
+↓
+Workspace
+↓
+Project
+↓
+Workflow
+↓
+Damascus Core
+↓
+Capabilities
+↓
+Execution Environment
+</code></pre>
+<p>The Workspace System sits above workflow execution and below user interaction.</p>
+<p>It translates user-owned organizational context into explicit scope and policy inputs for the Damascus Core and capability systems.</p>
+<p>The Workspace System does not execute workflows directly.</p>
+<p>It establishes the context within which workflows are created, selected, executed, evaluated, learned from, and evolved.</p>
+<hr>
+<h1 id="design-philosophy">Design Philosophy<a href="#design-philosophy" class="heading-anchor">#</a></h1>
+<h2 id="workspace-as-the-primary-user-facing-abstraction">Workspace As The Primary User-Facing Abstraction<a href="#workspace-as-the-primary-user-facing-abstraction" class="heading-anchor">#</a></h2>
+<p>Users should interact with a persistent body of work rather than repeatedly reconstructing context.</p>
+<p>A workspace should answer:</p>
+<ul>
+<li>What am I working on?</li>
+<li>What projects belong to this area?</li>
+<li>What has Damascus learned here?</li>
+<li>Which workflows are available here?</li>
+<li>What is currently executing?</li>
+<li>What changed?</li>
+<li>What requires my approval?</li>
+<li>How has capability improved over time?</li>
+</ul>
+<p>The workspace is therefore the user&#39;s primary point of orientation.</p>
+<p>It is not the primary execution unit.</p>
+<p>Workflows remain the primary execution unit.</p>
+<p>This distinction must remain explicit:</p>
+<pre><code class="language-diagram">Workspace
+→ organizes and governs
+Workflow
+→ executes
+Core
+→ coordinates execution
+Capabilities
+→ provide intelligence and action
+</code></pre>
+<h2 id="durable-context-over-session-context">Durable Context Over Session Context<a href="#durable-context-over-session-context" class="heading-anchor">#</a></h2>
+<p>Session-oriented systems encourage context loss.</p>
+<p>Damascus workspaces persist independently of:</p>
+<ul>
+<li>UI sessions</li>
+<li>conversations</li>
+<li>workflow runs</li>
+<li>agent instances</li>
+<li>model providers</li>
+<li>application restarts</li>
+<li>Damascus upgrades</li>
+</ul>
+<p>Session state may reference a workspace.</p>
+<p>A workspace must never depend on a session for its existence or integrity.</p>
+<h2 id="explicit-scope-over-implicit-context">Explicit Scope Over Implicit Context<a href="#explicit-scope-over-implicit-context" class="heading-anchor">#</a></h2>
+<p>Every durable artifact and every execution must have an explicit scope.</p>
+<p>Scope must not be inferred only from:</p>
+<ul>
+<li>current directory</li>
+<li>active chat</li>
+<li>selected UI tab</li>
+<li>model context</li>
+<li>runtime thread</li>
+</ul>
+<p>Implicit context may assist user experience, but it may not be the source of authority.</p>
+<p>Every workflow execution must resolve to a workspace identity before it begins.</p>
+<p>Project scope may additionally be required.</p>
+<h2 id="local-ownership-by-default">Local Ownership By Default<a href="#local-ownership-by-default" class="heading-anchor">#</a></h2>
+<p>The workspace is the primary local ownership boundary.</p>
+<p>Workspace metadata, memories, knowledge, execution records, and policy bindings should remain local by default.</p>
+<p>Remote synchronization, collaboration, and cloud services are optional capabilities.</p>
+<p>Enabling them must not silently change ownership or weaken local permissions.</p>
+<h2 id="controlled-learning">Controlled Learning<a href="#controlled-learning" class="heading-anchor">#</a></h2>
+<p>Every execution can produce observations.</p>
+<p>Not every observation should become durable memory.</p>
+<p>Not every project learning should become workspace-wide knowledge.</p>
+<p>Not every workspace improvement should become globally available.</p>
+<p>The Workspace System must preserve the boundaries through which learning is reviewed, promoted, shared, or rejected.</p>
+<h2 id="human-authority">Human Authority<a href="#human-authority" class="heading-anchor">#</a></h2>
+<p>Workspace autonomy is delegated authority.</p>
+<p>It is not independent authority.</p>
+<p>Users must be able to:</p>
+<ul>
+<li>inspect workspace configuration</li>
+<li>understand active permissions</li>
+<li>review pending actions</li>
+<li>pause or disable execution</li>
+<li>revoke capability access</li>
+<li>inspect and delete memories</li>
+<li>reject proposed improvements</li>
+<li>archive or export the workspace</li>
+</ul>
+<hr>
+<h1 id="core-principles">Core Principles<a href="#core-principles" class="heading-anchor">#</a></h1>
+<h2 id="ws-001-stable-identity">WS-001 Stable Identity<a href="#ws-001-stable-identity" class="heading-anchor">#</a></h2>
+<p>Every workspace and project must have an immutable system identity independent of its display name or storage path.</p>
+<p>Names and paths may change.</p>
+<p>Identity must not.</p>
+<h2 id="ws-002-explicit-ownership">WS-002 Explicit Ownership<a href="#ws-002-explicit-ownership" class="heading-anchor">#</a></h2>
+<p>Every workspace must have an owner.</p>
+<p>Every durable artifact must resolve to an owning workspace.</p>
+<h2 id="ws-003-scoped-access">WS-003 Scoped Access<a href="#ws-003-scoped-access" class="heading-anchor">#</a></h2>
+<p>Access to workspace resources must be evaluated using explicit identity, role, policy, and resource scope.</p>
+<p>Physical storage location alone does not grant access.</p>
+<h2 id="ws-004-project-containment">WS-004 Project Containment<a href="#ws-004-project-containment" class="heading-anchor">#</a></h2>
+<p>Projects exist inside exactly one owning workspace in the initial architecture.</p>
+<p>Projects may reference external resources, but they may not exist without a workspace.</p>
+<h2 id="ws-005-workflow-centric-execution">WS-005 Workflow-Centric Execution<a href="#ws-005-workflow-centric-execution" class="heading-anchor">#</a></h2>
+<p>The Workspace System may initiate, configure, and inspect execution.</p>
+<p>All executable work must still be represented as workflows and submitted through Damascus Core.</p>
+<h2 id="ws-006-memory-isolation">WS-006 Memory Isolation<a href="#ws-006-memory-isolation" class="heading-anchor">#</a></h2>
+<p>Memory retrieval and storage must obey workspace and project scope.</p>
+<p>Cross-scope memory use must be explicit, authorized, and auditable.</p>
+<h2 id="ws-007-reversible-lifecycle">WS-007 Reversible Lifecycle<a href="#ws-007-reversible-lifecycle" class="heading-anchor">#</a></h2>
+<p>Destructive workspace and project operations must use staged, auditable lifecycle transitions.</p>
+<p>Deletion must not be an immediate irreversible action.</p>
+<h2 id="ws-008-runtime-independence">WS-008 Runtime Independence<a href="#ws-008-runtime-independence" class="heading-anchor">#</a></h2>
+<p>Workspace concepts must not depend on LangGraph or any other runtime implementation.</p>
+<p>Runtime-specific identifiers may be stored only as adapter-owned references.</p>
+<h2 id="ws-009-capability-portability">WS-009 Capability Portability<a href="#ws-009-capability-portability" class="heading-anchor">#</a></h2>
+<p>Workspace definitions must remain usable when models, agents, tools, runtimes, or storage backends change.</p>
+<h2 id="ws-010-measurable-improvement">WS-010 Measurable Improvement<a href="#ws-010-measurable-improvement" class="heading-anchor">#</a></h2>
+<p>Workspace-level claims of improvement must reference benchmark evidence and promotion history.</p>
+<hr>
+<h1 id="responsibilities">Responsibilities<a href="#responsibilities" class="heading-anchor">#</a></h1>
+<p>The Workspace System owns:</p>
+<ul>
+<li>workspace identity and metadata</li>
+<li>project identity and containment</li>
+<li>workspace and project lifecycle coordination</li>
+<li>artifact scope assignment</li>
+<li>workspace context resolution</li>
+<li>policy and permission bindings</li>
+<li>capability availability declarations</li>
+<li>default execution policy declarations</li>
+<li>memory scope declarations</li>
+<li>workspace-level activity and approval views</li>
+<li>import, export, archive, and restore coordination</li>
+<li>multi-workspace discovery and selection</li>
+<li>cross-workspace sharing requests</li>
+</ul>
+<p>The Workspace System coordinates with other systems to provide:</p>
+<ul>
+<li>workflow discovery and ownership</li>
+<li>memory retrieval and retention</li>
+<li>knowledge graph partitioning</li>
+<li>execution scheduling</li>
+<li>approval enforcement</li>
+<li>audit history</li>
+<li>benchmark and evolution visibility</li>
+<li>resource usage reporting</li>
+</ul>
+<hr>
+<h1 id="non-responsibilities">Non-Responsibilities<a href="#non-responsibilities" class="heading-anchor">#</a></h1>
+<p>The Workspace System does not own:</p>
+<ul>
+<li>workflow execution</li>
+<li>runtime state transitions</li>
+<li>long-term memory storage engines</li>
+<li>knowledge graph implementation</li>
+<li>model inference</li>
+<li>agent reasoning</li>
+<li>tool implementation</li>
+<li>operating system sandboxing</li>
+<li>authentication implementation</li>
+<li>security policy enforcement</li>
+<li>benchmark execution</li>
+<li>evolution decisions</li>
+<li>observability storage</li>
+</ul>
+<p>These responsibilities belong to Damascus Core and dedicated capability systems.</p>
+<p>The Workspace System may declare scope and policy.</p>
+<p>The Security Layer enforces policy.</p>
+<p>The Workspace System may request execution.</p>
+<p>Damascus Core coordinates execution.</p>
+<p>The Workspace System may request memory retrieval.</p>
+<p>The Memory Layer performs and governs retrieval.</p>
+<p>The Workspace System may display promotion proposals.</p>
+<p>The Evolution Layer evaluates and proposes promotions.</p>
+<hr>
+<h1 id="domain-hierarchy">Domain Hierarchy<a href="#domain-hierarchy" class="heading-anchor">#</a></h1>
+<p>The initial Damascus ownership hierarchy is:</p>
+<pre><code class="language-diagram">Damascus Installation
+└── Workspace
+    ├── Workspace Configuration
+    ├── Workspace Policies
+    ├── Workspace Memories
+    ├── Workspace Knowledge
+    ├── Workspace Workflows
+    ├── Workspace Benchmarks
+    ├── Workspace Evolution History
+    └── Projects
+        └── Project
+            ├── Project Configuration
+            ├── Project Policies
+            ├── Project Resources
+            ├── Project Memories
+            ├── Project Knowledge
+            ├── Project Workflows
+            ├── Project Benchmarks
+            ├── Project Evolution History
+            └── Workflow Executions
+</code></pre>
+<h2 id="installation">Installation<a href="#installation" class="heading-anchor">#</a></h2>
+<p>An installation is a deployed Damascus environment controlled by a user or organization.</p>
+<p>It provides:</p>
+<ul>
+<li>local system identity</li>
+<li>global configuration</li>
+<li>shared capability registries</li>
+<li>workspace discovery</li>
+<li>storage backend configuration</li>
+<li>system-wide security defaults</li>
+</ul>
+<p>Installation scope is not a substitute for workspace scope.</p>
+<p>Only carefully selected artifacts may be installation-scoped.</p>
+<p>Examples:</p>
+<ul>
+<li>installed model adapter definitions</li>
+<li>installed tool definitions</li>
+<li>runtime adapter definitions</li>
+<li>system-wide security baselines</li>
+</ul>
+<p>User work products, memories, and execution results should not default to installation scope.</p>
+<h2 id="workspace">Workspace<a href="#workspace" class="heading-anchor">#</a></h2>
+<p>A workspace is a durable, user-owned intelligence environment containing related projects, workflows, memories, knowledge, benchmarks, and policies.</p>
+<p>A workspace may represent:</p>
+<ul>
+<li>a product</li>
+<li>an organization</li>
+<li>a research domain</li>
+<li>a personal operating context</li>
+<li>a client boundary</li>
+<li>a long-running initiative</li>
+</ul>
+<p>A workspace is not required to map to a single filesystem directory.</p>
+<p>It may reference multiple local repositories, document collections, applications, and external systems.</p>
+<h2 id="project">Project<a href="#project" class="heading-anchor">#</a></h2>
+<p>A project is a bounded body of work inside one workspace.</p>
+<p>Projects provide narrower context and policy scope than the workspace.</p>
+<p>A project may represent:</p>
+<ul>
+<li>a software repository</li>
+<li>a research initiative</li>
+<li>a product release</li>
+<li>a client engagement</li>
+<li>an operational objective</li>
+<li>a document collection</li>
+</ul>
+<p>Projects inherit from their owning workspace but may further restrict access and behavior.</p>
+<p>Projects must not silently broaden workspace permissions.</p>
+<h2 id="workflow">Workflow<a href="#workflow" class="heading-anchor">#</a></h2>
+<p>A workflow is the primary execution unit.</p>
+<p>A workflow belongs to a workspace and may additionally belong to a project.</p>
+<p>Workspace-level workflows are appropriate for work spanning multiple projects.</p>
+<p>Project-level workflows are appropriate when execution should use a project&#39;s narrower context, resources, memory, and policy.</p>
+<p>Every workflow execution must include:</p>
+<ul>
+<li><code>workspace_id</code></li>
+<li><code>workflow_definition_id</code></li>
+<li><code>workflow_version_id</code></li>
+<li>requesting principal</li>
+<li>resolved policy snapshot</li>
+<li>resolved capability snapshot</li>
+</ul>
+<p>Project-scoped execution must additionally include:</p>
+<ul>
+<li><code>project_id</code></li>
+</ul>
+<h2 id="task">Task<a href="#task" class="heading-anchor">#</a></h2>
+<p>A task is a user-facing unit of intent or tracked work.</p>
+<p>A task may be fulfilled by one or more workflow executions.</p>
+<p>A task is not itself an execution primitive.</p>
+<p>Tasks may be workspace-scoped or project-scoped.</p>
+<h2 id="artifact">Artifact<a href="#artifact" class="heading-anchor">#</a></h2>
+<p>An artifact is a durable object created, imported, referenced, or produced within a workspace.</p>
+<p>Examples:</p>
+<ul>
+<li>documents</li>
+<li>source repositories</li>
+<li>workflow definitions</li>
+<li>reports</li>
+<li>datasets</li>
+<li>benchmark results</li>
+<li>execution outputs</li>
+<li>research findings</li>
+<li>memory records</li>
+</ul>
+<p>Every artifact must have:</p>
+<ul>
+<li>immutable identity</li>
+<li>owning workspace</li>
+<li>artifact type</li>
+<li>lifecycle state</li>
+<li>provenance</li>
+<li>access classification</li>
+<li>timestamps</li>
+</ul>
+<hr>
+<h1 id="scope-model">Scope Model<a href="#scope-model" class="heading-anchor">#</a></h1>
+<h2 id="scope-types">Scope Types<a href="#scope-types" class="heading-anchor">#</a></h2>
+<p>Damascus defines the following initial scopes:</p>
+<ul>
+<li>installation scope</li>
+<li>workspace scope</li>
+<li>project scope</li>
+<li>workflow execution scope</li>
+<li>private principal scope</li>
+</ul>
+<p>Scope is represented as structured metadata, not as a naming convention.</p>
+<p>Example:</p>
+<pre><code class="language-text">scope:
+  workspace_id: ws_01...
+  project_id: prj_01... | null
+  execution_id: exe_01... | null
+  principal_id: usr_01... | null
+</code></pre>
+<h2 id="scope-resolution">Scope Resolution<a href="#scope-resolution" class="heading-anchor">#</a></h2>
+<p>Before any operation, Damascus must resolve:</p>
+<ol>
+<li>requesting principal</li>
+<li>active workspace</li>
+<li>optional active project</li>
+<li>requested resource</li>
+<li>requested action</li>
+<li>applicable policies</li>
+<li>effective permissions</li>
+<li>required approvals</li>
+</ol>
+<p>The result is a scope and authorization context.</p>
+<p>No capability should accept an unscoped request for user-owned data.</p>
+<h2 id="scope-inheritance">Scope Inheritance<a href="#scope-inheritance" class="heading-anchor">#</a></h2>
+<p>Projects inherit workspace defaults.</p>
+<p>Inheritance may apply to:</p>
+<ul>
+<li>available capabilities</li>
+<li>default model routing policy</li>
+<li>memory retention defaults</li>
+<li>benchmark requirements</li>
+<li>resource budgets</li>
+<li>approval thresholds</li>
+<li>observability settings</li>
+</ul>
+<p>Inheritance follows a restrictive model.</p>
+<p>A child scope may:</p>
+<ul>
+<li>accept a parent default</li>
+<li>narrow a parent permission</li>
+<li>add a stricter approval requirement</li>
+<li>lower a budget</li>
+<li>disable a capability</li>
+</ul>
+<p>A child scope may broaden authority only when an authorized principal explicitly grants the broader permission and the workspace policy allows delegation.</p>
+<h2 id="scope-precedence">Scope Precedence<a href="#scope-precedence" class="heading-anchor">#</a></h2>
+<p>When policies conflict, the most restrictive applicable policy wins unless a higher-authority policy explicitly defines an override.</p>
+<p>Recommended precedence:</p>
+<pre><code class="language-diagram">System Security Baseline
+↓
+Workspace Policy
+↓
+Project Policy
+↓
+Workflow Policy
+↓
+Execution Request
+</code></pre>
+<p>Lower layers may request less authority.</p>
+<p>They may not assume more authority.</p>
+<hr>
+<h1 id="core-components">Core Components<a href="#core-components" class="heading-anchor">#</a></h1>
+<p>The Workspace System consists of:</p>
+<pre><code class="language-diagram">Workspace System
+├── Workspace Service
+├── Project Service
+├── Context Resolver
+├── Scope Manager
+├── Workspace Policy Binder
+├── Resource Catalog
+├── Workspace Activity Service
+├── Lifecycle Coordinator
+├── Import and Export Service
+└── Workspace Repository
+</code></pre>
+<h2 id="workspace-service">Workspace Service<a href="#workspace-service" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Manage workspace identity, metadata, configuration, and user-facing operations.</p>
+<p>Responsibilities:</p>
+<ul>
+<li>create workspaces</li>
+<li>retrieve workspace metadata</li>
+<li>update mutable metadata</li>
+<li>select active workspace</li>
+<li>list workspace contents</li>
+<li>expose workspace status</li>
+<li>coordinate archive and restore</li>
+</ul>
+<p>The Workspace Service does not enforce permissions independently.</p>
+<p>Every operation must pass through Security Layer authorization.</p>
+<h2 id="project-service">Project Service<a href="#project-service" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Manage projects within workspaces.</p>
+<p>Responsibilities:</p>
+<ul>
+<li>create projects</li>
+<li>bind resources to projects</li>
+<li>update project metadata</li>
+<li>resolve project ownership</li>
+<li>coordinate project archive, transfer, and restore</li>
+<li>list project workflows, memories, and activity</li>
+</ul>
+<h2 id="context-resolver">Context Resolver<a href="#context-resolver" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Produce an explicit, bounded context package for user interactions and workflow execution.</p>
+<p>Inputs may include:</p>
+<ul>
+<li>principal identity</li>
+<li>selected workspace</li>
+<li>selected project</li>
+<li>user goal</li>
+<li>requested workflow</li>
+<li>interaction channel</li>
+</ul>
+<p>Outputs include:</p>
+<ul>
+<li>resolved scope</li>
+<li>permitted resource references</li>
+<li>relevant policy references</li>
+<li>capability availability</li>
+<li>memory retrieval constraints</li>
+<li>knowledge retrieval constraints</li>
+<li>budget constraints</li>
+<li>approval requirements</li>
+</ul>
+<p>The Context Resolver does not retrieve all memory or preload all workspace data.</p>
+<p>It defines the boundaries within which dedicated systems may retrieve context.</p>
+<h2 id="scope-manager">Scope Manager<a href="#scope-manager" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Assign and validate ownership scope for durable artifacts and operations.</p>
+<p>Responsibilities:</p>
+<ul>
+<li>validate parent-child relationships</li>
+<li>prevent orphaned projects and artifacts</li>
+<li>validate cross-scope references</li>
+<li>generate scope descriptors</li>
+<li>coordinate scope transfer</li>
+<li>enforce scope metadata requirements before persistence</li>
+</ul>
+<p>The Scope Manager is an integrity component.</p>
+<p>It is not the authorization engine.</p>
+<h2 id="workspace-policy-binder">Workspace Policy Binder<a href="#workspace-policy-binder" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Associate workspace and project resources with policies owned and enforced by the Security Layer.</p>
+<p>Responsibilities:</p>
+<ul>
+<li>attach policy references</li>
+<li>resolve inherited policy bindings</li>
+<li>expose effective policy inputs</li>
+<li>version policy bindings</li>
+<li>record policy change provenance</li>
+</ul>
+<p>Policy definitions should remain owned by the Security Layer.</p>
+<p>The Workspace System owns the binding between policy and workspace resource.</p>
+<h2 id="resource-catalog">Resource Catalog<a href="#resource-catalog" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Maintain the workspace-facing catalog of resources available to projects and workflows.</p>
+<p>Resources may include:</p>
+<ul>
+<li>local directories</li>
+<li>source repositories</li>
+<li>document collections</li>
+<li>applications</li>
+<li>external services</li>
+<li>datasets</li>
+<li>secrets references</li>
+</ul>
+<p>The Resource Catalog stores metadata and references.</p>
+<p>It must not duplicate source data unnecessarily.</p>
+<p>Secret values must never be stored directly in the Resource Catalog.</p>
+<h2 id="workspace-activity-service">Workspace Activity Service<a href="#workspace-activity-service" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Provide a coherent user-facing view of workspace events, executions, approvals, failures, benchmark results, and evolution proposals.</p>
+<p>The Activity Service is a projection over authoritative system events and records.</p>
+<p>It does not replace Observability, Audit, or Event Bus storage.</p>
+<h2 id="lifecycle-coordinator">Lifecycle Coordinator<a href="#lifecycle-coordinator" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Coordinate multi-system lifecycle transitions for workspaces and projects.</p>
+<p>Archiving a workspace affects:</p>
+<ul>
+<li>new execution admission</li>
+<li>scheduled workflows</li>
+<li>memory write behavior</li>
+<li>resource access</li>
+<li>search visibility</li>
+<li>retention processing</li>
+</ul>
+<p>No single database update can safely implement this transition.</p>
+<p>The Lifecycle Coordinator uses durable operations, idempotent steps, and compensating actions.</p>
+<h2 id="import-and-export-service">Import And Export Service<a href="#import-and-export-service" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Support portable, inspectable workspace backup and transfer.</p>
+<p>Responsibilities:</p>
+<ul>
+<li>create export manifests</li>
+<li>validate imports</li>
+<li>detect identity conflicts</li>
+<li>migrate schemas</li>
+<li>verify checksums</li>
+<li>report unsupported capabilities</li>
+<li>preserve provenance</li>
+</ul>
+<h2 id="workspace-repository">Workspace Repository<a href="#workspace-repository" class="heading-anchor">#</a></h2>
+<p>Purpose:</p>
+<p>Persist authoritative Workspace System metadata.</p>
+<p>The Workspace Repository stores workspace-domain records.</p>
+<p>It does not become the storage engine for every artifact owned by a workspace.</p>
+<hr>
+<h1 id="internal-architecture">Internal Architecture<a href="#internal-architecture" class="heading-anchor">#</a></h1>
+<h2 id="service-boundary">Service Boundary<a href="#service-boundary" class="heading-anchor">#</a></h2>
+<p>The Workspace System exposes a runtime-independent application interface.</p>
+<p>Illustrative interface:</p>
+<pre><code class="language-text">IWorkspaceService
+
+create_workspace(command)
+get_workspace(workspace_id)
+update_workspace(workspace_id, patch, expected_version)
+archive_workspace(workspace_id, reason)
+restore_workspace(workspace_id)
+export_workspace(workspace_id, export_policy)
+
+create_project(workspace_id, command)
+get_project(workspace_id, project_id)
+archive_project(workspace_id, project_id, reason)
+restore_project(workspace_id, project_id)
+
+resolve_context(request)
+list_activity(scope, filters)
+</code></pre>
+<p>All mutation operations require:</p>
+<ul>
+<li>authenticated principal</li>
+<li>authorization decision</li>
+<li>idempotency key</li>
+<li>expected version or conflict strategy</li>
+<li>correlation identifier</li>
+<li>audit metadata</li>
+</ul>
+<h2 id="integration-pattern">Integration Pattern<a href="#integration-pattern" class="heading-anchor">#</a></h2>
+<p>The Workspace System integrates through:</p>
+<ul>
+<li>synchronous APIs for validation and user-facing commands</li>
+<li>Event Bus events for cross-system propagation</li>
+<li>durable operation records for multi-system lifecycle transitions</li>
+<li>read projections for activity and summary views</li>
+</ul>
+<p>Direct synchronous dependencies should be limited to decisions required before an operation can safely proceed.</p>
+<p>Examples:</p>
+<ul>
+<li>authorization check before project creation</li>
+<li>scope validation before workflow submission</li>
+<li>policy resolution before execution admission</li>
+</ul>
+<p>Events should be used for downstream reactions.</p>
+<p>Examples:</p>
+<ul>
+<li>indexing a newly created project</li>
+<li>initializing project memory partitions</li>
+<li>updating activity views</li>
+<li>scheduling retention processing</li>
+</ul>
+<h2 id="consistency-model">Consistency Model<a href="#consistency-model" class="heading-anchor">#</a></h2>
+<p>Workspace identity, ownership, lifecycle state, and policy binding updates require strong consistency within the Workspace Repository.</p>
+<p>Cross-system projections may be eventually consistent.</p>
+<p>Examples of acceptable eventual consistency:</p>
+<ul>
+<li>activity feed updates</li>
+<li>search index updates</li>
+<li>usage summaries</li>
+</ul>
+<p>Examples where eventual consistency is not sufficient:</p>
+<ul>
+<li>authorization decisions</li>
+<li>workspace ownership</li>
+<li>archived-state execution admission</li>
+<li>project-to-workspace containment</li>
+<li>deletion eligibility</li>
+</ul>
+<h2 id="concurrency-control">Concurrency Control<a href="#concurrency-control" class="heading-anchor">#</a></h2>
+<p>Workspace and project metadata updates should use optimistic concurrency control.</p>
+<p>Every aggregate includes a monotonically increasing version.</p>
+<p>Conflicting writes must:</p>
+<ol>
+<li>fail without silently overwriting</li>
+<li>return the current version</li>
+<li>allow the caller to review or retry</li>
+<li>emit a conflict event when operationally relevant</li>
+</ol>
+<hr>
+<h1 id="domain-data-model">Domain Data Model<a href="#domain-data-model" class="heading-anchor">#</a></h1>
+<h2 id="workspace-record">Workspace Record<a href="#workspace-record" class="heading-anchor">#</a></h2>
+<p>Minimum fields:</p>
+<pre><code class="language-text">Workspace
+  workspace_id
+  display_name
+  description
+  owner_principal_id
+  lifecycle_state
+  classification
+  default_policy_binding_id
+  default_memory_policy_id
+  default_execution_policy_id
+  storage_profile_id
+  created_at
+  created_by
+  updated_at
+  updated_by
+  version
+</code></pre>
+<h2 id="project-record">Project Record<a href="#project-record" class="heading-anchor">#</a></h2>
+<p>Minimum fields:</p>
+<pre><code class="language-text">Project
+  project_id
+  workspace_id
+  display_name
+  description
+  lifecycle_state
+  classification
+  policy_binding_id
+  memory_policy_id
+  execution_policy_id
+  created_at
+  created_by
+  updated_at
+  updated_by
+  version
+</code></pre>
+<h2 id="resource-binding">Resource Binding<a href="#resource-binding" class="heading-anchor">#</a></h2>
+<p>Minimum fields:</p>
+<pre><code class="language-text">ResourceBinding
+  resource_binding_id
+  workspace_id
+  project_id | null
+  resource_type
+  resource_locator
+  access_mode
+  classification
+  policy_binding_id
+  verification_state
+  created_at
+  created_by
+  version
+</code></pre>
+<h2 id="policy-binding">Policy Binding<a href="#policy-binding" class="heading-anchor">#</a></h2>
+<p>Minimum fields:</p>
+<pre><code class="language-text">PolicyBinding
+  policy_binding_id
+  workspace_id
+  project_id | null
+  policy_reference
+  policy_version
+  binding_state
+  effective_from
+  created_at
+  created_by
+  version
+</code></pre>
+<h2 id="scope-descriptor">Scope Descriptor<a href="#scope-descriptor" class="heading-anchor">#</a></h2>
+<p>Minimum fields:</p>
+<pre><code class="language-text">ScopeDescriptor
+  workspace_id
+  project_id | null
+  workflow_definition_id | null
+  execution_id | null
+  principal_id | null
+  classification
+</code></pre>
+<p>Scope descriptors may be passed between systems.</p>
+<p>They are not authorization tokens.</p>
+<h2 id="identity-rules">Identity Rules<a href="#identity-rules" class="heading-anchor">#</a></h2>
+<p>System identifiers must:</p>
+<ul>
+<li>be globally unique within an installation</li>
+<li>remain stable across rename and path changes</li>
+<li>avoid embedding sensitive information</li>
+<li>avoid encoding mutable hierarchy</li>
+<li>support import collision handling</li>
+</ul>
+<p>Human-readable slugs may be used for navigation.</p>
+<p>Slugs must not be treated as authoritative identity.</p>
+<hr>
+<h1 id="storage-model">Storage Model<a href="#storage-model" class="heading-anchor">#</a></h1>
+<h2 id="storage-philosophy">Storage Philosophy<a href="#storage-philosophy" class="heading-anchor">#</a></h2>
+<p>The Workspace System uses a federated storage model.</p>
+<p>Workspace ownership is logical.</p>
+<p>Storage is physically distributed across fit-for-purpose systems.</p>
+<p>Example:</p>
+<pre><code class="language-diagram">Workspace
+├── Metadata → PostgreSQL
+├── Working State → Redis
+├── Semantic Retrieval → Qdrant
+├── Relationships → Knowledge Graph
+├── Large Artifacts → Local Filesystem or Object Store
+├── Execution Traces → Observability Store
+└── Secrets → Secret Store
+</code></pre>
+<p>This separation prevents the Workspace System from becoming a monolithic data store.</p>
+<h2 id="authoritative-metadata-store">Authoritative Metadata Store<a href="#authoritative-metadata-store" class="heading-anchor">#</a></h2>
+<p>PostgreSQL is the recommended authoritative store for:</p>
+<ul>
+<li>workspace records</li>
+<li>project records</li>
+<li>lifecycle state</li>
+<li>policy bindings</li>
+<li>resource metadata</li>
+<li>membership and role bindings</li>
+<li>import and export manifests</li>
+<li>durable lifecycle operations</li>
+</ul>
+<p>Relational constraints should enforce:</p>
+<ul>
+<li>project ownership by a valid workspace</li>
+<li>unique immutable identifiers</li>
+<li>valid lifecycle transitions where practical</li>
+<li>non-null ownership</li>
+<li>versioned updates</li>
+</ul>
+<h2 id="working-state-store">Working State Store<a href="#working-state-store" class="heading-anchor">#</a></h2>
+<p>Redis may store:</p>
+<ul>
+<li>active workspace selection</li>
+<li>short-lived context resolution caches</li>
+<li>transient UI projections</li>
+<li>lifecycle operation locks</li>
+<li>execution admission caches</li>
+</ul>
+<p>Redis must not be the sole authoritative store for workspace identity, ownership, policy, or lifecycle state.</p>
+<p>Loss of Redis must degrade performance, not destroy ownership data.</p>
+<h2 id="vector-storage">Vector Storage<a href="#vector-storage" class="heading-anchor">#</a></h2>
+<p>Qdrant collections or partitions must include workspace and project scope metadata.</p>
+<p>Vector retrieval filters must be applied before results are returned.</p>
+<p>Post-retrieval filtering alone is insufficient because unauthorized data may influence ranking, logs, caches, or model context.</p>
+<h2 id="knowledge-graph-storage">Knowledge Graph Storage<a href="#knowledge-graph-storage" class="heading-anchor">#</a></h2>
+<p>Every workspace-owned graph node and relationship must be scope-addressable.</p>
+<p>The graph must support questions such as:</p>
+<ul>
+<li>Which project produced this artifact?</li>
+<li>Which workflow execution created this memory?</li>
+<li>Which benchmark justified this promotion?</li>
+<li>Which resource was accessed by this execution?</li>
+</ul>
+<p>Cross-workspace graph edges require explicit sharing authorization.</p>
+<h2 id="artifact-storage">Artifact Storage<a href="#artifact-storage" class="heading-anchor">#</a></h2>
+<p>Large or native artifacts should remain in appropriate local storage whenever possible.</p>
+<p>Examples:</p>
+<ul>
+<li>source code remains in repositories</li>
+<li>documents remain in user-selected directories</li>
+<li>datasets remain in approved storage locations</li>
+</ul>
+<p>The Workspace System stores:</p>
+<ul>
+<li>stable resource binding</li>
+<li>content identity or checksum where applicable</li>
+<li>provenance</li>
+<li>access policy reference</li>
+<li>indexing state</li>
+</ul>
+<p>The Workspace System should not copy entire repositories or document stores merely to claim ownership.</p>
+<h2 id="secret-storage">Secret Storage<a href="#secret-storage" class="heading-anchor">#</a></h2>
+<p>Workspace and project records may reference secrets.</p>
+<p>They must never contain secret values.</p>
+<p>Secret references must resolve through the Security Layer or an approved secret-management provider.</p>
+<h2 id="storage-profiles">Storage Profiles<a href="#storage-profiles" class="heading-anchor">#</a></h2>
+<p>A workspace has a storage profile describing where its categories of data reside.</p>
+<p>Example profiles:</p>
+<ul>
+<li>fully local</li>
+<li>local with encrypted remote backup</li>
+<li>organization-managed</li>
+<li>hybrid execution with local memory</li>
+</ul>
+<p>A storage profile must expose:</p>
+<ul>
+<li>data locations</li>
+<li>encryption requirements</li>
+<li>backup policy</li>
+<li>retention policy</li>
+<li>synchronization policy</li>
+<li>supported export guarantees</li>
+</ul>
+<p>Changing a storage profile is a controlled migration, not a metadata toggle.</p>
+<h2 id="portability-manifest">Portability Manifest<a href="#portability-manifest" class="heading-anchor">#</a></h2>
+<p>Workspace export must produce an inspectable manifest containing:</p>
+<ul>
+<li>workspace identity and metadata</li>
+<li>project hierarchy</li>
+<li>schema versions</li>
+<li>included artifact categories</li>
+<li>excluded artifact categories and reasons</li>
+<li>checksums</li>
+<li>policy references</li>
+<li>external resource references</li>
+<li>unresolved dependencies</li>
+<li>encryption metadata</li>
+</ul>
+<p>Exports must distinguish:</p>
+<ul>
+<li>embedded data</li>
+<li>referenced data</li>
+<li>unavailable data</li>
+<li>intentionally excluded data</li>
+</ul>
+<hr>
+<h1 id="memory-scoping">Memory Scoping<a href="#memory-scoping" class="heading-anchor">#</a></h1>
+<h2 id="memory-scope-is-mandatory">Memory Scope Is Mandatory<a href="#memory-scope-is-mandatory" class="heading-anchor">#</a></h2>
+<p>Every memory record must declare an owning scope.</p>
+<p>Minimum ownership:</p>
+<ul>
+<li><code>workspace_id</code></li>
+</ul>
+<p>Optional narrower ownership:</p>
+<ul>
+<li><code>project_id</code></li>
+<li><code>workflow_definition_id</code></li>
+<li><code>execution_id</code></li>
+<li><code>principal_id</code></li>
+</ul>
+<p>Memory without an owning workspace is invalid unless it belongs to a narrowly defined installation-level system category.</p>
+<h2 id="memory-categories-by-scope">Memory Categories By Scope<a href="#memory-categories-by-scope" class="heading-anchor">#</a></h2>
+<h3 id="working-memory">Working Memory<a href="#working-memory" class="heading-anchor">#</a></h3>
+<p>Typical scope:</p>
+<ul>
+<li>workflow execution</li>
+<li>project</li>
+</ul>
+<p>Working memory is temporary and optimized for active reasoning.</p>
+<p>It should expire or be summarized according to policy.</p>
+<h3 id="episodic-memory">Episodic Memory<a href="#episodic-memory" class="heading-anchor">#</a></h3>
+<p>Typical scope:</p>
+<ul>
+<li>workflow execution</li>
+<li>project</li>
+<li>workspace</li>
+</ul>
+<p>Episodic memory records what happened.</p>
+<p>Project episodes should not automatically become workspace-wide experiences.</p>
+<p>Promotion may occur after review, summarization, classification, and policy checks.</p>
+<h3 id="semantic-memory">Semantic Memory<a href="#semantic-memory" class="heading-anchor">#</a></h3>
+<p>Typical scope:</p>
+<ul>
+<li>project</li>
+<li>workspace</li>
+</ul>
+<p>Semantic memory records durable knowledge.</p>
+<p>Project-specific facts remain project-scoped unless explicitly promoted.</p>
+<h3 id="procedural-memory">Procedural Memory<a href="#procedural-memory" class="heading-anchor">#</a></h3>
+<p>Typical scope:</p>
+<ul>
+<li>project</li>
+<li>workspace</li>
+</ul>
+<p>Procedural memory records how work should be performed.</p>
+<p>A procedure proven in one project may be proposed for workspace-wide use.</p>
+<p>Promotion requires evidence and must preserve its benchmark and provenance links.</p>
+<h3 id="evolution-memory">Evolution Memory<a href="#evolution-memory" class="heading-anchor">#</a></h3>
+<p>Typical scope:</p>
+<ul>
+<li>project</li>
+<li>workspace</li>
+</ul>
+<p>Evolution memory records:</p>
+<ul>
+<li>variants</li>
+<li>experiments</li>
+<li>benchmark outcomes</li>
+<li>promotion decisions</li>
+<li>rejected proposals</li>
+<li>rollback history</li>
+</ul>
+<p>Evolution memory must remain immutable enough to support audit and comparison.</p>
+<h2 id="retrieval-rules">Retrieval Rules<a href="#retrieval-rules" class="heading-anchor">#</a></h2>
+<p>Default retrieval order for a project-scoped workflow:</p>
+<ol>
+<li>execution working memory</li>
+<li>project memory</li>
+<li>permitted workspace memory</li>
+<li>explicitly shared external memory</li>
+</ol>
+<p>Retrieval must apply:</p>
+<ul>
+<li>scope filter</li>
+<li>permission filter</li>
+<li>classification filter</li>
+<li>retention state filter</li>
+<li>provenance and confidence criteria</li>
+<li>relevance ranking</li>
+</ul>
+<p>Similarity does not override authorization.</p>
+<h2 id="memory-promotion">Memory Promotion<a href="#memory-promotion" class="heading-anchor">#</a></h2>
+<p>Memory promotion moves or derives knowledge from a narrower scope to a broader scope.</p>
+<p>Example:</p>
+<pre><code class="language-diagram">Project Episode
+↓
+Review and Summarize
+↓
+Validate Provenance
+↓
+Check Sensitive Data
+↓
+Approve Promotion
+↓
+Workspace Procedural Memory
+</code></pre>
+<p>Promotion creates a new versioned memory artifact with links to source memories.</p>
+<p>It must not erase or silently mutate its source.</p>
+<h2 id="memory-demotion-and-restriction">Memory Demotion And Restriction<a href="#memory-demotion-and-restriction" class="heading-anchor">#</a></h2>
+<p>If a memory is found to contain sensitive, incorrect, or over-broad information, Damascus must support:</p>
+<ul>
+<li>quarantine</li>
+<li>scope restriction</li>
+<li>correction</li>
+<li>supersession</li>
+<li>deletion where policy permits</li>
+</ul>
+<p>Derived memories and indexes must be discoverable so restrictions can propagate.</p>
+<h2 id="cross-workspace-memory">Cross-Workspace Memory<a href="#cross-workspace-memory" class="heading-anchor">#</a></h2>
+<p>Cross-workspace memory retrieval is denied by default.</p>
+<p>Future sharing must use explicit grants describing:</p>
+<ul>
+<li>source workspace</li>
+<li>destination workspace</li>
+<li>allowed memory categories</li>
+<li>allowed actions</li>
+<li>duration</li>
+<li>revocation behavior</li>
+<li>downstream derivation rules</li>
+</ul>
+<p>A memory copied into another workspace must retain provenance and sharing constraints.</p>
+<hr>
+<h1 id="permissions-and-authority">Permissions And Authority<a href="#permissions-and-authority" class="heading-anchor">#</a></h1>
+<h2 id="security-ownership">Security Ownership<a href="#security-ownership" class="heading-anchor">#</a></h2>
+<p>The Security Layer owns:</p>
+<ul>
+<li>authentication</li>
+<li>authorization evaluation</li>
+<li>approval enforcement</li>
+<li>sandboxing</li>
+<li>secrets protection</li>
+<li>audit integrity</li>
+</ul>
+<p>The Workspace System owns:</p>
+<ul>
+<li>resource ownership metadata</li>
+<li>membership bindings</li>
+<li>role bindings</li>
+<li>policy bindings</li>
+<li>requested scope</li>
+<li>user-facing permission management</li>
+</ul>
+<p>The Workspace System must never treat its own role metadata as sufficient authorization without Security Layer evaluation.</p>
+<h2 id="principals">Principals<a href="#principals" class="heading-anchor">#</a></h2>
+<p>Initial principal types:</p>
+<ul>
+<li>human user</li>
+<li>local service</li>
+<li>workflow execution</li>
+<li>agent capability</li>
+<li>scheduled operation</li>
+<li>future organization identity</li>
+</ul>
+<p>Agents are not users.</p>
+<p>Agents act through workflow execution identities with delegated and bounded permissions.</p>
+<h2 id="roles">Roles<a href="#roles" class="heading-anchor">#</a></h2>
+<p>Recommended workspace roles:</p>
+<h3 id="owner">Owner<a href="#owner" class="heading-anchor">#</a></h3>
+<p>May:</p>
+<ul>
+<li>administer workspace</li>
+<li>manage membership and policies</li>
+<li>authorize export and deletion</li>
+<li>delegate authority</li>
+<li>approve critical changes</li>
+</ul>
+<p>A workspace must always have at least one valid owner.</p>
+<h3 id="administrator">Administrator<a href="#administrator" class="heading-anchor">#</a></h3>
+<p>May:</p>
+<ul>
+<li>manage projects</li>
+<li>manage most policy bindings</li>
+<li>manage capability availability</li>
+<li>manage routine lifecycle operations</li>
+</ul>
+<p>Administrators may not transfer ownership or bypass owner-only restrictions unless explicitly delegated.</p>
+<h3 id="contributor">Contributor<a href="#contributor" class="heading-anchor">#</a></h3>
+<p>May:</p>
+<ul>
+<li>create and modify project content</li>
+<li>create and run permitted workflows</li>
+<li>inspect permitted memory and results</li>
+</ul>
+<h3 id="operator">Operator<a href="#operator" class="heading-anchor">#</a></h3>
+<p>May:</p>
+<ul>
+<li>run approved workflows</li>
+<li>pause and resume executions</li>
+<li>respond to operational approvals</li>
+</ul>
+<p>Operators may not modify workflow definitions unless separately permitted.</p>
+<h3 id="viewer">Viewer<a href="#viewer" class="heading-anchor">#</a></h3>
+<p>May:</p>
+<ul>
+<li>inspect permitted workspace resources</li>
+<li>view results and activity</li>
+</ul>
+<p>View permission does not imply permission to retrieve all memories into a model context or export data.</p>
+<h3 id="auditor">Auditor<a href="#auditor" class="heading-anchor">#</a></h3>
+<p>May:</p>
+<ul>
+<li>inspect audit records, policies, promotion history, and execution traces</li>
+</ul>
+<p>Auditor access should be read-only and independently logged.</p>
+<h2 id="permission-dimensions">Permission Dimensions<a href="#permission-dimensions" class="heading-anchor">#</a></h2>
+<p>Permissions should evaluate:</p>
+<ul>
+<li>principal</li>
+<li>action</li>
+<li>resource</li>
+<li>scope</li>
+<li>resource classification</li>
+<li>execution context</li>
+<li>policy version</li>
+<li>time or duration</li>
+<li>approval state</li>
+</ul>
+<p>Example actions:</p>
+<ul>
+<li>workspace.read</li>
+<li>workspace.configure</li>
+<li>workspace.archive</li>
+<li>workspace.export</li>
+<li>workspace.delete</li>
+<li>project.create</li>
+<li>project.configure</li>
+<li>workflow.define</li>
+<li>workflow.execute</li>
+<li>workflow.cancel</li>
+<li>memory.read</li>
+<li>memory.write</li>
+<li>memory.promote</li>
+<li>resource.bind</li>
+<li>resource.execute</li>
+<li>benchmark.run</li>
+<li>evolution.promote</li>
+</ul>
+<h2 id="capability-grants">Capability Grants<a href="#capability-grants" class="heading-anchor">#</a></h2>
+<p>Availability and permission are separate.</p>
+<p>A tool may be installed but unavailable in a workspace.</p>
+<p>A tool may be available but not permitted for a project.</p>
+<p>A tool may be permitted but require approval for a specific action.</p>
+<p>Capability resolution:</p>
+<pre><code class="language-diagram">Installed
+↓
+Workspace Available
+↓
+Project Available
+↓
+Workflow Requested
+↓
+Security Authorized
+↓
+Approval Satisfied
+↓
+Execution Granted
+</code></pre>
+<h2 id="approval-policy">Approval Policy<a href="#approval-policy" class="heading-anchor">#</a></h2>
+<p>Critical actions may require human approval.</p>
+<p>Examples:</p>
+<ul>
+<li>write access outside bound project resources</li>
+<li>external publication</li>
+<li>destructive filesystem operation</li>
+<li>secret use</li>
+<li>remote data transfer</li>
+<li>workspace export</li>
+<li>cross-workspace sharing</li>
+<li>evolution promotion to an active workflow</li>
+</ul>
+<p>Approvals must bind to:</p>
+<ul>
+<li>exact action or action class</li>
+<li>requesting execution</li>
+<li>resource scope</li>
+<li>expiration</li>
+<li>approving principal</li>
+<li>relevant policy version</li>
+</ul>
+<p>Approval for one action must not become general authority.</p>
+<h2 id="permission-revocation">Permission Revocation<a href="#permission-revocation" class="heading-anchor">#</a></h2>
+<p>Revocation must affect:</p>
+<ul>
+<li>new operations immediately</li>
+<li>queued executions before admission</li>
+<li>running executions at the next enforceable boundary</li>
+<li>cached context and credentials</li>
+<li>future scheduled work</li>
+</ul>
+<p>The system must define which running actions can be interrupted safely.</p>
+<p>Revocation must emit an auditable event.</p>
+<hr>
+<h1 id="workspace-lifecycle">Workspace Lifecycle<a href="#workspace-lifecycle" class="heading-anchor">#</a></h1>
+<h2 id="workspace-states">Workspace States<a href="#workspace-states" class="heading-anchor">#</a></h2>
+<p>Minimum workspace lifecycle states:</p>
+<ul>
+<li>Provisioning</li>
+<li>Active</li>
+<li>Suspended</li>
+<li>Archiving</li>
+<li>Archived</li>
+<li>Restoring</li>
+<li>Deletion Pending</li>
+<li>Deleting</li>
+<li>Deleted</li>
+<li>Recovery Required</li>
+</ul>
+<h2 id="create">Create<a href="#create" class="heading-anchor">#</a></h2>
+<p>Workspace creation flow:</p>
+<pre><code class="language-diagram">Request
+↓
+Authorize
+↓
+Validate Name And Storage Profile
+↓
+Create Stable Identity
+↓
+Create Metadata Record
+↓
+Bind Default Policies
+↓
+Initialize Storage Partitions
+↓
+Initialize Audit And Activity Projections
+↓
+Activate
+</code></pre>
+<p>Creation must be idempotent.</p>
+<p>Partial creation must transition to <code>Recovery Required</code> or be compensated safely.</p>
+<h2 id="active">Active<a href="#active" class="heading-anchor">#</a></h2>
+<p>An active workspace accepts permitted:</p>
+<ul>
+<li>project operations</li>
+<li>workflow submissions</li>
+<li>scheduled executions</li>
+<li>memory reads and writes</li>
+<li>capability configuration</li>
+<li>benchmark and evolution operations</li>
+</ul>
+<h2 id="suspended">Suspended<a href="#suspended" class="heading-anchor">#</a></h2>
+<p>Suspension is a reversible safety or administrative state.</p>
+<p>While suspended:</p>
+<ul>
+<li>new executions are denied</li>
+<li>scheduled executions do not start</li>
+<li>running executions are paused or cancelled according to policy</li>
+<li>read access may remain available</li>
+<li>configuration access is restricted</li>
+<li>recovery and audit operations remain available</li>
+</ul>
+<p>Suspension should be used for:</p>
+<ul>
+<li>suspected compromise</li>
+<li>policy violation</li>
+<li>storage failure</li>
+<li>owner-requested pause</li>
+</ul>
+<h2 id="archive">Archive<a href="#archive" class="heading-anchor">#</a></h2>
+<p>Archiving preserves a workspace while removing it from active operation.</p>
+<p>Archive flow:</p>
+<pre><code class="language-diagram">Request
+↓
+Authorize
+↓
+Create Archive Plan
+↓
+Stop New Execution Admission
+↓
+Resolve Running And Scheduled Work
+↓
+Flush Durable State
+↓
+Verify Storage And Index State
+↓
+Mark Archived
+</code></pre>
+<p>Archived workspaces:</p>
+<ul>
+<li>reject new workflow execution</li>
+<li>retain history and memory according to policy</li>
+<li>remain inspectable</li>
+<li>may be exported</li>
+<li>may be restored</li>
+</ul>
+<p>Archiving is not deletion.</p>
+<h2 id="restore">Restore<a href="#restore" class="heading-anchor">#</a></h2>
+<p>Restore flow:</p>
+<pre><code class="language-diagram">Request
+↓
+Authorize
+↓
+Validate Data Integrity
+↓
+Validate Capability And Policy Compatibility
+↓
+Rebuild Required Projections
+↓
+Re-enable Resource Bindings
+↓
+Activate
+</code></pre>
+<p>Restore must report:</p>
+<ul>
+<li>unavailable models</li>
+<li>unavailable tools</li>
+<li>broken resource references</li>
+<li>incompatible policy versions</li>
+<li>missing storage backends</li>
+</ul>
+<p>A workspace must not silently become active with reduced security.</p>
+<h2 id="delete">Delete<a href="#delete" class="heading-anchor">#</a></h2>
+<p>Deletion is staged.</p>
+<p>Recommended flow:</p>
+<pre><code class="language-diagram">Deletion Requested
+↓
+Owner Approval
+↓
+Impact Report
+↓
+Retention And Legal Checks
+↓
+Deletion Pending Grace Period
+↓
+Final Confirmation
+↓
+Delete Or Cryptographically Erase Data
+↓
+Delete Derived Indexes And Caches
+↓
+Retain Minimal Tombstone And Audit Record
+</code></pre>
+<p>Deletion must account for:</p>
+<ul>
+<li>memories</li>
+<li>knowledge graph nodes and edges</li>
+<li>vector indexes</li>
+<li>workflow definitions</li>
+<li>execution traces</li>
+<li>artifacts</li>
+<li>exports and backups</li>
+<li>shared references</li>
+<li>scheduled operations</li>
+</ul>
+<p>The deletion report must distinguish fully deleted, retained by policy, externally referenced, and failed-to-delete data.</p>
+<h2 id="transfer">Transfer<a href="#transfer" class="heading-anchor">#</a></h2>
+<p>Future workspace ownership transfer requires:</p>
+<ul>
+<li>current owner authorization</li>
+<li>destination owner acceptance</li>
+<li>policy compatibility validation</li>
+<li>secret and external resource reauthorization</li>
+<li>complete audit record</li>
+</ul>
+<p>Ownership transfer must not automatically transfer external credentials.</p>
+<hr>
+<h1 id="project-lifecycle">Project Lifecycle<a href="#project-lifecycle" class="heading-anchor">#</a></h1>
+<h2 id="project-states">Project States<a href="#project-states" class="heading-anchor">#</a></h2>
+<p>Minimum project lifecycle states:</p>
+<ul>
+<li>Draft</li>
+<li>Active</li>
+<li>Suspended</li>
+<li>Archived</li>
+<li>Deletion Pending</li>
+<li>Deleted</li>
+<li>Recovery Required</li>
+</ul>
+<h2 id="project-creation">Project Creation<a href="#project-creation" class="heading-anchor">#</a></h2>
+<p>Project creation requires:</p>
+<ul>
+<li>owning workspace</li>
+<li>project identity</li>
+<li>initial classification</li>
+<li>inherited or explicit policies</li>
+<li>authorized creator</li>
+</ul>
+<p>Resource binding is optional at creation.</p>
+<p>A project may begin as an organizational context before files or repositories are attached.</p>
+<h2 id="project-activation">Project Activation<a href="#project-activation" class="heading-anchor">#</a></h2>
+<p>Before activation, Damascus should validate:</p>
+<ul>
+<li>policy bindings</li>
+<li>resource bindings</li>
+<li>memory partition readiness</li>
+<li>requested capability availability</li>
+<li>project classification</li>
+</ul>
+<h2 id="project-archive">Project Archive<a href="#project-archive" class="heading-anchor">#</a></h2>
+<p>Archiving a project:</p>
+<ul>
+<li>blocks new project-scoped executions</li>
+<li>disables project schedules</li>
+<li>preserves project memory and history</li>
+<li>leaves workspace-level operations active</li>
+</ul>
+<p>Workspace-level workflows must not accidentally access archived project resources without explicit authorization.</p>
+<h2 id="project-transfer">Project Transfer<a href="#project-transfer" class="heading-anchor">#</a></h2>
+<p>Initial architecture should support moving a project between workspaces only as a controlled export and import operation.</p>
+<p>It must not be implemented as changing <code>workspace_id</code> on the project row.</p>
+<p>Transfer affects:</p>
+<ul>
+<li>memory scope</li>
+<li>knowledge relationships</li>
+<li>policy bindings</li>
+<li>workflow ownership</li>
+<li>benchmark history</li>
+<li>resource access</li>
+<li>evolution history</li>
+<li>audit records</li>
+</ul>
+<p>The source workspace must retain appropriate provenance and tombstone records.</p>
+<hr>
+<h1 id="data-flow">Data Flow<a href="#data-flow" class="heading-anchor">#</a></h1>
+<h2 id="user-interaction-flow">User Interaction Flow<a href="#user-interaction-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">User Request
+↓
+Authenticate Principal
+↓
+Resolve Active Workspace
+↓
+Resolve Optional Project
+↓
+Resolve Context Boundaries
+↓
+Authorize Requested Operation
+↓
+Route To Workspace Operation Or Workflow
+↓
+Record Audit And Activity
+↓
+Return Result
+</code></pre>
+<h2 id="workflow-submission-flow">Workflow Submission Flow<a href="#workflow-submission-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">User Goal
+↓
+Workspace Context Resolver
+↓
+Select Or Create Workflow Definition
+↓
+Resolve Workspace And Project Scope
+↓
+Resolve Policies And Capability Availability
+↓
+Security Authorization And Approvals
+↓
+Submit Workflow To Damascus Core
+↓
+Core Schedules And Executes Through Runtime Interface
+↓
+Observability Captures Trace
+↓
+Memory Layer Stores Approved Learnings
+↓
+Evolution Layer Evaluates Evidence
+↓
+Workspace Activity View Updates
+</code></pre>
+<p>The Workspace System does not pass unrestricted workspace data into execution.</p>
+<p>It passes explicit references, boundaries, and resolved policy context.</p>
+<h2 id="project-resource-binding-flow">Project Resource Binding Flow<a href="#project-resource-binding-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Bind Resource Request
+↓
+Authorize
+↓
+Validate Resource Locator
+↓
+Classify Resource
+↓
+Determine Allowed Access Mode
+↓
+Create Policy Binding
+↓
+Verify Access
+↓
+Create Catalog Entry
+↓
+Emit ResourceBound Event
+↓
+Index According To Policy
+</code></pre>
+<h2 id="memory-write-flow">Memory Write Flow<a href="#memory-write-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Workflow Observation
+↓
+Classify Memory Candidate
+↓
+Resolve Owning Scope
+↓
+Apply Memory Policy
+↓
+Security And Sensitive Data Checks
+↓
+Write To Memory Layer
+↓
+Update Vector And Graph Representations
+↓
+Emit MemoryStored Event
+↓
+Expose Through Workspace Activity
+</code></pre>
+<h2 id="evolution-promotion-flow">Evolution Promotion Flow<a href="#evolution-promotion-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Observed Execution History
+↓
+Evolution Layer Generates Variant
+↓
+Benchmark In Authorized Scope
+↓
+Compare Against Baseline
+↓
+Produce Evidence And Promotion Proposal
+↓
+Workspace Displays Proposal
+↓
+Required Human Approval
+↓
+Registry Updates Promoted Workflow Version
+↓
+Evolution Memory Records Decision
+</code></pre>
+<p>The Workspace System provides the governance context for promotion.</p>
+<p>It does not decide whether a variant is technically superior.</p>
+<hr>
+<h1 id="events">Events<a href="#events" class="heading-anchor">#</a></h1>
+<p>Recommended Workspace System events:</p>
+<ul>
+<li>WorkspaceProvisioningStarted</li>
+<li>WorkspaceCreated</li>
+<li>WorkspaceUpdated</li>
+<li>WorkspaceSuspended</li>
+<li>WorkspaceArchiveStarted</li>
+<li>WorkspaceArchived</li>
+<li>WorkspaceRestoreStarted</li>
+<li>WorkspaceRestored</li>
+<li>WorkspaceDeletionRequested</li>
+<li>WorkspaceDeleted</li>
+<li>WorkspaceRecoveryRequired</li>
+<li>ProjectCreated</li>
+<li>ProjectUpdated</li>
+<li>ProjectSuspended</li>
+<li>ProjectArchived</li>
+<li>ProjectRestored</li>
+<li>ProjectDeletionRequested</li>
+<li>ProjectDeleted</li>
+<li>ResourceBound</li>
+<li>ResourceBindingUpdated</li>
+<li>ResourceUnbound</li>
+<li>WorkspacePolicyBindingChanged</li>
+<li>ProjectPolicyBindingChanged</li>
+<li>WorkspaceMembershipChanged</li>
+<li>CrossWorkspaceShareGranted</li>
+<li>CrossWorkspaceShareRevoked</li>
+</ul>
+<p>Every event must include:</p>
+<ul>
+<li>event identifier</li>
+<li>event type and schema version</li>
+<li>workspace identifier</li>
+<li>optional project identifier</li>
+<li>actor principal</li>
+<li>correlation identifier</li>
+<li>causation identifier</li>
+<li>timestamp</li>
+<li>aggregate version</li>
+<li>non-sensitive change summary</li>
+</ul>
+<p>Events must not contain secret values or unrestricted artifact content.</p>
+<hr>
+<h1 id="lifecycle-operation-reliability">Lifecycle Operation Reliability<a href="#lifecycle-operation-reliability" class="heading-anchor">#</a></h1>
+<p>Workspace and project lifecycle transitions span multiple subsystems.</p>
+<p>They should use durable sagas or equivalent coordinated operations.</p>
+<p>Example archive operation:</p>
+<ol>
+<li>Record archive intent.</li>
+<li>Deny new execution admission.</li>
+<li>Pause or cancel schedules.</li>
+<li>resolve running executions.</li>
+<li>Flush memory and observability writes.</li>
+<li>Update indexes and projections.</li>
+<li>Mark workspace archived.</li>
+<li>Emit completion event.</li>
+</ol>
+<p>Each step must be:</p>
+<ul>
+<li>idempotent</li>
+<li>observable</li>
+<li>retryable where safe</li>
+<li>associated with a durable operation record</li>
+</ul>
+<p>Compensation must not falsely claim that irreversible actions were undone.</p>
+<hr>
+<h1 id="failure-modes">Failure Modes<a href="#failure-modes" class="heading-anchor">#</a></h1>
+<h2 id="metadata-store-unavailable">Metadata Store Unavailable<a href="#metadata-store-unavailable" class="heading-anchor">#</a></h2>
+<p>Impact:</p>
+<p>Workspace identity, scope, and policy bindings cannot be trusted.</p>
+<p>Required behavior:</p>
+<ul>
+<li>deny new mutation and execution admission</li>
+<li>avoid relying on stale authorization caches</li>
+<li>preserve already running work only when its signed policy snapshot remains valid</li>
+<li>surface degraded state</li>
+</ul>
+<h2 id="partial-workspace-provisioning">Partial Workspace Provisioning<a href="#partial-workspace-provisioning" class="heading-anchor">#</a></h2>
+<p>Impact:</p>
+<p>Workspace metadata exists but one or more storage partitions or policy bindings are missing.</p>
+<p>Required behavior:</p>
+<ul>
+<li>do not activate workspace</li>
+<li>mark <code>Recovery Required</code></li>
+<li>retry idempotent initialization</li>
+<li>provide an operator-visible failure report</li>
+</ul>
+<h2 id="scope-leakage">Scope Leakage<a href="#scope-leakage" class="heading-anchor">#</a></h2>
+<p>Impact:</p>
+<p>Data from one project or workspace becomes visible to another.</p>
+<p>This is a critical security incident.</p>
+<p>Required behavior:</p>
+<ul>
+<li>stop affected retrieval or execution</li>
+<li>revoke relevant caches and credentials</li>
+<li>quarantine derived outputs</li>
+<li>identify impacted records through provenance</li>
+<li>notify authorized users</li>
+<li>preserve audit evidence</li>
+</ul>
+<h2 id="stale-policy-cache">Stale Policy Cache<a href="#stale-policy-cache" class="heading-anchor">#</a></h2>
+<p>Impact:</p>
+<p>An execution may operate using outdated authority.</p>
+<p>Required behavior:</p>
+<ul>
+<li>use short-lived or version-bound authorization decisions</li>
+<li>revalidate before critical actions</li>
+<li>invalidate on policy change events</li>
+<li>stop or pause affected executions when required</li>
+</ul>
+<h2 id="resource-path-moved-or-removed">Resource Path Moved Or Removed<a href="#resource-path-moved-or-removed" class="heading-anchor">#</a></h2>
+<p>Impact:</p>
+<p>A bound local resource can no longer be resolved.</p>
+<p>Required behavior:</p>
+<ul>
+<li>mark binding unavailable</li>
+<li>do not silently bind a different resource at the same path</li>
+<li>verify identity using repository identity, checksum, or configured method</li>
+<li>request user repair</li>
+</ul>
+<h2 id="workspace-archive-interrupted">Workspace Archive Interrupted<a href="#workspace-archive-interrupted" class="heading-anchor">#</a></h2>
+<p>Impact:</p>
+<p>Some subsystems consider the workspace archived while others remain active.</p>
+<p>Required behavior:</p>
+<ul>
+<li>keep execution admission closed</li>
+<li>resume the durable archive operation</li>
+<li>report subsystem state</li>
+<li>require recovery before declaring completion</li>
+</ul>
+<h2 id="memory-index-divergence">Memory Index Divergence<a href="#memory-index-divergence" class="heading-anchor">#</a></h2>
+<p>Impact:</p>
+<p>Authoritative memory differs from vector or graph indexes.</p>
+<p>Required behavior:</p>
+<ul>
+<li>treat authoritative records as source of truth</li>
+<li>quarantine uncertain retrieval results</li>
+<li>rebuild affected indexes</li>
+<li>verify scope filters before restoring service</li>
+</ul>
+<h2 id="import-conflict">Import Conflict<a href="#import-conflict" class="heading-anchor">#</a></h2>
+<p>Impact:</p>
+<p>Imported identities, policies, or capabilities conflict with the destination installation.</p>
+<p>Required behavior:</p>
+<ul>
+<li>do not partially activate import</li>
+<li>create a conflict report</li>
+<li>remap identities explicitly</li>
+<li>preserve original provenance</li>
+<li>require approval for policy substitutions</li>
+</ul>
+<h2 id="orphaned-artifact">Orphaned Artifact<a href="#orphaned-artifact" class="heading-anchor">#</a></h2>
+<p>Impact:</p>
+<p>An artifact references a missing workspace or project.</p>
+<p>Required behavior:</p>
+<ul>
+<li>quarantine the artifact</li>
+<li>block normal retrieval</li>
+<li>attempt ownership reconstruction from provenance and audit data</li>
+<li>require authorized repair or deletion</li>
+</ul>
+<h2 id="owner-loss">Owner Loss<a href="#owner-loss" class="heading-anchor">#</a></h2>
+<p>Impact:</p>
+<p>No valid owner remains available.</p>
+<p>Required behavior:</p>
+<ul>
+<li>prevent removal of the final owner during normal operation</li>
+<li>support a separately governed recovery procedure</li>
+<li>log all emergency ownership recovery actions</li>
+</ul>
+<h2 id="storage-capacity-exhausted">Storage Capacity Exhausted<a href="#storage-capacity-exhausted" class="heading-anchor">#</a></h2>
+<p>Impact:</p>
+<p>Writes, checkpoints, exports, or lifecycle operations may fail.</p>
+<p>Required behavior:</p>
+<ul>
+<li>stop admitting operations requiring unavailable durable storage</li>
+<li>preserve integrity over availability</li>
+<li>surface category-specific usage</li>
+<li>allow authorized cleanup and export</li>
+</ul>
+<hr>
+<h1 id="recovery-mechanisms">Recovery Mechanisms<a href="#recovery-mechanisms" class="heading-anchor">#</a></h1>
+<h2 id="durable-operation-journal">Durable Operation Journal<a href="#durable-operation-journal" class="heading-anchor">#</a></h2>
+<p>Every multi-system lifecycle operation must have a durable journal recording:</p>
+<ul>
+<li>requested transition</li>
+<li>actor</li>
+<li>current step</li>
+<li>completed steps</li>
+<li>failed steps</li>
+<li>retry count</li>
+<li>compensating actions</li>
+<li>final outcome</li>
+</ul>
+<h2 id="reconciliation">Reconciliation<a href="#reconciliation" class="heading-anchor">#</a></h2>
+<p>Periodic reconciliation should detect:</p>
+<ul>
+<li>projects without workspaces</li>
+<li>artifacts without valid scope</li>
+<li>mismatched lifecycle states</li>
+<li>stale indexes</li>
+<li>policy binding version drift</li>
+<li>active schedules in archived scopes</li>
+<li>unresolved deletion records</li>
+</ul>
+<p>Reconciliation may propose or execute safe repairs.</p>
+<p>It must not silently broaden permissions or reassign ownership.</p>
+<h2 id="backup-and-restore">Backup And Restore<a href="#backup-and-restore" class="heading-anchor">#</a></h2>
+<p>Backup policy must be defined by storage profile.</p>
+<p>Backups should include:</p>
+<ul>
+<li>authoritative workspace metadata</li>
+<li>policy bindings</li>
+<li>memory records</li>
+<li>graph data</li>
+<li>workflow definitions and versions</li>
+<li>benchmark and evolution history</li>
+<li>required audit records</li>
+</ul>
+<p>Backups must be encrypted and restorable without dependence on a specific model or runtime provider.</p>
+<p>Restore must verify:</p>
+<ul>
+<li>checksums</li>
+<li>schema compatibility</li>
+<li>scope integrity</li>
+<li>policy compatibility</li>
+<li>required encryption keys</li>
+</ul>
+<h2 id="index-rebuild">Index Rebuild<a href="#index-rebuild" class="heading-anchor">#</a></h2>
+<p>Vector, graph, search, and activity projections must be rebuildable from authoritative data and event history where possible.</p>
+<p>No derived index should be the only source of workspace ownership or provenance.</p>
+<h2 id="safe-mode">Safe Mode<a href="#safe-mode" class="heading-anchor">#</a></h2>
+<p>When integrity cannot be established, a workspace enters safe mode or <code>Recovery Required</code>.</p>
+<p>Safe mode permits:</p>
+<ul>
+<li>inspection</li>
+<li>export where safe</li>
+<li>audit access</li>
+<li>repair operations</li>
+</ul>
+<p>Safe mode denies:</p>
+<ul>
+<li>normal workflow execution</li>
+<li>memory promotion</li>
+<li>capability expansion</li>
+<li>destructive actions unrelated to repair</li>
+</ul>
+<hr>
+<h1 id="security-considerations">Security Considerations<a href="#security-considerations" class="heading-anchor">#</a></h1>
+<h2 id="local-first-security">Local-First Security<a href="#local-first-security" class="heading-anchor">#</a></h2>
+<p>Local-first does not mean automatically trusted.</p>
+<p>Local processes, plugins, models, and tools may still be compromised or over-privileged.</p>
+<p>Workspace boundaries must be enforced even on a single-user local installation.</p>
+<h2 id="data-classification">Data Classification<a href="#data-classification" class="heading-anchor">#</a></h2>
+<p>Workspaces, projects, resources, artifacts, and memories should support classification.</p>
+<p>Initial classifications may include:</p>
+<ul>
+<li>public</li>
+<li>internal</li>
+<li>confidential</li>
+<li>restricted</li>
+</ul>
+<p>Classification affects:</p>
+<ul>
+<li>eligible models</li>
+<li>remote transmission</li>
+<li>tool access</li>
+<li>export behavior</li>
+<li>retention</li>
+<li>sharing</li>
+<li>logging redaction</li>
+</ul>
+<h2 id="model-data-egress">Model Data Egress<a href="#model-data-egress" class="heading-anchor">#</a></h2>
+<p>Before workspace data is sent to a model provider, the Model Layer and Security Layer must evaluate:</p>
+<ul>
+<li>workspace policy</li>
+<li>project policy</li>
+<li>data classification</li>
+<li>provider capability and location</li>
+<li>user approval requirements</li>
+<li>redaction requirements</li>
+</ul>
+<p>Selecting a cloud model must never silently authorize data egress.</p>
+<h2 id="tool-access">Tool Access<a href="#tool-access" class="heading-anchor">#</a></h2>
+<p>Workspace resource bindings define potential tool targets.</p>
+<p>They do not grant unrestricted tool access.</p>
+<p>Tool calls must remain scoped to:</p>
+<ul>
+<li>permitted action</li>
+<li>permitted resource</li>
+<li>permitted workflow execution</li>
+<li>permitted duration</li>
+</ul>
+<h2 id="prompt-injection-and-untrusted-content">Prompt Injection And Untrusted Content<a href="#prompt-injection-and-untrusted-content" class="heading-anchor">#</a></h2>
+<p>Documents, repositories, websites, and imported memories may contain adversarial instructions.</p>
+<p>Workspace context resolution must preserve trust metadata.</p>
+<p>Untrusted content must not modify policies, grant permissions, approve actions, or redefine workspace ownership.</p>
+<h2 id="audit">Audit<a href="#audit" class="heading-anchor">#</a></h2>
+<p>Critical workspace actions must be auditable.</p>
+<p>Audit records should cover:</p>
+<ul>
+<li>membership and role changes</li>
+<li>policy binding changes</li>
+<li>resource bindings</li>
+<li>approvals</li>
+<li>exports</li>
+<li>lifecycle transitions</li>
+<li>cross-workspace sharing</li>
+<li>evolution promotions</li>
+<li>memory promotion and deletion</li>
+</ul>
+<p>Audit records must be protected from ordinary workspace mutation.</p>
+<h2 id="encryption">Encryption<a href="#encryption" class="heading-anchor">#</a></h2>
+<p>Sensitive workspace data should be encrypted:</p>
+<ul>
+<li>at rest</li>
+<li>in transit</li>
+<li>in exports</li>
+<li>in backups</li>
+</ul>
+<p>Future multi-user workspaces may require workspace-specific encryption keys and key rotation.</p>
+<p>Key destruction may support cryptographic erasure where physical deletion cannot be guaranteed.</p>
+<hr>
+<h1 id="observability-and-auditability">Observability And Auditability<a href="#observability-and-auditability" class="heading-anchor">#</a></h1>
+<p>The Workspace System must expose operational and learning visibility without duplicating the Observability Layer.</p>
+<p>Workspace-facing views should include:</p>
+<ul>
+<li>active executions</li>
+<li>queued and scheduled work</li>
+<li>approvals required</li>
+<li>recent failures</li>
+<li>resource access</li>
+<li>memory changes</li>
+<li>benchmark outcomes</li>
+<li>evolution proposals and promotions</li>
+<li>policy changes</li>
+<li>storage health</li>
+</ul>
+<p>Every workflow trace must resolve to:</p>
+<ul>
+<li>owning workspace</li>
+<li>optional owning project</li>
+<li>workflow definition and version</li>
+<li>effective policy snapshot</li>
+<li>requesting principal</li>
+</ul>
+<p>Workspace activity is a projection.</p>
+<p>Audit is an integrity record.</p>
+<p>Observability is operational and learning infrastructure.</p>
+<p>These concerns must not be conflated.</p>
+<hr>
+<h1 id="performance-and-scalability">Performance And Scalability<a href="#performance-and-scalability" class="heading-anchor">#</a></h1>
+<h2 id="context-loading">Context Loading<a href="#context-loading" class="heading-anchor">#</a></h2>
+<p>Opening a workspace must not load every project, memory, artifact, or trace.</p>
+<p>Workspace interfaces should use:</p>
+<ul>
+<li>paginated catalogs</li>
+<li>bounded summaries</li>
+<li>lazy retrieval</li>
+<li>scoped search</li>
+<li>cached projections</li>
+</ul>
+<h2 id="large-workspaces">Large Workspaces<a href="#large-workspaces" class="heading-anchor">#</a></h2>
+<p>The architecture must support workspaces containing:</p>
+<ul>
+<li>many projects</li>
+<li>long execution histories</li>
+<li>large memory collections</li>
+<li>multiple resource types</li>
+<li>many workflow versions</li>
+</ul>
+<p>Operations must avoid unbounded scans.</p>
+<h2 id="execution-isolation">Execution Isolation<a href="#execution-isolation" class="heading-anchor">#</a></h2>
+<p>Resource budgets and concurrency limits should be configurable per workspace and project.</p>
+<p>The Scheduler enforces these limits.</p>
+<p>The Workspace System provides the applicable bindings and user-facing configuration.</p>
+<h2 id="derived-views">Derived Views<a href="#derived-views" class="heading-anchor">#</a></h2>
+<p>Activity feeds, summaries, search, and dashboards should be derived views.</p>
+<p>They may be rebuilt.</p>
+<p>Core ownership and permission decisions must not depend on them.</p>
+<hr>
+<h1 id="future-multi-workspace-support">Future Multi-Workspace Support<a href="#future-multi-workspace-support" class="heading-anchor">#</a></h1>
+<h2 id="initial-position">Initial Position<a href="#initial-position" class="heading-anchor">#</a></h2>
+<p>The initial architecture may optimize for one active user and a small number of local workspaces.</p>
+<p>It must still model workspaces as isolated, stable identities from the beginning.</p>
+<p>Retrofitting isolation after data, memory, and permissions have been stored globally is unsafe.</p>
+<h2 id="multiple-active-workspaces">Multiple Active Workspaces<a href="#multiple-active-workspaces" class="heading-anchor">#</a></h2>
+<p>Future Damascus versions may allow:</p>
+<ul>
+<li>multiple open workspaces</li>
+<li>background workflows across workspaces</li>
+<li>workspace-specific model and tool policies</li>
+<li>workspace-specific storage profiles</li>
+<li>aggregate system activity views</li>
+</ul>
+<p>Every background operation must retain its owning workspace context.</p>
+<p>The currently visible workspace must not affect the authority of an already running workflow.</p>
+<h2 id="cross-workspace-operations">Cross-Workspace Operations<a href="#cross-workspace-operations" class="heading-anchor">#</a></h2>
+<p>Cross-workspace operations must be represented explicitly.</p>
+<p>Examples:</p>
+<ul>
+<li>compare findings from two research workspaces</li>
+<li>share an approved workflow template</li>
+<li>copy a procedural memory</li>
+<li>run an installation-level maintenance workflow</li>
+</ul>
+<p>Such operations require:</p>
+<ul>
+<li>source authorization</li>
+<li>destination authorization</li>
+<li>declared transfer type</li>
+<li>data classification check</li>
+<li>provenance preservation</li>
+<li>auditable result</li>
+</ul>
+<p>A cross-workspace workflow should use a dedicated federated scope rather than pretending to belong fully to one project.</p>
+<h2 id="shared-assets">Shared Assets<a href="#shared-assets" class="heading-anchor">#</a></h2>
+<p>Future shared assets may include:</p>
+<ul>
+<li>workflow templates</li>
+<li>benchmark definitions</li>
+<li>tool configurations</li>
+<li>approved procedures</li>
+</ul>
+<p>Shared assets must distinguish:</p>
+<ul>
+<li>reference</li>
+<li>copy</li>
+<li>fork</li>
+<li>synchronized dependency</li>
+</ul>
+<p>Promotion into a shared catalog must be controlled and benchmark-supported.</p>
+<p>Shared assets may not contain workspace-private memories by default.</p>
+<h2 id="organizations-and-teams">Organizations And Teams<a href="#organizations-and-teams" class="heading-anchor">#</a></h2>
+<p>Future organizational support may add:</p>
+<pre><code class="language-diagram">Installation
+└── Organization
+    └── Workspace
+        └── Project
+</code></pre>
+<p>Organization support must not require changing the fundamental workspace and project identities.</p>
+<p>Organization policy may add a stricter parent policy layer.</p>
+<p>It must not weaken workspace or system security baselines.</p>
+<h2 id="remote-synchronization">Remote Synchronization<a href="#remote-synchronization" class="heading-anchor">#</a></h2>
+<p>Remote synchronization is optional.</p>
+<p>Synchronization must define:</p>
+<ul>
+<li>authoritative replica</li>
+<li>conflict resolution</li>
+<li>encryption</li>
+<li>offline behavior</li>
+<li>deletion propagation</li>
+<li>policy propagation</li>
+<li>audit merging</li>
+<li>unsupported artifact handling</li>
+</ul>
+<p>Last-write-wins is not acceptable for ownership, policy, permission, or lifecycle state.</p>
+<h2 id="federated-workspaces">Federated Workspaces<a href="#federated-workspaces" class="heading-anchor">#</a></h2>
+<p>Long-term Damascus deployments may federate across devices or installations.</p>
+<p>Federation requires:</p>
+<ul>
+<li>globally stable identities</li>
+<li>trusted installation identities</li>
+<li>signed policy and provenance records</li>
+<li>explicit sharing contracts</li>
+<li>revocation semantics</li>
+<li>conflict-aware synchronization</li>
+</ul>
+<p>Federation must remain optional and must not compromise local operation.</p>
+<hr>
+<h1 id="architectural-constraints">Architectural Constraints<a href="#architectural-constraints" class="heading-anchor">#</a></h1>
+<h2 id="constraint-1">Constraint 1<a href="#constraint-1" class="heading-anchor">#</a></h2>
+<p>Workspace is the primary user-facing abstraction.</p>
+<p>It is not the primary execution unit.</p>
+<h2 id="constraint-2">Constraint 2<a href="#constraint-2" class="heading-anchor">#</a></h2>
+<p>Projects exist inside exactly one owning workspace in the initial architecture.</p>
+<h2 id="constraint-3">Constraint 3<a href="#constraint-3" class="heading-anchor">#</a></h2>
+<p>Every user-owned durable artifact must resolve to an owning workspace.</p>
+<h2 id="constraint-4">Constraint 4<a href="#constraint-4" class="heading-anchor">#</a></h2>
+<p>Every workflow execution must declare workspace scope before admission.</p>
+<h2 id="constraint-5">Constraint 5<a href="#constraint-5" class="heading-anchor">#</a></h2>
+<p>Workspace concepts must remain independent of runtime implementations.</p>
+<p>No LangGraph-specific concept may appear in the Workspace System public contract.</p>
+<h2 id="constraint-6">Constraint 6<a href="#constraint-6" class="heading-anchor">#</a></h2>
+<p>The Workspace System may bind policies.</p>
+<p>It may not bypass Security Layer enforcement.</p>
+<h2 id="constraint-7">Constraint 7<a href="#constraint-7" class="heading-anchor">#</a></h2>
+<p>The Workspace System may coordinate execution.</p>
+<p>It may not execute workflows outside Damascus Core.</p>
+<h2 id="constraint-8">Constraint 8<a href="#constraint-8" class="heading-anchor">#</a></h2>
+<p>Memory retrieval must apply scope restrictions before returning results.</p>
+<h2 id="constraint-9">Constraint 9<a href="#constraint-9" class="heading-anchor">#</a></h2>
+<p>Cross-workspace access is denied by default.</p>
+<h2 id="constraint-10">Constraint 10<a href="#constraint-10" class="heading-anchor">#</a></h2>
+<p>Project policy may restrict inherited workspace authority.</p>
+<p>It may not silently broaden it.</p>
+<h2 id="constraint-11">Constraint 11<a href="#constraint-11" class="heading-anchor">#</a></h2>
+<p>Workspace deletion must be staged, auditable, and capable of reporting retained data.</p>
+<h2 id="constraint-12">Constraint 12<a href="#constraint-12" class="heading-anchor">#</a></h2>
+<p>Storage paths and display names are not identities.</p>
+<h2 id="constraint-13">Constraint 13<a href="#constraint-13" class="heading-anchor">#</a></h2>
+<p>Secrets must not be stored directly in workspace metadata.</p>
+<h2 id="constraint-14">Constraint 14<a href="#constraint-14" class="heading-anchor">#</a></h2>
+<p>Derived indexes and views may not become authoritative sources of ownership or permission.</p>
+<h2 id="constraint-15">Constraint 15<a href="#constraint-15" class="heading-anchor">#</a></h2>
+<p>Evolution may propose and promote workflow improvements only through authorized, benchmark-supported processes.</p>
+<p>It may not modify workspace security policies.</p>
+<h2 id="constraint-16">Constraint 16<a href="#constraint-16" class="heading-anchor">#</a></h2>
+<p>Human authority remains final for critical workspace actions.</p>
+<hr>
+<h1 id="implementation-guidance">Implementation Guidance<a href="#implementation-guidance" class="heading-anchor">#</a></h1>
+<h2 id="recommended-initial-scope">Recommended Initial Scope<a href="#recommended-initial-scope" class="heading-anchor">#</a></h2>
+<p>The first production implementation should support:</p>
+<ul>
+<li>multiple local workspaces</li>
+<li>one owner principal per installation with future-ready membership tables</li>
+<li>projects contained by workspaces</li>
+<li>stable workspace and project identifiers</li>
+<li>PostgreSQL authoritative metadata</li>
+<li>explicit scope metadata on workflow, memory, and artifact records</li>
+<li>workspace and project archive and restore</li>
+<li>role and policy bindings</li>
+<li>local resource catalog</li>
+<li>export manifest generation</li>
+<li>audit events for critical operations</li>
+</ul>
+<h2 id="deferred-capabilities">Deferred Capabilities<a href="#deferred-capabilities" class="heading-anchor">#</a></h2>
+<p>The following may be deferred without weakening the core model:</p>
+<ul>
+<li>real-time collaboration</li>
+<li>organization hierarchy</li>
+<li>remote synchronization</li>
+<li>federated workspaces</li>
+<li>cross-workspace workflow execution</li>
+<li>project transfer between workspaces</li>
+<li>shared workflow marketplace</li>
+</ul>
+<p>They must not be simulated through unsafe shortcuts.</p>
+<h2 id="schema-evolution">Schema Evolution<a href="#schema-evolution" class="heading-anchor">#</a></h2>
+<p>Workspace schemas must be versioned.</p>
+<p>Migrations must preserve:</p>
+<ul>
+<li>stable identity</li>
+<li>ownership</li>
+<li>lifecycle history</li>
+<li>policy bindings</li>
+<li>memory scope</li>
+<li>provenance</li>
+</ul>
+<p>Migration failure must leave the workspace recoverable.</p>
+<h2 id="validation-tests">Validation Tests<a href="#validation-tests" class="heading-anchor">#</a></h2>
+<p>Minimum architectural test categories:</p>
+<ul>
+<li>project cannot exist without workspace</li>
+<li>archived workspace rejects execution</li>
+<li>project scope cannot retrieve sibling project memory by default</li>
+<li>workspace rename does not change identity</li>
+<li>path reuse does not silently rebind resources</li>
+<li>policy revocation affects queued work</li>
+<li>import preserves provenance and detects conflicts</li>
+<li>deletion identifies and removes derived indexes</li>
+<li>runtime adapter changes do not affect workspace contracts</li>
+<li>cross-workspace access is denied without explicit grant</li>
+</ul>
+<hr>
+<h1 id="future-evolution">Future Evolution<a href="#future-evolution" class="heading-anchor">#</a></h1>
+<p>The Workspace System may evolve to support:</p>
+<ul>
+<li>multi-user collaborative workspaces</li>
+<li>organization-level governance</li>
+<li>workspace federation across devices</li>
+<li>encrypted remote synchronization</li>
+<li>capability marketplaces</li>
+<li>portable workflow and procedure sharing</li>
+<li>workspace templates</li>
+<li>autonomous workspace maintenance workflows</li>
+<li>adaptive resource budgeting</li>
+<li>richer policy simulation</li>
+<li>project portfolio reasoning</li>
+<li>privacy-preserving cross-workspace learning</li>
+</ul>
+<p>Future evolution must preserve the foundational boundary:</p>
+<p>The workspace is user-owned context and governance.</p>
+<p>It is not an autonomous authority above the user.</p>
+<h2 id="privacy-preserving-shared-learning">Privacy-Preserving Shared Learning<a href="#privacy-preserving-shared-learning" class="heading-anchor">#</a></h2>
+<p>Future Damascus versions may learn patterns across workspaces.</p>
+<p>This must not mean unrestricted pooling of memory.</p>
+<p>Possible approaches include:</p>
+<ul>
+<li>sharing benchmark aggregates</li>
+<li>sharing redacted procedural variants</li>
+<li>sharing explicitly published workflow templates</li>
+<li>local evaluation of externally proposed improvements</li>
+</ul>
+<p>Cross-workspace learning must remain evidence-based, provenance-aware, and opt-in.</p>
+<h2 id="workspace-level-evolution">Workspace-Level Evolution<a href="#workspace-level-evolution" class="heading-anchor">#</a></h2>
+<p>Future evolution may improve:</p>
+<ul>
+<li>default workflow selection</li>
+<li>project templates</li>
+<li>resource allocation strategies</li>
+<li>memory retrieval strategies</li>
+<li>approval routing</li>
+</ul>
+<p>Such improvements must:</p>
+<ul>
+<li>be benchmarked</li>
+<li>be inspectable</li>
+<li>preserve security constraints</li>
+<li>support rollback</li>
+<li>require appropriate promotion authority</li>
+</ul>
+<hr>
+<h1 id="open-questions">Open Questions<a href="#open-questions" class="heading-anchor">#</a></h1>
+<h2 id="workspace-versus-organization">Workspace Versus Organization<a href="#workspace-versus-organization" class="heading-anchor">#</a></h2>
+<p>Should organization become a first-class parent of workspace, or should organization membership remain an external identity and policy concern?</p>
+<h2 id="private-memory">Private Memory<a href="#private-memory" class="heading-anchor">#</a></h2>
+<p>How should private principal-scoped memory behave inside a collaborative workspace?</p>
+<p>Who may administer, export, or delete it?</p>
+<h2 id="cross-workspace-workflow-scope">Cross-Workspace Workflow Scope<a href="#cross-workspace-workflow-scope" class="heading-anchor">#</a></h2>
+<p>Should cross-workspace workflows use a dedicated federated scope, or should they execute as linked child workflows within each participating workspace?</p>
+<h2 id="project-transfer">Project Transfer<a href="#project-transfer" class="heading-anchor">#</a></h2>
+<p>What evidence and approval are required to move a project and its learned procedures to another workspace?</p>
+<h2 id="shared-procedural-memory">Shared Procedural Memory<a href="#shared-procedural-memory" class="heading-anchor">#</a></h2>
+<p>When a procedure is promoted across workspaces, should it remain linked to its source, become an independent fork, or support both modes?</p>
+<h2 id="export-completeness">Export Completeness<a href="#export-completeness" class="heading-anchor">#</a></h2>
+<p>What guarantees can Damascus make when a workspace references external resources that cannot be embedded or redistributed?</p>
+<h2 id="deletion-and-backups">Deletion And Backups<a href="#deletion-and-backups" class="heading-anchor">#</a></h2>
+<p>How should user deletion requests interact with immutable audit requirements and offline backups?</p>
+<h2 id="encryption-keys">Encryption Keys<a href="#encryption-keys" class="heading-anchor">#</a></h2>
+<p>Should each workspace receive a distinct encryption key from the first implementation, or should this be introduced with multi-user support?</p>
+<h2 id="active-workspace-semantics">Active Workspace Semantics<a href="#active-workspace-semantics" class="heading-anchor">#</a></h2>
+<p>Should Damascus permit only one interactive active workspace at a time while allowing background work in others?</p>
+<h2 id="workspace-templates">Workspace Templates<a href="#workspace-templates" class="heading-anchor">#</a></h2>
+<p>Which workspace configuration elements may be templated without accidentally copying private memory, credentials, or policy exceptions?</p>
+<h2 id="installation-level-memory">Installation-Level Memory<a href="#installation-level-memory" class="heading-anchor">#</a></h2>
+<p>Which, if any, learning is safe and valuable at installation scope?</p>
+<p>How is it prevented from leaking workspace-specific information?</p>
+<h2 id="policy-simulation">Policy Simulation<a href="#policy-simulation" class="heading-anchor">#</a></h2>
+<p>Should users be able to preview how policy changes would affect running workflows, schedules, capabilities, and memory retrieval before applying them?</p>
+<hr>
+<h1 id="key-architectural-decisions">Key Architectural Decisions<a href="#key-architectural-decisions" class="heading-anchor">#</a></h1>
+<p>The Workspace System is the primary user-facing abstraction of Damascus.</p>
+<p>Projects exist inside workspaces.</p>
+<p>Workflows remain the primary execution unit.</p>
+<p>Damascus Core remains the execution coordination system.</p>
+<p>Security Layer remains the policy enforcement authority.</p>
+<p>Memory Layer remains the memory infrastructure.</p>
+<p>The Workspace System binds these systems together through explicit ownership, context, scope, policy, and lifecycle.</p>
+<p>The defining hierarchy is:</p>
+<pre><code class="language-diagram">User
+↓
+Workspace
+↓
+Project
+↓
+Workflow
+↓
+Execution
+↓
+Evaluation
+↓
+Learning
+↓
+Evolution
+↓
+Improved Execution
+</code></pre>
+<p>The Workspace System ensures that this improvement remains relevant to the user&#39;s body of work, isolated from unrelated contexts, measurable, inspectable, reversible, and under human authority.</p>
+
+        </article>
+        <div class="doc-footer-nav">
+      <a href="../02-Architecture/Tool-Layer.html" class="nav-card prev">
+        <span class="nav-card-label">Previous</span>
+        <span class="nav-card-title">Tool Layer</span>
+      </a>
+    </div>
+      </div>
+    </main>
+
+    <!-- Right Table of Contents Sidebar -->
+    
+    <aside class="site-toc">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list">
+        <li class="toc-item depth-2">
+  <a href="#workspace-as-the-primary-user-facing-abstraction" class="toc-link">Workspace As The Primary User-Facing Abstraction</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#durable-context-over-session-context" class="toc-link">Durable Context Over Session Context</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#explicit-scope-over-implicit-context" class="toc-link">Explicit Scope Over Implicit Context</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#local-ownership-by-default" class="toc-link">Local Ownership By Default</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#controlled-learning" class="toc-link">Controlled Learning</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#human-authority" class="toc-link">Human Authority</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ws-001-stable-identity" class="toc-link">WS-001 Stable Identity</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ws-002-explicit-ownership" class="toc-link">WS-002 Explicit Ownership</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ws-003-scoped-access" class="toc-link">WS-003 Scoped Access</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ws-004-project-containment" class="toc-link">WS-004 Project Containment</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ws-005-workflow-centric-execution" class="toc-link">WS-005 Workflow-Centric Execution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ws-006-memory-isolation" class="toc-link">WS-006 Memory Isolation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ws-007-reversible-lifecycle" class="toc-link">WS-007 Reversible Lifecycle</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ws-008-runtime-independence" class="toc-link">WS-008 Runtime Independence</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ws-009-capability-portability" class="toc-link">WS-009 Capability Portability</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ws-010-measurable-improvement" class="toc-link">WS-010 Measurable Improvement</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#installation" class="toc-link">Installation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workspace" class="toc-link">Workspace</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#project" class="toc-link">Project</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workflow" class="toc-link">Workflow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#task" class="toc-link">Task</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#artifact" class="toc-link">Artifact</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#scope-types" class="toc-link">Scope Types</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#scope-resolution" class="toc-link">Scope Resolution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#scope-inheritance" class="toc-link">Scope Inheritance</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#scope-precedence" class="toc-link">Scope Precedence</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workspace-service" class="toc-link">Workspace Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#project-service" class="toc-link">Project Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#context-resolver" class="toc-link">Context Resolver</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#scope-manager" class="toc-link">Scope Manager</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workspace-policy-binder" class="toc-link">Workspace Policy Binder</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#resource-catalog" class="toc-link">Resource Catalog</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workspace-activity-service" class="toc-link">Workspace Activity Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#lifecycle-coordinator" class="toc-link">Lifecycle Coordinator</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#import-and-export-service" class="toc-link">Import And Export Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workspace-repository" class="toc-link">Workspace Repository</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#service-boundary" class="toc-link">Service Boundary</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#integration-pattern" class="toc-link">Integration Pattern</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#consistency-model" class="toc-link">Consistency Model</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#concurrency-control" class="toc-link">Concurrency Control</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workspace-record" class="toc-link">Workspace Record</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#project-record" class="toc-link">Project Record</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#resource-binding" class="toc-link">Resource Binding</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#policy-binding" class="toc-link">Policy Binding</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#scope-descriptor" class="toc-link">Scope Descriptor</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#identity-rules" class="toc-link">Identity Rules</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#storage-philosophy" class="toc-link">Storage Philosophy</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#authoritative-metadata-store" class="toc-link">Authoritative Metadata Store</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#working-state-store" class="toc-link">Working State Store</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#vector-storage" class="toc-link">Vector Storage</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#knowledge-graph-storage" class="toc-link">Knowledge Graph Storage</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#artifact-storage" class="toc-link">Artifact Storage</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#secret-storage" class="toc-link">Secret Storage</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#storage-profiles" class="toc-link">Storage Profiles</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#portability-manifest" class="toc-link">Portability Manifest</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#memory-scope-is-mandatory" class="toc-link">Memory Scope Is Mandatory</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#memory-categories-by-scope" class="toc-link">Memory Categories By Scope</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#working-memory" class="toc-link">Working Memory</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#episodic-memory" class="toc-link">Episodic Memory</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#semantic-memory" class="toc-link">Semantic Memory</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#procedural-memory" class="toc-link">Procedural Memory</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#evolution-memory" class="toc-link">Evolution Memory</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#retrieval-rules" class="toc-link">Retrieval Rules</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#memory-promotion" class="toc-link">Memory Promotion</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#memory-demotion-and-restriction" class="toc-link">Memory Demotion And Restriction</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#cross-workspace-memory" class="toc-link">Cross-Workspace Memory</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#security-ownership" class="toc-link">Security Ownership</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#principals" class="toc-link">Principals</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#roles" class="toc-link">Roles</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#owner" class="toc-link">Owner</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#administrator" class="toc-link">Administrator</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#contributor" class="toc-link">Contributor</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#operator" class="toc-link">Operator</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#viewer" class="toc-link">Viewer</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#auditor" class="toc-link">Auditor</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#permission-dimensions" class="toc-link">Permission Dimensions</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#capability-grants" class="toc-link">Capability Grants</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#approval-policy" class="toc-link">Approval Policy</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#permission-revocation" class="toc-link">Permission Revocation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workspace-states" class="toc-link">Workspace States</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#create" class="toc-link">Create</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#active" class="toc-link">Active</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#suspended" class="toc-link">Suspended</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#archive" class="toc-link">Archive</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#restore" class="toc-link">Restore</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#delete" class="toc-link">Delete</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#transfer" class="toc-link">Transfer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#project-states" class="toc-link">Project States</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#project-creation" class="toc-link">Project Creation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#project-activation" class="toc-link">Project Activation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#project-archive" class="toc-link">Project Archive</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#project-transfer" class="toc-link">Project Transfer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#user-interaction-flow" class="toc-link">User Interaction Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workflow-submission-flow" class="toc-link">Workflow Submission Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#project-resource-binding-flow" class="toc-link">Project Resource Binding Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#memory-write-flow" class="toc-link">Memory Write Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evolution-promotion-flow" class="toc-link">Evolution Promotion Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#metadata-store-unavailable" class="toc-link">Metadata Store Unavailable</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#partial-workspace-provisioning" class="toc-link">Partial Workspace Provisioning</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#scope-leakage" class="toc-link">Scope Leakage</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#stale-policy-cache" class="toc-link">Stale Policy Cache</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#resource-path-moved-or-removed" class="toc-link">Resource Path Moved Or Removed</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workspace-archive-interrupted" class="toc-link">Workspace Archive Interrupted</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#memory-index-divergence" class="toc-link">Memory Index Divergence</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#import-conflict" class="toc-link">Import Conflict</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#orphaned-artifact" class="toc-link">Orphaned Artifact</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#owner-loss" class="toc-link">Owner Loss</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#storage-capacity-exhausted" class="toc-link">Storage Capacity Exhausted</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#durable-operation-journal" class="toc-link">Durable Operation Journal</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#reconciliation" class="toc-link">Reconciliation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#backup-and-restore" class="toc-link">Backup And Restore</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#index-rebuild" class="toc-link">Index Rebuild</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#safe-mode" class="toc-link">Safe Mode</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#local-first-security" class="toc-link">Local-First Security</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#data-classification" class="toc-link">Data Classification</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#model-data-egress" class="toc-link">Model Data Egress</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#tool-access" class="toc-link">Tool Access</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#prompt-injection-and-untrusted-content" class="toc-link">Prompt Injection And Untrusted Content</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#audit" class="toc-link">Audit</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#encryption" class="toc-link">Encryption</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#context-loading" class="toc-link">Context Loading</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#large-workspaces" class="toc-link">Large Workspaces</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#execution-isolation" class="toc-link">Execution Isolation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#derived-views" class="toc-link">Derived Views</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#initial-position" class="toc-link">Initial Position</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#multiple-active-workspaces" class="toc-link">Multiple Active Workspaces</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#cross-workspace-operations" class="toc-link">Cross-Workspace Operations</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#shared-assets" class="toc-link">Shared Assets</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#organizations-and-teams" class="toc-link">Organizations And Teams</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#remote-synchronization" class="toc-link">Remote Synchronization</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#federated-workspaces" class="toc-link">Federated Workspaces</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-1" class="toc-link">Constraint 1</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-2" class="toc-link">Constraint 2</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-3" class="toc-link">Constraint 3</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-4" class="toc-link">Constraint 4</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-5" class="toc-link">Constraint 5</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-6" class="toc-link">Constraint 6</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-7" class="toc-link">Constraint 7</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-8" class="toc-link">Constraint 8</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-9" class="toc-link">Constraint 9</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-10" class="toc-link">Constraint 10</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-11" class="toc-link">Constraint 11</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-12" class="toc-link">Constraint 12</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-13" class="toc-link">Constraint 13</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-14" class="toc-link">Constraint 14</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-15" class="toc-link">Constraint 15</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-16" class="toc-link">Constraint 16</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#recommended-initial-scope" class="toc-link">Recommended Initial Scope</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#deferred-capabilities" class="toc-link">Deferred Capabilities</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#schema-evolution" class="toc-link">Schema Evolution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#validation-tests" class="toc-link">Validation Tests</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#privacy-preserving-shared-learning" class="toc-link">Privacy-Preserving Shared Learning</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workspace-level-evolution" class="toc-link">Workspace-Level Evolution</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workspace-versus-organization" class="toc-link">Workspace Versus Organization</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#private-memory" class="toc-link">Private Memory</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#cross-workspace-workflow-scope" class="toc-link">Cross-Workspace Workflow Scope</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#project-transfer" class="toc-link">Project Transfer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#shared-procedural-memory" class="toc-link">Shared Procedural Memory</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#export-completeness" class="toc-link">Export Completeness</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#deletion-and-backups" class="toc-link">Deletion And Backups</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#encryption-keys" class="toc-link">Encryption Keys</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#active-workspace-semantics" class="toc-link">Active Workspace Semantics</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workspace-templates" class="toc-link">Workspace Templates</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#installation-level-memory" class="toc-link">Installation-Level Memory</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#policy-simulation" class="toc-link">Policy Simulation</a>
+</li>
+
+      </ul>
+    </aside>
+  
+
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

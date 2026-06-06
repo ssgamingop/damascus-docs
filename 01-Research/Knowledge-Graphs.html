@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge Graphs | Damascus Docs</title>
+  <meta name="description" content="Damascus - Privacy-first, local-first intelligence operating system documentation">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    window.damascusMermaid = mermaid;
+  </script>
+</head>
+<body data-root="../">
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="brand">
+      <button class="mobile-header-btn" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="../index.html" class="brand">
+        <div class="logo">D</div>
+        <span class="title">Damascus Docs</span>
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <!-- Search Input Container -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="search-input" placeholder="Search docs..." aria-label="Search documentation">
+          <kbd class="search-shortcut">/</kbd>
+        </div>
+        
+        <!-- Results Dropdown -->
+        <div class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" aria-label="Toggle theme">
+        <!-- Sun (Light Theme Icon) -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon (Dark Theme Icon) -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Layout Grid -->
+  <div class="layout-container">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="site-sidebar">
+      <div class="sidebar-section">
+  <div class="sidebar-section-title">Vision</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Mission.html" class="sidebar-nav-link ">Mission</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Vision.html" class="sidebar-nav-link ">Damascus Vision</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Why-Damascus.html" class="sidebar-nav-link ">Why Damascus Exists</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Research</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/AI-Operating-Systems.html" class="sidebar-nav-link ">AI Operating Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Hermes-Analysis.html" class="sidebar-nav-link ">Hermes Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Knowledge-Graphs.html" class="sidebar-nav-link active">Knowledge Graphs</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/LangGraph-Analysis.html" class="sidebar-nav-link ">LangGraph Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Memory-Systems.html" class="sidebar-nav-link ">Memory Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Multi-Agent-Systems.html" class="sidebar-nav-link ">Multi Agent Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Odysseus-Analysis.html" class="sidebar-nav-link ">Odysseus Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/OpenHands-Analysis.html" class="sidebar-nav-link ">OpenHands Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Self-Improving-Agents.html" class="sidebar-nav-link ">Self Improving Agents</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Architecture</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link ">Agent Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link ">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link ">Evolution Engine</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/High-Level-Architecture.html" class="sidebar-nav-link ">High Level Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Memory-Architecture.html" class="sidebar-nav-link ">Memory Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link ">Model Abstraction Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link ">Security Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Tool-Layer.html" class="sidebar-nav-link ">Tool Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link ">Workspace System</a>
+    </li>
+  </ul>
+</div>
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <article class="doc-content">
+          <div class="doc-meta"><span class="meta-badge">Version 0.1</span><span class="meta-badge status-core-research-document">Core Research Document</span><span class="meta-badge priority-critical">Priority Critical</span></div> <h1 id="executive-summary">Executive Summary<a href="#executive-summary" class="heading-anchor">#</a></h1>
+<p>Most modern AI systems rely heavily on vector databases and embeddings.</p>
+<p>These systems excel at semantic similarity.</p>
+<p>However, intelligence requires more than similarity.</p>
+<p>Intelligence requires understanding relationships.</p>
+<p>Examples:</p>
+<ul>
+<li>Who created this project?</li>
+<li>Which workflow produced this result?</li>
+<li>Which tools were involved?</li>
+<li>What failures led to this improvement?</li>
+<li>Which agent discovered this technique?</li>
+</ul>
+<p>These questions are fundamentally relational.</p>
+<p>Knowledge graphs are designed to represent relationships explicitly.</p>
+<p>For Damascus, knowledge graphs may become the foundation for long-term reasoning, memory organization, workflow evolution, and capability inheritance.</p>
+<hr>
+<h1 id="research-goals">Research Goals<a href="#research-goals" class="heading-anchor">#</a></h1>
+<p>This document seeks to answer:</p>
+<ol>
+<li>What is a knowledge graph?</li>
+<li>Why are knowledge graphs useful?</li>
+<li>How do they differ from vector databases?</li>
+<li>What limitations exist?</li>
+<li>How should Damascus use them?</li>
+</ol>
+<hr>
+<h1 id="what-is-a-knowledge-graph">What Is A Knowledge Graph?<a href="#what-is-a-knowledge-graph" class="heading-anchor">#</a></h1>
+<p>A knowledge graph is a structured representation of entities and their relationships.</p>
+<p>Example:</p>
+<pre><code class="language-diagram">User
+↓ owns
+Project
+↓ contains
+Tasks
+↓ executed by
+Agents
+↓ used
+Tools
+</code></pre>
+<p>Rather than storing isolated facts, the graph stores connections.</p>
+<hr>
+<h1 id="core-components">Core Components<a href="#core-components" class="heading-anchor">#</a></h1>
+<h2 id="nodes">Nodes<a href="#nodes" class="heading-anchor">#</a></h2>
+<p>Nodes represent entities.</p>
+<p>Examples:</p>
+<ul>
+<li>User</li>
+<li>Project</li>
+<li>Agent</li>
+<li>Tool</li>
+<li>Memory</li>
+<li>Workflow</li>
+<li>Task</li>
+</ul>
+<hr>
+<h2 id="relationships">Relationships<a href="#relationships" class="heading-anchor">#</a></h2>
+<p>Relationships connect nodes.</p>
+<p>Examples:</p>
+<p>User
+OWNS
+Project</p>
+<p>Agent
+COMPLETED
+Task</p>
+<p>Workflow
+PRODUCED
+Result</p>
+<hr>
+<h2 id="properties">Properties<a href="#properties" class="heading-anchor">#</a></h2>
+<p>Nodes and relationships may contain metadata.</p>
+<p>Example:</p>
+<p>Task</p>
+<p>Properties:</p>
+<ul>
+<li>created_at</li>
+<li>status</li>
+<li>score</li>
+<li>duration</li>
+</ul>
+<hr>
+<h1 id="why-relationships-matter">Why Relationships Matter<a href="#why-relationships-matter" class="heading-anchor">#</a></h1>
+<p>Consider:</p>
+<p>User:
+How did we solve authentication last month?</p>
+<p>A vector database may retrieve documents.</p>
+<p>A graph can answer:</p>
+<pre><code class="language-diagram">Project
+↓
+Task
+↓
+Workflow
+↓
+Agent
+↓
+Tool
+↓
+Result
+</code></pre>
+<p>The path itself becomes knowledge.</p>
+<hr>
+<h1 id="vector-databases-vs-knowledge-graphs">Vector Databases vs Knowledge Graphs<a href="#vector-databases-vs-knowledge-graphs" class="heading-anchor">#</a></h1>
+<h2 id="vector-databases">Vector Databases<a href="#vector-databases" class="heading-anchor">#</a></h2>
+<p>Strengths:</p>
+<ul>
+<li>semantic search</li>
+<li>document retrieval</li>
+<li>similarity matching</li>
+</ul>
+<p>Example:</p>
+<p>Find documents similar to:</p>
+<p>&quot;JWT Authentication&quot;</p>
+<hr>
+<p>Weaknesses:</p>
+<ul>
+<li>weak structure</li>
+<li>weak relationship modeling</li>
+<li>difficult reasoning</li>
+</ul>
+<hr>
+<h2 id="knowledge-graphs">Knowledge Graphs<a href="#knowledge-graphs" class="heading-anchor">#</a></h2>
+<p>Strengths:</p>
+<ul>
+<li>relationship discovery</li>
+<li>traceability</li>
+<li>reasoning</li>
+<li>explainability</li>
+</ul>
+<p>Example:</p>
+<p>Find:</p>
+<pre><code class="language-diagram">Projects
+→ Using JWT
+→ Built With FastAPI
+→ Successfully Deployed
+</code></pre>
+<hr>
+<p>Weaknesses:</p>
+<ul>
+<li>harder to build</li>
+<li>harder to maintain</li>
+<li>more complex queries</li>
+</ul>
+<hr>
+<h1 id="the-false-choice">The False Choice<a href="#the-false-choice" class="heading-anchor">#</a></h1>
+<p>Many systems ask:</p>
+<p>Vector OR Graph?</p>
+<p>This is incorrect.</p>
+<p>Future Damascus systems should likely use:</p>
+<p>Vector AND Graph</p>
+<p>Each solves different problems.</p>
+<hr>
+<h1 id="human-memory-analogy">Human Memory Analogy<a href="#human-memory-analogy" class="heading-anchor">#</a></h1>
+<p>Humans rarely remember isolated facts.</p>
+<p>We remember networks.</p>
+<p>Example:</p>
+<pre><code class="language-diagram">Python
+↓
+Used In
+Damascus
+↓
+Uses
+LangGraph
+↓
+Uses
+Qdrant
+</code></pre>
+<p>Relationships carry meaning.</p>
+<p>Graphs capture this naturally.</p>
+<hr>
+<h1 id="existing-industry-approaches">Existing Industry Approaches<a href="#existing-industry-approaches" class="heading-anchor">#</a></h1>
+<h2 id="search-engines">Search Engines<a href="#search-engines" class="heading-anchor">#</a></h2>
+<p>Large search systems often use graph concepts.</p>
+<p>Purpose:</p>
+<p>Relationship discovery.</p>
+<hr>
+<h2 id="enterprise-knowledge-systems">Enterprise Knowledge Systems<a href="#enterprise-knowledge-systems" class="heading-anchor">#</a></h2>
+<p>Used for:</p>
+<ul>
+<li>organizational knowledge</li>
+<li>dependency tracking</li>
+<li>expertise mapping</li>
+</ul>
+<hr>
+<h2 id="modern-ai-research">Modern AI Research<a href="#modern-ai-research" class="heading-anchor">#</a></h2>
+<p>Research increasingly combines:</p>
+<pre><code class="language-diagram">Vector Retrieval
++
+Knowledge Graphs
+</code></pre>
+<p>to improve reasoning and retrieval quality.</p>
+<hr>
+<h1 id="damascus-use-cases">Damascus Use Cases<a href="#damascus-use-cases" class="heading-anchor">#</a></h1>
+<h2 id="user-knowledge">User Knowledge<a href="#user-knowledge" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">User
+↓
+Works On
+Damascus
+↓
+Uses
+Python
+</code></pre>
+<p>Future queries become more personalized.</p>
+<hr>
+<h2 id="project-knowledge">Project Knowledge<a href="#project-knowledge" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Project
+↓
+Contains
+Tasks
+↓
+Executed By
+Agents
+</code></pre>
+<p>Enables project reasoning.</p>
+<hr>
+<h2 id="workflow-tracking">Workflow Tracking<a href="#workflow-tracking" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Workflow
+↓
+Used Tool
+GitHub Search
+↓
+Produced
+Score 89
+</code></pre>
+<p>Enables optimization.</p>
+<hr>
+<h2 id="evolution-tracking">Evolution Tracking<a href="#evolution-tracking" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Workflow V1
+↓
+Improved Into
+Workflow V2
+↓
+Improved Into
+Workflow V3
+</code></pre>
+<p>The graph becomes an evolutionary history.</p>
+<hr>
+<h2 id="research-tracking">Research Tracking<a href="#research-tracking" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Research Paper
+↓
+Inspired
+Technique
+↓
+Implemented In
+Workflow
+</code></pre>
+<p>This creates explainable innovation.</p>
+<hr>
+<h1 id="proposed-damascus-graph-model">Proposed Damascus Graph Model<a href="#proposed-damascus-graph-model" class="heading-anchor">#</a></h1>
+<h2 id="user-domain">User Domain<a href="#user-domain" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">User
+↓
+Owns
+Workspace
+↓
+Contains
+Projects
+</code></pre>
+<hr>
+<h2 id="project-domain">Project Domain<a href="#project-domain" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Project
+↓
+Contains
+Tasks
+Project
+↓
+Uses
+Technologies
+</code></pre>
+<hr>
+<h2 id="agent-domain">Agent Domain<a href="#agent-domain" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Agent
+↓
+Completed
+Task
+Agent
+↓
+Used
+Tool
+</code></pre>
+<hr>
+<h2 id="workflow-domain">Workflow Domain<a href="#workflow-domain" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Workflow
+↓
+Produced
+Result
+Workflow
+↓
+Improved Into
+Workflow
+</code></pre>
+<hr>
+<h2 id="memory-domain">Memory Domain<a href="#memory-domain" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Memory
+↓
+Related To
+Task
+Memory
+↓
+Created By
+Agent
+</code></pre>
+<hr>
+<h2 id="evolution-domain">Evolution Domain<a href="#evolution-domain" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Experiment
+↓
+Generated
+Variant
+Variant
+↓
+Scored
+Benchmark
+Variant
+↓
+Promoted To
+Production
+</code></pre>
+<hr>
+<h1 id="graph-queries-damascus-may-need">Graph Queries Damascus May Need<a href="#graph-queries-damascus-may-need" class="heading-anchor">#</a></h1>
+<p>Example:</p>
+<p>Show all workflows that:</p>
+<ul>
+<li>used FastAPI</li>
+<li>scored above 90</li>
+<li>were generated by the evolution engine</li>
+</ul>
+<hr>
+<p>Example:</p>
+<p>Find all improvements derived from a specific research paper.</p>
+<hr>
+<p>Example:</p>
+<p>Identify the most successful coding workflow in the last six months.</p>
+<hr>
+<p>These are difficult with vectors alone.</p>
+<hr>
+<h1 id="technology-candidates">Technology Candidates<a href="#technology-candidates" class="heading-anchor">#</a></h1>
+<h2 id="neo4j">Neo4j<a href="#neo4j" class="heading-anchor">#</a></h2>
+<p>Advantages:</p>
+<ul>
+<li>mature ecosystem</li>
+<li>visualization</li>
+<li>documentation</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>licensing considerations</li>
+<li>resource consumption</li>
+</ul>
+<hr>
+<h2 id="memgraph">Memgraph<a href="#memgraph" class="heading-anchor">#</a></h2>
+<p>Advantages:</p>
+<ul>
+<li>performance</li>
+<li>graph focus</li>
+</ul>
+<hr>
+<h2 id="apache-age">Apache AGE<a href="#apache-age" class="heading-anchor">#</a></h2>
+<p>Advantages:</p>
+<ul>
+<li>graph support inside PostgreSQL</li>
+</ul>
+<p>Potentially attractive for Damascus.</p>
+<hr>
+<h1 id="when-not-to-use-graphs">When Not To Use Graphs<a href="#when-not-to-use-graphs" class="heading-anchor">#</a></h1>
+<p>Avoid storing everything in a graph.</p>
+<p>Bad:</p>
+<pre><code class="language-diagram">Every message
+↓
+Graph Node
+</code></pre>
+<p>This becomes expensive and difficult to manage.</p>
+<p>Graphs should represent meaningful entities and relationships.</p>
+<hr>
+<h1 id="proposed-damascus-strategy">Proposed Damascus Strategy<a href="#proposed-damascus-strategy" class="heading-anchor">#</a></h1>
+<p>Working Memory</p>
+<p>Redis</p>
+<hr>
+<p>Long-Term Memory</p>
+<p>PostgreSQL</p>
+<hr>
+<p>Semantic Retrieval</p>
+<p>Qdrant</p>
+<hr>
+<p>Relationship Layer</p>
+<p>Knowledge Graph</p>
+<hr>
+<p>This creates a multi-layer memory architecture.</p>
+<p>Each layer solves a different problem.</p>
+<hr>
+<h1 id="risks">Risks<a href="#risks" class="heading-anchor">#</a></h1>
+<h2 id="graph-explosion">Graph Explosion<a href="#graph-explosion" class="heading-anchor">#</a></h2>
+<p>Too many nodes create complexity.</p>
+<p>Solution:</p>
+<p>Entity selection rules.</p>
+<hr>
+<h2 id="relationship-noise">Relationship Noise<a href="#relationship-noise" class="heading-anchor">#</a></h2>
+<p>Not every relationship is valuable.</p>
+<p>Solution:</p>
+<p>Importance scoring.</p>
+<hr>
+<h2 id="query-complexity">Query Complexity<a href="#query-complexity" class="heading-anchor">#</a></h2>
+<p>Complex graphs require careful design.</p>
+<p>Solution:</p>
+<p>Domain-driven graph models.</p>
+<hr>
+<h2 id="synchronization-problems">Synchronization Problems<a href="#synchronization-problems" class="heading-anchor">#</a></h2>
+<p>Graph
+Vector
+SQL</p>
+<p>must remain consistent.</p>
+<p>This will require dedicated architecture.</p>
+<hr>
+<h1 id="damascus-opportunity">Damascus Opportunity<a href="#damascus-opportunity" class="heading-anchor">#</a></h1>
+<p>Most current AI systems stop at:</p>
+<pre><code class="language-diagram">LLM
++
+Vector Database
+</code></pre>
+<p>Damascus can extend this to:</p>
+<pre><code class="language-diagram">LLM
++
+Vector Memory
++
+Graph Memory
++
+Procedural Memory
++
+Evolution Memory
+</code></pre>
+<p>This creates a significantly richer intelligence foundation.</p>
+<hr>
+<h1 id="key-insight">Key Insight<a href="#key-insight" class="heading-anchor">#</a></h1>
+<p>Vectors answer:</p>
+<p>&quot;What looks similar?&quot;</p>
+<p>Graphs answer:</p>
+<p>&quot;What is connected?&quot;</p>
+<p>Intelligence requires both.</p>
+<p>A future Damascus system should not merely remember information.</p>
+<p>It should understand how information relates to everything else it knows.</p>
+<p>That capability may become one of the most important foundations for long-term learning and self-improvement.</p>
+<hr>
+<h1 id="open-research-questions">Open Research Questions<a href="#open-research-questions" class="heading-anchor">#</a></h1>
+<ol>
+<li>Which entities deserve graph nodes?</li>
+<li>Which relationships matter most?</li>
+<li>How should graph and vector retrieval interact?</li>
+<li>How should graph quality be measured?</li>
+<li>How should evolution history be represented?</li>
+<li>How should procedural memory integrate with graphs?</li>
+<li>Should every user have a separate graph or a shared graph architecture?</li>
+</ol>
+<p>These questions will influence future Damascus memory and architecture documents.</p>
+
+        </article>
+        <div class="doc-footer-nav">
+      <a href="../01-Research/Hermes-Analysis.html" class="nav-card prev">
+        <span class="nav-card-label">Previous</span>
+        <span class="nav-card-title">Hermes Analysis</span>
+      </a>
+    
+      <a href="../01-Research/LangGraph-Analysis.html" class="nav-card next">
+        <span class="nav-card-label">Next</span>
+        <span class="nav-card-title">LangGraph Analysis</span>
+      </a>
+    </div>
+      </div>
+    </main>
+
+    <!-- Right Table of Contents Sidebar -->
+    
+    <aside class="site-toc">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list">
+        <li class="toc-item depth-2">
+  <a href="#nodes" class="toc-link">Nodes</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#relationships" class="toc-link">Relationships</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#properties" class="toc-link">Properties</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#vector-databases" class="toc-link">Vector Databases</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#knowledge-graphs" class="toc-link">Knowledge Graphs</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#search-engines" class="toc-link">Search Engines</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#enterprise-knowledge-systems" class="toc-link">Enterprise Knowledge Systems</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#modern-ai-research" class="toc-link">Modern AI Research</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#user-knowledge" class="toc-link">User Knowledge</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#project-knowledge" class="toc-link">Project Knowledge</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workflow-tracking" class="toc-link">Workflow Tracking</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evolution-tracking" class="toc-link">Evolution Tracking</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#research-tracking" class="toc-link">Research Tracking</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#user-domain" class="toc-link">User Domain</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#project-domain" class="toc-link">Project Domain</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#agent-domain" class="toc-link">Agent Domain</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workflow-domain" class="toc-link">Workflow Domain</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#memory-domain" class="toc-link">Memory Domain</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evolution-domain" class="toc-link">Evolution Domain</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#neo4j" class="toc-link">Neo4j</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#memgraph" class="toc-link">Memgraph</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#apache-age" class="toc-link">Apache AGE</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#graph-explosion" class="toc-link">Graph Explosion</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#relationship-noise" class="toc-link">Relationship Noise</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#query-complexity" class="toc-link">Query Complexity</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#synchronization-problems" class="toc-link">Synchronization Problems</a>
+</li>
+
+      </ul>
+    </aside>
+  
+
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

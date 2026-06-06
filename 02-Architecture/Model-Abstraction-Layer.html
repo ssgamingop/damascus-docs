@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Model Abstraction Layer | Damascus Docs</title>
+  <meta name="description" content="Damascus - Privacy-first, local-first intelligence operating system documentation">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    window.damascusMermaid = mermaid;
+  </script>
+</head>
+<body data-root="../">
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="brand">
+      <button class="mobile-header-btn" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="../index.html" class="brand">
+        <div class="logo">D</div>
+        <span class="title">Damascus Docs</span>
+      </a>
+    </div>
+
+    <div class="header-controls">
+      <!-- Search Input Container -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="search-input" placeholder="Search docs..." aria-label="Search documentation">
+          <kbd class="search-shortcut">/</kbd>
+        </div>
+        
+        <!-- Results Dropdown -->
+        <div class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" aria-label="Toggle theme">
+        <!-- Sun (Light Theme Icon) -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon (Dark Theme Icon) -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Layout Grid -->
+  <div class="layout-container">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="site-sidebar">
+      <div class="sidebar-section">
+  <div class="sidebar-section-title">Vision</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Mission.html" class="sidebar-nav-link ">Mission</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Vision.html" class="sidebar-nav-link ">Damascus Vision</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../00-Vision/Why-Damascus.html" class="sidebar-nav-link ">Why Damascus Exists</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Research</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/AI-Operating-Systems.html" class="sidebar-nav-link ">AI Operating Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Hermes-Analysis.html" class="sidebar-nav-link ">Hermes Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Knowledge-Graphs.html" class="sidebar-nav-link ">Knowledge Graphs</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/LangGraph-Analysis.html" class="sidebar-nav-link ">LangGraph Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Memory-Systems.html" class="sidebar-nav-link ">Memory Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Multi-Agent-Systems.html" class="sidebar-nav-link ">Multi Agent Systems</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Odysseus-Analysis.html" class="sidebar-nav-link ">Odysseus Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/OpenHands-Analysis.html" class="sidebar-nav-link ">OpenHands Analysis</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../01-Research/Self-Improving-Agents.html" class="sidebar-nav-link ">Self Improving Agents</a>
+    </li>
+  </ul>
+</div>
+<div class="sidebar-section">
+  <div class="sidebar-section-title">Architecture</div>
+  <ul class="sidebar-nav-list">
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Agent-Layer.html" class="sidebar-nav-link ">Agent Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Core-System.html" class="sidebar-nav-link ">Core System</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Evolution-Engine.html" class="sidebar-nav-link ">Evolution Engine</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/High-Level-Architecture.html" class="sidebar-nav-link ">High Level Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Memory-Architecture.html" class="sidebar-nav-link ">Memory Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Model-Abstraction-Layer.html" class="sidebar-nav-link active">Model Abstraction Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Security-Architecture.html" class="sidebar-nav-link ">Security Architecture</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Tool-Layer.html" class="sidebar-nav-link ">Tool Layer</a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="../02-Architecture/Workspace-System.html" class="sidebar-nav-link ">Workspace System</a>
+    </li>
+  </ul>
+</div>
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <article class="doc-content">
+          <div class="doc-meta"><span class="meta-badge">Version 0.1</span><span class="meta-badge status-architecture-foundation">Architecture Foundation</span><span class="meta-badge priority-critical">Priority Critical</span></div> <h1 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h1>
+<p>This document defines the Damascus Model Abstraction Layer.</p>
+<p>The Model Abstraction Layer provides a vendor-independent, capability-aware interface through which workflows use reasoning, generation, embedding, multimodal, and future model capabilities.</p>
+<p>Models are replaceable computational resources.</p>
+<p>They are not architectural authorities.</p>
+<p>No workflow, agent, runtime adapter, or capability subsystem should depend directly on a model provider&#39;s API, naming conventions, request schema, or response schema.</p>
+<p>The Model Abstraction Layer exists to:</p>
+<ul>
+<li>isolate provider-specific behavior</li>
+<li>expose normalized model capabilities</li>
+<li>select models according to policy and evidence</li>
+<li>support local and cloud models</li>
+<li>manage fallback without hiding material behavior changes</li>
+<li>measure model performance</li>
+<li>enable cost-, latency-, context-, privacy-, and quality-aware routing</li>
+<li>support multi-model workflows</li>
+<li>preserve model usage provenance</li>
+</ul>
+<hr>
+<h1 id="design-philosophy">Design Philosophy<a href="#design-philosophy" class="heading-anchor">#</a></h1>
+<h2 id="models-are-resources">Models Are Resources<a href="#models-are-resources" class="heading-anchor">#</a></h2>
+<p>A model provides capabilities under constraints.</p>
+<p>Examples:</p>
+<ul>
+<li>text generation</li>
+<li>structured generation</li>
+<li>embeddings</li>
+<li>vision understanding</li>
+<li>audio understanding</li>
+<li>tool-call generation</li>
+<li>long-context reasoning</li>
+</ul>
+<p>A model does not own:</p>
+<ul>
+<li>workflows</li>
+<li>user intent</li>
+<li>permissions</li>
+<li>memory</li>
+<li>tool execution</li>
+<li>evolution decisions</li>
+</ul>
+<h2 id="capability-before-provider">Capability Before Provider<a href="#capability-before-provider" class="heading-anchor">#</a></h2>
+<p>Workflows should request capabilities, not vendor model names.</p>
+<p>Example:</p>
+<pre><code class="language-text">Required:
+  modality: text
+  structured_output: true
+  minimum_context_tokens: 64000
+  data_policy: local_only
+  quality_profile: high
+</code></pre>
+<p>The Routing Engine resolves this request to an eligible model profile.</p>
+<p>Pinning a specific model remains possible when reproducibility or user authority requires it.</p>
+<h2 id="evidence-before-preference">Evidence Before Preference<a href="#evidence-before-preference" class="heading-anchor">#</a></h2>
+<p>Routing decisions should use measured model behavior.</p>
+<p>Provider marketing claims are useful metadata.</p>
+<p>They are not sufficient routing evidence.</p>
+<h2 id="explicit-tradeoffs">Explicit Tradeoffs<a href="#explicit-tradeoffs" class="heading-anchor">#</a></h2>
+<p>There is no universally best model.</p>
+<p>Routing balances:</p>
+<ul>
+<li>capability</li>
+<li>quality</li>
+<li>privacy</li>
+<li>cost</li>
+<li>latency</li>
+<li>availability</li>
+<li>context window</li>
+<li>reliability</li>
+<li>local resource pressure</li>
+</ul>
+<p>Tradeoffs must be policy-controlled and observable.</p>
+<h2 id="local-first">Local First<a href="#local-first" class="heading-anchor">#</a></h2>
+<p>Local models should be preferred when they satisfy task requirements and policy.</p>
+<p>Cloud models are optional resources.</p>
+<p>Cloud routing must never silently authorize data egress.</p>
+<h2 id="workflow-centric-use">Workflow-Centric Use<a href="#workflow-centric-use" class="heading-anchor">#</a></h2>
+<p>Models operate inside workflows.</p>
+<p>The Model Abstraction Layer may serve many workflow nodes and capabilities.</p>
+<p>It must not assume agents are the only or primary caller.</p>
+<hr>
+<h1 id="responsibilities">Responsibilities<a href="#responsibilities" class="heading-anchor">#</a></h1>
+<p>The Model Abstraction Layer owns:</p>
+<ul>
+<li>normalized model request and response contracts</li>
+<li>provider adapter contracts</li>
+<li>model profiles</li>
+<li>model discovery and health</li>
+<li>capability-based routing</li>
+<li>routing policy evaluation inputs</li>
+<li>provider invocation</li>
+<li>normalized streaming</li>
+<li>retry and fallback coordination</li>
+<li>token, cost, latency, and quality telemetry</li>
+<li>model benchmark integration</li>
+<li>model usage provenance</li>
+</ul>
+<p>It coordinates with:</p>
+<ul>
+<li>Core for workflow execution and lifecycle</li>
+<li>Workspace System for scope and policy bindings</li>
+<li>Security Layer for authorization and data egress decisions</li>
+<li>Registry Layer for model metadata</li>
+<li>Observability Layer for traces and metrics</li>
+<li>Benchmark Registry for evaluation evidence</li>
+<li>Evolution Layer for controlled routing and profile improvement</li>
+</ul>
+<hr>
+<h1 id="non-responsibilities">Non-Responsibilities<a href="#non-responsibilities" class="heading-anchor">#</a></h1>
+<p>The Model Abstraction Layer does not own:</p>
+<ul>
+<li>workflow orchestration</li>
+<li>workflow state</li>
+<li>agent design</li>
+<li>memory retrieval policy</li>
+<li>tool execution</li>
+<li>user permissions</li>
+<li>security policy definitions</li>
+<li>benchmark definitions</li>
+<li>workflow evolution decisions</li>
+<li>provider billing accounts</li>
+<li>model training infrastructure</li>
+</ul>
+<p>The Layer may report model performance.</p>
+<p>It does not independently declare a workflow improved.</p>
+<hr>
+<h1 id="architectural-principles">Architectural Principles<a href="#architectural-principles" class="heading-anchor">#</a></h1>
+<h2 id="ma-001-provider-independence">MA-001 Provider Independence<a href="#ma-001-provider-independence" class="heading-anchor">#</a></h2>
+<p>Provider-specific concepts must terminate at provider adapter boundaries.</p>
+<h2 id="ma-002-capability-based-selection">MA-002 Capability-Based Selection<a href="#ma-002-capability-based-selection" class="heading-anchor">#</a></h2>
+<p>Routing begins with hard capability and policy constraints before optimization.</p>
+<h2 id="ma-003-explicit-model-identity">MA-003 Explicit Model Identity<a href="#ma-003-explicit-model-identity" class="heading-anchor">#</a></h2>
+<p>Every invocation must record provider, model profile, resolved model version where available, and routing decision.</p>
+<h2 id="ma-004-policy-before-optimization">MA-004 Policy Before Optimization<a href="#ma-004-policy-before-optimization" class="heading-anchor">#</a></h2>
+<p>Cost or latency may never override privacy, security, capability, or user pinning constraints.</p>
+<h2 id="ma-005-observable-fallback">MA-005 Observable Fallback<a href="#ma-005-observable-fallback" class="heading-anchor">#</a></h2>
+<p>Fallback must be traceable and must not silently violate task semantics.</p>
+<h2 id="ma-006-reproducibility">MA-006 Reproducibility<a href="#ma-006-reproducibility" class="heading-anchor">#</a></h2>
+<p>Benchmark and critical workflows must support pinned model profiles and invocation parameters.</p>
+<h2 id="ma-007-replaceable-adapters">MA-007 Replaceable Adapters<a href="#ma-007-replaceable-adapters" class="heading-anchor">#</a></h2>
+<p>Adding or removing a provider must not require workflow redesign.</p>
+<h2 id="ma-008-measured-routing">MA-008 Measured Routing<a href="#ma-008-measured-routing" class="heading-anchor">#</a></h2>
+<p>Routing scores must incorporate current, scope-relevant evidence where available.</p>
+<h2 id="ma-009-bounded-autonomy">MA-009 Bounded Autonomy<a href="#ma-009-bounded-autonomy" class="heading-anchor">#</a></h2>
+<p>The Layer may select among authorized candidates.</p>
+<p>It may not expand authority or send data to an unauthorized destination.</p>
+<hr>
+<h1 id="high-level-architecture">High-Level Architecture<a href="#high-level-architecture" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">Workflow Node
+↓
+Damascus Core
+↓
+Model Invocation Interface
+↓
+Request Normalizer
+↓
+Routing Engine
+├── Model Registry
+├── Policy Inputs
+├── Benchmark Evidence
+├── Health And Availability
+└── Budget And Latency State
+↓
+Provider Adapter
+↓
+Local Or Cloud Model
+↓
+Response Normalizer
+↓
+Telemetry And Provenance
+↓
+Workflow Node Result
+</code></pre>
+<hr>
+<h1 id="core-components">Core Components<a href="#core-components" class="heading-anchor">#</a></h1>
+<pre><code class="language-diagram">Model Abstraction Layer
+├── Model Invocation Service
+├── Request Normalizer
+├── Routing Engine
+├── Model Registry
+├── Provider Adapter Manager
+├── Response Normalizer
+├── Fallback Coordinator
+├── Model Health Monitor
+├── Usage And Cost Meter
+├── Benchmark Integration Service
+└── Model Telemetry Publisher
+</code></pre>
+<h2 id="model-invocation-service">Model Invocation Service<a href="#model-invocation-service" class="heading-anchor">#</a></h2>
+<p>The entry point for normalized model requests.</p>
+<p>It validates:</p>
+<ul>
+<li>scope</li>
+<li>invocation type</li>
+<li>required capabilities</li>
+<li>budget envelope</li>
+<li>output contract</li>
+<li>policy references</li>
+</ul>
+<p>It returns a normalized response or typed failure.</p>
+<h2 id="request-normalizer">Request Normalizer<a href="#request-normalizer" class="heading-anchor">#</a></h2>
+<p>Transforms Damascus model requests into a stable internal representation.</p>
+<p>It must not discard semantics merely because a provider lacks a feature.</p>
+<p>Unsupported requirements cause candidate exclusion or explicit degradation handling.</p>
+<h2 id="provider-adapter-manager">Provider Adapter Manager<a href="#provider-adapter-manager" class="heading-anchor">#</a></h2>
+<p>Loads, configures, and invokes provider adapters.</p>
+<p>Adapter configuration includes:</p>
+<ul>
+<li>endpoint</li>
+<li>authentication reference</li>
+<li>supported transport</li>
+<li>rate limits</li>
+<li>locality</li>
+<li>health-check method</li>
+</ul>
+<p>Secrets remain in approved secret storage.</p>
+<h2 id="response-normalizer">Response Normalizer<a href="#response-normalizer" class="heading-anchor">#</a></h2>
+<p>Transforms provider responses into normalized:</p>
+<ul>
+<li>content</li>
+<li>structured output</li>
+<li>usage</li>
+<li>finish reason</li>
+<li>tool-call proposals</li>
+<li>safety refusal</li>
+<li>provider metadata</li>
+<li>error information</li>
+</ul>
+<p>Raw provider responses may be retained only according to policy.</p>
+<h2 id="model-health-monitor">Model Health Monitor<a href="#model-health-monitor" class="heading-anchor">#</a></h2>
+<p>Tracks:</p>
+<ul>
+<li>availability</li>
+<li>recent error rate</li>
+<li>rate-limit state</li>
+<li>observed latency</li>
+<li>local resource readiness</li>
+<li>provider incident state</li>
+</ul>
+<p>Health influences routing but does not replace capability validation.</p>
+<hr>
+<h1 id="provider-interface">Provider Interface<a href="#provider-interface" class="heading-anchor">#</a></h1>
+<h2 id="provider-boundary">Provider Boundary<a href="#provider-boundary" class="heading-anchor">#</a></h2>
+<p>Each model provider is integrated through a provider adapter implementing a stable Damascus contract.</p>
+<p>Illustrative interface:</p>
+<pre><code class="language-text">IModelProvider
+
+provider_metadata()
+discover_models()
+get_model_capabilities(provider_model_id)
+validate_configuration()
+health_check()
+estimate_usage(request, model_profile)
+invoke(request, model_profile, invocation_context)
+stream(request, model_profile, invocation_context)
+cancel(provider_invocation_id)
+</code></pre>
+<p>Optional interfaces may support:</p>
+<pre><code class="language-text">IEmbeddingProvider
+IMultimodalProvider
+IBatchModelProvider
+IFineTuneProvider
+</code></pre>
+<h2 id="normalized-invocation-request">Normalized Invocation Request<a href="#normalized-invocation-request" class="heading-anchor">#</a></h2>
+<p>Minimum fields:</p>
+<pre><code class="language-text">ModelInvocationRequest
+  invocation_id
+  workspace_id
+  project_id | null
+  workflow_execution_id
+  node_execution_id
+  requested_capabilities
+  input_messages_or_payload
+  output_contract
+  routing_policy_reference
+  data_classification
+  budget_envelope
+  latency_objective
+  fallback_policy
+  deterministic_preferences
+  trace_context
+</code></pre>
+<h2 id="normalized-invocation-response">Normalized Invocation Response<a href="#normalized-invocation-response" class="heading-anchor">#</a></h2>
+<p>Minimum fields:</p>
+<pre><code class="language-text">ModelInvocationResponse
+  invocation_id
+  selected_model_profile_id
+  provider_invocation_id | null
+  content
+  structured_output | null
+  finish_reason
+  usage
+  observed_cost
+  latency
+  fallback_history
+  warnings
+  provenance
+</code></pre>
+<h2 id="provider-adapter-rules">Provider Adapter Rules<a href="#provider-adapter-rules" class="heading-anchor">#</a></h2>
+<p>Adapters must:</p>
+<ul>
+<li>translate without leaking provider types outward</li>
+<li>report unsupported features accurately</li>
+<li>normalize errors</li>
+<li>expose usage and rate-limit metadata when available</li>
+<li>support cancellation where the provider permits</li>
+<li>redact secrets from logs</li>
+<li>tolerate additive provider response fields</li>
+</ul>
+<p>Adapters must not:</p>
+<ul>
+<li>make independent workspace policy decisions</li>
+<li>silently change requested model behavior</li>
+<li>retry indefinitely</li>
+<li>execute tool calls proposed by a model</li>
+<li>persist user content outside policy</li>
+</ul>
+<hr>
+<h1 id="model-registry">Model Registry<a href="#model-registry" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>The Model Registry is the discovery and metadata authority for model resources available to Damascus.</p>
+<p>It is a registry.</p>
+<p>It is not a model provider, routing engine, benchmark store, or memory system.</p>
+<h2 id="registry-entities">Registry Entities<a href="#registry-entities" class="heading-anchor">#</a></h2>
+<h3 id="provider-definition">Provider Definition<a href="#provider-definition" class="heading-anchor">#</a></h3>
+<p>Describes an installed provider adapter.</p>
+<p>Fields include:</p>
+<ul>
+<li>provider_id</li>
+<li>adapter_type</li>
+<li>locality</li>
+<li>endpoint class</li>
+<li>configuration state</li>
+<li>authentication reference</li>
+<li>supported capabilities</li>
+<li>lifecycle state</li>
+</ul>
+<h3 id="model-definition">Model Definition<a href="#model-definition" class="heading-anchor">#</a></h3>
+<p>Describes a provider-advertised or manually registered model.</p>
+<p>Fields include:</p>
+<ul>
+<li>provider_model_id</li>
+<li>provider_id</li>
+<li>advertised name</li>
+<li>family</li>
+<li>version information</li>
+<li>advertised capabilities</li>
+<li>availability</li>
+</ul>
+<h3 id="model-profile">Model Profile<a href="#model-profile" class="heading-anchor">#</a></h3>
+<p>A Damascus-owned, versioned operational profile used for routing and invocation.</p>
+<p>Profiles separate stable Damascus identity from mutable provider naming.</p>
+<h2 id="registry-lifecycle">Registry Lifecycle<a href="#registry-lifecycle" class="heading-anchor">#</a></h2>
+<p>Model profiles may be:</p>
+<ul>
+<li>Discovered</li>
+<li>Unverified</li>
+<li>Active</li>
+<li>Degraded</li>
+<li>Disabled</li>
+<li>Deprecated</li>
+<li>Retired</li>
+</ul>
+<p>Only eligible active or explicitly permitted degraded profiles participate in normal routing.</p>
+<h2 id="registry-ownership">Registry Ownership<a href="#registry-ownership" class="heading-anchor">#</a></h2>
+<p>The Core Registry Layer provides shared registry infrastructure.</p>
+<p>The Model Abstraction Layer owns model-specific schema, validation, health metadata, and profile lifecycle.</p>
+<hr>
+<h1 id="model-profiles">Model Profiles<a href="#model-profiles" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>A model profile is the routing and invocation representation of a model under a defined configuration.</p>
+<p>The same provider model may have multiple profiles.</p>
+<p>Example:</p>
+<ul>
+<li>local-small-fast</li>
+<li>local-large-quality</li>
+<li>cloud-long-context</li>
+<li>cloud-structured-output</li>
+</ul>
+<h2 id="profile-fields">Profile Fields<a href="#profile-fields" class="heading-anchor">#</a></h2>
+<pre><code class="language-text">ModelProfile
+  model_profile_id
+  provider_id
+  provider_model_id
+  profile_version
+  locality
+  lifecycle_state
+  capability_claims
+  verified_capabilities
+  context_limits
+  supported_modalities
+  structured_output_support
+  tool_call_generation_support
+  pricing_profile
+  latency_profile
+  benchmark_summary
+  reliability_profile
+  data_handling_profile
+  invocation_defaults
+  resource_requirements
+  created_at
+  updated_at
+</code></pre>
+<h2 id="claimed-versus-verified-capability">Claimed Versus Verified Capability<a href="#claimed-versus-verified-capability" class="heading-anchor">#</a></h2>
+<p>Profiles distinguish:</p>
+<ul>
+<li>provider-claimed capability</li>
+<li>configuration-derived capability</li>
+<li>Damascus-verified capability</li>
+</ul>
+<p>Routing policy determines when claimed capability is sufficient.</p>
+<p>Critical workflows may require verified capability.</p>
+<h2 id="profile-versioning">Profile Versioning<a href="#profile-versioning" class="heading-anchor">#</a></h2>
+<p>Material changes create a new profile version.</p>
+<p>Examples:</p>
+<ul>
+<li>provider model revision</li>
+<li>quantization change</li>
+<li>prompt template change</li>
+<li>context limit change</li>
+<li>inference parameter change</li>
+<li>local runtime change</li>
+</ul>
+<p>Historical executions retain their original profile references.</p>
+<hr>
+<h1 id="routing-engine">Routing Engine<a href="#routing-engine" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>The Routing Engine selects an eligible model profile for an invocation.</p>
+<p>It performs constrained optimization.</p>
+<p>It does not choose from every installed model blindly.</p>
+<h2 id="routing-stages">Routing Stages<a href="#routing-stages" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Request
+↓
+Validate Hard Requirements
+↓
+Resolve Workspace And Project Policies
+↓
+Build Eligible Candidate Set
+↓
+Remove Unhealthy Or Unavailable Candidates
+↓
+Score Candidates
+↓
+Apply User Or Workflow Pinning
+↓
+Select Candidate
+↓
+Record Routing Decision
+</code></pre>
+<h2 id="hard-constraints">Hard Constraints<a href="#hard-constraints" class="heading-anchor">#</a></h2>
+<p>Candidates must first satisfy:</p>
+<ul>
+<li>required modality</li>
+<li>minimum context window</li>
+<li>required output contract</li>
+<li>required locality</li>
+<li>data classification policy</li>
+<li>workspace and project permissions</li>
+<li>model lifecycle state</li>
+<li>provider availability</li>
+<li>budget ceiling</li>
+<li>required benchmark qualification</li>
+</ul>
+<p>A model that fails a hard constraint may not win through a high optimization score.</p>
+<h2 id="optimization-dimensions">Optimization Dimensions<a href="#optimization-dimensions" class="heading-anchor">#</a></h2>
+<p>Eligible candidates may be scored on:</p>
+<ul>
+<li>benchmark quality</li>
+<li>task-specific quality</li>
+<li>estimated cost</li>
+<li>expected latency</li>
+<li>reliability</li>
+<li>context utilization</li>
+<li>local resource pressure</li>
+<li>provider rate-limit pressure</li>
+<li>historical scope-specific performance</li>
+</ul>
+<h2 id="routing-policies">Routing Policies<a href="#routing-policies" class="heading-anchor">#</a></h2>
+<p>Example routing policy types:</p>
+<ul>
+<li>Local First</li>
+<li>Lowest Cost Within Quality Threshold</li>
+<li>Lowest Latency Within Quality Threshold</li>
+<li>Highest Verified Quality</li>
+<li>Balanced</li>
+<li>Pinned Model</li>
+<li>Benchmark Reproducible</li>
+<li>Offline Only</li>
+<li>Sensitive Data Local Only</li>
+</ul>
+<p>Policies must be versioned and auditable.</p>
+<h2 id="routing-decision-record">Routing Decision Record<a href="#routing-decision-record" class="heading-anchor">#</a></h2>
+<p>Every decision records:</p>
+<ul>
+<li>candidate set</li>
+<li>excluded candidates and reasons</li>
+<li>scores</li>
+<li>selected profile</li>
+<li>policy version</li>
+<li>relevant evidence version</li>
+<li>fallback plan</li>
+<li>decision timestamp</li>
+</ul>
+<p>This record supports debugging, audit, and evolution.</p>
+<hr>
+<h1 id="cost-aware-routing">Cost-Aware Routing<a href="#cost-aware-routing" class="heading-anchor">#</a></h1>
+<p>Cost-aware routing minimizes expected cost while preserving hard requirements and quality thresholds.</p>
+<p>Cost estimates should include:</p>
+<ul>
+<li>input tokens</li>
+<li>output tokens</li>
+<li>cached tokens</li>
+<li>provider request fees</li>
+<li>batch discounts where applicable</li>
+<li>local compute cost estimate</li>
+<li>retry and fallback risk</li>
+</ul>
+<p>Local does not mean zero cost.</p>
+<p>Local profiles may consume:</p>
+<ul>
+<li>GPU time</li>
+<li>CPU time</li>
+<li>memory</li>
+<li>energy</li>
+<li>user-visible system capacity</li>
+</ul>
+<p>Budgets may apply at:</p>
+<ul>
+<li>invocation</li>
+<li>workflow execution</li>
+<li>project</li>
+<li>workspace</li>
+<li>time period</li>
+</ul>
+<p>The Scheduler and Workspace System provide budget state.</p>
+<p>The Routing Engine uses it.</p>
+<p>Cost-aware routing must not send sensitive data to a cheaper unauthorized provider.</p>
+<hr>
+<h1 id="latency-aware-routing">Latency-Aware Routing<a href="#latency-aware-routing" class="heading-anchor">#</a></h1>
+<p>Latency-aware routing uses:</p>
+<ul>
+<li>recent observed time to first token</li>
+<li>total generation latency</li>
+<li>queue depth</li>
+<li>local model load time</li>
+<li>provider region</li>
+<li>request size</li>
+<li>expected output size</li>
+<li>rate-limit state</li>
+</ul>
+<p>Latency objectives may be:</p>
+<ul>
+<li>interactive</li>
+<li>background</li>
+<li>deadline-bound</li>
+<li>best effort</li>
+</ul>
+<p>Multi-step workflows should consider end-to-end workflow latency, not only individual invocation latency.</p>
+<p>Selecting a fast but low-quality model that causes repeated retries may increase total latency.</p>
+<hr>
+<h1 id="context-window-aware-routing">Context-Window-Aware Routing<a href="#context-window-aware-routing" class="heading-anchor">#</a></h1>
+<p>The Routing Engine must estimate required context before selection.</p>
+<p>Context estimation includes:</p>
+<ul>
+<li>system instructions</li>
+<li>workflow instructions</li>
+<li>retrieved memory</li>
+<li>user input</li>
+<li>tool schemas</li>
+<li>expected output reserve</li>
+<li>provider-specific tokenization margin</li>
+</ul>
+<p>Candidates with insufficient context are excluded.</p>
+<p>If no candidate fits, the Layer returns a typed <code>ContextCapacityExceeded</code> failure or invokes an explicitly authorized context-reduction strategy.</p>
+<p>Context-reduction strategies may include:</p>
+<ul>
+<li>retrieval narrowing</li>
+<li>summarization workflow</li>
+<li>chunked processing</li>
+<li>map-reduce workflow</li>
+</ul>
+<p>The Model Layer must not silently truncate authoritative instructions or user data.</p>
+<hr>
+<h1 id="runtime-interaction">Runtime Interaction<a href="#runtime-interaction" class="heading-anchor">#</a></h1>
+<h2 id="boundary">Boundary<a href="#boundary" class="heading-anchor">#</a></h2>
+<p>The Orchestration Runtime executes workflow nodes through the Damascus Runtime Interface.</p>
+<p>Model nodes call the Model Invocation Interface.</p>
+<p>Runtime adapters must not call provider SDKs directly.</p>
+<p>Architecture:</p>
+<pre><code class="language-diagram">Workflow Definition
+↓
+Damascus Core
+↓
+Runtime Interface
+↓
+Runtime Adapter
+↓
+Model Invocation Interface
+↓
+Model Abstraction Layer
+</code></pre>
+<h2 id="invocation-lifecycle">Invocation Lifecycle<a href="#invocation-lifecycle" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Node Ready
+↓
+Core Resolves Scope And Policy Snapshot
+↓
+Runtime Requests Model Invocation
+↓
+Model Layer Routes And Invokes
+↓
+Streaming Or Final Result Returned
+↓
+Runtime Updates Node State
+↓
+Observability Records Trace
+</code></pre>
+<h2 id="streaming">Streaming<a href="#streaming" class="heading-anchor">#</a></h2>
+<p>Streaming is normalized as a sequence of typed events.</p>
+<p>Examples:</p>
+<ul>
+<li>InvocationStarted</li>
+<li>ContentDelta</li>
+<li>StructuredOutputDelta</li>
+<li>UsageUpdated</li>
+<li>ModelWarning</li>
+<li>InvocationCompleted</li>
+<li>InvocationFailed</li>
+</ul>
+<p>Provider-specific streaming events remain inside adapters.</p>
+<h2 id="cancellation">Cancellation<a href="#cancellation" class="heading-anchor">#</a></h2>
+<p>Core cancellation propagates to the Model Layer.</p>
+<p>The Layer attempts provider cancellation and records whether cancellation was:</p>
+<ul>
+<li>confirmed</li>
+<li>requested but unconfirmed</li>
+<li>unsupported</li>
+<li>too late</li>
+</ul>
+<h2 id="checkpointing">Checkpointing<a href="#checkpointing" class="heading-anchor">#</a></h2>
+<p>Completed model responses and material routing metadata must be checkpointable.</p>
+<p>Partial streams should not be treated as completed outputs unless the workflow explicitly supports partial-result recovery.</p>
+<hr>
+<h1 id="local-model-support">Local Model Support<a href="#local-model-support" class="heading-anchor">#</a></h1>
+<h2 id="local-provider-types">Local Provider Types<a href="#local-provider-types" class="heading-anchor">#</a></h2>
+<p>Local model adapters may support:</p>
+<ul>
+<li>Ollama</li>
+<li>local inference servers</li>
+<li>embedded inference runtimes</li>
+<li>containerized model servers</li>
+<li>future hardware-specific runtimes</li>
+</ul>
+<p>These are examples, not architectural dependencies.</p>
+<h2 id="local-model-discovery">Local Model Discovery<a href="#local-model-discovery" class="heading-anchor">#</a></h2>
+<p>Local discovery may identify:</p>
+<ul>
+<li>installed models</li>
+<li>model files</li>
+<li>quantization</li>
+<li>available hardware</li>
+<li>runtime compatibility</li>
+<li>memory requirements</li>
+</ul>
+<p>Discovered models begin as unverified until validated.</p>
+<h2 id="resource-admission">Resource Admission<a href="#resource-admission" class="heading-anchor">#</a></h2>
+<p>Before local invocation, Damascus should evaluate:</p>
+<ul>
+<li>available RAM and VRAM</li>
+<li>current resource pressure</li>
+<li>model load state</li>
+<li>expected context size</li>
+<li>concurrent execution limits</li>
+<li>user activity policy</li>
+</ul>
+<p>The Scheduler coordinates resource admission.</p>
+<h2 id="local-security">Local Security<a href="#local-security" class="heading-anchor">#</a></h2>
+<p>Local models remain untrusted computational components.</p>
+<p>They must not receive unrestricted filesystem, tool, memory, or secret access.</p>
+<p>Model output is data.</p>
+<p>It is not authority.</p>
+<h2 id="offline-operation">Offline Operation<a href="#offline-operation" class="heading-anchor">#</a></h2>
+<p>Offline-capable profiles must avoid:</p>
+<ul>
+<li>remote license checks required for inference</li>
+<li>cloud telemetry not explicitly approved</li>
+<li>remote embeddings</li>
+<li>remote fallback</li>
+</ul>
+<p>Offline routing failure must be explicit.</p>
+<hr>
+<h1 id="cloud-model-support">Cloud Model Support<a href="#cloud-model-support" class="heading-anchor">#</a></h1>
+<p>Cloud adapters support remote model providers through normalized interfaces.</p>
+<p>Cloud invocation requires:</p>
+<ul>
+<li>authorized provider</li>
+<li>valid secret reference</li>
+<li>data classification eligibility</li>
+<li>egress approval where required</li>
+<li>cost budget</li>
+<li>provider health</li>
+</ul>
+<h2 id="data-egress-record">Data Egress Record<a href="#data-egress-record" class="heading-anchor">#</a></h2>
+<p>Each cloud invocation should record:</p>
+<ul>
+<li>destination provider</li>
+<li>data classification</li>
+<li>applied redactions</li>
+<li>policy decision reference</li>
+<li>approval reference where required</li>
+<li>transmitted payload hash or equivalent provenance</li>
+</ul>
+<p>Sensitive payload content should not be duplicated into audit logs.</p>
+<h2 id="provider-terms-and-retention">Provider Terms And Retention<a href="#provider-terms-and-retention" class="heading-anchor">#</a></h2>
+<p>Model profiles should describe known provider data-handling characteristics.</p>
+<p>Examples:</p>
+<ul>
+<li>training usage policy</li>
+<li>retention policy</li>
+<li>region availability</li>
+<li>enterprise isolation option</li>
+</ul>
+<p>These claims require periodic verification.</p>
+<h2 id="rate-limits">Rate Limits<a href="#rate-limits" class="heading-anchor">#</a></h2>
+<p>Cloud rate limits are modeled as provider capacity constraints.</p>
+<p>Routing may select another eligible model or queue the request according to policy.</p>
+<hr>
+<h1 id="multi-model-workflows">Multi-Model Workflows<a href="#multi-model-workflows" class="heading-anchor">#</a></h1>
+<p>Models may be combined inside workflows.</p>
+<p>Examples:</p>
+<h2 id="specialist-routing">Specialist Routing<a href="#specialist-routing" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Classification Model
+↓
+Code Model
+↓
+Review Model
+</code></pre>
+<h2 id="draft-and-critique">Draft And Critique<a href="#draft-and-critique" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Draft Model
+↓
+Critic Model
+↓
+Revision Model
+</code></pre>
+<h2 id="parallel-comparison">Parallel Comparison<a href="#parallel-comparison" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Model A
++
+Model B
++
+Model C
+↓
+Evaluator
+</code></pre>
+<h2 id="local-cloud-escalation">Local-Cloud Escalation<a href="#local-cloud-escalation" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Local Model
+↓ if confidence or benchmark threshold fails
+Cloud Model
+</code></pre>
+<p>Multi-model behavior must be represented in workflow definitions.</p>
+<p>The Routing Engine selects resources for model invocation nodes.</p>
+<p>It must not secretly transform one invocation into an unbounded multi-model workflow.</p>
+<p>Ensembles increase:</p>
+<ul>
+<li>cost</li>
+<li>latency</li>
+<li>data exposure</li>
+<li>evaluation complexity</li>
+</ul>
+<p>They require explicit policy and telemetry.</p>
+<hr>
+<h1 id="fallback-handling">Fallback Handling<a href="#fallback-handling" class="heading-anchor">#</a></h1>
+<h2 id="fallback-philosophy">Fallback Philosophy<a href="#fallback-philosophy" class="heading-anchor">#</a></h2>
+<p>Fallback preserves workflow intent where possible.</p>
+<p>Fallback is not permission to substitute any available model.</p>
+<h2 id="fallback-triggers">Fallback Triggers<a href="#fallback-triggers" class="heading-anchor">#</a></h2>
+<p>Examples:</p>
+<ul>
+<li>provider unavailable</li>
+<li>timeout</li>
+<li>rate limit</li>
+<li>local resource exhaustion</li>
+<li>transient transport failure</li>
+<li>invalid provider response</li>
+<li>context estimate mismatch</li>
+</ul>
+<p>Quality dissatisfaction is not automatically a runtime failure.</p>
+<p>Quality-based escalation should be modeled explicitly or governed by benchmark-supported policy.</p>
+<h2 id="fallback-eligibility">Fallback Eligibility<a href="#fallback-eligibility" class="heading-anchor">#</a></h2>
+<p>A fallback model must satisfy all hard constraints.</p>
+<p>It must not:</p>
+<ul>
+<li>violate locality requirements</li>
+<li>exceed budget without approval</li>
+<li>weaken required output guarantees</li>
+<li>reduce required context capacity</li>
+<li>use an unauthorized provider</li>
+</ul>
+<h2 id="fallback-strategies">Fallback Strategies<a href="#fallback-strategies" class="heading-anchor">#</a></h2>
+<ul>
+<li>retry same profile</li>
+<li>retry alternate endpoint</li>
+<li>select equivalent profile</li>
+<li>select authorized degraded profile</li>
+<li>queue until capacity returns</li>
+<li>pause for human decision</li>
+<li>fail workflow node</li>
+</ul>
+<h2 id="semantic-compatibility">Semantic Compatibility<a href="#semantic-compatibility" class="heading-anchor">#</a></h2>
+<p>Fallback classes should define which profile differences are acceptable.</p>
+<p>Example:</p>
+<pre><code class="language-text">FallbackClass:
+  required_capabilities: [...]
+  minimum_benchmark_score: ...
+  maximum_cost: ...
+  locality: local_only
+  output_contract: strict
+</code></pre>
+<h2 id="fallback-limits">Fallback Limits<a href="#fallback-limits" class="heading-anchor">#</a></h2>
+<p>Fallback attempts must be bounded by:</p>
+<ul>
+<li>maximum attempts</li>
+<li>maximum elapsed time</li>
+<li>maximum additional cost</li>
+<li>workflow deadline</li>
+</ul>
+<p>Every fallback attempt becomes part of the invocation provenance.</p>
+<hr>
+<h1 id="failure-handling">Failure Handling<a href="#failure-handling" class="heading-anchor">#</a></h1>
+<h2 id="failure-taxonomy">Failure Taxonomy<a href="#failure-taxonomy" class="heading-anchor">#</a></h2>
+<p>Model failures include:</p>
+<ul>
+<li>ConfigurationFailure</li>
+<li>AuthenticationFailure</li>
+<li>AuthorizationFailure</li>
+<li>PolicyDenied</li>
+<li>ProviderUnavailable</li>
+<li>RateLimited</li>
+<li>Timeout</li>
+<li>ContextCapacityExceeded</li>
+<li>UnsupportedCapability</li>
+<li>InvalidRequest</li>
+<li>InvalidResponse</li>
+<li>StructuredOutputValidationFailure</li>
+<li>SafetyRefusal</li>
+<li>ResourceExhausted</li>
+<li>Cancelled</li>
+<li>BudgetExceeded</li>
+<li>UnknownProviderFailure</li>
+</ul>
+<h2 id="failure-flow">Failure Flow<a href="#failure-flow" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Detect
+↓
+Normalize
+↓
+Record
+↓
+Evaluate Retry Or Fallback Policy
+↓
+Retry, Fallback, Queue, Pause, Or Fail
+↓
+Return Typed Outcome To Runtime
+</code></pre>
+<h2 id="invalid-output">Invalid Output<a href="#invalid-output" class="heading-anchor">#</a></h2>
+<p>An HTTP success is not necessarily a successful model invocation.</p>
+<p>The Layer validates:</p>
+<ul>
+<li>output contract</li>
+<li>required fields</li>
+<li>parseability</li>
+<li>finish reason</li>
+<li>truncation</li>
+</ul>
+<p>Invalid output may trigger bounded repair or fallback according to policy.</p>
+<h2 id="circuit-breaking">Circuit Breaking<a href="#circuit-breaking" class="heading-anchor">#</a></h2>
+<p>Repeated provider or profile failures should open a circuit.</p>
+<p>The profile is temporarily excluded from normal routing.</p>
+<p>Circuit state must be observable and automatically or manually recoverable.</p>
+<h2 id="recovery">Recovery<a href="#recovery" class="heading-anchor">#</a></h2>
+<p>Recovery mechanisms include:</p>
+<ul>
+<li>health recheck</li>
+<li>credential repair</li>
+<li>profile revalidation</li>
+<li>local model reload</li>
+<li>endpoint replacement</li>
+<li>rate-limit cooldown</li>
+<li>benchmark requalification</li>
+</ul>
+<hr>
+<h1 id="benchmark-integration">Benchmark Integration<a href="#benchmark-integration" class="heading-anchor">#</a></h1>
+<h2 id="purpose">Purpose<a href="#purpose" class="heading-anchor">#</a></h2>
+<p>Benchmark evidence enables Damascus to compare models and improve routing.</p>
+<p>Model benchmarking is distinct from workflow benchmarking.</p>
+<p>A high-performing model may still perform poorly inside a particular workflow.</p>
+<h2 id="benchmark-dimensions">Benchmark Dimensions<a href="#benchmark-dimensions" class="heading-anchor">#</a></h2>
+<p>Model benchmarks may measure:</p>
+<ul>
+<li>task quality</li>
+<li>structured output reliability</li>
+<li>tool-call proposal accuracy</li>
+<li>hallucination rate</li>
+<li>context retention</li>
+<li>latency</li>
+<li>cost</li>
+<li>refusal behavior</li>
+<li>multilingual performance</li>
+<li>modality-specific performance</li>
+</ul>
+<h2 id="benchmark-context">Benchmark Context<a href="#benchmark-context" class="heading-anchor">#</a></h2>
+<p>Results must record:</p>
+<ul>
+<li>model profile version</li>
+<li>benchmark version</li>
+<li>invocation parameters</li>
+<li>hardware or provider endpoint class</li>
+<li>date</li>
+<li>sample size</li>
+<li>confidence</li>
+<li>data classification</li>
+</ul>
+<p>Local model benchmarks are hardware-dependent.</p>
+<p>Cloud model behavior may drift without an exposed version change.</p>
+<h2 id="routing-use">Routing Use<a href="#routing-use" class="heading-anchor">#</a></h2>
+<p>Routing may use benchmark evidence only when:</p>
+<ul>
+<li>benchmark is relevant to requested capability</li>
+<li>profile version is compatible</li>
+<li>evidence is sufficiently recent</li>
+<li>confidence threshold is met</li>
+</ul>
+<p>Missing evidence must not be interpreted as poor performance or high performance.</p>
+<h2 id="continuous-evaluation">Continuous Evaluation<a href="#continuous-evaluation" class="heading-anchor">#</a></h2>
+<p>Production telemetry may identify candidates for formal re-benchmarking.</p>
+<p>Production outcomes must not silently rewrite benchmark results.</p>
+<p>The Benchmark Registry remains the authoritative source of benchmark definitions and results.</p>
+<hr>
+<h1 id="telemetry-and-observability">Telemetry And Observability<a href="#telemetry-and-observability" class="heading-anchor">#</a></h1>
+<p>Every invocation should capture:</p>
+<ul>
+<li>selected model profile</li>
+<li>routing decision</li>
+<li>provider</li>
+<li>input and output token counts</li>
+<li>estimated and observed cost</li>
+<li>time to first token</li>
+<li>total latency</li>
+<li>retries</li>
+<li>fallback history</li>
+<li>finish reason</li>
+<li>validation outcome</li>
+<li>failure type</li>
+</ul>
+<p>Content capture follows workspace policy.</p>
+<p>Telemetry must support:</p>
+<ul>
+<li>debugging</li>
+<li>budget reporting</li>
+<li>routing evaluation</li>
+<li>benchmark candidate discovery</li>
+<li>evolution analysis</li>
+</ul>
+<p>Telemetry must not become unrestricted memory.</p>
+<hr>
+<h1 id="security-considerations">Security Considerations<a href="#security-considerations" class="heading-anchor">#</a></h1>
+<h2 id="authorization-boundary">Authorization Boundary<a href="#authorization-boundary" class="heading-anchor">#</a></h2>
+<p>The Security Layer decides whether an invocation may use:</p>
+<ul>
+<li>a provider</li>
+<li>a model profile</li>
+<li>a data classification</li>
+<li>a secret</li>
+<li>remote egress</li>
+</ul>
+<p>The Routing Engine selects only from authorized candidates.</p>
+<h2 id="data-minimization">Data Minimization<a href="#data-minimization" class="heading-anchor">#</a></h2>
+<p>Only required context should be sent to models.</p>
+<p>Workspace access does not imply permission to send all workspace data.</p>
+<h2 id="prompt-injection">Prompt Injection<a href="#prompt-injection" class="heading-anchor">#</a></h2>
+<p>Model inputs may contain untrusted instructions.</p>
+<p>Model output may contain unsafe action proposals.</p>
+<p>Neither may modify policy or execute tools directly.</p>
+<h2 id="secrets">Secrets<a href="#secrets" class="heading-anchor">#</a></h2>
+<p>Provider credentials are referenced through secret storage.</p>
+<p>They must not appear in:</p>
+<ul>
+<li>model profiles</li>
+<li>workflow definitions</li>
+<li>traces</li>
+<li>errors</li>
+<li>prompts</li>
+</ul>
+<h2 id="output-trust">Output Trust<a href="#output-trust" class="heading-anchor">#</a></h2>
+<p>Model output is untrusted until validated for its intended use.</p>
+<p>Structured output validation checks shape.</p>
+<p>It does not prove truth or safety.</p>
+<h2 id="local-model-supply-chain">Local Model Supply Chain<a href="#local-model-supply-chain" class="heading-anchor">#</a></h2>
+<p>Local model artifacts may be malicious or corrupted.</p>
+<p>Damascus should support:</p>
+<ul>
+<li>source verification</li>
+<li>checksums</li>
+<li>signature verification where available</li>
+<li>quarantine</li>
+<li>isolated loading</li>
+<li>license metadata</li>
+</ul>
+<hr>
+<h1 id="lifecycle">Lifecycle<a href="#lifecycle" class="heading-anchor">#</a></h1>
+<h2 id="provider-lifecycle">Provider Lifecycle<a href="#provider-lifecycle" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Install
+↓
+Configure
+↓
+Validate
+↓
+Activate
+↓
+Monitor
+↓
+Disable Or Retire
+</code></pre>
+<h2 id="model-profile-lifecycle">Model Profile Lifecycle<a href="#model-profile-lifecycle" class="heading-anchor">#</a></h2>
+<pre><code class="language-diagram">Discover
+↓
+Inspect
+↓
+Verify Capabilities
+↓
+Benchmark
+↓
+Activate
+↓
+Monitor
+↓
+Degrade, Deprecate, Or Retire
+</code></pre>
+<p>Retired profiles remain referencable by historical traces.</p>
+<p>They do not participate in new routing.</p>
+<h2 id="upgrade">Upgrade<a href="#upgrade" class="heading-anchor">#</a></h2>
+<p>Provider model upgrades must not silently replace reproducible profiles.</p>
+<p>When exact provider versioning is unavailable, Damascus must record that limitation and re-benchmark observed changes.</p>
+<hr>
+<h1 id="recovery-mechanisms">Recovery Mechanisms<a href="#recovery-mechanisms" class="heading-anchor">#</a></h1>
+<ul>
+<li>registry reconstruction from adapter discovery and authoritative configuration</li>
+<li>profile revalidation</li>
+<li>benchmark replay</li>
+<li>provider health reconciliation</li>
+<li>stale routing-cache invalidation</li>
+<li>local model reload</li>
+<li>credential rotation</li>
+<li>fallback policy rollback</li>
+</ul>
+<p>Derived routing scores must be rebuildable from authoritative profile, benchmark, policy, and telemetry data.</p>
+<hr>
+<h1 id="architectural-constraints">Architectural Constraints<a href="#architectural-constraints" class="heading-anchor">#</a></h1>
+<h2 id="constraint-1">Constraint 1<a href="#constraint-1" class="heading-anchor">#</a></h2>
+<p>No subsystem outside provider adapters may depend on provider-specific request or response types.</p>
+<h2 id="constraint-2">Constraint 2<a href="#constraint-2" class="heading-anchor">#</a></h2>
+<p>Workflows request capabilities or explicitly pinned profiles.</p>
+<p>They do not call provider SDKs directly.</p>
+<h2 id="constraint-3">Constraint 3<a href="#constraint-3" class="heading-anchor">#</a></h2>
+<p>Security and data-egress policy precede routing optimization.</p>
+<h2 id="constraint-4">Constraint 4<a href="#constraint-4" class="heading-anchor">#</a></h2>
+<p>Fallback candidates must satisfy all hard constraints.</p>
+<h2 id="constraint-5">Constraint 5<a href="#constraint-5" class="heading-anchor">#</a></h2>
+<p>The Model Layer may generate tool-call proposals.</p>
+<p>It may not execute tools.</p>
+<h2 id="constraint-6">Constraint 6<a href="#constraint-6" class="heading-anchor">#</a></h2>
+<p>Model output is not authority.</p>
+<h2 id="constraint-7">Constraint 7<a href="#constraint-7" class="heading-anchor">#</a></h2>
+<p>Every invocation must be attributable to workspace, workflow execution, model profile, and routing decision.</p>
+<h2 id="constraint-8">Constraint 8<a href="#constraint-8" class="heading-anchor">#</a></h2>
+<p>Benchmarks and critical reproducibility workflows must support pinned profile versions.</p>
+<h2 id="constraint-9">Constraint 9<a href="#constraint-9" class="heading-anchor">#</a></h2>
+<p>Local models are preferred only when they satisfy policy and capability requirements.</p>
+<h2 id="constraint-10">Constraint 10<a href="#constraint-10" class="heading-anchor">#</a></h2>
+<p>Cloud models are optional and require authorized data egress.</p>
+<h2 id="constraint-11">Constraint 11<a href="#constraint-11" class="heading-anchor">#</a></h2>
+<p>The Core remains provider-agnostic and does not become a model router.</p>
+<h2 id="constraint-12">Constraint 12<a href="#constraint-12" class="heading-anchor">#</a></h2>
+<p>The Model Registry is a discovery system, not a memory or benchmark system.</p>
+<h2 id="constraint-13">Constraint 13<a href="#constraint-13" class="heading-anchor">#</a></h2>
+<p>Routing changes are versioned, observable, and reversible.</p>
+<h2 id="constraint-14">Constraint 14<a href="#constraint-14" class="heading-anchor">#</a></h2>
+<p>Evolution may propose routing and profile changes only through controlled benchmarking and promotion.</p>
+<hr>
+<h1 id="future-model-evolution-support">Future Model Evolution Support<a href="#future-model-evolution-support" class="heading-anchor">#</a></h1>
+<p>The Evolution Layer may improve:</p>
+<ul>
+<li>routing weights</li>
+<li>task-to-model policies</li>
+<li>fallback classes</li>
+<li>model profile defaults</li>
+<li>multi-model workflow structures</li>
+<li>context reduction strategies</li>
+</ul>
+<p>Evolution flow:</p>
+<pre><code class="language-diagram">Observe Model Usage
+↓
+Identify Routing Weakness
+↓
+Generate Policy Or Workflow Variant
+↓
+Benchmark
+↓
+Compare
+↓
+Propose Promotion
+↓
+Approve
+↓
+Activate Versioned Change
+</code></pre>
+<p>The system does not directly self-modify provider adapters or production code.</p>
+<h2 id="future-capabilities">Future Capabilities<a href="#future-capabilities" class="heading-anchor">#</a></h2>
+<p>Future model support may include:</p>
+<ul>
+<li>on-device models</li>
+<li>specialized reasoning models</li>
+<li>multimodal generation</li>
+<li>adaptive model ensembles</li>
+<li>speculative decoding providers</li>
+<li>privacy-preserving remote inference</li>
+<li>user-owned fine-tuned models</li>
+<li>federated benchmark evidence</li>
+<li>hardware-aware local routing</li>
+</ul>
+<p>Each remains behind capability and provider interfaces.</p>
+<hr>
+<h1 id="open-questions">Open Questions<a href="#open-questions" class="heading-anchor">#</a></h1>
+<ul>
+<li>How should task-specific routing quality be estimated before a workflow has sufficient history?</li>
+<li>Which model capabilities require Damascus verification before activation?</li>
+<li>How should cloud model drift be detected when providers do not expose version changes?</li>
+<li>Should local compute cost be represented financially, operationally, or both?</li>
+<li>How should routing balance user-visible latency against total workflow latency?</li>
+<li>Which production outcomes are reliable enough to trigger benchmark requalification?</li>
+<li>How should confidence be normalized across providers and model families?</li>
+<li>When should quality-based escalation be a routing policy versus an explicit workflow structure?</li>
+<li>How should model-generated tool schemas be validated across providers?</li>
+<li>What minimum evidence is required before Evolution can promote a routing change?</li>
+</ul>
+<hr>
+<h1 id="key-architectural-decisions">Key Architectural Decisions<a href="#key-architectural-decisions" class="heading-anchor">#</a></h1>
+<p>The Model Abstraction Layer makes models replaceable, measurable resources.</p>
+<p>Workflows request capabilities.</p>
+<p>The Routing Engine selects authorized model profiles using policy, health, cost, latency, context, and benchmark evidence.</p>
+<p>Provider adapters contain vendor-specific behavior.</p>
+<p>Local and cloud models participate through the same architecture without receiving the same permissions by default.</p>
+<p>Every selection, fallback, and result remains observable, attributable, and eligible for controlled improvement.</p>
+
+        </article>
+        <div class="doc-footer-nav">
+      <a href="../02-Architecture/Memory-Architecture.html" class="nav-card prev">
+        <span class="nav-card-label">Previous</span>
+        <span class="nav-card-title">Memory Architecture</span>
+      </a>
+    
+      <a href="../02-Architecture/Security-Architecture.html" class="nav-card next">
+        <span class="nav-card-label">Next</span>
+        <span class="nav-card-title">Security Architecture</span>
+      </a>
+    </div>
+      </div>
+    </main>
+
+    <!-- Right Table of Contents Sidebar -->
+    
+    <aside class="site-toc">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list">
+        <li class="toc-item depth-2">
+  <a href="#models-are-resources" class="toc-link">Models Are Resources</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#capability-before-provider" class="toc-link">Capability Before Provider</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#evidence-before-preference" class="toc-link">Evidence Before Preference</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#explicit-tradeoffs" class="toc-link">Explicit Tradeoffs</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#local-first" class="toc-link">Local First</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#workflow-centric-use" class="toc-link">Workflow-Centric Use</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ma-001-provider-independence" class="toc-link">MA-001 Provider Independence</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ma-002-capability-based-selection" class="toc-link">MA-002 Capability-Based Selection</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ma-003-explicit-model-identity" class="toc-link">MA-003 Explicit Model Identity</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ma-004-policy-before-optimization" class="toc-link">MA-004 Policy Before Optimization</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ma-005-observable-fallback" class="toc-link">MA-005 Observable Fallback</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ma-006-reproducibility" class="toc-link">MA-006 Reproducibility</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ma-007-replaceable-adapters" class="toc-link">MA-007 Replaceable Adapters</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ma-008-measured-routing" class="toc-link">MA-008 Measured Routing</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#ma-009-bounded-autonomy" class="toc-link">MA-009 Bounded Autonomy</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#model-invocation-service" class="toc-link">Model Invocation Service</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#request-normalizer" class="toc-link">Request Normalizer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#provider-adapter-manager" class="toc-link">Provider Adapter Manager</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#response-normalizer" class="toc-link">Response Normalizer</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#model-health-monitor" class="toc-link">Model Health Monitor</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#provider-boundary" class="toc-link">Provider Boundary</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#normalized-invocation-request" class="toc-link">Normalized Invocation Request</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#normalized-invocation-response" class="toc-link">Normalized Invocation Response</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#provider-adapter-rules" class="toc-link">Provider Adapter Rules</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#registry-entities" class="toc-link">Registry Entities</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#provider-definition" class="toc-link">Provider Definition</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#model-definition" class="toc-link">Model Definition</a>
+</li>
+<li class="toc-item depth-3">
+  <a href="#model-profile" class="toc-link">Model Profile</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#registry-lifecycle" class="toc-link">Registry Lifecycle</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#registry-ownership" class="toc-link">Registry Ownership</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#profile-fields" class="toc-link">Profile Fields</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#claimed-versus-verified-capability" class="toc-link">Claimed Versus Verified Capability</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#profile-versioning" class="toc-link">Profile Versioning</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#routing-stages" class="toc-link">Routing Stages</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#hard-constraints" class="toc-link">Hard Constraints</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#optimization-dimensions" class="toc-link">Optimization Dimensions</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#routing-policies" class="toc-link">Routing Policies</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#routing-decision-record" class="toc-link">Routing Decision Record</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#boundary" class="toc-link">Boundary</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#invocation-lifecycle" class="toc-link">Invocation Lifecycle</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#streaming" class="toc-link">Streaming</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#cancellation" class="toc-link">Cancellation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#checkpointing" class="toc-link">Checkpointing</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#local-provider-types" class="toc-link">Local Provider Types</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#local-model-discovery" class="toc-link">Local Model Discovery</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#resource-admission" class="toc-link">Resource Admission</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#local-security" class="toc-link">Local Security</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#offline-operation" class="toc-link">Offline Operation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#data-egress-record" class="toc-link">Data Egress Record</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#provider-terms-and-retention" class="toc-link">Provider Terms And Retention</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#rate-limits" class="toc-link">Rate Limits</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#specialist-routing" class="toc-link">Specialist Routing</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#draft-and-critique" class="toc-link">Draft And Critique</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#parallel-comparison" class="toc-link">Parallel Comparison</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#local-cloud-escalation" class="toc-link">Local-Cloud Escalation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#fallback-philosophy" class="toc-link">Fallback Philosophy</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#fallback-triggers" class="toc-link">Fallback Triggers</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#fallback-eligibility" class="toc-link">Fallback Eligibility</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#fallback-strategies" class="toc-link">Fallback Strategies</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#semantic-compatibility" class="toc-link">Semantic Compatibility</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#fallback-limits" class="toc-link">Fallback Limits</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#failure-taxonomy" class="toc-link">Failure Taxonomy</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#failure-flow" class="toc-link">Failure Flow</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#invalid-output" class="toc-link">Invalid Output</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#circuit-breaking" class="toc-link">Circuit Breaking</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#recovery" class="toc-link">Recovery</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#purpose" class="toc-link">Purpose</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#benchmark-dimensions" class="toc-link">Benchmark Dimensions</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#benchmark-context" class="toc-link">Benchmark Context</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#routing-use" class="toc-link">Routing Use</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#continuous-evaluation" class="toc-link">Continuous Evaluation</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#authorization-boundary" class="toc-link">Authorization Boundary</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#data-minimization" class="toc-link">Data Minimization</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#prompt-injection" class="toc-link">Prompt Injection</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#secrets" class="toc-link">Secrets</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#output-trust" class="toc-link">Output Trust</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#local-model-supply-chain" class="toc-link">Local Model Supply Chain</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#provider-lifecycle" class="toc-link">Provider Lifecycle</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#model-profile-lifecycle" class="toc-link">Model Profile Lifecycle</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#upgrade" class="toc-link">Upgrade</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-1" class="toc-link">Constraint 1</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-2" class="toc-link">Constraint 2</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-3" class="toc-link">Constraint 3</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-4" class="toc-link">Constraint 4</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-5" class="toc-link">Constraint 5</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-6" class="toc-link">Constraint 6</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-7" class="toc-link">Constraint 7</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-8" class="toc-link">Constraint 8</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-9" class="toc-link">Constraint 9</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-10" class="toc-link">Constraint 10</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-11" class="toc-link">Constraint 11</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-12" class="toc-link">Constraint 12</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-13" class="toc-link">Constraint 13</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#constraint-14" class="toc-link">Constraint 14</a>
+</li>
+<li class="toc-item depth-2">
+  <a href="#future-capabilities" class="toc-link">Future Capabilities</a>
+</li>
+
+      </ul>
+    </aside>
+  
+
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
